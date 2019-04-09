@@ -68,7 +68,10 @@ public class PositionDealer : MonoBehaviour {
             isUp = false;
             isRight = false;
             isDown = false;
-
+            if (ab.Counter < 2)
+            {
+                ab.Counter = 0;
+            }
         }
     }
 
@@ -88,7 +91,10 @@ public class PositionDealer : MonoBehaviour {
             isUp = false;
             isDown = false;
 
-
+            if (ab.Counter < 2)
+            {
+                ab.Counter = 0;
+            }
         }
     }
 
@@ -107,7 +113,10 @@ public class PositionDealer : MonoBehaviour {
             isRight = false;
             isLeft = false;
             isUp = false;
-
+            if (ab.Counter < 2)
+            {
+                ab.Counter = 0;
+            }
         }
     }
 
@@ -126,7 +135,10 @@ public class PositionDealer : MonoBehaviour {
             isRight = false;
             isLeft = false;
             isDown = false;
-
+            if (ab.Counter < 2)
+            {
+                ab.Counter = 0;
+            }
         }
     }
 

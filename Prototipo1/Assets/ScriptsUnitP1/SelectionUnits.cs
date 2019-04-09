@@ -10,12 +10,11 @@ public class SelectionUnits : MonoBehaviour {
    
 
     // Use this for initialization
-    void Start () {
-      
+    void Start ()
+    {
         selection = FindObjectOfType<SelectionController>();
         turn = FindObjectOfType<TurnManager>();
         turn.isTurn = true;
-
     }
 	
 	void Update()

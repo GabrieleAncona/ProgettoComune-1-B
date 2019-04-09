@@ -33,6 +33,10 @@ public class AbilityDealer : MonoBehaviour {
     public GameObject fireBall;
     public int speed;
 
+    public int CounterA;
+    public int MaxCounterA = 2;
+    public bool isCharging;
+
 
     // Use this for initialization
     void Start()
@@ -72,7 +76,6 @@ public class AbilityDealer : MonoBehaviour {
     {
         SetAbility();
         SetRange();
-        SetDirectionAbility();
         DisactivePrewiewDealer();
         RotationAbility();
         ActiveSelector();
@@ -84,6 +87,18 @@ public class AbilityDealer : MonoBehaviour {
             turn.isTurn = false;
         }
        
+    }
+
+    public void ChargeAbility()
+    {
+        if (CounterA == 0 && turn.isTurn == false)
+        {
+            CounterA++;
+        }
+        else if (CounterA == 2)
+        {
+            CounterA = MaxCounterA;
+        }
     }
 
     public void RotationAbility()
@@ -145,7 +160,7 @@ public class AbilityDealer : MonoBehaviour {
     public void SetAbility()
     {
         //abilito abilita
-        if (Input.GetKeyDown(abilityButton) && (turn.isTurn == true && isAbility == false && selection.isActiveDealer == true))
+        if (Input.GetKeyDown(abilityButton) && (turn.isTurn == true && isAbility == false && selection.isActiveDealer == true && CounterA == 2))
         {
             isAbility = true;
             selector.SetActive(true);
@@ -153,7 +168,7 @@ public class AbilityDealer : MonoBehaviour {
             //disabilito input controller per i movimenti(wasd)
             gameObject.GetComponent<InputController>().enabled = false;
         }
-        else if (Input.GetKeyDown(abilityButton) && turn.isTurn == true && isAbility == true && selection.isActiveDealer == true)
+        else if (Input.GetKeyDown(abilityButton) && turn.isTurn == true && isAbility == true && selection.isActiveDealer == true && CounterA == 2)
         {
             isAbility = false;
             selector.SetActive(false);
@@ -162,17 +177,10 @@ public class AbilityDealer : MonoBehaviour {
         }
     }
 
-    public void SetDirectionAbility()
-    {
-       
-    }
-
     //set up range verticale e orrizontale per portata ability
     public void SetRange()
     {
-
         rangeFire = 4;
-
     }
 
     public void ActiveSelector()
@@ -189,6 +197,7 @@ public class AbilityDealer : MonoBehaviour {
                     cont++;
                     selector.transform.position = grid.GetWorldPosition(x , y);
                     Debug.Log(selector.transform.position);
+                    CounterA = 0;
                 }
                 else if (cont >= rangeFire || x >= 11)
                 {
@@ -196,7 +205,7 @@ public class AbilityDealer : MonoBehaviour {
                     x = dealerP1.x;
                     y = dealerP1.y;
                     selector.transform.position = grid.GetWorldPosition(dealerP1.x, dealerP1.y);
-
+                    CounterA = 0;
                 }
             }
             else if (isAttDown == true && Input.GetKeyDown(KeyCode.Space))
@@ -208,6 +217,7 @@ public class AbilityDealer : MonoBehaviour {
                     cont++;
                     selector.transform.position = grid.GetWorldPosition(x, y);
                     Debug.Log(selector.transform.position);
+                    CounterA = 0;
                 }
                 else if (cont >= rangeFire || x <= 0)
                 {
@@ -215,7 +225,7 @@ public class AbilityDealer : MonoBehaviour {
                     x = dealerP1.x;
                     y = dealerP1.y;
                     selector.transform.position = grid.GetWorldPosition(dealerP1.x, dealerP1.y);
-
+                    CounterA = 0;
                 }
             }
             if (isAttLeft == true && Input.GetKeyDown(KeyCode.Space))
@@ -227,6 +237,7 @@ public class AbilityDealer : MonoBehaviour {
                     cont++;
                     selector.transform.position = grid.GetWorldPosition(x, y);
                     Debug.Log(selector.transform.position);
+                    CounterA = 0;
                 }
                 else if (cont >= rangeFire || y >= 11)
                 {
@@ -235,6 +246,7 @@ public class AbilityDealer : MonoBehaviour {
                     y = dealerP1.y;
                     selector.transform.position = grid.GetWorldPosition(dealerP1.x, dealerP1.y);
                     Debug.Log(dealerP1.y);
+                    CounterA = 0;
                 }
             }
             else if (isAttRight == true && Input.GetKeyDown(KeyCode.Space))
@@ -246,6 +258,7 @@ public class AbilityDealer : MonoBehaviour {
                     cont++;
                     selector.transform.position = grid.GetWorldPosition(x, y);
                     Debug.Log(selector.transform.position);
+                    CounterA = 0;
                 }
                 else if (cont >= rangeFire || y <= 0)
                 {
@@ -253,7 +266,7 @@ public class AbilityDealer : MonoBehaviour {
                     x = dealerP1.x;
                     y = dealerP1.y;
                     selector.transform.position = grid.GetWorldPosition(dealerP1.x, dealerP1.y);
-
+                    CounterA = 0;
                 }
             }
 
@@ -262,19 +275,12 @@ public class AbilityDealer : MonoBehaviour {
 
     public void Shoot()
     {
-        
             GameObject temp;
             temp = Instantiate(fireBall, transform.forward + new Vector3(dealerP1.transform.position.x, 0.5f, dealerP1.transform.position.z), Quaternion.identity);
             temp.GetComponent<Rigidbody>().AddForce(transform.forward * speed);
             Debug.Log("sparo palla di fuoco");
-        
     }
 
-
-    public void OnTriggerEnter()
-    {
-
-    }
 
     //disattivo prewiew attacco/abilità quando finisco turno
     public void DisactivePrewiewDealer()
@@ -284,8 +290,6 @@ public class AbilityDealer : MonoBehaviour {
             isAbility = false;
         }
     }
-
-
 
     /*
      * 

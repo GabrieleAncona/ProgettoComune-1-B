@@ -37,6 +37,7 @@ public class AttackBaseHealer : MonoBehaviour{
     public bool isAttDown;
     public float strength;
     public int vibrato;
+    public AbilityHealer ab;
 
     // Use this for initialization
     void Start()
@@ -146,6 +147,10 @@ public class AttackBaseHealer : MonoBehaviour{
                 tankP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
             }
             else if (healerP1.hit.transform.gameObject.GetComponent<PositionHealer2>())
             {
@@ -153,6 +158,10 @@ public class AttackBaseHealer : MonoBehaviour{
                 healerP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
             }
             else if (healerP1.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
@@ -160,6 +169,10 @@ public class AttackBaseHealer : MonoBehaviour{
                 utilityP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
             }
             else if (healerP1.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
@@ -167,6 +180,10 @@ public class AttackBaseHealer : MonoBehaviour{
                 dealerP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
             }
 
         }
@@ -182,6 +199,10 @@ public class AttackBaseHealer : MonoBehaviour{
                 tankP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
             }
             else if (healerP1.hit.transform.gameObject.GetComponent<PositionHealer2>())
             {
@@ -189,6 +210,10 @@ public class AttackBaseHealer : MonoBehaviour{
                 healerP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
             }
             else if (healerP1.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
@@ -196,6 +221,10 @@ public class AttackBaseHealer : MonoBehaviour{
                 utilityP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
             }
             else if (healerP1.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
@@ -203,6 +232,10 @@ public class AttackBaseHealer : MonoBehaviour{
                 dealerP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
             }
 
         }
@@ -218,6 +251,10 @@ public class AttackBaseHealer : MonoBehaviour{
                 tankP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
             }
             else if (healerP1.hit.transform.gameObject.GetComponent<PositionHealer2>())
             {
@@ -225,6 +262,10 @@ public class AttackBaseHealer : MonoBehaviour{
                 healerP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
             }
             else if (healerP1.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
@@ -232,6 +273,10 @@ public class AttackBaseHealer : MonoBehaviour{
                 utilityP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
             }
             else if (healerP1.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
@@ -239,6 +284,10 @@ public class AttackBaseHealer : MonoBehaviour{
                 dealerP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
             }
 
         }
@@ -253,6 +302,10 @@ public class AttackBaseHealer : MonoBehaviour{
                 tankP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
             }
             else if (healerP1.hit.transform.gameObject.GetComponent<PositionHealer2>())
             {
@@ -260,6 +313,10 @@ public class AttackBaseHealer : MonoBehaviour{
                 healerP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
             }
             else if (healerP1.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
@@ -267,6 +324,10 @@ public class AttackBaseHealer : MonoBehaviour{
                 utilityP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
             }
             else if (healerP1.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
@@ -274,6 +335,10 @@ public class AttackBaseHealer : MonoBehaviour{
                 dealerP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
             }
         }
 

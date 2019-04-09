@@ -71,6 +71,10 @@ public class PositionTester : MonoBehaviour {
                 isRight = false;
                 isDown = false;
             timer = 0.5f;
+            if (ab.Counter < 2)
+            {
+                ab.Counter = 0;
+            }
         }
     }
 
@@ -90,6 +94,10 @@ public class PositionTester : MonoBehaviour {
             isUp = false;
             isDown = false;
             timer = 0.5f;
+            if (ab.Counter < 2)
+            {
+                ab.Counter = 0;
+            }
         }
     }
 
@@ -109,6 +117,10 @@ public class PositionTester : MonoBehaviour {
             isLeft = false;
             isUp = false;
             timer = 0.5f;
+            if (ab.Counter < 2)
+            {
+                ab.Counter = 0;
+            }
         }
     }
 
@@ -128,6 +140,10 @@ public class PositionTester : MonoBehaviour {
             isLeft = false;
             isDown = false;
             timer = 0.5f;
+            if (ab.Counter < 2)
+            {
+                ab.Counter = 0;
+            }
         }
     }
 

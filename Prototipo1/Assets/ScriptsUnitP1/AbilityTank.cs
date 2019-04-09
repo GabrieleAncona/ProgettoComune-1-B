@@ -4,7 +4,8 @@ using UnityEngine;
 using GridSystem;
 using DG.Tweening;
 
-public class AbilityTank : MonoBehaviour {
+public class AbilityTank : MonoBehaviour
+{
     public int att = 3;
     public PositionTester tank;
     public BaseGrid grid;
@@ -30,6 +31,10 @@ public class AbilityTank : MonoBehaviour {
     public float strength;
     public int vibrato;
 
+    public int Counter;
+    public int MaxCounter = 2;
+    public bool isCharging;
+
     // Use this for initialization
     void Start () {
 
@@ -53,6 +58,18 @@ public class AbilityTank : MonoBehaviour {
         DisactivePrewiewTank();
         RotationAbility();
 
+    }
+
+    public void ChargeAbility()
+    {
+        if (Counter == 0 && turn.isTurn == false)
+        {
+            Counter++;
+        }
+        else if (Counter == 2)
+        {
+            Counter = MaxCounter;
+        }
     }
 
     public void RotationAbility()
@@ -99,7 +116,7 @@ public class AbilityTank : MonoBehaviour {
     {
         
         //abilito abilita
-        if (Input.GetKeyDown(abilityButton) && turn.isTurn == true && isAbility == false && selection.isActiveTank == true)
+        if (Input.GetKeyDown(abilityButton) && turn.isTurn == true && isAbility == false && selection.isActiveTank == true && Counter == 2)
         {
 
             isAbility = true;
@@ -107,7 +124,7 @@ public class AbilityTank : MonoBehaviour {
             gameObject.GetComponent<InputController>().enabled = false;
 
         }
-        else if(Input.GetKeyDown(abilityButton) && turn.isTurn == true && isAbility == true && selection.isActiveTank == true)
+        else if(Input.GetKeyDown(abilityButton) && turn.isTurn == true && isAbility == true && selection.isActiveTank == true && Counter == 2)
         {
             isAbility = false;
             //riabilito input controller per i movimenti(wasd)
@@ -128,6 +145,7 @@ public class AbilityTank : MonoBehaviour {
                 tankP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                Counter = 0;
             }
             else if (tank.hit.transform.gameObject.GetComponent<PositionHealer2>())
             {
@@ -135,6 +153,7 @@ public class AbilityTank : MonoBehaviour {
                 healerP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                Counter = 0;
             }
             else if (tank.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
@@ -142,6 +161,7 @@ public class AbilityTank : MonoBehaviour {
                 utilityP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                Counter = 0;
             }
             else if (tank.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
@@ -149,6 +169,7 @@ public class AbilityTank : MonoBehaviour {
                 dealerP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                Counter = 0;
             }
 
 
@@ -163,6 +184,7 @@ public class AbilityTank : MonoBehaviour {
                 tankP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                Counter = 0;
             }
             else if (tank.hit.transform.gameObject.GetComponent<PositionHealer2>())
             {
@@ -170,6 +192,7 @@ public class AbilityTank : MonoBehaviour {
                 healerP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                Counter = 0;
             }
             else if (tank.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
@@ -177,6 +200,7 @@ public class AbilityTank : MonoBehaviour {
                 utilityP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                Counter = 0;
             }
             else if (tank.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
@@ -184,6 +208,7 @@ public class AbilityTank : MonoBehaviour {
                 dealerP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                Counter = 0;
             }
         }
         
@@ -196,6 +221,7 @@ public class AbilityTank : MonoBehaviour {
                 tankP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                Counter = 0;
             }
             else if (tank.hit.transform.gameObject.GetComponent<PositionHealer2>())
             {
@@ -203,6 +229,7 @@ public class AbilityTank : MonoBehaviour {
                 healerP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                Counter = 0;
             }
             else if (tank.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
@@ -210,6 +237,7 @@ public class AbilityTank : MonoBehaviour {
                 utilityP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                Counter = 0;
             }
             else if (tank.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
@@ -217,6 +245,7 @@ public class AbilityTank : MonoBehaviour {
                 dealerP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                Counter = 0;
             }
         }
 
@@ -230,6 +259,7 @@ public class AbilityTank : MonoBehaviour {
                 tankP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                Counter = 0;
             }
             else if (tank.hit.transform.gameObject.GetComponent<PositionHealer2>())
             {
@@ -237,6 +267,7 @@ public class AbilityTank : MonoBehaviour {
                 healerP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                Counter = 0;
             }
             else if (tank.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
@@ -244,6 +275,7 @@ public class AbilityTank : MonoBehaviour {
                 utilityP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                Counter = 0;
             }
             else if (tank.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
@@ -251,6 +283,7 @@ public class AbilityTank : MonoBehaviour {
                 dealerP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
+                Counter = 0;
             }
         }
 
