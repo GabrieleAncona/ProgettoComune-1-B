@@ -4,9 +4,8 @@ using UnityEngine;
 using GridSystem;
 using DG.Tweening;
 
-public class AbilityDealer2 : MonoBehaviour {
-
-
+public class AbilityDealer2 : MonoBehaviour
+{
     public BaseGrid grid;
     public KeyCode abilityButton;
     public TurnManager turn;
@@ -27,6 +26,9 @@ public class AbilityDealer2 : MonoBehaviour {
     public GameObject fireBall;
     public int speed;
 
+    public int CounterA;
+    public int MaxCounterA = 2;
+    public bool isCharging;
 
     // Use this for initialization
     void Start()
@@ -40,28 +42,37 @@ public class AbilityDealer2 : MonoBehaviour {
         transform.position = grid.GetWorldPosition(dealerP2.x, dealerP2.y);
         selector.SetActive(false);
         selectionP2 = Object.FindObjectOfType<SelectControllerP2>().GetComponent<SelectControllerP2>();
-        
-        
-        
- 
+       
         dealerP2 = FindObjectOfType<PositionDealer2>();
        
         turn = FindObjectOfType<TurnManager>();
         isAbility = false;
+        CounterA = 2;
     }
 
     // Update is called once per frame
     void Update()
     {
         StartCoroutine(PassTurn());
-       
+    }
+
+    public void ChargeAbility()
+    {
+        if (CounterA == 0 && turn.isTurn == false)
+        {
+            CounterA++;
+        }
+        else if (CounterA == 2)
+        {
+            CounterA = MaxCounterA;
+        }
     }
 
     IEnumerator PassTurn()
     {
+        ChargeAbility();
         SetAbility();
         SetRange();
-        SetDirectionAbility();
         DisactivePrewiewDealer();
         RotationAbility();
         ActiveSelector();
@@ -87,6 +98,7 @@ public class AbilityDealer2 : MonoBehaviour {
 
                     x = dealerP2.x;
                     y = dealerP2.y;
+
 
                 }
                 if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -132,7 +144,7 @@ public class AbilityDealer2 : MonoBehaviour {
         public void SetAbility()
         {
             //abilito abilita
-            if (Input.GetKeyDown(abilityButton) && turn.isTurn == false && isAbility == false && selectionP2.isActiveDealerP2 == true)
+            if (Input.GetKeyDown(abilityButton) && turn.isTurn == false && isAbility == false && selectionP2.isActiveDealerP2 == true && CounterA == 2)
             {
                 isAbility = true;
             selector.SetActive(true);
@@ -140,17 +152,12 @@ public class AbilityDealer2 : MonoBehaviour {
             //disabilito input controller per i movimenti(wasd)
             gameObject.GetComponent<InputController>().enabled = false;
             }
-            else if (Input.GetKeyDown(abilityButton) && turn.isTurn == false && isAbility == true && selectionP2.isActiveDealerP2 == true)
+            else if (Input.GetKeyDown(abilityButton) && turn.isTurn == false && isAbility == true && selectionP2.isActiveDealerP2 == true && CounterA == 2)
             {
                 isAbility = false;
                 //riabilito input controller per i movimenti(wasd)
                 gameObject.GetComponent<InputController>().enabled = true;
             }
-        }
-
-        public void SetDirectionAbility()
-        {
-
         }
 
         //set up range verticale e orrizontale per portata ability
@@ -165,11 +172,6 @@ public class AbilityDealer2 : MonoBehaviour {
         {
             if (isAbility == true)
             {
-            
-
-
-
-
                 if (isAttUp == true && Input.GetKeyDown(KeyCode.Keypad4))
                 {
 
@@ -179,15 +181,16 @@ public class AbilityDealer2 : MonoBehaviour {
                         cont++;
                         selector.transform.position = grid.GetWorldPosition(x, y);
                         Debug.Log(selector.transform.position);
-                    }
+                    CounterA = 0;
+                }
                     else if (cont >= rangeFire || x > 11)
                     {
                         cont = 0;
                     x = dealerP2.x;
                     y = dealerP2.y;
                     selector.transform.position = grid.GetWorldPosition(dealerP2.x, dealerP2.y);
-
-                    }
+                    CounterA = 0;
+                }
                 }
                 else if (isAttDown == true && Input.GetKeyDown(KeyCode.Keypad4))
                 {
@@ -198,15 +201,16 @@ public class AbilityDealer2 : MonoBehaviour {
                         cont++;
                         selector.transform.position = grid.GetWorldPosition(x, y);
                         Debug.Log(selector.transform.position);
-                    }
+                    CounterA = 0;
+                }
                     else if (cont >= rangeFire || x < 0)
                     {
                         cont = 0;
                     x = dealerP2.x;
                     y = dealerP2.y;
                     selector.transform.position = grid.GetWorldPosition(dealerP2.x, dealerP2.y);
-
-                    }
+                    CounterA = 0;
+                }
                 }
                 if (isAttLeft == true && Input.GetKeyDown(KeyCode.Keypad4))
                 {
@@ -217,7 +221,8 @@ public class AbilityDealer2 : MonoBehaviour {
                         cont++;
                         selector.transform.position = grid.GetWorldPosition(x, y);
                         Debug.Log(selector.transform.position);
-                    }
+                    CounterA = 0;
+                }
                     else if (cont >= rangeFire || y >= 11)
                     {
                         cont = 0;
@@ -225,7 +230,8 @@ public class AbilityDealer2 : MonoBehaviour {
                     y = dealerP2.y;
                     selector.transform.position = grid.GetWorldPosition(dealerP2.x, dealerP2.y);
                         Debug.Log(dealerP2.y);
-                    }
+                    CounterA = 0;
+                }
                 }
                 else if (isAttRight == true && Input.GetKeyDown(KeyCode.Keypad4))
                 {
@@ -236,15 +242,16 @@ public class AbilityDealer2 : MonoBehaviour {
                         cont++;
                         selector.transform.position = grid.GetWorldPosition(x, y);
                         Debug.Log(selector.transform.position);
-                    }
+                    CounterA = 0;
+                }
                     else if (cont >= rangeFire || y < 0)
                     {
                         cont = 0;
                     x = dealerP2.x;
                     y = dealerP2.y;
                     selector.transform.position = grid.GetWorldPosition(dealerP2.x, dealerP2.y);
-
-                    }
+                    CounterA = 0;
+                }
                 }
 
             }

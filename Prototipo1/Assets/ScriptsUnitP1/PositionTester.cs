@@ -5,7 +5,8 @@ using GridSystem;
 using DG.Tweening;
 
 //tank giocatore 1
-public class PositionTester : MonoBehaviour {
+public class PositionTester : MonoBehaviour
+{
     public int x, y;
     public BaseGrid grid;
     public TurnManager turn;

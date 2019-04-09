@@ -31,7 +31,11 @@ public class AbilityUtility2 : MonoBehaviour {
     public PositionHealer healerP1;
     public SelectControllerP2 selectionP2;
     public bool isStun;
-    public int counter;
+    public int counterStun;
+
+    public int Counter;
+    public int MaxCounter = 2;
+    public bool isCharging;
 
     // Use this for initialization
     void Start()
@@ -50,39 +54,51 @@ public class AbilityUtility2 : MonoBehaviour {
         isAbility = false;
         vibrato = 10;
         strength = 0.1f;
-
+        Counter = 2;
     }
 
     void Update()
     {
-
+        ChargeAbility();
         SetAttackBase();
         RotationAttack();
         StartCoroutine(SetDirectionAttackBase());
-        DisactivePrewiewTank();
+        DisactivePrewiewUtility();
     }
 
-    /* public void SetRange()
-     {
-
-         RangeHzTank = tank.maxRangeHzTankPlayer1 - tankP2.maxRangeHzTankPlayer2;
-         RangeVtTank = tank.maxRangeVtTankPlayer1 - tankP2.maxRangeVtTankPlayer2;
-         RangeHzHealer = tank.maxRangeHzTankPlayer1 - healerP2.maxRangeHzHealerPlayer2;
-         RangeVtHealer = tank.maxRangeVtTankPlayer1 - healerP2.maxRangeVtHealerPlayer2;
-         //altre unità
-
-     }*/
-
-    public void SetAttackBase()
+    public void ChargeAbility()
     {
-        if (Input.GetKeyDown(attackButton) && turn.isTurn == false && isAbility == false && selectionP2.isActiveUtilityP2 == true)
+        if (Counter == 0 && turn.isTurn == false)
+        {
+            Counter++;
+        }
+        else if (Counter == 2)
+        {
+            Counter = MaxCounter;
+        }
+    }
+
+        /* public void SetRange()
+         {
+
+             RangeHzTank = tank.maxRangeHzTankPlayer1 - tankP2.maxRangeHzTankPlayer2;
+             RangeVtTank = tank.maxRangeVtTankPlayer1 - tankP2.maxRangeVtTankPlayer2;
+             RangeHzHealer = tank.maxRangeHzTankPlayer1 - healerP2.maxRangeHzHealerPlayer2;
+             RangeVtHealer = tank.maxRangeVtTankPlayer1 - healerP2.maxRangeVtHealerPlayer2;
+             //altre unità
+
+         }*/
+
+        public void SetAttackBase()
+    {
+        if (Input.GetKeyDown(attackButton) && turn.isTurn == false && isAbility == false && selectionP2.isActiveUtilityP2 == true && Counter == 2)
         {
             isAbility = true;
 
             gameObject.GetComponent<InputController>().enabled = false;
 
         }
-        else if (Input.GetKeyDown(attackButton) && turn.isTurn == false && isAbility == true && selectionP2.isActiveUtilityP2 == true)
+        else if (Input.GetKeyDown(attackButton) && turn.isTurn == false && isAbility == true && selectionP2.isActiveUtilityP2 == true && Counter == 2)
         {
             isAbility = false;
             gameObject.GetComponent<InputController>().enabled = true;
@@ -144,6 +160,7 @@ public class AbilityUtility2 : MonoBehaviour {
                 tankP1.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
+                Counter = 0;
             }
             else if (utilityP2.hit.transform.gameObject.GetComponent<PositionHealer>())
             {
@@ -151,6 +168,7 @@ public class AbilityUtility2 : MonoBehaviour {
                 healerP1.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
+                Counter = 0;
             }
             else if (utilityP2.hit.transform.gameObject.GetComponent<PositionUtility>())
             {
@@ -158,6 +176,7 @@ public class AbilityUtility2 : MonoBehaviour {
                 utilityP1.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
+                Counter = 0;
             }
             else if (utilityP2.hit.transform.gameObject.GetComponent<PositionDealer>())
             {
@@ -165,6 +184,7 @@ public class AbilityUtility2 : MonoBehaviour {
                 dealerP1.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
+                Counter = 0;
             }
 
         }
@@ -180,6 +200,7 @@ public class AbilityUtility2 : MonoBehaviour {
                 tankP1.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
+                Counter = 0;
             }
             else if (utilityP2.hit.transform.gameObject.GetComponent<PositionHealer>())
             {
@@ -187,6 +208,7 @@ public class AbilityUtility2 : MonoBehaviour {
                 healerP1.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
+                Counter = 0;
             }
             else if (utilityP2.hit.transform.gameObject.GetComponent<PositionUtility>())
             {
@@ -194,6 +216,7 @@ public class AbilityUtility2 : MonoBehaviour {
                 utilityP1.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
+                Counter = 0;
             }
             else if (utilityP2.hit.transform.gameObject.GetComponent<PositionDealer>())
             {
@@ -201,6 +224,7 @@ public class AbilityUtility2 : MonoBehaviour {
                 dealerP1.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
+                Counter = 0;
             }
 
             //tank sopra
@@ -213,6 +237,7 @@ public class AbilityUtility2 : MonoBehaviour {
                     tankP1.transform.DOShakePosition(2f, strength, vibrato);
                     yield return new WaitForSeconds(2f);
                     turn.isTurn = true;
+                    Counter = 0;
                 }
                 else if (utilityP2.hit.transform.gameObject.GetComponent<PositionHealer>())
                 {
@@ -220,6 +245,7 @@ public class AbilityUtility2 : MonoBehaviour {
                     healerP1.transform.DOShakePosition(2f, strength, vibrato);
                     yield return new WaitForSeconds(2f);
                     turn.isTurn = true;
+                    Counter = 0;
                 }
                 else if (utilityP2.hit.transform.gameObject.GetComponent<PositionUtility>())
                 {
@@ -227,6 +253,7 @@ public class AbilityUtility2 : MonoBehaviour {
                     utilityP1.transform.DOShakePosition(2f, strength, vibrato);
                     yield return new WaitForSeconds(2f);
                     turn.isTurn = true;
+                    Counter = 0;
                 }
                 else if (utilityP2.hit.transform.gameObject.GetComponent<PositionDealer>())
                 {
@@ -234,6 +261,7 @@ public class AbilityUtility2 : MonoBehaviour {
                     dealerP1.transform.DOShakePosition(2f, strength, vibrato);
                     yield return new WaitForSeconds(2f);
                     turn.isTurn = true;
+                    Counter = 0;
                 }
 
             }
@@ -248,6 +276,7 @@ public class AbilityUtility2 : MonoBehaviour {
                     tankP1.transform.DOShakePosition(2f, strength, vibrato);
                     yield return new WaitForSeconds(2f);
                     turn.isTurn = true;
+                    Counter = 0;
                 }
                 else if (utilityP2.hit.transform.gameObject.GetComponent<PositionHealer>())
                 {
@@ -255,6 +284,7 @@ public class AbilityUtility2 : MonoBehaviour {
                     healerP1.transform.DOShakePosition(2f, strength, vibrato);
                     yield return new WaitForSeconds(2f);
                     turn.isTurn = true;
+                    Counter = 0;
                 }
                 else if (utilityP2.hit.transform.gameObject.GetComponent<PositionUtility>())
                 {
@@ -262,6 +292,7 @@ public class AbilityUtility2 : MonoBehaviour {
                     utilityP1.transform.DOShakePosition(2f, strength, vibrato);
                     yield return new WaitForSeconds(2f);
                     turn.isTurn = true;
+                    Counter = 0;
                 }
                 else if (utilityP2.hit.transform.gameObject.GetComponent<PositionDealer>())
                 {
@@ -269,13 +300,14 @@ public class AbilityUtility2 : MonoBehaviour {
                     dealerP1.transform.DOShakePosition(2f, strength, vibrato);
                     yield return new WaitForSeconds(2f);
                     turn.isTurn = true;
+                    Counter = 0;
                 }
             }
         }
     }
 
         //disattivo prewiew attacco/abilità quando finisco turno
-        public void DisactivePrewiewTank()
+        public void DisactivePrewiewUtility()
         {
             if (turn.isTurn == true)
             {
@@ -331,17 +363,17 @@ public class AbilityUtility2 : MonoBehaviour {
 
         public void Stun()
         {
-            if (isStun == true && counter == 0 && turn.isTurn == true)
+            if (isStun == true && counterStun == 0 && turn.isTurn == true)
             {
-                counter++;
+                counterStun++;
             }
-            else if (counter >= 1 && turn.isTurn == false)
+            else if (counterStun >= 1 && turn.isTurn == false)
             {
             tankP1.isStun = false;
             healerP1.isStun = false;
             utilityP1.isStun = false;
             dealerP1.isStun = false;
-            counter = 0;
+            counterStun = 0;
             }
         }
 

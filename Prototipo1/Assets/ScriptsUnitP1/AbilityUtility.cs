@@ -53,11 +53,13 @@ public class AbilityUtility : MonoBehaviour {
         lm = FindObjectOfType<LifeManager>();
         turn = FindObjectOfType<TurnManager>();
         isAbility = false;
+        Counter = 2;
     }
 
     // Update is called once per frame
     void Update()
     {
+        ChargeAbility();
         Stun();
         SetAbility();
         StartCoroutine(SetDirectionAbility());

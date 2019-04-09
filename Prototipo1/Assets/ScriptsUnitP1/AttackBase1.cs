@@ -4,7 +4,8 @@ using UnityEngine;
 using GridSystem;
 using DG.Tweening;
 
-public class AttackBase1 : MonoBehaviour {
+public class AttackBase1 : MonoBehaviour
+{
     public LifeManager lm;
     public TurnManager turn;
     public int att = 1;
@@ -49,7 +50,6 @@ public class AttackBase1 : MonoBehaviour {
 	
     void Update()
     {
-
         SetAttackBase();
         RotationAttack();
         StartCoroutine(SetDirectionAttackBase());

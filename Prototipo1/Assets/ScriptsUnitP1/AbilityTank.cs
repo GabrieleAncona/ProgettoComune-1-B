@@ -47,17 +47,17 @@ public class AbilityTank : MonoBehaviour
         lm = FindObjectOfType<LifeManager>();
         turn = FindObjectOfType<TurnManager>();
         isAbility = false;
-        
+        Counter = 2;
     }
 	
 	// Update is called once per frame
-	void Update () {
-
+	void Update ()
+    {
+        ChargeAbility();
         StartCoroutine(SetDirectionAbility());
         SetAbility();
         DisactivePrewiewTank();
         RotationAbility();
-
     }
 
     public void ChargeAbility()

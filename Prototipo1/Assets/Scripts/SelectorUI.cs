@@ -107,34 +107,42 @@ public class SelectorUI : MonoBehaviour
             if (selectionP2.contSelectionP2 == 1)
             {
                 imageTankP2.GetComponent<Image>().enabled = true;
+                previewTankP2.SetActive(true);
             }
             else if (selectionP2.contSelectionP2 != 1)
             {
                 imageTankP2.GetComponent<Image>().enabled = false;
+                previewTankP2.SetActive(false);
             }
             if (selectionP2.contSelectionP2 == 2)
             {
                 imageHealerP2.GetComponent<Image>().enabled = true;
+                previewHealerP2.SetActive(true);
             }
             else if (selectionP2.contSelectionP2 != 2)
             {
                 imageHealerP2.GetComponent<Image>().enabled = false;
+                previewHealerP2.SetActive(false);
             }
             if (selectionP2.contSelectionP2 == 3)
             {
                 imageUtilityP2.GetComponent<Image>().enabled = true;
+                previewUtilityP2.SetActive(true);
             }
             else if (selectionP2.contSelectionP2 != 3)
             {
                 imageUtilityP2.GetComponent<Image>().enabled = false;
+                previewUtilityP2.SetActive(false);
             }
             if (selectionP2.contSelectionP2 == 4)
             {
                 imageDealerP2.GetComponent<Image>().enabled = true;
+                previewDealerP2.SetActive(true);
             }
             else if (selectionP2.contSelectionP2 != 4)
             {
                 imageDealerP2.GetComponent<Image>().enabled = false;
+                previewDealerP2.SetActive(false);
             }
         }
         else if (turn.isTurn == true)
@@ -143,6 +151,10 @@ public class SelectorUI : MonoBehaviour
             imageHealerP2.GetComponent<Image>().enabled = false;
             imageUtilityP2.GetComponent<Image>().enabled = false;
             imageDealerP2.GetComponent<Image>().enabled = false;
+            previewTankP2.SetActive(false);
+            previewHealerP2.SetActive(false);
+            previewUtilityP2.SetActive(false);
+            previewDealerP2.SetActive(false);
         }
     }
 }

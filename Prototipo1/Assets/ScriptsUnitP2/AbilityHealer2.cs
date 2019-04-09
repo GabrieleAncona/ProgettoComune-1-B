@@ -4,8 +4,8 @@ using UnityEngine;
 using GridSystem;
 using DG.Tweening;
 
-public class AbilityHealer2 : MonoBehaviour {
-
+public class AbilityHealer2 : MonoBehaviour
+{
     public int heal = 4;
     public PositionHealer2 healerP2;
     public PositionDealer2 dealerP2;
@@ -26,6 +26,9 @@ public class AbilityHealer2 : MonoBehaviour {
     public bool isAttUp;
     public bool isAttDown;
 
+    public int Counter;
+    public int MaxCounter = 2;
+    public bool isCharging;
 
     // Use this for initialization
     void Start()
@@ -38,26 +41,36 @@ public class AbilityHealer2 : MonoBehaviour {
         lm = FindObjectOfType<LifeManager>();
         turn = FindObjectOfType<TurnManager>();
         isAbility = false;
-       
+        Counter = 2;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-
+        ChargeAbility();
         SetAbility();
         StartCoroutine(SetDirectionAbility());
         DisactivePrewiewHealerP2();
         RotationAbility();
     }
 
+    public void ChargeAbility()
+    {
+        if (Counter == 0 && turn.isTurn == false)
+        {
+            Counter++;
+        }
+        else if (Counter == 2)
+        {
+            Counter = MaxCounter;
+        }
+    }
 
     public void SetAbility()
     {
 
         //abilito abilita
-        if (Input.GetKeyDown(abilityButton) && turn.isTurn == false && isAbility == false && selectionP2.isActiveHealerP2 == true)
+        if (Input.GetKeyDown(abilityButton) && turn.isTurn == false && isAbility == false && selectionP2.isActiveHealerP2 == true && Counter == 2)
         {
 
             isAbility = true;
@@ -65,7 +78,7 @@ public class AbilityHealer2 : MonoBehaviour {
             gameObject.GetComponent<InputController>().enabled = false;
 
         }
-        else if (Input.GetKeyDown(abilityButton) && turn.isTurn == false && isAbility == true && selectionP2.isActiveHealerP2 == true) 
+        else if (Input.GetKeyDown(abilityButton) && turn.isTurn == false && isAbility == true && selectionP2.isActiveHealerP2 == true && Counter == 2) 
         {
             isAbility = false;
             //riabilito input controller per i movimenti(wasd)
@@ -125,19 +138,21 @@ public class AbilityHealer2 : MonoBehaviour {
                 HealTank();
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
-
+                Counter = 0;
             }
             if (healerP2.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
                 HealUtility();
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
+                Counter = 0;
             }
             if (healerP2.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
                 HealDealer();
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
+                Counter = 0;
             }
         }
         //sinistra
@@ -148,18 +163,21 @@ public class AbilityHealer2 : MonoBehaviour {
                 HealTank();
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
+                Counter = 0;
             }
             if (healerP2.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
                 HealUtility();
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
+                Counter = 0;
             }
             if (healerP2.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
                 HealDealer();
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
+                Counter = 0;
             }
         }
         //sopra
@@ -170,19 +188,21 @@ public class AbilityHealer2 : MonoBehaviour {
                 HealTank();
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
-
+                Counter = 0;
             }
             if (healerP2.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
                 HealUtility();
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
+                Counter = 0;
             }
             if (healerP2.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
                 HealDealer();
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
+                Counter = 0;
             }
         }
         //sotto
@@ -194,19 +214,21 @@ public class AbilityHealer2 : MonoBehaviour {
                 HealTank();
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
-
+                Counter = 0;
             }
             if (healerP2.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
                 HealUtility();
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
+                Counter = 0;
             }
             if (healerP2.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
                 HealDealer();
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
+                Counter = 0;
             }
         }
 
@@ -225,6 +247,7 @@ public class AbilityHealer2 : MonoBehaviour {
                 selectionP2.contSelectionP2 = 0;
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
+                Counter = 0;
             }
             else
             {

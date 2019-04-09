@@ -60,6 +60,7 @@ public class AbilityDealer : MonoBehaviour {
         lm = FindObjectOfType<LifeManager>();
         turn = FindObjectOfType<TurnManager>();
         isAbility = false;
+        CounterA = 2;
     }
 
     // Update is called once per frame
@@ -74,6 +75,7 @@ public class AbilityDealer : MonoBehaviour {
 
     IEnumerator PassTurn()
     {
+        ChargeAbility();
         SetAbility();
         SetRange();
         DisactivePrewiewDealer();

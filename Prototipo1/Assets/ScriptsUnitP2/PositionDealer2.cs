@@ -66,6 +66,10 @@ public class PositionDealer2 : MonoBehaviour {
             isRight = false;
             isDown = false;
             timer = 0.5f;
+            if (ab.CounterA < 2)
+            {
+                ab.CounterA = 0;
+            }
         }
     }
     public void GoToRight()
@@ -83,6 +87,10 @@ public class PositionDealer2 : MonoBehaviour {
             isUp = false;
             isDown = false;
             timer = 0.5f;
+            if (ab.CounterA < 2)
+            {
+                ab.CounterA = 0;
+            }
         }
     }
     public void GoToDown()
@@ -100,6 +108,10 @@ public class PositionDealer2 : MonoBehaviour {
             isLeft = false;
             isUp = false;
             timer = 0.5f;
+            if (ab.CounterA < 2)
+            {
+                ab.CounterA = 0;
+            }
         }
     }
     public void GoToUp()
@@ -117,6 +129,10 @@ public class PositionDealer2 : MonoBehaviour {
             isLeft = false;
             isDown = false;
             timer = 0.5f;
+            if (ab.CounterA < 2)
+            {
+                ab.CounterA = 0;
+            }
         }
     }
 

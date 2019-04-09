@@ -137,15 +137,15 @@ public class HudManagerTest : MonoBehaviour
     }
     public void SetSliderHealerP1()
     {
+        healerMp.text = healerP1.contMp.ToString();
+        lifeHP1.text = lm.lifeHealer.ToString();
+        AbChargeHP1.text = abHealerP1.Counter.ToString();
         if (selection.isActiveHealer == true)
         {
             MpHealerP1.value = healerP1.contMp;
             abChargeHP1.value = abHealerP1.Counter;
         }
         healthHealerP1.value = lm.lifeHealer;
-        healerMp.text = healerP1.contMp.ToString();
-        lifeHP1.text = lm.lifeHealer.ToString();
-        AbChargeHP1.text = abHealerP1.Counter.ToString();
     }
     public void SetSliderUtilityP1()
     {
@@ -176,11 +176,11 @@ public class HudManagerTest : MonoBehaviour
     {
         tankMpP2.text = tankP2.contMp.ToString();
         lifeTP2.text = lm.lifeTankPlayer2.ToString();
-        //AbChargeTP2.text = abTankP2.Counter.ToString();
+        AbChargeTP2.text = abTankP2.Counter.ToString();
         if (selectionP2.isActiveTankP2 == true)
         {
             MpTankP2.value = tankP2.contMp;
-            //abChargeTP2.value = abTankP2.Counter;
+            abChargeTP2.value = abTankP2.Counter;
         }
         healthTankP2.value = lm.lifeTankPlayer2;
     }
@@ -189,36 +189,36 @@ public class HudManagerTest : MonoBehaviour
         if (selectionP2.isActiveHealerP2 == true)
         {
             MpHealerP2.value = healerP2.contMp;
-            //abChargeHP2.value = abHealerP2.Counter;
+            abChargeHP2.value = abHealerP2.Counter;
         }
         healthHealerP2.value = lm.lifeHealerPlayer2;
         healerMpP2.text = healerP2.contMp.ToString();
         lifeHP2.text = lm.lifeHealerPlayer2.ToString();
-        //AbChargeHP2.text = abHealerP2.Counter.ToString();
+        AbChargeHP2.text = abHealerP2.Counter.ToString();
     }
     public void SetSliderUtilityP2()
     {
         if (selectionP2.isActiveUtilityP2 == true)
         {
             MpUtilityP2.value = utilityP2.contMp;
-            //abChargeUP2.value = abUtilityP2.Counter;
+            abChargeUP2.value = abUtilityP2.Counter;
         }
         healthUtilityP2.value = lm.lifeUtilityPlayer2;
         utilityMp2.text = utilityP2.contMp.ToString();
         lifeUP2.text = lm.lifeUtilityPlayer2.ToString();
-        //AbChargeUP2.text = abUtilityP2.Counter.ToString();
+        AbChargeUP2.text = abUtilityP2.Counter.ToString();
     }
     public void SetSliderDealerP2()
     {
         if (selectionP2.isActiveDealerP2 == true)
         {
             MpDealerP2.value = dealerP2.contMp;
-            //abChargeDP2.value = abDealerP2.CounterA;
+            abChargeDP2.value = abDealerP2.CounterA;
         }
         healthDealerP2.value = lm.lifeDealerPlayer2;
         dealerMp2.text = dealerP2.contMp.ToString();
         lifeDP2.text = lm.lifeDealerPlayer2.ToString();
-        //AbChargeDP2.text = abDealerP2.CounterA.ToString();
+        AbChargeDP2.text = abDealerP2.CounterA.ToString();
     }
 
     public void SetTextTurn()
@@ -230,7 +230,6 @@ public class HudManagerTest : MonoBehaviour
          }
         else if(turn.isTurn == false)
         {
-           
             turnText.text = "Turno Player 2";
             turnText.color = newColor2;
         }
