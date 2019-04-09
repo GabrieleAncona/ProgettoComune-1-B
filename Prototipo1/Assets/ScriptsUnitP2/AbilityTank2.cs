@@ -138,6 +138,8 @@ public class AbilityTank2 : MonoBehaviour {
             if (tankP2.hit.transform.gameObject.GetComponent<PositionTester>())
             {
                 DamageTankP1();
+                tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
+                tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 tankP1.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
@@ -145,6 +147,8 @@ public class AbilityTank2 : MonoBehaviour {
             else if (tankP2.hit.transform.gameObject.GetComponent<PositionHealer>())
             {
                 DamageHealerP1();
+                tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
+                tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 healerP1.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
@@ -152,6 +156,8 @@ public class AbilityTank2 : MonoBehaviour {
             else if (tankP2.hit.transform.gameObject.GetComponent<PositionUtility>())
             {
                 DamageUtilityP1();
+                tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
+                tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 utilityP1.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
@@ -159,6 +165,8 @@ public class AbilityTank2 : MonoBehaviour {
             else if (tankP2.hit.transform.gameObject.GetComponent<PositionDealer>())
             {
                 DamageDealerP1();
+                tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
+                tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 dealerP1.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
@@ -174,6 +182,8 @@ public class AbilityTank2 : MonoBehaviour {
             if (tankP2.hit.transform.gameObject.GetComponent<PositionTester>())
             {
                 DamageTankP1();
+                tankP2.transform.position = grid.GetWorldPosition(tankP2.x--, tankP2.y);
+                tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 tankP1.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
@@ -181,6 +191,8 @@ public class AbilityTank2 : MonoBehaviour {
             else if (tankP2.hit.transform.gameObject.GetComponent<PositionHealer>())
             {
                 DamageHealerP1();
+                tankP2.transform.position = grid.GetWorldPosition(tankP2.x--, tankP2.y);
+                tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 healerP1.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
@@ -188,6 +200,8 @@ public class AbilityTank2 : MonoBehaviour {
             else if (tankP2.hit.transform.gameObject.GetComponent<PositionUtility>())
             {
                 DamageUtilityP1();
+                tankP2.transform.position = grid.GetWorldPosition(tankP2.x--, tankP2.y);
+                tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 utilityP1.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
@@ -195,6 +209,8 @@ public class AbilityTank2 : MonoBehaviour {
             else if (tankP2.hit.transform.gameObject.GetComponent<PositionDealer>())
             {
                 DamageDealerP1();
+                tankP2.transform.position = grid.GetWorldPosition(tankP2.x--, tankP2.y);
+                tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 dealerP1.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
@@ -208,6 +224,8 @@ public class AbilityTank2 : MonoBehaviour {
             if (tankP2.hit.transform.gameObject.GetComponent<PositionTester>())
             {
                 DamageTankP1();
+                tankP2.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y++);
+                tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 tankP1.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
@@ -215,6 +233,8 @@ public class AbilityTank2 : MonoBehaviour {
             else if (tankP2.hit.transform.gameObject.GetComponent<PositionHealer>())
             {
                 DamageHealerP1();
+                tankP2.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y++);
+                tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 healerP1.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
@@ -222,6 +242,8 @@ public class AbilityTank2 : MonoBehaviour {
             else if (tankP2.hit.transform.gameObject.GetComponent<PositionUtility>())
             {
                 DamageUtilityP1();
+                tankP2.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y++);
+                tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 utilityP1.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
@@ -229,6 +251,8 @@ public class AbilityTank2 : MonoBehaviour {
             else if (tankP2.hit.transform.gameObject.GetComponent<PositionDealer>())
             {
                 DamageDealerP1();
+                tankP2.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y++);
+                tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 dealerP1.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
@@ -243,6 +267,8 @@ public class AbilityTank2 : MonoBehaviour {
             if (tankP2.hit.transform.gameObject.GetComponent<PositionTester>())
             {
                 DamageTankP1();
+                tankP2.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y--);
+                tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 tankP1.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
@@ -250,6 +276,8 @@ public class AbilityTank2 : MonoBehaviour {
             else if (tankP2.hit.transform.gameObject.GetComponent<PositionHealer>())
             {
                 DamageHealerP1();
+                tankP2.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y--);
+                tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 healerP1.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
@@ -257,6 +285,8 @@ public class AbilityTank2 : MonoBehaviour {
             else if (tankP2.hit.transform.gameObject.GetComponent<PositionUtility>())
             {
                 DamageUtilityP1();
+                tankP2.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y--);
+                tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 utilityP1.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
@@ -264,6 +294,8 @@ public class AbilityTank2 : MonoBehaviour {
             else if (tankP2.hit.transform.gameObject.GetComponent<PositionDealer>())
             {
                 DamageDealerP1();
+                tankP2.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y--);
+                tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 dealerP1.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = true;
@@ -284,8 +316,7 @@ public class AbilityTank2 : MonoBehaviour {
     public void DamageTankP1()
     {
               
-        tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
-        tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
+       
 
                 lm.lifeTank -= att;
                 //turn.isTurn = true;
@@ -298,8 +329,7 @@ public class AbilityTank2 : MonoBehaviour {
 
     public void DamageHealerP1()
     {
-        tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
-        tankP2.transform.DOMoveX(tankP2.x , duration).SetAutoKill(false);
+       
        
         lm.lifeHealer -= att;
         //turn.isTurn = true;
@@ -313,8 +343,7 @@ public class AbilityTank2 : MonoBehaviour {
     public void DamageUtilityP1()
     {
 
-        tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
-        tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
+        
 
         lm.lifeUtility -= att;
         //turn.isTurn = true;
@@ -327,8 +356,7 @@ public class AbilityTank2 : MonoBehaviour {
 
     public void DamageDealerP1()
     {
-        tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
-        tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
+        
 
         lm.lifeDealer -= att;
         //turn.isTurn = true;
