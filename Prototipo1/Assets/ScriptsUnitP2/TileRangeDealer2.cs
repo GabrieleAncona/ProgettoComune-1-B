@@ -14,7 +14,7 @@ public class TileRangeDealer2 : MonoBehaviour {
 
         dealerP2 = FindObjectOfType<PositionDealer2>();
         att = FindObjectOfType<AttackBaseDealer2>();
-
+        ab = FindObjectOfType<AbilityDealer2>();
     }
 
     // Update is called once per frame
@@ -28,11 +28,11 @@ public class TileRangeDealer2 : MonoBehaviour {
 
     public void SetTileRangeDealerP2()
     {
-        if (att.isAttack == true)
+        if (att.isAttack == true || ab.isAbility == true)
         {
             gameObject.GetComponent<MeshRenderer>().enabled = true;
         }
-        else if (att.isAttack == false)
+        else if (att.isAttack == false || ab.isAbility == false)
         {
             gameObject.GetComponent<MeshRenderer>().enabled = false;
         }

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/BLOCKOUT.unity
+    guid: 26dd351c63122524e9b6c12c9cd7af64
+  - enabled: 0
     path: Assets/Scenes/Scene_Blockout.unity
     guid: 86615a5efe445854d9008c1efbd97573
   - enabled: 0

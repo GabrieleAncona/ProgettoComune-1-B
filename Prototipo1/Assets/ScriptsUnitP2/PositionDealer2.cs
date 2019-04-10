@@ -27,10 +27,12 @@ public class PositionDealer2 : MonoBehaviour {
     public bool myTurn;
     public float timer;
     public bool isStun;
+    public int contProv;
 
     // Use this for initialization
     void Start()
     {
+        contProv = 1;
         timer = 0.5f;
         lm = FindObjectOfType<LifeManager>();
         selection = FindObjectOfType<SelectControllerP2>();
@@ -47,8 +49,13 @@ public class PositionDealer2 : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-  
+        timer -= Time.deltaTime;
         RayCastingAttackController();
+        if(contProv == 1)
+        {
+            transform.position = grid.GetWorldPosition(x, y);
+            contProv = 0;
+        }
     }
 
     public void GoToLeft()

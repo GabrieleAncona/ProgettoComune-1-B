@@ -1,42 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using GridSystem;
 
-public class TileRangeTankP1 : MonoBehaviour {
-    public PositionTester tankP1;
-    public AttackBase1 att;
-    public AbilityTank ab;
-    
+public class TileRangeTankability2 : MonoBehaviour {
+    public AbilityTank2 ab;
 
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
 
-        att = FindObjectOfType<AttackBase1>();
-      
-       
+        ab = FindObjectOfType<AbilityTank2>();
+
         gameObject.GetComponent<MeshRenderer>().enabled = false;
 
     }
-	
-	// Update is called once per frame
-	void Update () {
-    
+
+    // Update is called once per frame
+    void Update()
+    {
+
         SetTileRange();
     }
 
     public void SetTileRange()
     {
-       if(att.isAttack == true) 
+        if (ab.isAbility == true)
         {
             gameObject.GetComponent<MeshRenderer>().enabled = true;
         }
-         else if(att.isAttack == false)
+        else if (ab.isAbility == false)
         {
             gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
     }
-
-    
 }

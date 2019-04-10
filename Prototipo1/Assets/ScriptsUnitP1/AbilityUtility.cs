@@ -59,7 +59,7 @@ public class AbilityUtility : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        ChargeAbility();
+        //ChargeAbility();
         Stun();
         SetAbility();
         StartCoroutine(SetDirectionAbility());
@@ -67,7 +67,7 @@ public class AbilityUtility : MonoBehaviour {
         RotationAbility();
     }
 
-    public void ChargeAbility()
+   /* public void ChargeAbility()
     {
         if (Counter == 0 && turn.isTurn == false)
         {
@@ -77,7 +77,7 @@ public class AbilityUtility : MonoBehaviour {
         {
             Counter = MaxCounter;
         }
-    }
+    }*/
 
     public void RotationAbility()
     {
@@ -121,13 +121,13 @@ public class AbilityUtility : MonoBehaviour {
     public void SetAbility()
     {
         //abilito abilita
-        if (Input.GetKeyDown(abilityButton) && turn.isTurn == true && isAbility == false && selection.isActiveUtility == true && Counter == 2)
+        if (Input.GetKeyDown(abilityButton) && turn.isTurn == true && isAbility == false && selection.isActiveUtility == true)
         {
             isAbility = true;
             //disabilito input controller per i movimenti(wasd)
             gameObject.GetComponent<InputController>().enabled = false;
         }
-        else if (Input.GetKeyDown(abilityButton) && turn.isTurn == true && isAbility == true && selection.isActiveUtility == true && Counter == 2)
+        else if (Input.GetKeyDown(abilityButton) && turn.isTurn == true && isAbility == true && selection.isActiveUtility == true)
         {
             isAbility = false;
             //riabilito input controller per i movimenti(wasd)

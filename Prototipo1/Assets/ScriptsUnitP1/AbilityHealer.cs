@@ -47,14 +47,14 @@ public class AbilityHealer : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        ChargeAbility();
+        //ChargeAbility();
         StartCoroutine(SetDirectionAbility());
         SetAbility();
         DisactivePrewiewHealer();
         RotationAbility();
     }
 
-    public void ChargeAbility()
+   /* public void ChargeAbility()
     {
         if (Counter == 0 && turn.isTurn == false)
         {
@@ -64,7 +64,7 @@ public class AbilityHealer : MonoBehaviour {
         {
             Counter = MaxCounter;
         }
-    }
+    }*/
 
     public void RotationAbility()
     {
@@ -109,7 +109,7 @@ public class AbilityHealer : MonoBehaviour {
     {
 
         //abilito abilita
-        if (Input.GetKeyDown(abilityButton) && turn.isTurn == true && isAbility == false && selection.isActiveHealer == true && Counter == 2)
+        if (Input.GetKeyDown(abilityButton) && turn.isTurn == true && isAbility == false && selection.isActiveHealer == true)
         {
 
             isAbility = true;
@@ -117,7 +117,7 @@ public class AbilityHealer : MonoBehaviour {
             gameObject.GetComponent<InputController>().enabled = false;
 
         }
-        else if (Input.GetKeyDown(abilityButton) && turn.isTurn == true && isAbility == true && selection.isActiveHealer == true && Counter == 2)
+        else if (Input.GetKeyDown(abilityButton) && turn.isTurn == true && isAbility == true && selection.isActiveHealer == true)
         {
             isAbility = false;
             //riabilito input controller per i movimenti(wasd)

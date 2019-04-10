@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using GridSystem;
+using DG.Tweening;
 
 public class SelectControllerP2 : MonoBehaviour {
 
@@ -19,9 +20,11 @@ public class SelectControllerP2 : MonoBehaviour {
     public bool isActiveUtilityP2;
     public TurnManager turn;
     public HudManagerTest Text;
+    public float duration;
 
     void Start()
     {
+        duration = 0.5f;
         Text = FindObjectOfType<HudManagerTest>();
         turn = FindObjectOfType<TurnManager>();
         tankP2 = FindObjectOfType<PositionTester2>();
@@ -42,6 +45,34 @@ public class SelectControllerP2 : MonoBehaviour {
         if (turn.isTurn == true)
         {
             gameObject.GetComponent<MeshRenderer>().enabled = false;
+        }
+
+        if (turn.isTurn == false)
+        {
+            if (isActiveTankP2 == true)
+            {
+                transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y);
+                transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
+                transform.DOMoveZ(tankP2.y, duration).SetAutoKill(false);
+            }
+            else if (isActiveHealerP2 == true)
+            {
+                transform.position = grid.GetWorldPosition(healerP2.x, healerP2.y);
+                transform.DOMoveX(healerP2.x, duration).SetAutoKill(false);
+                transform.DOMoveZ(healerP2.y, duration).SetAutoKill(false);
+            }
+            else if (isActiveUtilityP2 == true)
+            {
+                transform.position = grid.GetWorldPosition(utilityP2.x, utilityP2.y);
+                transform.DOMoveX(utilityP2.x, duration).SetAutoKill(false);
+                transform.DOMoveZ(utilityP2.y, duration).SetAutoKill(false);
+            }
+            else if (isActiveDealerP2 == true)
+            {
+                transform.position = grid.GetWorldPosition(dealerP2.x, dealerP2.y);
+                transform.DOMoveX(dealerP2.x, duration).SetAutoKill(false);
+                transform.DOMoveZ(dealerP2.y, duration).SetAutoKill(false);
+            }
         }
     }
 
@@ -86,33 +117,42 @@ public class SelectControllerP2 : MonoBehaviour {
         }
     }
 
+    public void SubTractP2()
+    {
+        contSelectionP2 -= 1;
+        if (contSelectionP2 <= 0 /* 4*/)
+        {
+            contSelectionP2 = 4;
+        }
+    }
+
     public void ConfirmUnit()
     {
-        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP2 == 1 && tankP2.isStun == false)
+        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP2 == 1 && tankP2.isStun == false && turn.isTurn == false)
         {
             Debug.Log("attiva tank");
             isActiveTankP2 = true;
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            //gameObject.GetComponent<MeshRenderer>().enabled = false;
 
         }
-        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP2 == 2 && healerP2.isStun == false)
+        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP2 == 2 && healerP2.isStun == false && turn.isTurn == false)
         {
             Debug.Log("attiva healer");
             isActiveHealerP2 = true;
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            //gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
-        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP2 == 3 && utilityP2.isStun == false)
+        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP2 == 3 && utilityP2.isStun == false && turn.isTurn == false)
         {
             Debug.Log("attiva utility");
             isActiveUtilityP2 = true;
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            //gameObject.GetComponent<MeshRenderer>().enabled = false;
 
         }
-        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP2 == 4 && dealerP2.isStun == false)
+        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP2 == 4 && dealerP2.isStun == false && turn.isTurn == false)
         {
             Debug.Log("attiva dealer");
             isActiveDealerP2 = true;
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            //gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
     }
 }

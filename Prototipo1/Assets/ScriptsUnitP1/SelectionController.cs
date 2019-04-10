@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using GridSystem;
+using DG.Tweening;
 
 public class SelectionController : MonoBehaviour {
     public int contSelectionP1;
@@ -18,9 +19,12 @@ public class SelectionController : MonoBehaviour {
     public bool isActiveDealer;
     public TurnManager turn;
     public HudManagerTest Text;
+    public float duration;
+    
 
     void Start()
     {
+        duration = 0.5f;
         dealerP1 = FindObjectOfType<PositionDealer>();
         utilityP1 = FindObjectOfType<PositionUtility>();
         Text = FindObjectOfType<HudManagerTest>();
@@ -42,6 +46,34 @@ public class SelectionController : MonoBehaviour {
         {
             gameObject.GetComponent<MeshRenderer>().enabled = false;
 
+        }
+
+        if(turn.isTurn == true)
+        {
+            if(isActiveTank == true)
+            {
+                transform.position = grid.GetWorldPosition(tankP1.x, tankP1.y);
+                transform.DOMoveX(tankP1.x, duration).SetAutoKill(false);
+                transform.DOMoveZ(tankP1.y, duration).SetAutoKill(false);
+            }
+            else if (isActiveHealer == true)
+            {
+                transform.position = grid.GetWorldPosition(healerP1.x, healerP1.y);
+                transform.DOMoveX(healerP1.x, duration).SetAutoKill(false);
+                transform.DOMoveZ(healerP1.y, duration).SetAutoKill(false); 
+            }
+            else if (isActiveUtility == true)
+            {
+                transform.position = grid.GetWorldPosition(utilityP1.x, utilityP1.y);
+                transform.DOMoveX(utilityP1.x, duration).SetAutoKill(false);
+                transform.DOMoveZ(utilityP1.y, duration).SetAutoKill(false); 
+            }
+            else if (isActiveDealer == true)
+            {
+                transform.position = grid.GetWorldPosition(dealerP1.x, dealerP1.y);
+                transform.DOMoveX(dealerP1.x, duration).SetAutoKill(false);
+                transform.DOMoveZ(dealerP1.y, duration).SetAutoKill(false); 
+            }
         }
     }
 
@@ -88,33 +120,46 @@ public class SelectionController : MonoBehaviour {
         }
     }
 
+    public void SubTract()
+    {
+        contSelectionP1 -= 1;
+        if (contSelectionP1 <= 0 /* 4*/)
+        {
+            contSelectionP1 = 4;
+        }
+    }
+
     public void ConfirmUnit()
     {
-        if(Input.GetKeyDown(confirmUnitButton) && contSelectionP1 == 1 && tankP1.isStun == false)
+        if(Input.GetKeyDown(confirmUnitButton) && contSelectionP1 == 1 && tankP1.isStun == false && turn.isTurn == true)
         {
             Debug.Log("attiva tank");
             isActiveTank = true;
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            //transform.position = grid.GetWorldPosition(tankP1.x, tankP1.y);
+            //gameObject.GetComponent<MeshRenderer>().enabled = false;
 
         }
-        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP1 == 2 && healerP1.isStun == false)
+        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP1 == 2 && healerP1.isStun == false && turn.isTurn == true)
         {
             Debug.Log("attiva healer");
             isActiveHealer = true;
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            //transform.position = grid.GetWorldPosition(healerP1.x, healerP1.y);
+            //gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
-        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP1 == 3 && utilityP1.isStun == false)
+        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP1 == 3 && utilityP1.isStun == false && turn.isTurn == true)
         {
             Debug.Log("attiva utility");
             isActiveUtility = true;
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            //transform.position = grid.GetWorldPosition(utilityP1.x, utilityP1.y);
+            //gameObject.GetComponent<MeshRenderer>().enabled = false;
 
         }
-        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP1 == 4 && dealerP1.isStun == false)
+        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP1 == 4 && dealerP1.isStun == false && turn.isTurn == true)
         {
             Debug.Log("attiva dealer");
             isActiveDealer = true;
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            //transform.position = grid.GetWorldPosition(dealerP1.x, dealerP1.y);
+            //gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
     }
 

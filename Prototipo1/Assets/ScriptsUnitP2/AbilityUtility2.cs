@@ -109,7 +109,7 @@ public class AbilityUtility2 : MonoBehaviour {
     {
         if (isAbility == true)
         {
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            if (Input.GetKeyDown(KeyCode.K))
             {
                 transform.DOLocalRotate(new Vector3(0, 90, 0), 0.2f);
                 isAttUp = true;
@@ -118,7 +118,7 @@ public class AbilityUtility2 : MonoBehaviour {
                 isAttRight = false;
 
             }
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.I))
             {
                 transform.DOLocalRotate(new Vector3(0, -90, 0), 0.2f);
                 isAttUp = false;
@@ -127,7 +127,7 @@ public class AbilityUtility2 : MonoBehaviour {
                 isAttRight = false;
 
             }
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.J))
             {
                 transform.DOLocalRotate(new Vector3(0, 180, 0), 0.2f);
                 isAttUp = false;
@@ -136,7 +136,7 @@ public class AbilityUtility2 : MonoBehaviour {
                 isAttRight = true;
 
             }
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            if (Input.GetKeyDown(KeyCode.L))
             {
                 transform.DOLocalRotate(new Vector3(0, 0, 0), 0.2f);
                 isAttUp = false;
@@ -152,7 +152,7 @@ public class AbilityUtility2 : MonoBehaviour {
     {
         //SetRange();
         //tank destra
-        if (Input.GetKeyDown(KeyCode.DownArrow) && isAbility == true && isAttUp == true && utilityP2.isUnitEnemie == true)
+        if (Input.GetKeyDown(KeyCode.K) && isAbility == true && isAttUp == true && utilityP2.isUnitEnemie == true)
         {
             if (utilityP2.hit.transform.gameObject.GetComponent<PositionTester>())
             {
@@ -190,7 +190,7 @@ public class AbilityUtility2 : MonoBehaviour {
         }
 
         //tanke sinistra
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isAbility == true && isAttDown == true && utilityP2.isUnitEnemie == true)
+        if (Input.GetKeyDown(KeyCode.I) && isAbility == true && isAttDown == true && utilityP2.isUnitEnemie == true)
         {
 
 
@@ -228,7 +228,7 @@ public class AbilityUtility2 : MonoBehaviour {
             }
 
             //tank sopra
-            if (Input.GetKeyDown(KeyCode.RightArrow) && isAbility == true && isAttLeft == true && utilityP2.isUnitEnemie == true)
+            if (Input.GetKeyDown(KeyCode.L) && isAbility == true && isAttLeft == true && utilityP2.isUnitEnemie == true)
             {
 
                 if (utilityP2.hit.transform.gameObject.GetComponent<PositionTester>())
@@ -267,7 +267,7 @@ public class AbilityUtility2 : MonoBehaviour {
             }
 
             // healer sotto
-            if (Input.GetKeyDown(KeyCode.LeftArrow) && isAbility == true && isAttRight == true && utilityP2.isUnitEnemie == true)
+            if (Input.GetKeyDown(KeyCode.J) && isAbility == true && isAttRight == true && utilityP2.isUnitEnemie == true)
             {
 
                 if (utilityP2.hit.transform.gameObject.GetComponent<PositionTester>())

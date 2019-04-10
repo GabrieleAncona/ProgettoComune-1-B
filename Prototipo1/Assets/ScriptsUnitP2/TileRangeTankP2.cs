@@ -6,14 +6,14 @@ using GridSystem;
 public class TileRangeTankP2 : MonoBehaviour {
    
     public AttackBase2 att;
-    public AbilityTank2 ab;
+   
 
     // Use this for initialization
     void Start()
     {
 
         att = FindObjectOfType<AttackBase2>();
-        ab = FindObjectOfType<AbilityTank2>();
+      
         gameObject.GetComponent<MeshRenderer>().enabled = false;
 
     }
@@ -27,11 +27,11 @@ public class TileRangeTankP2 : MonoBehaviour {
 
     public void SetTileRange()
     {
-        if (att.isAttack == true || ab.isAbility == true)
+        if (att.isAttack == true)
         {
             gameObject.GetComponent<MeshRenderer>().enabled = true;
         }
-        else if (att.isAttack == false || ab.isAbility == false)
+        else if (att.isAttack == false)
         {
             gameObject.GetComponent<MeshRenderer>().enabled = false;
         }

@@ -53,14 +53,14 @@ public class AbilityTank : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        ChargeAbility();
+        //ChargeAbility();
         StartCoroutine(SetDirectionAbility());
         SetAbility();
         DisactivePrewiewTank();
         RotationAbility();
     }
 
-    public void ChargeAbility()
+    /*public void ChargeAbility()
     {
         if (Counter == 0 && turn.isTurn == false)
         {
@@ -70,7 +70,7 @@ public class AbilityTank : MonoBehaviour
         {
             Counter = MaxCounter;
         }
-    }
+    }*/
 
     public void RotationAbility()
     {
@@ -116,7 +116,7 @@ public class AbilityTank : MonoBehaviour
     {
         
         //abilito abilita
-        if (Input.GetKeyDown(abilityButton) && turn.isTurn == true && isAbility == false && selection.isActiveTank == true && Counter == 2)
+        if (Input.GetKeyDown(abilityButton) && turn.isTurn == true && isAbility == false && selection.isActiveTank == true)
         {
 
             isAbility = true;
@@ -124,7 +124,7 @@ public class AbilityTank : MonoBehaviour
             gameObject.GetComponent<InputController>().enabled = false;
 
         }
-        else if(Input.GetKeyDown(abilityButton) && turn.isTurn == true && isAbility == true && selection.isActiveTank == true && Counter == 2)
+        else if(Input.GetKeyDown(abilityButton) && turn.isTurn == true && isAbility == true && selection.isActiveTank == true)
         {
             isAbility = false;
             //riabilito input controller per i movimenti(wasd)

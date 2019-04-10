@@ -56,7 +56,7 @@ public class AbilityDealer2 : MonoBehaviour
         StartCoroutine(PassTurn());
     }
 
-    public void ChargeAbility()
+    /*public void ChargeAbility()
     {
         if (CounterA == 0 && turn.isTurn == false)
         {
@@ -66,21 +66,22 @@ public class AbilityDealer2 : MonoBehaviour
         {
             CounterA = MaxCounterA;
         }
-    }
+    }*/
 
     IEnumerator PassTurn()
     {
-        ChargeAbility();
+        //ChargeAbility();
         SetAbility();
         SetRange();
         DisactivePrewiewDealer();
         RotationAbility();
         ActiveSelector();
-        if (Input.GetKeyDown(KeyCode.Keypad5) && isAbility == true)
+        if (Input.GetKeyDown(KeyCode.RightControl) && isAbility == true)
         {
             Shoot();
             isAbility = false;
             yield return new WaitForSeconds(3f);
+            selector.SetActive(false);
             turn.isTurn = true;
         }
     }
@@ -88,7 +89,7 @@ public class AbilityDealer2 : MonoBehaviour
         {
             if (isAbility == true)
             {
-                if (Input.GetKeyDown(KeyCode.DownArrow))
+                if (Input.GetKeyDown(KeyCode.K))
                 {
                     transform.DOLocalRotate(new Vector3(0, 90, 0), 0.2f);
                     isAttUp = true;
@@ -101,7 +102,7 @@ public class AbilityDealer2 : MonoBehaviour
 
 
                 }
-                if (Input.GetKeyDown(KeyCode.UpArrow))
+                if (Input.GetKeyDown(KeyCode.I))
                 {
                     transform.DOLocalRotate(new Vector3(0, -90, 0), 0.2f);
                     isAttUp = false;
@@ -114,7 +115,7 @@ public class AbilityDealer2 : MonoBehaviour
 
 
                 }
-                if (Input.GetKeyDown(KeyCode.LeftArrow))
+                if (Input.GetKeyDown(KeyCode.J))
                 {
                     transform.DOLocalRotate(new Vector3(0, 180, 0), 0.2f);
                     isAttUp = false;
@@ -126,7 +127,7 @@ public class AbilityDealer2 : MonoBehaviour
                     y = dealerP2.y;
 
                 }
-                if (Input.GetKeyDown(KeyCode.RightArrow))
+                if (Input.GetKeyDown(KeyCode.L))
                 {
                     transform.DOLocalRotate(new Vector3(0, 0, 0), 0.2f);
                     isAttUp = false;
@@ -144,7 +145,7 @@ public class AbilityDealer2 : MonoBehaviour
         public void SetAbility()
         {
             //abilito abilita
-            if (Input.GetKeyDown(abilityButton) && turn.isTurn == false && isAbility == false && selectionP2.isActiveDealerP2 == true && CounterA == 2)
+            if (Input.GetKeyDown(abilityButton) && turn.isTurn == false && isAbility == false && selectionP2.isActiveDealerP2 == true)
             {
                 isAbility = true;
             selector.SetActive(true);
@@ -152,7 +153,7 @@ public class AbilityDealer2 : MonoBehaviour
             //disabilito input controller per i movimenti(wasd)
             gameObject.GetComponent<InputController>().enabled = false;
             }
-            else if (Input.GetKeyDown(abilityButton) && turn.isTurn == false && isAbility == true && selectionP2.isActiveDealerP2 == true && CounterA == 2)
+            else if (Input.GetKeyDown(abilityButton) && turn.isTurn == false && isAbility == true && selectionP2.isActiveDealerP2 == true)
             {
                 isAbility = false;
                 //riabilito input controller per i movimenti(wasd)
@@ -172,7 +173,7 @@ public class AbilityDealer2 : MonoBehaviour
         {
             if (isAbility == true)
             {
-                if (isAttUp == true && Input.GetKeyDown(KeyCode.Keypad4))
+                if (isAttUp == true && Input.GetKeyDown(KeyCode.RightShift))
                 {
 
                     if (cont <= rangeFire - 1 && x <= 11)
@@ -192,7 +193,7 @@ public class AbilityDealer2 : MonoBehaviour
                     CounterA = 0;
                 }
                 }
-                else if (isAttDown == true && Input.GetKeyDown(KeyCode.Keypad4))
+                else if (isAttDown == true && Input.GetKeyDown(KeyCode.RightShift))
                 {
 
                     if (cont <= rangeFire - 1 && x >= 0)
@@ -212,7 +213,7 @@ public class AbilityDealer2 : MonoBehaviour
                     CounterA = 0;
                 }
                 }
-                if (isAttLeft == true && Input.GetKeyDown(KeyCode.Keypad4))
+                if (isAttLeft == true && Input.GetKeyDown(KeyCode.RightShift))
                 {
 
                     if (cont <= rangeFire - 1 && y <= 11)
@@ -233,7 +234,7 @@ public class AbilityDealer2 : MonoBehaviour
                     CounterA = 0;
                 }
                 }
-                else if (isAttRight == true && Input.GetKeyDown(KeyCode.Keypad4))
+                else if (isAttRight == true && Input.GetKeyDown(KeyCode.RightShift))
                 {
 
                     if (cont <= rangeFire - 1 && y >= 0)

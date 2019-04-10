@@ -47,14 +47,14 @@ public class AbilityHealer2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ChargeAbility();
+        //ChargeAbility();
         SetAbility();
         StartCoroutine(SetDirectionAbility());
         DisactivePrewiewHealerP2();
         RotationAbility();
     }
 
-    public void ChargeAbility()
+    /*public void ChargeAbility()
     {
         if (Counter == 0 && turn.isTurn == false)
         {
@@ -64,13 +64,13 @@ public class AbilityHealer2 : MonoBehaviour
         {
             Counter = MaxCounter;
         }
-    }
+    }*/
 
     public void SetAbility()
     {
 
         //abilito abilita
-        if (Input.GetKeyDown(abilityButton) && turn.isTurn == false && isAbility == false && selectionP2.isActiveHealerP2 == true && Counter == 2)
+        if (Input.GetKeyDown(abilityButton) && turn.isTurn == false && isAbility == false && selectionP2.isActiveHealerP2 == true)
         {
 
             isAbility = true;
@@ -78,7 +78,7 @@ public class AbilityHealer2 : MonoBehaviour
             gameObject.GetComponent<InputController>().enabled = false;
 
         }
-        else if (Input.GetKeyDown(abilityButton) && turn.isTurn == false && isAbility == true && selectionP2.isActiveHealerP2 == true && Counter == 2) 
+        else if (Input.GetKeyDown(abilityButton) && turn.isTurn == false && isAbility == true && selectionP2.isActiveHealerP2 == true) 
         {
             isAbility = false;
             //riabilito input controller per i movimenti(wasd)
@@ -91,7 +91,7 @@ public class AbilityHealer2 : MonoBehaviour
     {
         if (isAbility == true)
         {
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            if (Input.GetKeyDown(KeyCode.K))
             {
                 transform.DOLocalRotate(new Vector3(0, 90, 0), 0.2f);
                 isAttUp = true;
@@ -99,7 +99,7 @@ public class AbilityHealer2 : MonoBehaviour
                 isAttLeft = false;
                 isAttRight = false;
             }
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.I))
             {
                 transform.DOLocalRotate(new Vector3(0, -90, 0), 0.2f);
                 isAttUp = false;
@@ -107,7 +107,7 @@ public class AbilityHealer2 : MonoBehaviour
                 isAttLeft = false;
                 isAttRight = false;
             }
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.J))
             {
                 transform.DOLocalRotate(new Vector3(0, 180, 0), 0.2f);
                 isAttUp = false;
@@ -115,7 +115,7 @@ public class AbilityHealer2 : MonoBehaviour
                 isAttLeft = false;
                 isAttRight = true;
             }
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            if (Input.GetKeyDown(KeyCode.L))
             {
                 transform.DOLocalRotate(new Vector3(0, 0, 0), 0.2f);
                 isAttUp = false;
@@ -131,7 +131,7 @@ public class AbilityHealer2 : MonoBehaviour
     {
         //SetRange();
         //destra
-        if (Input.GetKeyDown(KeyCode.DownArrow)  && isAbility == true  && isAttUp == true && healerP2.isUnitAlly == true /* altre unita */)
+        if (Input.GetKeyDown(KeyCode.K)  && isAbility == true  && isAttUp == true && healerP2.isUnitAlly == true /* altre unita */)
         {
             if (healerP2.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
@@ -156,7 +156,7 @@ public class AbilityHealer2 : MonoBehaviour
             }
         }
         //sinistra
-        if (Input.GetKeyDown(KeyCode.UpArrow)  && isAbility == true  && isAttDown == true && healerP2.isUnitAlly == true /* altre unita */)
+        if (Input.GetKeyDown(KeyCode.I)  && isAbility == true  && isAttDown == true && healerP2.isUnitAlly == true /* altre unita */)
         {
             if (healerP2.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
@@ -181,7 +181,7 @@ public class AbilityHealer2 : MonoBehaviour
             }
         }
         //sopra
-        if (Input.GetKeyDown(KeyCode.RightArrow)  && isAbility == true  && isAttLeft == true && healerP2.isUnitAlly == true /* altre unita */)
+        if (Input.GetKeyDown(KeyCode.L)  && isAbility == true  && isAttLeft == true && healerP2.isUnitAlly == true /* altre unita */)
         {
             if (healerP2.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
@@ -206,7 +206,7 @@ public class AbilityHealer2 : MonoBehaviour
             }
         }
         //sotto
-        if (Input.GetKeyDown(KeyCode.LeftArrow)  && isAbility == true && isAttRight == true && healerP2.isUnitAlly == true /* altre unita */)
+        if (Input.GetKeyDown(KeyCode.J)  && isAbility == true && isAttRight == true && healerP2.isUnitAlly == true /* altre unita */)
         {
 
             if (healerP2.hit.transform.gameObject.GetComponent<PositionTester2>())
@@ -234,7 +234,7 @@ public class AbilityHealer2 : MonoBehaviour
 
 
         //auto heal
-        if(Input.GetKeyDown(KeyCode.Z) && isAbility == true && lm.lifeHealerPlayer2 < lm.lifeMaxHealerPlayer2)
+        if(Input.GetKeyDown(KeyCode.M) && isAbility == true && lm.lifeHealerPlayer2 < lm.lifeMaxHealerPlayer2)
         {
             lm.lifeHealerPlayer2 += heal;
             if (lm.lifeHealerPlayer2 < lm.lifeMaxHealerPlayer2)

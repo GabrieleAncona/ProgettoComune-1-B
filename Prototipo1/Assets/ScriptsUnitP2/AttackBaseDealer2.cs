@@ -92,7 +92,7 @@ public class AttackBaseDealer2 : MonoBehaviour
     {
         if (isAttack == true)
         {
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            if (Input.GetKeyDown(KeyCode.K))
             {
                 transform.DOLocalRotate(new Vector3(0, 90, 0), 0.2f);
                 isAttUp = true;
@@ -101,7 +101,7 @@ public class AttackBaseDealer2 : MonoBehaviour
                 isAttRight = false;
 
             }
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.I))
             {
                 transform.DOLocalRotate(new Vector3(0, -90, 0), 0.2f);
                 isAttUp = false;
@@ -110,7 +110,7 @@ public class AttackBaseDealer2 : MonoBehaviour
                 isAttRight = false;
 
             }
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.J))
             {
                 transform.DOLocalRotate(new Vector3(0, 180, 0), 0.2f);
                 isAttUp = false;
@@ -119,7 +119,7 @@ public class AttackBaseDealer2 : MonoBehaviour
                 isAttRight = true;
 
             }
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            if (Input.GetKeyDown(KeyCode.L))
             {
                 transform.DOLocalRotate(new Vector3(0, 0, 0), 0.2f);
                 isAttUp = false;
@@ -135,7 +135,7 @@ public class AttackBaseDealer2 : MonoBehaviour
     {
         //SetRange();
         //tank destra
-        if (Input.GetKeyDown(KeyCode.DownArrow) && isAttack == true && isAttUp == true && dealerP2.isUnitEnemie == true)
+        if (Input.GetKeyDown(KeyCode.K) && isAttack == true && isAttUp == true && dealerP2.isUnitEnemie == true)
         {
             if (dealerP2.hit.transform.gameObject.GetComponent<PositionTester>())
             {
@@ -185,7 +185,7 @@ public class AttackBaseDealer2 : MonoBehaviour
         }
 
         //tanke sinistra
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isAttack == true && isAttDown == true && dealerP2.isUnitEnemie == true)
+        if (Input.GetKeyDown(KeyCode.I) && isAttack == true && isAttDown == true && dealerP2.isUnitEnemie == true)
         {
 
 
@@ -237,7 +237,7 @@ public class AttackBaseDealer2 : MonoBehaviour
         }
 
         //tank sopra
-        if (Input.GetKeyDown(KeyCode.RightArrow) && isAttack == true && isAttLeft == true && dealerP2.isUnitEnemie == true)
+        if (Input.GetKeyDown(KeyCode.L) && isAttack == true && isAttLeft == true && dealerP2.isUnitEnemie == true)
         {
 
             
@@ -288,7 +288,7 @@ public class AttackBaseDealer2 : MonoBehaviour
         }
 
         // healer sotto
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && isAttack == true && isAttRight == true && dealerP2.isUnitEnemie == true)
+        if (Input.GetKeyDown(KeyCode.J) && isAttack == true && isAttRight == true && dealerP2.isUnitEnemie == true)
         {
 
 
