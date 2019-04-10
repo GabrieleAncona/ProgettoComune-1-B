@@ -27,7 +27,7 @@ public class AbilityDealer2 : MonoBehaviour
     public int speed;
 
     public int CounterA;
-    public int MaxCounterA = 2;
+    public int CounterTurnA;
     public bool isCharging;
 
     // Use this for initialization
@@ -48,6 +48,7 @@ public class AbilityDealer2 : MonoBehaviour
         turn = FindObjectOfType<TurnManager>();
         isAbility = false;
         CounterA = 2;
+        CounterTurnA = 0;
     }
 
     // Update is called once per frame
@@ -56,21 +57,27 @@ public class AbilityDealer2 : MonoBehaviour
         StartCoroutine(PassTurn());
     }
 
-    /*public void ChargeAbility()
+    public void ChargeAbility()
     {
-        if (CounterA == 0 && turn.isTurn == false)
+        if (CounterA == 0 && CounterTurnA == 0 && turn.isTurn == true)
         {
-            CounterA++;
+            CounterA = 1;
+            CounterTurnA = 1;
         }
-        else if (CounterA == 2)
+        if (CounterA == 1 && CounterTurnA == 1 && turn.isTurn == false)
         {
-            CounterA = MaxCounterA;
+            CounterTurnA = 2;
         }
-    }*/
+        if (CounterA == 1 && CounterTurnA == 2 && turn.isTurn == true)
+        {
+            CounterA = 2;
+            CounterTurnA = 0;
+        }
+    }
 
     IEnumerator PassTurn()
     {
-        //ChargeAbility();
+        ChargeAbility();
         SetAbility();
         SetRange();
         DisactivePrewiewDealer();
@@ -145,7 +152,7 @@ public class AbilityDealer2 : MonoBehaviour
         public void SetAbility()
         {
             //abilito abilita
-            if (Input.GetKeyDown(abilityButton) && turn.isTurn == false && isAbility == false && selectionP2.isActiveDealerP2 == true)
+            if (Input.GetKeyDown(abilityButton) && turn.isTurn == false && isAbility == false && selectionP2.isActiveDealerP2 == true && CounterA == 2)
             {
                 isAbility = true;
             selector.SetActive(true);

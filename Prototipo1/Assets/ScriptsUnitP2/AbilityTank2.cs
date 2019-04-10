@@ -32,7 +32,7 @@ public class AbilityTank2 : MonoBehaviour {
     public float duration = 0.2f;
 
     public int Counter;
-    public int MaxCounter = 2;
+    public int CounterTurnA;
     public bool isCharging;
 
     // Use this for initialization
@@ -52,28 +52,35 @@ public class AbilityTank2 : MonoBehaviour {
         vibrato = 10;
         strength = 0.1f;
         Counter = 2;
+        CounterTurnA = 0;
     }
 
     void Update()
     {
-        //ChargeAbility();
+        ChargeAbility();
         SetAttackBase();
         RotationAttack();
         StartCoroutine(SetDirectionAttackBase());
         DisactivePrewiewTank();
     }
 
-   /* public void ChargeAbility()
+   public void ChargeAbility()
     {
-        if (Counter == 0 && turn.isTurn == false)
+        if (Counter == 0 && CounterTurnA == 0 && turn.isTurn == true)
         {
-            Counter++;
+            Counter = 1;
+            CounterTurnA = 1;
         }
-        else if (Counter == 2)
+        if (Counter == 1 && CounterTurnA == 1 && turn.isTurn == false)
         {
-            Counter = MaxCounter;
+            CounterTurnA = 2;
         }
-    }*/
+        if (Counter == 1 && CounterTurnA == 2 && turn.isTurn == true)
+        {
+            Counter = 2;
+            CounterTurnA = 0;
+        }
+    }
 
     /* public void SetRange()
      {
@@ -88,7 +95,7 @@ public class AbilityTank2 : MonoBehaviour {
 
     public void SetAttackBase()
     {
-        if (Input.GetKeyDown(attackButton) && turn.isTurn == false && isAbility == false && selectionP2.isActiveTankP2 == true)
+        if (Input.GetKeyDown(attackButton) && turn.isTurn == false && isAbility == false && selectionP2.isActiveTankP2 == true && Counter == 2)
         {
             isAbility = true;
 

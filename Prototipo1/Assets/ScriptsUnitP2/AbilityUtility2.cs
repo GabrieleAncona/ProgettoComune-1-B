@@ -34,13 +34,12 @@ public class AbilityUtility2 : MonoBehaviour {
     public int counterStun;
 
     public int Counter;
-    public int MaxCounter = 2;
+    public int CounterTurnA;
     public bool isCharging;
 
     // Use this for initialization
     void Start()
     {
-
         selectionP2 = FindObjectOfType<SelectControllerP2>();
         tankP1 = FindObjectOfType<PositionTester>();
         healerP1 = FindObjectOfType<PositionHealer>();
@@ -55,6 +54,7 @@ public class AbilityUtility2 : MonoBehaviour {
         vibrato = 10;
         strength = 0.1f;
         Counter = 2;
+        CounterTurnA = 0;
     }
 
     void Update()
@@ -68,13 +68,19 @@ public class AbilityUtility2 : MonoBehaviour {
 
     public void ChargeAbility()
     {
-        if (Counter == 0 && turn.isTurn == false)
+        if (Counter == 0 && CounterTurnA == 0 && turn.isTurn == true)
         {
-            Counter++;
+            Counter = 1;
+            CounterTurnA = 1;
         }
-        else if (Counter == 2)
+        if (Counter == 1 && CounterTurnA == 1 && turn.isTurn == false)
         {
-            Counter = MaxCounter;
+            CounterTurnA = 2;
+        }
+        if (Counter == 1 && CounterTurnA == 2 && turn.isTurn == true)
+        {
+            Counter = 2;
+            CounterTurnA = 0;
         }
     }
 
@@ -98,7 +104,7 @@ public class AbilityUtility2 : MonoBehaviour {
             gameObject.GetComponent<InputController>().enabled = false;
 
         }
-        else if (Input.GetKeyDown(attackButton) && turn.isTurn == false && isAbility == true && selectionP2.isActiveUtilityP2 == true && Counter == 2)
+        else if (Input.GetKeyDown(attackButton) && turn.isTurn == false && isAbility == true && selectionP2.isActiveUtilityP2 == true )
         {
             isAbility = false;
             gameObject.GetComponent<InputController>().enabled = true;

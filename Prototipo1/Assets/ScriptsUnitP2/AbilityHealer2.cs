@@ -27,7 +27,7 @@ public class AbilityHealer2 : MonoBehaviour
     public bool isAttDown;
 
     public int Counter;
-    public int MaxCounter = 2;
+    public int CounterTurnA;
     public bool isCharging;
 
     // Use this for initialization
@@ -42,35 +42,42 @@ public class AbilityHealer2 : MonoBehaviour
         turn = FindObjectOfType<TurnManager>();
         isAbility = false;
         Counter = 2;
+        CounterTurnA = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //ChargeAbility();
+        ChargeAbility();
         SetAbility();
         StartCoroutine(SetDirectionAbility());
         DisactivePrewiewHealerP2();
         RotationAbility();
     }
 
-    /*public void ChargeAbility()
+    public void ChargeAbility()
     {
-        if (Counter == 0 && turn.isTurn == false)
+        if (Counter == 0 && CounterTurnA == 0 && turn.isTurn == true)
         {
-            Counter++;
+            Counter = 1;
+            CounterTurnA = 1;
         }
-        else if (Counter == 2)
+        if (Counter == 1 && CounterTurnA == 1 && turn.isTurn == false)
         {
-            Counter = MaxCounter;
+            CounterTurnA = 2;
         }
-    }*/
+        if (Counter == 1 && CounterTurnA == 2 && turn.isTurn == true)
+        {
+            Counter = 2;
+            CounterTurnA = 0;
+        }
+    }
 
     public void SetAbility()
     {
 
         //abilito abilita
-        if (Input.GetKeyDown(abilityButton) && turn.isTurn == false && isAbility == false && selectionP2.isActiveHealerP2 == true)
+        if (Input.GetKeyDown(abilityButton) && turn.isTurn == false && isAbility == false && selectionP2.isActiveHealerP2 == true && Counter == 2)
         {
 
             isAbility = true;

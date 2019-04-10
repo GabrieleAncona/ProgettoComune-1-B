@@ -2970,7 +2970,7 @@ MonoBehaviour:
   fireBall: {fileID: 1150620745032576, guid: 819afb7ae2b268449b0f4ae19446aef7, type: 2}
   speed: 0
   CounterA: 0
-  MaxCounterA: 2
+  CounterTurnA: 0
   isCharging: 0
 --- !u!114 &147157211
 MonoBehaviour:
@@ -5019,7 +5019,7 @@ MonoBehaviour:
   isAttUp: 0
   isAttDown: 0
   Counter: 0
-  MaxCounter: 2
+  CounterTurnA: 0
   isCharging: 0
 --- !u!114 &229473851
 MonoBehaviour:
@@ -6301,7 +6301,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &283955979
 Transform:
   m_ObjectHideFlags: 0
@@ -7702,7 +7702,7 @@ MonoBehaviour:
   strength: 0
   vibrato: 0
   Counter: 0
-  MaxCounter: 2
+  CounterTurnA: 0
   isCharging: 0
 --- !u!114 &350172330
 MonoBehaviour:
@@ -13640,7 +13640,7 @@ MonoBehaviour:
   isAttUp: 0
   isAttDown: 0
   Counter: 0
-  MaxCounter: 2
+  CounterTurnA: 0
   isCharging: 0
 --- !u!54 &619855546
 Rigidbody:
@@ -18892,7 +18892,7 @@ MonoBehaviour:
   fireBall: {fileID: 1150620745032576, guid: 819afb7ae2b268449b0f4ae19446aef7, type: 2}
   speed: 0
   CounterA: 0
-  MaxCounterA: 2
+  CounterTurnA: 0
   isCharging: 0
 --- !u!114 &891539626
 MonoBehaviour:
@@ -22179,7 +22179,7 @@ MonoBehaviour:
   healerP1: {fileID: 0}
   duration: 0.2
   Counter: 0
-  MaxCounter: 2
+  CounterTurnA: 0
   isCharging: 0
 --- !u!65 &1033766770
 BoxCollider:
@@ -27900,7 +27900,7 @@ MonoBehaviour:
   isStun: 0
   counterStun: 0
   Counter: 0
-  MaxCounter: 2
+  CounterTurnA: 0
   isCharging: 0
 --- !u!114 &1303952348
 MonoBehaviour:
@@ -31092,28 +31092,28 @@ MonoBehaviour:
   abHealerP2: {fileID: 0}
   abUtilityP2: {fileID: 0}
   abDealerP2: {fileID: 0}
-  healthTankP1: {fileID: 1538018930}
-  healthTankP2: {fileID: 1509912740}
+  healthTankP1: {fileID: 252451108}
+  healthTankP2: {fileID: 1984851434}
   MpTankP1: {fileID: 516485689}
-  MpTankP2: {fileID: 775381753}
+  MpTankP2: {fileID: 1266603208}
   abChargeTP1: {fileID: 2060053897}
   abChargeTP2: {fileID: 112105391}
-  healthHealerP1: {fileID: 1145845765}
-  healthHealerP2: {fileID: 1980200687}
-  MpHealerP1: {fileID: 1043643786}
-  MpHealerP2: {fileID: 1422307110}
+  healthHealerP1: {fileID: 2094446663}
+  healthHealerP2: {fileID: 1984851434}
+  MpHealerP1: {fileID: 453242875}
+  MpHealerP2: {fileID: 1791399624}
   abChargeHP1: {fileID: 766241047}
   abChargeHP2: {fileID: 1499601736}
-  healthUtilityP1: {fileID: 1764035093}
-  healthUtilityP2: {fileID: 1100028449}
-  MpUtilityP1: {fileID: 1446839039}
-  MpUtilityP2: {fileID: 82828091}
+  healthUtilityP1: {fileID: 1867306024}
+  healthUtilityP2: {fileID: 727640603}
+  MpUtilityP1: {fileID: 747052459}
+  MpUtilityP2: {fileID: 925004360}
   abChargeUP1: {fileID: 359932782}
   abChargeUP2: {fileID: 1015499836}
-  healthDealerP1: {fileID: 735425572}
-  healthDealerP2: {fileID: 370660075}
-  MpDealerP1: {fileID: 774742640}
-  MpDealerP2: {fileID: 1869247672}
+  healthDealerP1: {fileID: 1234544708}
+  healthDealerP2: {fileID: 154003400}
+  MpDealerP1: {fileID: 1226590024}
+  MpDealerP2: {fileID: 165947679}
   abChargeDP1: {fileID: 568741131}
   abChargeDP2: {fileID: 500604154}
   selection: {fileID: 0}
@@ -33145,7 +33145,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 20
   m_WholeNumbers: 1
-  m_Value: 0
+  m_Value: 20
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -43830,7 +43830,7 @@ MonoBehaviour:
   strength: 0
   vibrato: 0
   Counter: 0
-  MaxCounter: 2
+  CounterTurnA: 0
   isCharging: 0
 --- !u!65 &2060637817
 BoxCollider:

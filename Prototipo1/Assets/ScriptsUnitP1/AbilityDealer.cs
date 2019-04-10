@@ -34,7 +34,7 @@ public class AbilityDealer : MonoBehaviour {
     public int speed;
 
     public int CounterA;
-    public int MaxCounterA = 2;
+    public int CounterTurnA;
     public bool isCharging;
 
 
@@ -61,11 +61,13 @@ public class AbilityDealer : MonoBehaviour {
         turn = FindObjectOfType<TurnManager>();
         isAbility = false;
         CounterA = 2;
+        CounterTurnA = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        ChargeAbility();
         StartCoroutine(PassTurn());
         //if(isAbility == false)
         //{
@@ -75,7 +77,6 @@ public class AbilityDealer : MonoBehaviour {
 
     IEnumerator PassTurn()
     {
-        //ChargeAbility();
         SetAbility();
         SetRange();
         DisactivePrewiewDealer();
@@ -92,17 +93,23 @@ public class AbilityDealer : MonoBehaviour {
        
     }
 
-    /*public void ChargeAbility()
+    public void ChargeAbility()
     {
-        if (CounterA == 0 && turn.isTurn == false)
+        if (CounterA == 0 && CounterTurnA == 0 && turn.isTurn == false)
         {
-            CounterA++;
+            CounterA = 1;
+            CounterTurnA = 1;
         }
-        else if (CounterA == 2)
+        if (CounterA == 1 && CounterTurnA == 1 && turn.isTurn == true)
         {
-            CounterA = MaxCounterA;
+            CounterTurnA = 2;
         }
-    }*/
+        if (CounterA == 1 && CounterTurnA == 2 && turn.isTurn == false)
+        {
+            CounterA = 2;
+            CounterTurnA = 0;
+        }
+    }
 
     public void RotationAbility()
     {
@@ -163,7 +170,7 @@ public class AbilityDealer : MonoBehaviour {
     public void SetAbility()
     {
         //abilito abilita
-        if (Input.GetKeyDown(abilityButton) && turn.isTurn == true && isAbility == false && selection.isActiveDealer == true)
+        if (Input.GetKeyDown(abilityButton) && turn.isTurn == true && isAbility == false && selection.isActiveDealer == true && CounterA == 2)
         {
             isAbility = true;
             selector.SetActive(true);
