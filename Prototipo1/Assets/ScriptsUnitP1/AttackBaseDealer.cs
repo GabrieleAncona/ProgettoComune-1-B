@@ -46,6 +46,8 @@ public class AttackBaseDealer : MonoBehaviour {
         lm = FindObjectOfType<LifeManager>();
         turn = FindObjectOfType<TurnManager>();
         isAttack = false;
+        vibrato = 10;
+        strength = 0.1f;
     }
 
     // Update is called once per frame
@@ -130,7 +132,7 @@ public class AttackBaseDealer : MonoBehaviour {
       
 
         //tank destra
-        if (Input.GetKeyDown(KeyCode.W) && RangeHzTank == -4 && isAttack == true && isAttUp == true && dealer.isUnitEnemie == true)
+        if (Input.GetKeyDown(KeyCode.W)  && isAttack == true && isAttUp == true && dealer.isUnitEnemie == true)
         {
             if (dealer.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
@@ -181,7 +183,7 @@ public class AttackBaseDealer : MonoBehaviour {
      
 
         //tank sinistra
-        if (Input.GetKeyDown(KeyCode.S) && RangeHzTank == 4 && isAttack == true && isAttDown == true && dealer.isUnitEnemie == true)
+        if (Input.GetKeyDown(KeyCode.S) && isAttack == true && isAttDown == true && dealer.isUnitEnemie == true)
         {
             if (dealer.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
@@ -232,7 +234,7 @@ public class AttackBaseDealer : MonoBehaviour {
       
 
         //tank sopra
-        if (Input.GetKeyDown(KeyCode.A) && RangeVtTank == -4 && isAttack == true && isAttLeft == true && dealer.isUnitEnemie == true)
+        if (Input.GetKeyDown(KeyCode.A) && isAttack == true && isAttLeft == true && dealer.isUnitEnemie == true)
         {
             if (dealer.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
@@ -282,7 +284,7 @@ public class AttackBaseDealer : MonoBehaviour {
      
 
         //tank sotto
-        if (Input.GetKeyDown(KeyCode.D) && RangeVtTank == 4 && isAttack == true && isAttRight == true && dealer.isUnitEnemie == true)
+        if (Input.GetKeyDown(KeyCode.D)  && isAttack == true && isAttRight == true && dealer.isUnitEnemie == true)
         {
             if (dealer.hit.transform.gameObject.GetComponent<PositionTester2>())
             {

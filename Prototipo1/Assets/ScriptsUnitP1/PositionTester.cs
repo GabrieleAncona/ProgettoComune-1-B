@@ -29,12 +29,13 @@ public class PositionTester : MonoBehaviour
     public LifeManager lm;
     public bool myTurn;
     public bool isStun;
+    public bool isDead;
 
     //public float random;
 
     public void Start()
     {
-        myTurn = false;
+        //myTurn = false;
         // random = 2f;
         lm = FindObjectOfType<LifeManager>();
         timer = 0.5f;
@@ -43,7 +44,7 @@ public class PositionTester : MonoBehaviour
         transform.position = grid.GetWorldPosition(x, y);
         maxRangeHzTankPlayer1 = x;
         maxRangeVtTankPlayer1 = y;
-        turn.isTurn = true;
+        //turn.isTurn = true;
         contMp = 2;
         att = FindObjectOfType<AttackBase1>();
         ab = FindObjectOfType<AbilityTank>();
@@ -52,8 +53,15 @@ public class PositionTester : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
-        RayCastingController();
+        RayCastingControllerAttack();
+        RayCastingControllerAbility();
         MyTurn();
+        Death();
+
+        if (selection.isActiveTank == false)
+        {
+            contMp = 2;
+        }
     }
 
 	public void GoToLeft()
@@ -209,46 +217,46 @@ public class PositionTester : MonoBehaviour
         }
     }
 
-    public void RayCastingController()
-    {
-        if (att.isAttack == true)
-        {
+    public void RayCastingControllerAttack() {
+        if (att.isAttack == true) {
             //RaycastHit hit;
-            Ray rayRight = new Ray(transform.position ,transform.forward);
-           
-            if (Physics.Raycast(rayRight, out hit, 1) && hit.collider.tag == "UnitP2")
-            {
-                Debug.DrawRay(transform.position + new Vector3(0, 0.1f), Vector3.forward * hit.distance, Color.red);
-
-                    isUnitEnemie = true;
-
-            }
-            else 
-            {
-                //Debug.DrawRay(GameObject.FindGameObjectWithTag("UnitP2").transform.position + new Vector3(0, 0.5f), Vector3.right * hit.distance, Color.blue);
-                isUnitEnemie = false;
-            }
-
-        }
-        else if(ab.isAbility == true)
-        {
             Ray rayRight = new Ray(transform.position, transform.forward);
 
-            if (Physics.Raycast(rayRight, out hit, 2) && hit.collider.tag == "UnitP2")
-            {
-                Debug.DrawRay(transform.position + new Vector3(0, 0.2f), Vector3.forward * hit.distance, Color.red);
+            if (Physics.Raycast(rayRight, out hit, 1)) {
+                if (hit.collider.tag == "UnitP2") {
+                    Debug.DrawRay(transform.position + new Vector3(0, 0.1f), transform.forward * hit.distance, Color.red);
 
-                isUnitEnemie = true;
+                    isUnitEnemie = false;
+                }
+                else {
+                    //Debug.DrawRay(GameObject.FindGameObjectWithTag("UnitP2").transform.position + new Vector3(0, 0.5f), Vector3.right * hit.distance, Color.blue);
+                    isUnitEnemie = true;
+                    Debug.Log("isUnitEnemie " + isUnitEnemie);
+                }
 
             }
-            else
-            {
-                //Debug.DrawRay(GameObject.FindGameObjectWithTag("UnitP2").transform.position + new Vector3(0, 0.5f), Vector3.right * hit.distance, Color.blue);
-                isUnitEnemie = false;
-            }
-
         }
     }
+
+    public void RayCastingControllerAbility() {
+        if (ab.isAbility == true) {
+            Ray rayRight = new Ray(transform.position, transform.forward);
+
+            if (Physics.Raycast(rayRight, out hit, 2) && hit.collider.tag == "UnitP2") {
+                Debug.DrawRay(transform.position + new Vector3(0, 0.2f), Vector3.forward * hit.distance, Color.blue);
+
+                isUnitEnemie = false;
+
+            }
+            else {
+
+                //Debug.DrawRay(GameObject.FindGameObjectWithTag("UnitP2").transform.position + new Vector3(0, 0.5f), Vector3.right * hit.distance, Color.blue);
+                isUnitEnemie = true;
+            }
+        }
+    }
+
+        
 
     public void GetDamage(int damage)
     {
@@ -265,6 +273,19 @@ public class PositionTester : MonoBehaviour
         {
             myTurn = false;
         }
+    }
+
+    public void Death()
+    {
+
+        if(lm.lifeTank <= 0) 
+        {
+
+            gameObject.SetActive(false);
+            isDead = true;
+
+        }
+
     }
 
 }

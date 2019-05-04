@@ -8,7 +8,7 @@ public class AttackBase2 : MonoBehaviour {
 
     public LifeManager lm;
     public TurnManager turn;
-    public int att = 1;
+    public int att = 4;
     public PositionTester tankP1;
     public PositionTester2 tankP2;
     public PositionHealer2 healerP2;

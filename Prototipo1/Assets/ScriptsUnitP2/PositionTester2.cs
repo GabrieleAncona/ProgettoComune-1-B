@@ -27,9 +27,9 @@ public class PositionTester2 : MonoBehaviour {
     public LifeManager lm;
     public bool myTurn;
     public bool isStun;
+    public bool isDead;
 
-    public void Start()
-    {
+    public void Start() {
         lm = FindObjectOfType<LifeManager>();
         timer = 0.5f;
         contMp = 2;
@@ -43,18 +43,23 @@ public class PositionTester2 : MonoBehaviour {
 
     }
 
-    void Update()
-    {
+    void Update() {
         timer -= Time.deltaTime;
-        selectionP2 = FindObjectOfType<SelectControllerP2>();
-        RayCastingController();
+        RayCastingControllerAttack();
+        RayCastingControllerAbility();
+        Death();
+        MyTurn();
+
+        if (selectionP2.isActiveTankP2 == false)
+        {
+            contMp = 2;
+        }
+
     }
 
-    public void GoToLeft()
-    {
-        if (x > 0 && turn.isTurn == false && contMp > 0 && selectionP2.isActiveTankP2 == true && timer < 0)
-        {
-           
+    public void GoToLeft() {
+        if (x > 0 && turn.isTurn == false && contMp > 0 && selectionP2.isActiveTankP2 == true && timer < 0) {
+
             transform.DOLocalRotate(new Vector3(0, -90, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x--, y);
             transform.DOMoveX(x, duration).SetAutoKill(false);
@@ -62,22 +67,20 @@ public class PositionTester2 : MonoBehaviour {
             maxRangeHzTankPlayer2 = x;
             contMp--;
             isLeft = true;
+
             isUp = false;
             isRight = false;
             isDown = false;
             timer = 0.5f;
-            if (ab.Counter < 2)
-            {
+            if (ab.Counter < 2) {
                 ab.Counter = 0;
             }
         }
     }
 
-    public void GoToRight()
-    {
-        if (x < 11 && turn.isTurn == false && contMp > 0 && selectionP2.isActiveTankP2 == true && timer < 0)
-        {
-          
+    public void GoToRight() {
+        if (x < 11 && turn.isTurn == false && contMp > 0 && selectionP2.isActiveTankP2 == true && timer < 0) {
+
             transform.DOLocalRotate(new Vector3(0, 90, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x++, y);
             transform.DOMoveX(x, duration).SetAutoKill(false);
@@ -89,18 +92,15 @@ public class PositionTester2 : MonoBehaviour {
             isUp = false;
             isDown = false;
             timer = 0.5f;
-            if (ab.Counter < 2)
-            {
+            if (ab.Counter < 2) {
                 ab.Counter = 0;
             }
         }
     }
 
-    public void GoToDown()
-    {
-        if (y > 0 && turn.isTurn == false && contMp > 0 && selectionP2.isActiveTankP2 == true && timer < 0)
-        {
-            
+    public void GoToDown() {
+        if (y > 0 && turn.isTurn == false && contMp > 0 && selectionP2.isActiveTankP2 == true && timer < 0) {
+
             transform.DOLocalRotate(new Vector3(0, 180, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x, y--);
             transform.DOMoveZ(y, duration).SetAutoKill(false); ;
@@ -112,18 +112,15 @@ public class PositionTester2 : MonoBehaviour {
             isLeft = false;
             isUp = false;
             timer = 0.5f;
-            if (ab.Counter < 2)
-            {
+            if (ab.Counter < 2) {
                 ab.Counter = 0;
             }
         }
     }
 
-    public void GoToUp()
-    {
-        if (y < 11 && turn.isTurn == false && contMp > 0 && selectionP2.isActiveTankP2 == true && timer < 0)
-        {
-           
+    public void GoToUp() {
+        if (y < 11 && turn.isTurn == false && contMp > 0 && selectionP2.isActiveTankP2 == true && timer < 0) {
+
             transform.DOLocalRotate(new Vector3(0, 0, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x, y++);
             transform.DOMoveZ(y, duration).SetAutoKill(false); ;
@@ -135,107 +132,106 @@ public class PositionTester2 : MonoBehaviour {
             isLeft = false;
             isDown = false;
             timer = 0.5f;
-            if (ab.Counter < 2)
-            {
+            if (ab.Counter < 2) {
                 ab.Counter = 0;
             }
         }
     }
 
 
-    public void ToPass()
-    {
+    public void ToPass() {
         turn.isTurn = true;
         contMp = 2;
         selectionP2.isActiveTankP2 = false;
     }
 
-    public void OnTriggerEnter(Collider coll)
-    {
-        if (coll.gameObject.tag == "Obstacle" || coll.gameObject.tag == "UnitP1" || coll.gameObject.tag == "UnitP2")
-        {
+    public void OnTriggerEnter(Collider coll) {
+        if (coll.gameObject.tag == "Obstacle" || coll.gameObject.tag == "UnitP1" || coll.gameObject.tag == "UnitP2") {
+            Debug.Log("non ha senso");
             isBlock = true;
-            if (myTurn == false)
-            {
-                if (isLeft == true)
-                {
+            if (myTurn == false) {
+
+                if (isLeft == true) {
+                    Debug.Log("cazzo in culo");
                     transform.position = grid.GetWorldPosition(x++, y);
                     transform.DOMoveX(x, duration).SetAutoKill(false);
                     maxRangeHzTankPlayer2 = x;
                     contMp++;
+
                 }
-                if (isRight == true)
-                {
+                if (isRight == true) {
+                    Debug.Log("cazzo in culo");
                     transform.position = grid.GetWorldPosition(x--, y);
                     transform.DOMoveX(x, duration).SetAutoKill(false);
                     maxRangeHzTankPlayer2 = x;
                     contMp++;
+
                 }
-                if (isDown == true)
-                {
+                if (isDown == true) {
+                    Debug.Log("cazzo in culo");
                     transform.position = grid.GetWorldPosition(x, y++);
                     transform.DOMoveZ(y, duration).SetAutoKill(false);
                     maxRangeVtTankPlayer2 = y;
                     contMp++;
+
                 }
-                if (isUp == true)
-                {
+                if (isUp == true) {
+                    Debug.Log("cazzo in culo");
                     transform.position = grid.GetWorldPosition(x, y--);
                     transform.DOMoveZ(y, duration).SetAutoKill(false);
                     maxRangeVtTankPlayer2 = y;
                     contMp++;
+
                 }
+                Debug.Log("left: " + isLeft);
+                Debug.Log("right: " + isRight);
+                Debug.Log("up: " + isUp);
+                Debug.Log("down: " + isDown);
             }
         }
     }
 
-    public void OnTriggerExit(Collider coll)
-    {
-        if (coll.gameObject.tag == "Obstacle")
-        {
+    public void OnTriggerExit(Collider coll) {
+        if (coll.gameObject.tag == "Obstacle") {
             isBlock = false;
         }
     }
 
 
-    public void RayCastingController()
-    {
-        if (att.isAttack == true)
-        {
+    public void RayCastingControllerAttack() {
+        if (att.isAttack == true) {
             //RaycastHit hit;
             Ray rayRight = new Ray(transform.position, transform.forward);
 
-            if (Physics.Raycast(rayRight, out hit, 1) && hit.collider.tag == "UnitP1")
-            {
+            if (Physics.Raycast(rayRight, out hit, 1) && hit.collider.tag == "UnitP1") {
                 Debug.DrawRay(transform.position + new Vector3(0, 0.1f), Vector3.forward * hit.distance, Color.red);
 
                 isUnitEnemie = true;
 
             }
-            else
-            {
+            else {
                 //Debug.DrawRay(GameObject.FindGameObjectWithTag("UnitP2").transform.position + new Vector3(0, 0.5f), Vector3.right * hit.distance, Color.blue);
                 isUnitEnemie = false;
+                Debug.Log("isUnitEnemie: " + isUnitEnemie);
             }
 
         }
-        else if (ab.isAbility == true)
-        {
+    }
+
+    public void RayCastingControllerAbility() {
+        if (ab.isAbility == true) {
             Ray rayRight = new Ray(transform.position, transform.forward);
 
-            if (Physics.Raycast(rayRight, out hit, 2) && hit.collider.tag == "UnitP1")
-            {
+            if (Physics.Raycast(rayRight, out hit, 2) && hit.collider.tag == "UnitP1") {
                 Debug.DrawRay(transform.position + new Vector3(0, 0.2f), Vector3.forward * hit.distance, Color.red);
 
                 isUnitEnemie = true;
 
             }
-            else
-            {
+            else {
                 //Debug.DrawRay(GameObject.FindGameObjectWithTag("UnitP2").transform.position + new Vector3(0, 0.5f), Vector3.right * hit.distance, Color.blue);
                 isUnitEnemie = false;
             }
-
         }
     }
 
@@ -254,6 +250,17 @@ public class PositionTester2 : MonoBehaviour {
         {
             myTurn = false;
         }
+    }
+
+    public void Death() {
+
+        if (lm.lifeTankPlayer2 == 0) {
+
+            gameObject.SetActive(false);
+            isDead = true;
+
+        }
+
     }
 
 }

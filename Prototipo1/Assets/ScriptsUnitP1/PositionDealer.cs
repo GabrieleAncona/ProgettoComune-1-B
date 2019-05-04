@@ -28,6 +28,7 @@ public class PositionDealer : MonoBehaviour {
     public bool isStun;
     public bool myTurn;
     public float timer;
+    public bool isDead;
 
     // Use this for initialization
     void Start()
@@ -51,13 +52,21 @@ public class PositionDealer : MonoBehaviour {
         timer -= Time.deltaTime;
         //transform.position = grid.GetWorldPosition(x, y);
         RayCastingAttackController();
+        Death();
+        MyTurn();
+
+        if (selection.isActiveDealer == false)
+        {
+            contMp = 3;
+        }
     }
 
     public void GoToLeft()
     {
+        Debug.Log("entra" + contMp);
         if (x > 0 && turn.isTurn == true && contMp > 0 && selection.isActiveDealer == true && timer < 0)
         {
-
+            
             transform.DOLocalRotate(new Vector3(0, -90, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x--, y);
             transform.DOMoveX(x, duration).SetAutoKill(false);
@@ -154,6 +163,7 @@ public class PositionDealer : MonoBehaviour {
     {
         if (coll.gameObject.tag == "Obstacle" || coll.gameObject.tag == "UnitP1" || coll.gameObject.tag == "UnitP2")
         {
+            Debug.Log("collider funziona");
             isBlock = true;
             if (myTurn == true)
             {
@@ -237,5 +247,17 @@ public class PositionDealer : MonoBehaviour {
         {
             myTurn = false;
         }
+    }
+
+    public void Death()
+    {
+
+        if (lm.lifeDealer <= 0) {
+
+            gameObject.SetActive(false);
+            isDead = true;
+
+        }
+
     }
 }

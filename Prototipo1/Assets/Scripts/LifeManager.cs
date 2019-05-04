@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using GridSystem;
 
 public class LifeManager : MonoBehaviour {
@@ -36,15 +37,41 @@ public class LifeManager : MonoBehaviour {
           lifeMaxTankPlayer2 = lifeTankPlayer2;
           lifeMaxHealer = lifeHealer;
           lifeMaxHealerPlayer2 = lifeHealerPlayer2;
-        lifeDealerPlayer2 = 12;
-        lifeUtilityPlayer2 = 14;
-        lifeMaxUtilityPlayer2 = lifeUtilityPlayer2;
-        lifeMaxDealerPlayer2 = lifeDealerPlayer2;
+          lifeDealerPlayer2 = 12;
+          lifeUtilityPlayer2 = 14;
+          lifeMaxUtilityPlayer2 = lifeUtilityPlayer2;
+          lifeMaxDealerPlayer2 = lifeDealerPlayer2;
 
     }
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update () 
+    {
+
+        VictoryPlayer1();
+        VictoryPlayer2();
+
 	}
+
+
+
+    public void VictoryPlayer1() 
+    {
+
+        if(lifeDealer == 0 && lifeUtility == 0 && lifeHealer == 0 && lifeTank == 0) 
+        {
+            SceneManager.LoadScene("VittoriaPlayer1");
+        }
+
+    }
+
+    public void VictoryPlayer2()
+    {
+
+        if (lifeDealerPlayer2 == 0 && lifeUtilityPlayer2 == 0 && lifeHealerPlayer2 == 0 && lifeTankPlayer2 == 0) 
+        {
+            SceneManager.LoadScene("VittoriaPlayer2");
+        }
+
+    }
 }

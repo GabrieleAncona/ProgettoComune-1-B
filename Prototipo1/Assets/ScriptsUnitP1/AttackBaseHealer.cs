@@ -51,7 +51,9 @@ public class AttackBaseHealer : MonoBehaviour{
         lm = FindObjectOfType<LifeManager>();
         turn = FindObjectOfType<TurnManager>();
         isAttackHealer = false;
-
+        ab = FindObjectOfType<AbilityHealer>();
+        vibrato = 10;
+        strength = 0.1f;
     }
 
     void Update()

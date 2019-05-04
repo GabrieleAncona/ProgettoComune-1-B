@@ -67,7 +67,8 @@ public class AttackBaseHealer2 : MonoBehaviour {
         SetAttackBase();
         RotationAttack();
         StartCoroutine(SetDirectionAttackBase());
-        DisactivePrewiewTank();
+        ContTurn();
+        DamageForTurn();
     }
 
     /* public void SetRange()
@@ -346,14 +347,6 @@ public class AttackBaseHealer2 : MonoBehaviour {
         }
     }
 
-    //disattivo prewiew attacco/abilità quando finisco turno
-    public void DisactivePrewiewTank()
-    {
-        if (turn.isTurn == true)
-        {
-            isAttack = false;
-        }
-    }
 
 
     public void ContTurn()

@@ -125,3 +125,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 2
+  tankP1: {fileID: 0}
+  tankP2: {fileID: 0}
+  healerP1: {fileID: 0}
+  healerP2: {fileID: 0}
+  utilityP1: {fileID: 0}
+  utilityP2: {fileID: 0}
+  dealerP1: {fileID: 0}
+  dealerP2: {fileID: 0}
+  strength: 0
+  vibrato: 0

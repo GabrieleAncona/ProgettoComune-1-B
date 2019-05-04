@@ -29,6 +29,7 @@ public class PositionHealer2 : MonoBehaviour
     public LifeManager lm;
     public bool myTurn;
     public bool isStun;
+    public bool isDead;
 
     public void Start()
     {
@@ -49,6 +50,12 @@ public class PositionHealer2 : MonoBehaviour
     {
         timer -= Time.deltaTime;
         RayCastingController();
+        Death();
+        MyTurn();
+
+        if (selectionP2.isActiveHealerP2 == false) {
+            contMp = 4;
+        }
     }
 
     public void GoToLeft()
@@ -250,5 +257,16 @@ public class PositionHealer2 : MonoBehaviour
         {
             myTurn = false;
         }
+    }
+
+    public void Death() {
+
+        if (lm.lifeHealerPlayer2 <= 0) {
+
+            gameObject.SetActive(false);
+            isDead = true;
+
+        }
+
     }
 }

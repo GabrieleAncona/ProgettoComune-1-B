@@ -8,6 +8,8 @@ public class SelectUnitsP2 : MonoBehaviour {
     public TurnManager turn;
     public KeyCode ChangeSelectionButtonAdd;
     public KeyCode ChangeSelectionButtonRemove;
+    public PositionTester2 tankP2;
+    public PositionDealer2 dealerP2;
 
     // Use this for initialization
     void Start()
@@ -16,7 +18,8 @@ public class SelectUnitsP2 : MonoBehaviour {
         selectionP2 = FindObjectOfType<SelectControllerP2>();
         turn = FindObjectOfType<TurnManager>();
         turn.isTurn = true;
-
+        tankP2 = FindObjectOfType<PositionTester2>();
+        dealerP2 = FindObjectOfType<PositionDealer2>();
     }
 
     void Update()
@@ -27,6 +30,12 @@ public class SelectUnitsP2 : MonoBehaviour {
             {
                 gameObject.GetComponent<MeshRenderer>().enabled = true;
                 SendMessage("AddContP2");
+
+                if (tankP2.isDead == true && selectionP2.contSelectionP2 == 1) {
+
+                    SendMessage("AddCont");
+                }
+
                 if (selectionP2.contSelectionP2 == 1)
                 {
                     SendMessage("ContTankP2");
@@ -46,6 +55,10 @@ public class SelectUnitsP2 : MonoBehaviour {
                 else if (selectionP2.contSelectionP2 > 4)
                 {
                     selectionP2.contSelectionP2 = 1;
+                    if (tankP2.isDead == true && selectionP2.contSelectionP2 == 1) {
+
+                        SendMessage("AddCont");
+                    }
                 }
 
             }
@@ -54,8 +67,13 @@ public class SelectUnitsP2 : MonoBehaviour {
                 SendMessage("SubTractP2");
   
                 gameObject.GetComponent<MeshRenderer>().enabled = true;
-                    
-                    if (selectionP2.contSelectionP2 == 1)
+
+                if (dealerP2.isDead == true && selectionP2.contSelectionP2 == 4) {
+
+                    SendMessage("SubTract");
+                }
+
+                if (selectionP2.contSelectionP2 == 1)
                     {
                         SendMessage("ContTankP2");
                     
@@ -78,7 +96,11 @@ public class SelectUnitsP2 : MonoBehaviour {
                      if (selectionP2.contSelectionP2 <= 0)
                     {
                         selectionP2.contSelectionP2 = 4;
+                    if (dealerP2.isDead == true && selectionP2.contSelectionP2 == 4) {
+
+                        SendMessage("SubTract");
                     }
+                }
                 
             }
         }

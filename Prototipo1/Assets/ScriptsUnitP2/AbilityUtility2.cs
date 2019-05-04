@@ -32,7 +32,6 @@ public class AbilityUtility2 : MonoBehaviour {
     public SelectControllerP2 selectionP2;
     public bool isStun;
     public int counterStun;
-
     public int Counter;
     public int CounterTurnA;
     public bool isCharging;
@@ -40,6 +39,7 @@ public class AbilityUtility2 : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        counterStun = 0;
         selectionP2 = FindObjectOfType<SelectControllerP2>();
         tankP1 = FindObjectOfType<PositionTester>();
         healerP1 = FindObjectOfType<PositionHealer>();
@@ -64,6 +64,8 @@ public class AbilityUtility2 : MonoBehaviour {
         RotationAttack();
         StartCoroutine(SetDirectionAttackBase());
         DisactivePrewiewUtility();
+        Stun();
+        
     }
 
     public void ChargeAbility()
@@ -318,7 +320,8 @@ public class AbilityUtility2 : MonoBehaviour {
             if (turn.isTurn == true)
             {
                 isAbility = false;
-            }
+            utilityP2.contMp = 2;
+        }
         }
 
         public void DamageTankP1()
@@ -369,7 +372,7 @@ public class AbilityUtility2 : MonoBehaviour {
 
         public void Stun()
         {
-            if (isStun == true && counterStun == 0 && turn.isTurn == true)
+            if ((tankP1.isStun == true || healerP1.isStun == true || utilityP1.isStun == true || dealerP1.isStun == true) && counterStun == 0 && turn.isTurn == true)
             {
                 counterStun++;
             }

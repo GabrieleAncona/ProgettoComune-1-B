@@ -28,6 +28,7 @@ public class PositionDealer2 : MonoBehaviour {
     public float timer;
     public bool isStun;
     public int contProv;
+    public bool isDead;
 
     // Use this for initialization
     void Start()
@@ -51,11 +52,20 @@ public class PositionDealer2 : MonoBehaviour {
     {
         timer -= Time.deltaTime;
         RayCastingAttackController();
-        if(contProv == 1)
+        Death();
+        MyTurn();
+        ///PEZZA
+        if (contProv == 1)
         {
             transform.position = grid.GetWorldPosition(x, y);
             contProv = 0;
         }
+
+        if (selection.isActiveDealerP2 == false)
+        {
+            contMp = 3;
+        }
+        ///PEZZA
     }
 
     public void GoToLeft()
@@ -228,7 +238,7 @@ public class PositionDealer2 : MonoBehaviour {
 
     public void MyTurn()
     {
-        if (selection.isActiveHealerP2 == true && turn.isTurn == false)
+        if (selection.isActiveDealerP2 == true && turn.isTurn == false)
         {
             myTurn = true;
         }
@@ -236,5 +246,16 @@ public class PositionDealer2 : MonoBehaviour {
         {
             myTurn = false;
         }
+    }
+
+    public void Death() {
+
+        if (lm.lifeDealerPlayer2 == 0) {
+
+            gameObject.SetActive(false);
+            isDead = true;
+
+        }
+
     }
 }

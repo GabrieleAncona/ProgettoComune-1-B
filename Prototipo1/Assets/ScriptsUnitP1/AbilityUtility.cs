@@ -33,10 +33,8 @@ public class AbilityUtility : MonoBehaviour {
     public bool isAttUp;
     public bool isAttDown;
     public int CounterStun = 0;
-    public bool isStun;
     public float strength;
     public int vibrato;
-
     public int Counter;
     public int CounterTurnA;
     public bool isCharging;
@@ -44,6 +42,7 @@ public class AbilityUtility : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        CounterStun = 0;
         selection = FindObjectOfType<SelectionController>();
         utility = FindObjectOfType<PositionUtility>();
         tankP2 = FindObjectOfType<PositionTester2>();
@@ -55,6 +54,8 @@ public class AbilityUtility : MonoBehaviour {
         isAbility = false;
         Counter = 2;
         CounterTurnA = 0;
+        vibrato = 10;
+        strength = 0.1f;
     }
 
     // Update is called once per frame
@@ -184,7 +185,7 @@ public class AbilityUtility : MonoBehaviour {
     
 
         //sinistra tank
-        if (Input.GetKeyDown(KeyCode.S)  && isAbility == true && utility.isUnitEnemie == true && isAttUp == true)
+        if (Input.GetKeyDown(KeyCode.S)  && isAbility == true && utility.isUnitEnemie == true && isAttDown == true)
         {
             if (utility.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
@@ -223,7 +224,7 @@ public class AbilityUtility : MonoBehaviour {
       
 
         //sopra tank
-        if (Input.GetKeyDown(KeyCode.A) && isAbility == true && utility.isUnitEnemie == true && isAttUp == true)
+        if (Input.GetKeyDown(KeyCode.A) && isAbility == true && utility.isUnitEnemie == true && isAttLeft == true)
         {
             if (utility.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
@@ -262,7 +263,7 @@ public class AbilityUtility : MonoBehaviour {
        
 
         //sotto tank
-        if (Input.GetKeyDown(KeyCode.D) && isAbility == true && utility.isUnitEnemie == true && isAttUp == true)
+        if (Input.GetKeyDown(KeyCode.D) && isAbility == true && utility.isUnitEnemie == true && isAttRight == true)
         {
             if (utility.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
@@ -270,7 +271,7 @@ public class AbilityUtility : MonoBehaviour {
                 tankP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
-                Counter = 0;
+           
             }
             else if (utility.hit.transform.gameObject.GetComponent<PositionHealer2>())
             {
@@ -278,7 +279,7 @@ public class AbilityUtility : MonoBehaviour {
                 healerP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
-                Counter = 0;
+      
             }
             else if (utility.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
@@ -286,7 +287,7 @@ public class AbilityUtility : MonoBehaviour {
                 dealerP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
-                Counter = 0;
+
             }
             else if (utility.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
@@ -294,7 +295,7 @@ public class AbilityUtility : MonoBehaviour {
                 utilityP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
-                Counter = 0;
+
             }
         }
        
@@ -302,11 +303,11 @@ public class AbilityUtility : MonoBehaviour {
 
     public void Stun()
     {
-        if (isStun == true && CounterStun == 0 && turn.isTurn == true)
+        if ((tankP2.isStun == true || healerP2.isStun == true || utilityP2.isStun == true || dealerP2.isStun == true) && CounterStun == 0 && turn.isTurn == false)
         {
             CounterStun++;
         }
-        else if (Counter >= 1 && turn.isTurn == false)
+        else if (CounterStun >= 1 && turn.isTurn == true)
         {
             tankP2.isStun = false;
             healerP2.isStun = false;
@@ -339,6 +340,7 @@ public class AbilityUtility : MonoBehaviour {
         if (turn.isTurn == false)
         {
             isAbility = false;
+            utility.contMp = 2;
         }
     }
 

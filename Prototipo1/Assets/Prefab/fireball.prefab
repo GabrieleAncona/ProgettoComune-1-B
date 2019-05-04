@@ -126,5 +126,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ab: {fileID: 0}
   firecross: {fileID: 1385112623095884, guid: f5dab9e816e7bbe458319d13d362c28f, type: 2}
+  tankP1: {fileID: 0}
+  tankP2: {fileID: 0}
+  healerP1: {fileID: 0}
+  healerP2: {fileID: 0}
+  utilityP1: {fileID: 0}
+  utilityP2: {fileID: 0}
+  dealerP1: {fileID: 0}
+  dealerP2: {fileID: 0}
+  strength: 0
+  vibrato: 0
   Damage: 5
   exploded: 0

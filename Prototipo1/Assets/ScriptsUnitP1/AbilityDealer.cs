@@ -49,7 +49,7 @@ public class AbilityDealer : MonoBehaviour {
         // controllare
         selector.transform.position = grid.GetWorldPosition(dealerP1.x, dealerP1.y);
         transform.position = grid.GetWorldPosition(dealerP1.x, dealerP1.y);
-        selector.SetActive(false);
+        selector.transform.GetChild(0).gameObject.SetActive(false);
         selection = Object.FindObjectOfType<SelectionController>().GetComponent<SelectionController>();
         Debug.Log("Selection: " + selection);
         utility = FindObjectOfType<PositionUtility>();
@@ -86,8 +86,11 @@ public class AbilityDealer : MonoBehaviour {
         {
             Shoot();
             isAbility = false;
+            selection.isActiveDealer = false;
+            gameObject.GetComponent<InputController>().enabled = true;
             yield return new WaitForSeconds(3f);
-            selector.SetActive(false);
+            dealerP1.contMp = 3;
+            selector.transform.GetChild(0).gameObject.SetActive(false);
             turn.isTurn = false;
         }
        
@@ -173,7 +176,7 @@ public class AbilityDealer : MonoBehaviour {
         if (Input.GetKeyDown(abilityButton) && turn.isTurn == true && isAbility == false && selection.isActiveDealer == true && CounterA == 2)
         {
             isAbility = true;
-            selector.SetActive(true);
+            selector.transform.GetChild(0).gameObject.SetActive(true);
             selector.transform.position = grid.GetWorldPosition(dealerP1.x, dealerP1.y);
             //disabilito input controller per i movimenti(wasd)
             gameObject.GetComponent<InputController>().enabled = false;
@@ -181,7 +184,7 @@ public class AbilityDealer : MonoBehaviour {
         else if (Input.GetKeyDown(abilityButton) && turn.isTurn == true && isAbility == true && selection.isActiveDealer == true)
         {
             isAbility = false;
-            selector.SetActive(false);
+            selector.transform.GetChild(0).gameObject.SetActive(false);
             //riabilito input controller per i movimenti(wasd)
             gameObject.GetComponent<InputController>().enabled = true;
         }
@@ -298,6 +301,7 @@ public class AbilityDealer : MonoBehaviour {
         if (turn.isTurn == false)
         {
             isAbility = false;
+            
         }
     }
 

@@ -8,7 +8,7 @@ public class AbilityTank2 : MonoBehaviour {
 
     public LifeManager lm;
     public TurnManager turn;
-    public int att = 1;
+    public int att = 3;
     public PositionTester tankP1;
     public PositionTester2 tankP2;
     public PositionHealer2 healerP2;
@@ -30,7 +30,7 @@ public class AbilityTank2 : MonoBehaviour {
     public BaseGrid grid;
     public PositionHealer healerP1;
     public float duration = 0.2f;
-
+    public bool isBlock;
     public int Counter;
     public int CounterTurnA;
     public bool isCharging;
@@ -208,6 +208,7 @@ public class AbilityTank2 : MonoBehaviour {
 
             if (tankP2.hit.transform.gameObject.GetComponent<PositionTester>())
             {
+               
                 DamageTankP1();
                 tankP2.transform.position = grid.GetWorldPosition(tankP2.x--, tankP2.y);
                 tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
@@ -348,6 +349,7 @@ public class AbilityTank2 : MonoBehaviour {
         if (turn.isTurn == true)
         {
             isAbility = false;
+            tankP2.contMp = 2;
         }
     }
 
@@ -396,18 +398,39 @@ public class AbilityTank2 : MonoBehaviour {
         selectionP2.contSelectionP2 = 0;
     }
 
-    //set up range verticale e orrizontale per portata ability
-    /*public void SetRange()
-    {
-        //range tank
-        rangeHzTank = tank.maxRangeHzTankPlayer1 - tankP2.maxRangeHzTankPlayer2;
-        rangeVtTank = tank.maxRangeVtTankPlayer1 - tankP2.maxRangeVtTankPlayer2;
-        //range healer
-        rangeHzHealer = healerP1.maxRangeHzHealerPlayer1 - tankP2.maxRangeHzTankPlayer2;
-        rangeVtHealer = healerP1.maxRangeVtHealerPlayer1 - tankP2.maxRangeVtTankPlayer2;
-        // altre unità
-    }*/
+    public void OnTriggerEnter(Collider other) {
+        if (other.gameObject.tag == "UnitP1") {
 
-    //disattivo prewiew attacco/abilità
+            Debug.Log("entra dotween");
+            if (isAttUp == true) {
+                //tank.transform.position = grid.GetWorldPosition(tank.x, tank.y);
+                tankP2.transform.position = grid.GetWorldPosition(tankP2.x--, tankP2.y);
+                tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
+                //tank.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
+            }
+            else if (isAttDown == true) {
+                //tank.transform.position = grid.GetWorldPosition(tank.x, tank.y);
+                
+                tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
+                tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
+                //tank.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
+            }
+            else if (isAttLeft == true) {
+                tankP2.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y++);
+                tankP2.transform.DOMoveZ(tankP2.y, duration).SetAutoKill(false);
+            }
+            else if (isAttRight == true) {
+                tankP2.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y++);
+                tankP2.transform.DOMoveZ(tankP2.y, duration).SetAutoKill(false);
+            }
+        }
+    }
+
+    public void OnTriggerExit(Collider other) {
+        if (other.gameObject.tag == "UnitP1") {
+            isBlock = false;
+
+        }
+    }
 
 }

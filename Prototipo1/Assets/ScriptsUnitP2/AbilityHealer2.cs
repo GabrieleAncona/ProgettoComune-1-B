@@ -329,6 +329,7 @@ public class AbilityHealer2 : MonoBehaviour
         if (turn.isTurn == true)
         {
             isAbility = false;
+            healerP2.contMp = 2;
         }
     }
 }

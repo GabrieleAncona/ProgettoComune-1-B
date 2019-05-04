@@ -44,6 +44,8 @@ public class AttackBaseUtility : MonoBehaviour {
         lm = FindObjectOfType<LifeManager>();
         turn = FindObjectOfType<TurnManager>();
         isAttack = false;
+        vibrato = 10;
+        strength = 0.1f;
     }
 
     // Update is called once per frame
@@ -177,7 +179,7 @@ public class AttackBaseUtility : MonoBehaviour {
 
 
         //sinistra tank
-        if (Input.GetKeyDown(KeyCode.S) && isAttack == true && utility.isUnitEnemie == true && isAttUp == true)
+        if (Input.GetKeyDown(KeyCode.S) && isAttack == true && utility.isUnitEnemie == true && isAttDown == true)
         {
             if (utility.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
@@ -228,7 +230,7 @@ public class AttackBaseUtility : MonoBehaviour {
 
 
         //sopra tank
-        if (Input.GetKeyDown(KeyCode.A) && isAttack == true && utility.isUnitEnemie == true && isAttUp == true)
+        if (Input.GetKeyDown(KeyCode.A) && isAttack == true && utility.isUnitEnemie == true && isAttLeft == true)
         {
             if (utility.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
@@ -279,7 +281,7 @@ public class AttackBaseUtility : MonoBehaviour {
 
 
         //sotto tank
-        if (Input.GetKeyDown(KeyCode.D) && isAttack == true && utility.isUnitEnemie == true && isAttUp == true)
+        if (Input.GetKeyDown(KeyCode.D) && isAttack == true && utility.isUnitEnemie == true && isAttRight == true)
         {
             if (utility.hit.transform.gameObject.GetComponent<PositionTester2>())
             {

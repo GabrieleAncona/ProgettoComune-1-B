@@ -40,7 +40,7 @@ public class AbilityDealer2 : MonoBehaviour
         // controllare
         selector.transform.position = grid.GetWorldPosition(dealerP2.x, dealerP2.y);
         transform.position = grid.GetWorldPosition(dealerP2.x, dealerP2.y);
-        selector.SetActive(false);
+        selector.transform.GetChild(0).gameObject.SetActive(false);
         selectionP2 = Object.FindObjectOfType<SelectControllerP2>().GetComponent<SelectControllerP2>();
        
         dealerP2 = FindObjectOfType<PositionDealer2>();
@@ -87,8 +87,10 @@ public class AbilityDealer2 : MonoBehaviour
         {
             Shoot();
             isAbility = false;
+            selectionP2.isActiveDealerP2 = false;
+            dealerP2.contMp = 3;
             yield return new WaitForSeconds(3f);
-            selector.SetActive(false);
+            selector.transform.GetChild(0).gameObject.SetActive(false);
             turn.isTurn = true;
         }
     }
@@ -155,7 +157,7 @@ public class AbilityDealer2 : MonoBehaviour
             if (Input.GetKeyDown(abilityButton) && turn.isTurn == false && isAbility == false && selectionP2.isActiveDealerP2 == true && CounterA == 2)
             {
                 isAbility = true;
-            selector.SetActive(true);
+            selector.transform.GetChild(0).gameObject.SetActive(true);
             selector.transform.position = grid.GetWorldPosition(dealerP2.x, dealerP2.y);
             //disabilito input controller per i movimenti(wasd)
             gameObject.GetComponent<InputController>().enabled = false;
@@ -163,8 +165,9 @@ public class AbilityDealer2 : MonoBehaviour
             else if (Input.GetKeyDown(abilityButton) && turn.isTurn == false && isAbility == true && selectionP2.isActiveDealerP2 == true)
             {
                 isAbility = false;
-                //riabilito input controller per i movimenti(wasd)
-                gameObject.GetComponent<InputController>().enabled = true;
+            selector.transform.GetChild(0).gameObject.SetActive(true);
+            //riabilito input controller per i movimenti(wasd)
+            gameObject.GetComponent<InputController>().enabled = true;
             }
         }
 

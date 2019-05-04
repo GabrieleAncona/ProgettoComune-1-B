@@ -31,7 +31,7 @@ public class HudManagerTest : MonoBehaviour
     public Text dealerMp2;
     public Text lifeDP2;
     public Text AbChargeDP2;
-
+    
     public TurnManager turn;
     public LifeManager lm;
     public PositionTester tankP1;
@@ -51,26 +51,26 @@ public class HudManagerTest : MonoBehaviour
     public AbilityUtility2 abUtilityP2;
     public AbilityDealer2 abDealerP2;
 
-    public Slider healthTankP1;
-    public Slider healthTankP2;
+    public Slider healthTankP1 , miniBarTankP1;
+    public Slider healthTankP2 , miniBarTankP2;
     public Slider MpTankP1;
     public Slider MpTankP2;
     public Slider abChargeTP1;
     public Slider abChargeTP2;
-    public Slider healthHealerP1;
-    public Slider healthHealerP2;
+    public Slider healthHealerP1 , miniBarHealerP1;
+    public Slider healthHealerP2 , miniBarHealerP2;
     public Slider MpHealerP1;
     public Slider MpHealerP2;
     public Slider abChargeHP1;
     public Slider abChargeHP2;
-    public Slider healthUtilityP1;
-    public Slider healthUtilityP2;
+    public Slider healthUtilityP1 , miniBarUtilityP1;
+    public Slider healthUtilityP2 , miniBarUtilityP2;
     public Slider MpUtilityP1;
     public Slider MpUtilityP2;
     public Slider abChargeUP1;
     public Slider abChargeUP2;
-    public Slider healthDealerP1;
-    public Slider healthDealerP2;
+    public Slider healthDealerP1 , miniBarDealerP1;
+    public Slider healthDealerP2 , miniBarDealerP2;
     public Slider MpDealerP1;
     public Slider MpDealerP2;
     public Slider abChargeDP1;
@@ -127,6 +127,7 @@ public class HudManagerTest : MonoBehaviour
     {
         tankMp.text = tankP1.contMp.ToString();
         lifeTP1.text = lm.lifeTank.ToString();
+        miniBarTankP1.value = lm.lifeTank;
         AbChargeTP1.text = abTankP1.Counter.ToString();
         if (selection.isActiveTank == true)
         {
@@ -137,6 +138,7 @@ public class HudManagerTest : MonoBehaviour
     }
     public void SetSliderHealerP1()
     {
+        miniBarHealerP1.value = lm.lifeHealer;
         healerMp.text = healerP1.contMp.ToString();
         lifeHP1.text = lm.lifeHealer.ToString();
         AbChargeHP1.text = abHealerP1.Counter.ToString();
@@ -154,6 +156,7 @@ public class HudManagerTest : MonoBehaviour
             MpUtilityP1.value = utilityP1.contMp;
             abChargeUP1.value = abUtilityP1.Counter;
         }
+        miniBarUtilityP1.value = lm.lifeUtility;
         healthUtilityP1.value = lm.lifeUtility;
         utilityMp.text = utilityP1.contMp.ToString();
         lifeUP1.text = lm.lifeUtility.ToString();
@@ -166,6 +169,7 @@ public class HudManagerTest : MonoBehaviour
             MpDealerP1.value = dealerP1.contMp;
             abChargeDP1.value = abDealerP1.CounterA;
         }
+        miniBarDealerP1.value = lm.lifeDealer;
         healthDealerP1.value = lm.lifeDealer;
         dealerMp.text = dealerP1.contMp.ToString();
         lifeDP1.text = lm.lifeDealer.ToString();
@@ -176,6 +180,7 @@ public class HudManagerTest : MonoBehaviour
     {
         tankMpP2.text = tankP2.contMp.ToString();
         lifeTP2.text = lm.lifeTankPlayer2.ToString();
+        miniBarTankP2.value = lm.lifeTankPlayer2;
         AbChargeTP2.text = abTankP2.Counter.ToString();
         if (selectionP2.isActiveTankP2 == true)
         {
@@ -191,6 +196,7 @@ public class HudManagerTest : MonoBehaviour
             MpHealerP2.value = healerP2.contMp;
             abChargeHP2.value = abHealerP2.Counter;
         }
+        miniBarHealerP2.value = lm.lifeHealerPlayer2;
         healthHealerP2.value = lm.lifeHealerPlayer2;
         healerMpP2.text = healerP2.contMp.ToString();
         lifeHP2.text = lm.lifeHealerPlayer2.ToString();
@@ -203,6 +209,7 @@ public class HudManagerTest : MonoBehaviour
             MpUtilityP2.value = utilityP2.contMp;
             abChargeUP2.value = abUtilityP2.Counter;
         }
+        miniBarUtilityP2.value = lm.lifeUtilityPlayer2;
         healthUtilityP2.value = lm.lifeUtilityPlayer2;
         utilityMp2.text = utilityP2.contMp.ToString();
         lifeUP2.text = lm.lifeUtilityPlayer2.ToString();
@@ -215,6 +222,7 @@ public class HudManagerTest : MonoBehaviour
             MpDealerP2.value = dealerP2.contMp;
             abChargeDP2.value = abDealerP2.CounterA;
         }
+        miniBarDealerP2.value = lm.lifeDealerPlayer2;
         healthDealerP2.value = lm.lifeDealerPlayer2;
         dealerMp2.text = dealerP2.contMp.ToString();
         lifeDP2.text = lm.lifeDealerPlayer2.ToString();

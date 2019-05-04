@@ -8,7 +8,7 @@ public class AttackBase1 : MonoBehaviour
 {
     public LifeManager lm;
     public TurnManager turn;
-    public int att = 1;
+    public int att = 4;
     public PositionTester tank;
     public PositionTester2 tankP2;
     public PositionHealer2 healerP2;
@@ -45,13 +45,13 @@ public class AttackBase1 : MonoBehaviour
         isAttack = false;
         vibrato = 10;
         strength = 0.1f;
-
+        ab = FindObjectOfType<AbilityTank>();
     }
 	
     void Update()
     {
-        SetAttackBase();
         RotationAttack();
+        SetAttackBase();
         StartCoroutine(SetDirectionAttackBase());
         DisactivePrewiewTank();
     }
@@ -89,12 +89,14 @@ public class AttackBase1 : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
+
+                
                 transform.DOLocalRotate(new Vector3(0, 90, 0), 0.2f);
                 isAttUp = true;
                 isAttDown = false;
                 isAttLeft = false;
                 isAttRight = false;
-                tank.transform.position = grid.GetWorldPosition(tank.x, tank.y);
+                //tank.transform.position = grid.GetWorldPosition(tank.x, tank.y);
             }
             if (Input.GetKeyDown(KeyCode.S))
             {
@@ -103,7 +105,7 @@ public class AttackBase1 : MonoBehaviour
                 isAttDown = true;
                 isAttLeft = false;
                 isAttRight = false;
-                tank.transform.position = grid.GetWorldPosition(tank.x, tank.y);
+                //tank.transform.position = grid.GetWorldPosition(tank.x, tank.y);
             }
             if (Input.GetKeyDown(KeyCode.D))
             {
@@ -112,7 +114,7 @@ public class AttackBase1 : MonoBehaviour
                 isAttDown = false;
                 isAttLeft = false;
                 isAttRight = true;
-                tank.transform.position = grid.GetWorldPosition(tank.x, tank.y);
+                //tank.transform.position = grid.GetWorldPosition(tank.x, tank.y);
             }
             if (Input.GetKeyDown(KeyCode.A))
             {
@@ -121,7 +123,7 @@ public class AttackBase1 : MonoBehaviour
                 isAttDown = false;
                 isAttLeft = true;
                 isAttRight = false;
-                tank.transform.position = grid.GetWorldPosition(tank.x, tank.y);
+                //tank.transform.position = grid.GetWorldPosition(tank.x, tank.y);
             }
         }
     }
@@ -130,10 +132,11 @@ public class AttackBase1 : MonoBehaviour
     {
         //SetRange();
         //tank destra
-        if(Input.GetKeyDown(KeyCode.W) && isAttack == true && isAttUp == true && tank.isUnitEnemie == true)
+        if(Input.GetKeyDown(KeyCode.W) && isAttack == true && isAttUp == true && tank.isUnitEnemie == false /* pezza */)
         {
             if (tank.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
+                Debug.Log("w");
                 DamageTankP2();
                 tankP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
@@ -180,12 +183,13 @@ public class AttackBase1 : MonoBehaviour
         }
       
         //tanke sinistra
-        if (Input.GetKeyDown(KeyCode.S)  && isAttack == true && isAttDown == true && tank.isUnitEnemie == true)
+        if (Input.GetKeyDown(KeyCode.S)  && isAttack == true && isAttDown == true && tank.isUnitEnemie == false)
         {
 
             if (tank.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
                 DamageTankP2();
+                Debug.Log("s");
                 tankP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
@@ -230,7 +234,7 @@ public class AttackBase1 : MonoBehaviour
         }
       
         //tank sopra
-        if (Input.GetKeyDown(KeyCode.A) && isAttack == true && isAttLeft == true && tank.isUnitEnemie == true)
+        if (Input.GetKeyDown(KeyCode.A) && isAttack == true && isAttLeft == true && tank.isUnitEnemie == false)
         {
             if (tank.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
@@ -280,7 +284,7 @@ public class AttackBase1 : MonoBehaviour
         }
       
         // healer sotto
-        if (Input.GetKeyDown(KeyCode.D)  && isAttack == true && isAttRight == true && tank.isUnitEnemie == true)
+        if (Input.GetKeyDown(KeyCode.D)  && isAttack == true && isAttRight == true && tank.isUnitEnemie == false)
         {
             if (tank.hit.transform.gameObject.GetComponent<PositionTester2>())
             {

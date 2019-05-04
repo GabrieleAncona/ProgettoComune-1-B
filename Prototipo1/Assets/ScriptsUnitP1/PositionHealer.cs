@@ -28,6 +28,8 @@ public class PositionHealer : MonoBehaviour {
     public LifeManager lm;
     public bool myTurn;
     public bool isStun;
+    public bool isDead;
+
     public void Start()
     {
         myTurn = false;
@@ -50,6 +52,11 @@ public class PositionHealer : MonoBehaviour {
         timer -= Time.deltaTime;
         RayCastingController();
         MyTurn();
+        Death();
+
+        if (selection.isActiveHealer == false) {
+            contMp = 4;
+        }
     }
 
     public void GoToLeft()
@@ -143,11 +150,11 @@ public class PositionHealer : MonoBehaviour {
 
     public void ToPass()
     {
-
         turn.isTurn = false;
         contMp = 4;
         selection.isActiveHealer = false;
     }
+
 
     public void OnTriggerEnter(Collider coll)
     {
@@ -220,6 +227,7 @@ public class PositionHealer : MonoBehaviour {
             {
                 //Debug.DrawRay(GameObject.FindGameObjectWithTag("UnitP2").transform.position + new Vector3(0, 0.5f), Vector3.right * hit.distance, Color.blue);
                 isUnitEnemie = false;
+                Debug.Log("isUnitEnemie " + isUnitEnemie);
             }
 
 
@@ -232,6 +240,7 @@ public class PositionHealer : MonoBehaviour {
             {
                 //Debug.DrawRay(GameObject.FindGameObjectWithTag("UnitP2").transform.position + new Vector3(0, 0.5f), Vector3.right * hit.distance, Color.blue);
                 isUnitAlly = false;
+                
             }
 
         }
@@ -252,6 +261,18 @@ public class PositionHealer : MonoBehaviour {
         {
             myTurn = false;
         }
+    }
+
+    public void Death() 
+    {
+
+        if (lm.lifeHealer <= 0) {
+
+            gameObject.SetActive(false);
+            isDead = true;
+
+        }
+
     }
 
 }

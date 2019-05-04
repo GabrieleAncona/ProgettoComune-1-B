@@ -134,7 +134,7 @@ public class AttackBaseUtility2 : MonoBehaviour {
     {
         //SetRange();
         //tank destra
-        if (Input.GetKeyDown(KeyCode.K) && isAttack == true && isAttUp == true && utilityP2.isUnitEnemie == true)
+        if (Input.GetKeyDown(KeyCode.K) && isAttack == true && isAttUp == true && utilityP2.isUnitEnemie == false)
         {
             if (utilityP2.hit.transform.gameObject.GetComponent<PositionTester>())
             {
@@ -187,8 +187,8 @@ public class AttackBaseUtility2 : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.I) && isAttack == true && isAttDown == true && utilityP2.isUnitEnemie == true)
         {
 
-
-            if (utilityP2.hit.transform.gameObject.GetComponent<PositionTester>())
+           
+           if (utilityP2.hit.transform.gameObject.GetComponent<PositionTester>())
             {
                 DamageTankP1();
                 tankP1.transform.DOShakePosition(2f, strength, vibrato);
@@ -196,10 +196,10 @@ public class AttackBaseUtility2 : MonoBehaviour {
                 turn.isTurn = true;
                 if (ab.Counter < 2)
                 {
-                    ab.Counter = 0;
+                   ab.Counter = 0;
                 }
             }
-            else if (utilityP2.hit.transform.gameObject.GetComponent<PositionHealer>())
+             else if (utilityP2.hit.transform.gameObject.GetComponent<PositionHealer>())
             {
                 DamageHealerP1();
                 healerP1.transform.DOShakePosition(2f, strength, vibrato);

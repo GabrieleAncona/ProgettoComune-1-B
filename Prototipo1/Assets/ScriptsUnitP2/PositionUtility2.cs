@@ -28,6 +28,7 @@ public class PositionUtility2 : MonoBehaviour {
     public float timer;
     public bool myTurn;
     public bool isStun;
+    public bool isDead;
 
     // Use this for initialization
     void Start()
@@ -50,6 +51,12 @@ public class PositionUtility2 : MonoBehaviour {
     {
         timer -= Time.deltaTime;
         RayCastingController();
+        Death();
+        MyTurn();
+
+        if (selection.isActiveUtilityP2 == false) {
+            contMp = 3;
+        }
     }
 
     public void GoToLeft()
@@ -199,8 +206,10 @@ public class PositionUtility2 : MonoBehaviour {
             //RaycastHit hit;
             Ray rayRight = new Ray(transform.position, transform.forward);
 
+            Debug.DrawRay(transform.position + new Vector3(0, 0.3f), Vector3.right * hit.distance, Color.red);
             if (Physics.Raycast(rayRight, out hit, 3) && hit.collider.tag == "UnitP1")
             {
+                Debug.Log("seeeeeee");
                 Debug.DrawRay(transform.position + new Vector3(0, 0.3f), Vector3.forward * hit.distance, Color.red);
 
                 isUnitEnemie = true;
@@ -229,5 +238,16 @@ public class PositionUtility2 : MonoBehaviour {
         {
             myTurn = false;
         }
+    }
+
+    public void Death() {
+
+        if (lm.lifeUtilityPlayer2 <= 0) {
+
+            gameObject.SetActive(false);
+            isDead = true;
+
+        }
+
     }
 }
