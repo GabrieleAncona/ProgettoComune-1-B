@@ -29,6 +29,7 @@ public class PositionDealer : MonoBehaviour {
     public bool myTurn;
     public float timer;
     public bool isDead;
+    public int idPlayer;
 
     // Use this for initialization
     void Start()

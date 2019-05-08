@@ -28,6 +28,7 @@ public class PositionUtility : MonoBehaviour {
     public bool isStun;
     public float timer;
     public bool isDead;
+    public int idPlayer;
 
     // Use this for initialization
     void Start()

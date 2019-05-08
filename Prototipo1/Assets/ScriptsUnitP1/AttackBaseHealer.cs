@@ -141,7 +141,7 @@ public class AttackBaseHealer : MonoBehaviour{
     {
        // SetRange();
         // tanks
-        if (Input.GetKeyDown(KeyCode.W)  && isAttackHealer == true && isAttUp == true && healerP1.isUnitEnemie == true)
+        if (Input.GetKeyDown(KeyCode.Space)  && isAttackHealer == true  && healerP1.isUnitEnemie == true)
         {
             if (healerP1.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
@@ -191,7 +191,7 @@ public class AttackBaseHealer : MonoBehaviour{
         }
 
 
-        //tank
+        /*//tank
         if (Input.GetKeyDown(KeyCode.S) && isAttackHealer == true && isAttDown == true && healerP1.isUnitEnemie == true)
         {
 
@@ -342,7 +342,7 @@ public class AttackBaseHealer : MonoBehaviour{
                     ab.Counter = 0;
                 }
             }
-        }
+        }*/
 
 
     }

@@ -137,7 +137,7 @@ public class AbilityHealer : MonoBehaviour {
     {
         //SetRange();
         //destra
-        if (Input.GetKeyDown(KeyCode.W) && isAbility == true && lm.lifeTank < lm.lifeMaxTank && isAttUp == true && healerP1.isUnitAlly == true)
+        if (Input.GetKeyDown(KeyCode.Space) && isAbility == true && lm.lifeTank < lm.lifeMaxTank && healerP1.isUnitAlly == true)
         {
             if ((healerP1.hit.transform.gameObject.GetComponent<PositionTester>()))
             {
@@ -170,7 +170,7 @@ public class AbilityHealer : MonoBehaviour {
                 }
             }
         }
-        //sinistra
+       /* //sinistra
         if (Input.GetKeyDown(KeyCode.S)  && isAbility == true && lm.lifeTank < lm.lifeMaxTank && isAttDown == true && healerP1.isUnitAlly == true)
         {
             if ((healerP1.hit.transform.gameObject.GetComponent<PositionTester>()))
@@ -274,7 +274,7 @@ public class AbilityHealer : MonoBehaviour {
                 }
             }
 
-        }
+        }*/
 
         //autoheal 
         if(Input.GetKeyDown(KeyCode.Z) && isAbility == true && lm.lifeHealer < lm.lifeMaxHealer)

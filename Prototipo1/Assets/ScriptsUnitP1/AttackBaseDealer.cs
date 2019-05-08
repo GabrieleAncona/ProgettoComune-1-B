@@ -132,7 +132,7 @@ public class AttackBaseDealer : MonoBehaviour {
       
 
         //tank destra
-        if (Input.GetKeyDown(KeyCode.W)  && isAttack == true && isAttUp == true && dealer.isUnitEnemie == true)
+        if (Input.GetKeyDown(KeyCode.Space)  && isAttack == true  && dealer.isUnitEnemie == true)
         {
             if (dealer.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
@@ -182,7 +182,7 @@ public class AttackBaseDealer : MonoBehaviour {
         // healer destra
      
 
-        //tank sinistra
+       /* //tank sinistra
         if (Input.GetKeyDown(KeyCode.S) && isAttack == true && isAttDown == true && dealer.isUnitEnemie == true)
         {
             if (dealer.hit.transform.gameObject.GetComponent<PositionTester2>())
@@ -330,7 +330,7 @@ public class AttackBaseDealer : MonoBehaviour {
                     ab.Counter = 0;
                 }
             }
-        }
+        }*/
     
     }
 
