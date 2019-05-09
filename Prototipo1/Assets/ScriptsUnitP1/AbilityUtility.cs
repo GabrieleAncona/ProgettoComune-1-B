@@ -147,7 +147,7 @@ public class AbilityUtility : MonoBehaviour {
     {
         //SetRange();
         //destra tank
-        if (Input.GetKeyDown(KeyCode.W) && isAbility == true && utility.isUnitEnemie == true && isAttUp == true)
+        if (Input.GetKeyDown(KeyCode.Space) && isAbility == true && utility.isUnitEnemie == true)
         {
             if (utility.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
@@ -185,7 +185,7 @@ public class AbilityUtility : MonoBehaviour {
     
 
         //sinistra tank
-        if (Input.GetKeyDown(KeyCode.S)  && isAbility == true && utility.isUnitEnemie == true && isAttDown == true)
+       /* if (Input.GetKeyDown(KeyCode.Space)  && isAbility == true && utility.isUnitEnemie == true && isAttDown == true)
         {
             if (utility.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
@@ -224,7 +224,7 @@ public class AbilityUtility : MonoBehaviour {
       
 
         //sopra tank
-        if (Input.GetKeyDown(KeyCode.A) && isAbility == true && utility.isUnitEnemie == true && isAttLeft == true)
+        if (Input.GetKeyDown(KeyCode.Space) && isAbility == true && utility.isUnitEnemie == true && isAttLeft == true)
         {
             if (utility.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
@@ -263,7 +263,7 @@ public class AbilityUtility : MonoBehaviour {
        
 
         //sotto tank
-        if (Input.GetKeyDown(KeyCode.D) && isAbility == true && utility.isUnitEnemie == true && isAttRight == true)
+        if (Input.GetKeyDown(KeyCode.Space) && isAbility == true && utility.isUnitEnemie == true && isAttRight == true)
         {
             if (utility.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
@@ -297,7 +297,7 @@ public class AbilityUtility : MonoBehaviour {
                 turn.isTurn = false;
 
             }
-        }
+        }*/
        
     }
 

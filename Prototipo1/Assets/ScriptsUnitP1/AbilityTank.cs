@@ -146,7 +146,7 @@ public class AbilityTank : MonoBehaviour
     {
         //SetRange();
         //destra TankP2
-        if (Input.GetKeyDown(KeyCode.W)  && isAbility == true && tank.isUnitEnemie == false && isAttUp == true)
+        if (Input.GetKeyDown(KeyCode.Space)  && isAbility == true && tank.isUnitEnemie == false)
         {
             if (tank.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
@@ -195,7 +195,7 @@ public class AbilityTank : MonoBehaviour
 
         }
         
-        //sinistra tank
+        /*//sinistra tank
         if (Input.GetKeyDown(KeyCode.S)   && isAbility == true && tank.isUnitEnemie == false && isAttDown == true)
         {
             if (tank.hit.transform.gameObject.GetComponent<PositionTester2>())
@@ -329,7 +329,7 @@ public class AbilityTank : MonoBehaviour
                 turn.isTurn = false;
                 Counter = 0;
             }
-        }
+        }*/
 
   
 

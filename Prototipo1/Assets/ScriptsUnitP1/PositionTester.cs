@@ -30,6 +30,7 @@ public class PositionTester : MonoBehaviour
     public bool myTurn;
     public bool isStun;
     public bool isDead;
+    public int idPlayer;
 
     //public float random;
 
