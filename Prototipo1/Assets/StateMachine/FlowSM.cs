@@ -10,34 +10,39 @@ using UnityEngine;
 public class FlowSM : MonoBehaviour
 {
 
-   
-   
-
     Animator SMController;
 
     // Start is called before the first frame update
     void Start()
     {
         SMController = GetComponent<Animator>();
-        StateBehaviourBase.Context context = new StateBehaviourBase.Context()
+        StateBehaviourBase.Context contextPlayer1 = new StateBehaviourBase.Context()
         {
             SetupDone = false,
-           
+
+        };
+        StateBehaviourBase.Context contextPlayer2 = new StateBehaviourBase.Context()
+        {
+            SetupDone = false,
+
         };
         foreach (StateBehaviourBase state in SMController.GetBehaviours<StateBehaviourBase>())
         {
-            state.Setup(context);
+            state.Setup(contextPlayer1);
+        }
+        foreach (StateBehaviourBase state in SMController.GetBehaviours<StateBehaviourBase>())
+        {
+            state.Setup(contextPlayer2);
         }
     }
 
-  /*  // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-            SMController.SetTrigger("Next");
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-            SMController.SetTrigger("Prev");
-    }*/
+    /*  // Update is called once per frame
+      void Update()
+      {
+          if (Input.GetKeyDown(KeyCode.RightArrow))
+              SMController.SetTrigger("Next");
+          if (Input.GetKeyDown(KeyCode.LeftArrow))
+              SMController.SetTrigger("Prev");
+      }*/
 
 }

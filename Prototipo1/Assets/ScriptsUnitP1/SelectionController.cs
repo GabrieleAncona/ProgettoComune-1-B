@@ -168,6 +168,7 @@ public class SelectionController : MonoBehaviour {
         {
             Debug.Log("attiva tank");
             isActiveTank = true;
+            GameManager.singleton.SMController.SetTrigger("GoToActionMenu")
             //transform.position = grid.GetWorldPosition(tankP1.x, tankP1.y);
             //gameObject.GetComponent<MeshRenderer>().enabled = false;
 
