@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class GameManager : MonoBehaviour {
     public static GameManager singleton;
+
     public LifeManager lm;
     public TurnManager tm;
     public HudManagerTest hud;
@@ -37,6 +38,8 @@ public class GameManager : MonoBehaviour {
         SingletonFunction();
         SMController = GetComponent<Animator>();
         SetupManager();
+
+		
         
     }
 
