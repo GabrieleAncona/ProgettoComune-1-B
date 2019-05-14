@@ -168,7 +168,7 @@ public class SelectionController : MonoBehaviour {
         {
             Debug.Log("attiva tank");
             isActiveTank = true;
-            GameManager.singleton.SMController.SetTrigger("GoToActionMenu")
+            GameManager.singleton.SMController.SetTrigger("GoToActionMenu");
             //transform.position = grid.GetWorldPosition(tankP1.x, tankP1.y);
             //gameObject.GetComponent<MeshRenderer>().enabled = false;
 
@@ -177,6 +177,7 @@ public class SelectionController : MonoBehaviour {
         {
             Debug.Log("attiva healer");
             isActiveHealer = true;
+            GameManager.singleton.SMController.SetTrigger("GoToActionMenu");
             //transform.position = grid.GetWorldPosition(healerP1.x, healerP1.y);
             //gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
@@ -184,6 +185,7 @@ public class SelectionController : MonoBehaviour {
         {
             Debug.Log("attiva utility");
             isActiveUtility = true;
+            GameManager.singleton.SMController.SetTrigger("GoToActionMenu");
             //transform.position = grid.GetWorldPosition(utilityP1.x, utilityP1.y);
             //gameObject.GetComponent<MeshRenderer>().enabled = false;
 
@@ -192,6 +194,7 @@ public class SelectionController : MonoBehaviour {
         {
             Debug.Log("attiva dealer");
             isActiveDealer = true;
+            GameManager.singleton.SMController.SetTrigger("GoToActionMenu");
             //transform.position = grid.GetWorldPosition(dealerP1.x, dealerP1.y);
             //gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
