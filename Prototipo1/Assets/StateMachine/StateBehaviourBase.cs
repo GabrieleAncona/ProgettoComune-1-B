@@ -11,11 +11,11 @@ public class StateBehaviourBase : StateMachineBehaviour
         public GameObject PlayerPrefab;
     }
 
-    protected Context ctx;
+    public Context ctxPlayer;
 
     public void Setup(Context _ctx)
     {
-        ctx = _ctx;
+        ctxPlayer = _ctx;
     }
 
 

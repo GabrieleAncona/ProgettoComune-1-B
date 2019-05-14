@@ -14,7 +14,7 @@ public class ActionMenuController : MonoBehaviour {
     void Start ()
     {
         ///starta con il movimento attivo
-        Movement();
+       /// Movement();
 
 	}
 	
@@ -71,8 +71,8 @@ public class ActionMenuController : MonoBehaviour {
                 }
     }
 
-    public void SetupActionMenu()
+   /* public void SetupActionMenu()
     {
-
-    }
+        if(GameManager.singleton.sc.)
+    }*/
 }

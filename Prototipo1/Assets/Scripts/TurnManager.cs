@@ -8,6 +8,11 @@ using UnityEngine.UI;
 //controlla turno gestisce camera
 public class TurnManager : MonoBehaviour
 {
+    /// <summary>
+    /// se  isTurn == true è il turno del player 1
+    /// se  isTurn == false è il turno del player 2
+    /// </summary>
+
     public bool isTurn = true;
     public int ContRound;
     

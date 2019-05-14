@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
     public static GameManager singleton;
     public LifeManager lm;
     public TurnManager tm;
-    public HudManagerTest ui;
+    public HudManagerTest hud;
     public MainMenùController mc;
     public ActionMenuController acm;
     public SelectionController sc;
@@ -23,39 +23,47 @@ public class GameManager : MonoBehaviour {
 
     public Animator SMController;
 
+    StateBehaviourBase.Context contextPlayer1 = new StateBehaviourBase.Context();
+    StateBehaviourBase.Context contextPlayer2 = new StateBehaviourBase.Context();
+
+
+    //StateBehaviourBase.Context contextPlayer2 = new StateBehaviourBase.Context();
+
+
     // Use this for initialization
     void Start ()
     {
 
         SingletonFunction();
-
         SMController = GetComponent<Animator>();
-        StateBehaviourBase.Context contextPlayer1 = new StateBehaviourBase.Context()
-        {
-            //SetupDone = false,
-
-        };
-        StateBehaviourBase.Context contextPlayer2 = new StateBehaviourBase.Context()
-        {
-            //SetupDone = false,
-
-        };
-        foreach (StateBehaviourBase state in SMController.GetBehaviours<StateBehaviourBase>())
-        {
-           //state.Setup(contextPlayer1);
-        }
-        foreach (StateBehaviourBase state in SMController.GetBehaviours<StateBehaviourBase>())
-        {
-            //state.Setup(contextPlayer2);
-        }
-
-       /// GoToMainMenu();
+        SetupManager();
+        
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update ()
+    {
+        
+
+        foreach (StateBehaviourBase state in SMController.GetBehaviours<StateBehaviourBase>())
+        {
+            if (tm.isTurn == true)
+            {
+                state.Setup(contextPlayer1);
+                Debug.Log("il context è " + state.ctxPlayer);
+
+            }
+        }
+        foreach (StateBehaviourBase state in SMController.GetBehaviours<StateBehaviourBase>())
+        {
+            if (tm.isTurn == false)
+            {
+                state.Setup(contextPlayer2);
+                Debug.Log("il context è " + state.ctxPlayer);
+            }
+        }
+
+    }
 
     /// <summary>
     /// iscrizione agli eventi
@@ -147,8 +155,13 @@ public class GameManager : MonoBehaviour {
     /// <summary>
     /// funzione che mi iscrive a tutti gli eventi
     /// </summary>
-    public static void Setup()
+    public void SetupManager()
     {
-
+        lm = FindObjectOfType<LifeManager>();
+        tm = FindObjectOfType<TurnManager>();
+        hud = FindObjectOfType<HudManagerTest>();
+        mc = FindObjectOfType<MainMenùController>();
+        acm = FindObjectOfType<ActionMenuController>();
+        sc = FindObjectOfType<SelectionController>();
     }
 }
