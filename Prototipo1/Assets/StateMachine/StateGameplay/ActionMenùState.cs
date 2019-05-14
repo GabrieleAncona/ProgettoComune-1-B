@@ -9,7 +9,7 @@ public class ActionMenùState : StateBehaviourBase
     {
         //Debug.LogFormat("SetupState {0} in Init_State", ctx.SetupDone);
 
-        
+        GameManager.singleton.SetupActionMenu();
 
 
     }

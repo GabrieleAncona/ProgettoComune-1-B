@@ -64,7 +64,7 @@ public class PositionDealer : MonoBehaviour {
 
     public void GoToLeft()
     {
-        Debug.Log("entra" + contMp);
+        
         if (x > 0 && turn.isTurn == true && contMp > 0 && selection.isActiveDealer == true && timer < 0)
         {
             

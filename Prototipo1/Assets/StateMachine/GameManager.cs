@@ -6,13 +6,13 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class GameManager : MonoBehaviour {
     public static GameManager singleton;
+    public FlowSM stateMachine;
     public LifeManager lm;
     public TurnManager tm;
     public HudManagerTest hud;
     public MainMenùController mc;
     public ActionMenuController acm;
     public SelectionController sc;
-
     /// <summary>
     /// dichiarazione delegati
     /// </summary>
@@ -21,10 +21,7 @@ public class GameManager : MonoBehaviour {
     public delegate void InitAction();
     public InitAction InitSM;
 
-    public Animator SMController;
-
-    StateBehaviourBase.Context contextPlayer1 = new StateBehaviourBase.Context();
-    StateBehaviourBase.Context contextPlayer2 = new StateBehaviourBase.Context();
+    
 
 
     //StateBehaviourBase.Context contextPlayer2 = new StateBehaviourBase.Context();
@@ -35,7 +32,6 @@ public class GameManager : MonoBehaviour {
     {
 
         SingletonFunction();
-        SMController = GetComponent<Animator>();
         SetupManager();
         
     }
@@ -43,25 +39,8 @@ public class GameManager : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+
         
-
-        foreach (StateBehaviourBase state in SMController.GetBehaviours<StateBehaviourBase>())
-        {
-            if (tm.isTurn == true)
-            {
-                state.Setup(contextPlayer1);
-                Debug.Log("il context è " + state.ctxPlayer);
-
-            }
-        }
-        foreach (StateBehaviourBase state in SMController.GetBehaviours<StateBehaviourBase>())
-        {
-            if (tm.isTurn == false)
-            {
-                state.Setup(contextPlayer2);
-                Debug.Log("il context è " + state.ctxPlayer);
-            }
-        }
 
     }
 
@@ -142,15 +121,7 @@ public class GameManager : MonoBehaviour {
         SMController.SetTrigger("GoToInit");
     }*/
 
-    public void SetupActionMenu()
-    {
-
-        if(sc.isActiveTank == true || sc.isActiveHealer == true || sc.isActiveUtility == true || sc.isActiveDealer == true)
-        {
-            acm.isActionMenu = true;
-        }
-
-    }
+    
 
     /// <summary>
     /// funzione che mi iscrive a tutti gli eventi
@@ -163,5 +134,6 @@ public class GameManager : MonoBehaviour {
         mc = FindObjectOfType<MainMenùController>();
         acm = FindObjectOfType<ActionMenuController>();
         sc = FindObjectOfType<SelectionController>();
+        stateMachine = FindObjectOfType<FlowSM>();
     }
 }

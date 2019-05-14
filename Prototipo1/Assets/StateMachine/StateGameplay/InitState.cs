@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class InitState : StateBehaviourBase
 {
+    
 
     public override void OnEnter()
     {
+        ///setup context
+
         //Debug.LogFormat("SetupState {0} in Init_State", ctx.SetupDone);
         
         ///disattiva canvas
@@ -17,12 +20,15 @@ public class InitState : StateBehaviourBase
 
     public override void OnUpdate()
     {
-        
+        if (GameManager.singleton.mc.menuIsActive == false)
+        {
+            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+        }
     }
 
     public override void OnExit()
     {
-
+        
     }
 
 

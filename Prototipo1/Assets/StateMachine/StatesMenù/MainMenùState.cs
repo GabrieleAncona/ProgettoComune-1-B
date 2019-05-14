@@ -20,7 +20,7 @@ public class MainMenùState : StateBehaviourBase
 
     public override void OnExit()
     {
-        //GameManager.singleton.SMController.SetTrigger("GoToInit");
+        GameManager.singleton.stateMachine.SMController.SetTrigger("GoToInit");
     }
 
 

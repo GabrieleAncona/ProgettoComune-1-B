@@ -8,14 +8,19 @@ public class StateBehaviourBase : StateMachineBehaviour
     public class Context
     {
         public bool SetupDone;
-        public GameObject PlayerPrefab;
+        ///informazioni currentplayer
+        ///riferimento classe player
+        public Player currentPlayer;
+
+ 
     }
 
-    public Context ctxPlayer;
+    public Context ctx;
 
     public void Setup(Context _ctx)
     {
-        ctxPlayer = _ctx;
+            ctx = _ctx;    
+       
     }
 
 

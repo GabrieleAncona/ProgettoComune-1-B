@@ -7,12 +7,23 @@ public class SelectionState : StateBehaviourBase
 
     public override void OnEnter()
     {
+
+        ///controllo informazioni context
+
         //Debug.LogFormat("SetupState {0} in Init_State", ctx.SetupDone);
 
-        ///disattivare canvas
+        if(GameManager.singleton.stateMachine.currentPlayer.IdPlayer == 1)
+        {
+            GameManager.singleton.acm.isSelection = true;
+        }
 
-        GameManager.singleton.acm.isSelection = true;
-        //GameManager.singleton.InitSM();
+        else if(GameManager.singleton.stateMachine.currentPlayer.IdPlayer == 2)
+        {
+            Debug.Log("funziona correttamente");
+        }
+        
+       // GameManager.singleton.acm.isSelection = true;
+     
 
 
     }
