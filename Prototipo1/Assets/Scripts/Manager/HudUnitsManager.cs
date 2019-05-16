@@ -6,24 +6,46 @@ using UnityEditor;
 
 public class HudUnitsManager : MonoBehaviour
 {
-    TurnManager tm;
+    SelectionUnits SU;
+    public int CanvasID;
     public List<HudUnitController> SingleHudUnit = new List<HudUnitController>();
     public List<Transform> HudUnitPosition = new List<Transform>();
 
     // Use this for initialization
     void Start()
     {
-
+        SU = FindObjectOfType<SelectionUnits>();
     }
 
-    public int firstIndex = 1;
+    public int firstIndex; 
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+
+        firstIndex = GameManager.singleton.sc.contSelectionP1;
+
+        if (GameManager.singleton.PL.IdPlayer ==1)
         {
-            SetFirstController(firstIndex++);
+            if (Input.GetKeyDown(SU.ChangeSelectionButtonAdd) && CanvasID == 1)
+            {              
+                SetFirstController(firstIndex);
+            }
+            if (Input.GetKeyDown(SU.ChangeSelectionButtonRemove) && CanvasID == 1)
+            {
+                SetFirstController(firstIndex);
+            }
+        }
+        if (GameManager.singleton.PL.IdPlayer == 2)
+        {
+            if (Input.GetKeyDown(SU.ChangeSelectionButtonAdd) && CanvasID == 2)
+            {
+                SetFirstController(firstIndex);
+            }
+            if (Input.GetKeyDown(SU.ChangeSelectionButtonRemove) && CanvasID == 2)
+            {
+                SetFirstController(firstIndex);
+            }
         }
     }
 

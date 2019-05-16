@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using GridSystem;
 
-public class SelectionUnits : MonoBehaviour {
+public class SelectionUnits : MonoBehaviour
+{
     public SelectionController selection;
     public TurnManager turn;
     public KeyCode ChangeSelectionButtonAdd;
