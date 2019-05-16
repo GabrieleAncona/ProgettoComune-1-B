@@ -2,21 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionState : StateBehaviourBase
+public class EndturnState : StateBehaviourBase
 {
+
     public override void OnEnter()
     {
-        Debug.LogFormat("SetupState {0} in Init_State", ctx.SetupDone);
+      
     }
 
     public override void OnUpdate()
     {
-
+       
+        if(ctx.currentPlayer.IdPlayer != 1)
+        {
+            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+        }
     }
 
     public override void OnExit()
     {
-
     }
 
 

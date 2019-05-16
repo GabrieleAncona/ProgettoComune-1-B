@@ -9,35 +9,58 @@ using UnityEngine;
 /// </summary>
 public class FlowSM : MonoBehaviour
 {
+    public Animator SMController;
+  
 
-   
-   
 
-    Animator SMController;
-
-    // Start is called before the first frame update
+    // Use this for initialization
     void Start()
     {
+
+       
+
         SMController = GetComponent<Animator>();
         StateBehaviourBase.Context context = new StateBehaviourBase.Context()
         {
+
             SetupDone = false,
-           
+
         };
         foreach (StateBehaviourBase state in SMController.GetBehaviours<StateBehaviourBase>())
         {
+            ///eseguo setup iniziale
             state.Setup(context);
         }
+
     }
 
-  /*  // Update is called once per frame
+    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-            SMController.SetTrigger("Next");
+        ChangeContext();
+    }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-            SMController.SetTrigger("Prev");
-    }*/
 
+
+    ///funzione per cambiare contenuto context
+    public void ChangeContext()
+    {
+        StateBehaviourBase.Context context = new StateBehaviourBase.Context()
+        {
+
+            SetupDone = false,
+
+            currentPlayer = GameManager.singleton._player,
+
+        };
+
+        foreach (StateBehaviourBase state in SMController.GetBehaviours<StateBehaviourBase>())
+        {
+
+            state.Setup(context);
+///            Debug.Log(context.currentPlayer.IdPlayer);
+
+        }
+
+    }
 }

@@ -7,14 +7,37 @@ public class MainMenùController : MonoBehaviour {
     public GameObject menù;
     public GameObject pause;
     public GameObject help;
+    public bool menuIsActive;
+
+    public void Start()
+    {
+        SetupMainMenu();
+    }
+
+
+    public void SetupMainMenu()
+    {
+        menù.SetActive(true); 
+        menuIsActive = true;
+        GameManager.singleton.stateMachine.SMController.SetTrigger("GoToMainMenu");
+
+    }
+
+    public void SetupInitCanvas()
+    {
+        ///menù.SetActive(false);
+        //pause.SetActive(false);
+        //menuIsActive = false;
+        GameManager.singleton.stateMachine.SMController.SetTrigger("GoToInit");
+    }
 
     public void Play()
     {
-
+       // GameManager.singleton.GoToInit();
         menù.SetActive(false);
         pause.SetActive(false);
+        menuIsActive = false;
     }
-
     public void QuitGame() 
     {
 

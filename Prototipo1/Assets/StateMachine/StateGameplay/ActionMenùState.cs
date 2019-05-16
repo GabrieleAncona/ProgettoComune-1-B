@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Init_State : StateBehaviourBase
+public class ActionMenùState : StateBehaviourBase
 {
+
     public override void OnEnter()
     {
-        Debug.LogFormat("SetupState {0} in Init_State", ctx.SetupDone);
+        //Debug.LogFormat("SetupState {0} in Init_State", ctx.SetupDone);
+
+        
+
+
     }
 
     public override void OnUpdate()
@@ -18,6 +23,5 @@ public class Init_State : StateBehaviourBase
     {
 
     }
-
 
 }

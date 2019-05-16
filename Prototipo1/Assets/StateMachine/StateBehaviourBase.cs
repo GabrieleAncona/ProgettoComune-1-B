@@ -8,7 +8,8 @@ public class StateBehaviourBase : StateMachineBehaviour
     public class Context
     {
         public bool SetupDone;
-        public GameObject PlayerPrefab;
+        public Player currentPlayer;
+
     }
 
     protected Context ctx;
@@ -18,7 +19,7 @@ public class StateBehaviourBase : StateMachineBehaviour
         ctx = _ctx;
     }
 
-    
+
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         OnEnter();
@@ -48,5 +49,5 @@ public class StateBehaviourBase : StateMachineBehaviour
         OnExit();
     }
     public virtual void OnExit() { }
-   
+
 }
