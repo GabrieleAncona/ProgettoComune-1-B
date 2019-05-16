@@ -10,14 +10,14 @@ using UnityEngine;
 public class FlowSM : MonoBehaviour
 {
     public Animator SMController;
-    public Player _currentPlayer;
+  
 
 
     // Use this for initialization
     void Start()
     {
 
-        SetupPlayer();
+       
 
         SMController = GetComponent<Animator>();
         StateBehaviourBase.Context context = new StateBehaviourBase.Context()
@@ -40,10 +40,7 @@ public class FlowSM : MonoBehaviour
         ChangeContext();
     }
 
-    public void SetupPlayer()
-    {
-        _currentPlayer = FindObjectOfType<Player>();
-    }
+
 
     ///funzione per cambiare contenuto context
     public void ChangeContext()
@@ -53,7 +50,7 @@ public class FlowSM : MonoBehaviour
 
             SetupDone = false,
 
-            currentPlayer = this._currentPlayer,
+            currentPlayer = GameManager.singleton._player,
 
         };
 
@@ -61,7 +58,7 @@ public class FlowSM : MonoBehaviour
         {
 
             state.Setup(context);
-            Debug.Log("context" + _currentPlayer.IdPlayer);
+///            Debug.Log(context.currentPlayer.IdPlayer);
 
         }
 

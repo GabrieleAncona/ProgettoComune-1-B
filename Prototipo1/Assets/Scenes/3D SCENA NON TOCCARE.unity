@@ -730,6 +730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3c7ac332dc45b41be100a54775d659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
   UpButton: 108
   DownButton: 106
   LeftButton: 105
@@ -1354,6 +1355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3c7ac332dc45b41be100a54775d659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
   UpButton: 108
   DownButton: 106
   LeftButton: 105
@@ -1869,7 +1871,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &283955979
 Transform:
   m_ObjectHideFlags: 0
@@ -2213,6 +2215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3c7ac332dc45b41be100a54775d659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
   UpButton: 97
   DownButton: 100
   LeftButton: 115
@@ -3622,7 +3625,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SMController: {fileID: 0}
-  _currentPlayer: {fileID: 0}
 --- !u!1 &557735229
 GameObject:
   m_ObjectHideFlags: 0
@@ -3962,6 +3964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3c7ac332dc45b41be100a54775d659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
   UpButton: 97
   DownButton: 100
   LeftButton: 115
@@ -5323,7 +5326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b4c7308627a3345805f6530d061780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "men\xF9": {fileID: 0}
+  "men\xF9": {fileID: 283955978}
   pause: {fileID: 0}
   help: {fileID: 0}
   menuIsActive: 0
@@ -5712,6 +5715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3c7ac332dc45b41be100a54775d659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
   UpButton: 97
   DownButton: 100
   LeftButton: 115
@@ -6346,6 +6350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3c7ac332dc45b41be100a54775d659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
   UpButton: 108
   DownButton: 106
   LeftButton: 105
@@ -7292,7 +7297,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1173117525}
-  - component: {fileID: 1173117524}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -7300,36 +7304,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1173117524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1173117523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 736852554af9a6b479a39b211afbda7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imageTankP1: {fileID: 0}
-  previewTankP1: {fileID: 0}
-  imageHealerP1: {fileID: 0}
-  previewHealerP1: {fileID: 0}
-  imageUtilityP1: {fileID: 0}
-  previewUtilityP1: {fileID: 0}
-  imageDealerP1: {fileID: 0}
-  previewDealerP1: {fileID: 0}
-  imageTankP2: {fileID: 0}
-  previewTankP2: {fileID: 0}
-  imageHealerP2: {fileID: 0}
-  previewHealerP2: {fileID: 0}
-  imageUtilityP2: {fileID: 0}
-  previewUtilityP2: {fileID: 0}
-  imageDealerP2: {fileID: 0}
-  previewDealerP2: {fileID: 0}
-  selection: {fileID: 0}
-  selectionP2: {fileID: 0}
-  turn: {fileID: 0}
 --- !u!4 &1173117525
 Transform:
   m_ObjectHideFlags: 0
@@ -7836,6 +7810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3c7ac332dc45b41be100a54775d659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
   UpButton: 108
   DownButton: 106
   LeftButton: 105
@@ -9874,6 +9849,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   att: {fileID: 0}
   ab: {fileID: 0}
+--- !u!1 &1891577367
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1891577368}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1891577368
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1891577367}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 28
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1898477741
 GameObject:
   m_ObjectHideFlags: 0
@@ -10528,6 +10531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3c7ac332dc45b41be100a54775d659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
   UpButton: 97
   DownButton: 100
   LeftButton: 115
@@ -10884,6 +10888,7 @@ MonoBehaviour:
   mc: {fileID: 0}
   acm: {fileID: 0}
   sc: {fileID: 0}
+  _player: {fileID: 0}
 --- !u!4 &2104895533
 Transform:
   m_ObjectHideFlags: 0

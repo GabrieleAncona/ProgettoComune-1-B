@@ -9,7 +9,7 @@ public class MainMenùController : MonoBehaviour {
     public GameObject help;
     public bool menuIsActive;
 
-    public void Awake()
+    public void Start()
     {
         SetupMainMenu();
     }

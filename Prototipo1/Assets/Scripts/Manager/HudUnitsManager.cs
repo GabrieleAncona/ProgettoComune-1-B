@@ -23,7 +23,7 @@ public class HudUnitsManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SetFirstController(firstIndex);
+            SetFirstController(firstIndex++);
         }
     }
 

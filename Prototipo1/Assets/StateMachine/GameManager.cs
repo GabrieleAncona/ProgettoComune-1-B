@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour {
     public MenuActions MainMenu;
     public delegate void InitAction();
     public InitAction InitSM;
+    public Player _player;
+
 
 
 
@@ -134,5 +136,6 @@ public class GameManager : MonoBehaviour {
         acm = FindObjectOfType<ActionMenuController>();
         sc = FindObjectOfType<SelectionController>();
         stateMachine = FindObjectOfType<FlowSM>();
+        _player = FindObjectOfType<Player>();
     }
 }
