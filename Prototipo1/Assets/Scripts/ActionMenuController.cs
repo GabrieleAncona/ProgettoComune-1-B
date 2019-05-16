@@ -31,7 +31,7 @@ public class ActionMenuController : MonoBehaviour {
             isAttack = false;
             isAbility = false;
             isSelection = false;
-            GameManager.singleton.SMController.SetTrigger("GoToMovement");
+            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToMovement");
         }
     }
 
@@ -43,7 +43,7 @@ public class ActionMenuController : MonoBehaviour {
             isMovement = false;
             isAbility = false;
             isSelection = false;
-            GameManager.singleton.SMController.SetTrigger("GoToAttack");
+            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToAttack");
         }
     }
 
@@ -55,7 +55,7 @@ public class ActionMenuController : MonoBehaviour {
                 isMovement = false;
                 isAttack = false;
                 isSelection = false;
-                GameManager.singleton.SMController.SetTrigger("GoToAbility");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToAbility");
             }
     }
 
@@ -67,7 +67,7 @@ public class ActionMenuController : MonoBehaviour {
                     isMovement = false;
                     isAttack = false;
                     isAbility = false;
-                    GameManager.singleton.SMController.SetTrigger("GoToSelection");
+                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 }
     }
 

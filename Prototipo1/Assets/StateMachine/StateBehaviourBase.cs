@@ -8,7 +8,7 @@ public class StateBehaviourBase : StateMachineBehaviour
     public class Context
     {
         public bool SetupDone;
-        public GameObject PlayerPrefab;
+        public Player currentPlayer;
     }
 
     protected Context ctx;

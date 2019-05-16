@@ -9,40 +9,61 @@ using UnityEngine;
 /// </summary>
 public class FlowSM : MonoBehaviour
 {
+    public Animator SMController;
+    public Player _currentPlayer;
 
-    Animator SMController;
 
-    // Start is called before the first frame update
+    // Use this for initialization
     void Start()
     {
+
+        SetupPlayer();
+
         SMController = GetComponent<Animator>();
-        StateBehaviourBase.Context contextPlayer1 = new StateBehaviourBase.Context()
+        StateBehaviourBase.Context context = new StateBehaviourBase.Context()
         {
-            SetupDone = false,
 
-        };
-        StateBehaviourBase.Context contextPlayer2 = new StateBehaviourBase.Context()
-        {
             SetupDone = false,
 
         };
         foreach (StateBehaviourBase state in SMController.GetBehaviours<StateBehaviourBase>())
         {
-            state.Setup(contextPlayer1);
+            ///eseguo setup iniziale
+            state.Setup(context);
         }
-        foreach (StateBehaviourBase state in SMController.GetBehaviours<StateBehaviourBase>())
-        {
-            state.Setup(contextPlayer2);
-        }
+
     }
 
-    /*  // Update is called once per frame
-      void Update()
-      {
-          if (Input.GetKeyDown(KeyCode.RightArrow))
-              SMController.SetTrigger("Next");
-          if (Input.GetKeyDown(KeyCode.LeftArrow))
-              SMController.SetTrigger("Prev");
-      }*/
+    // Update is called once per frame
+    void Update()
+    {
+        ChangeContext();
+    }
 
+    public void SetupPlayer()
+    {
+        _currentPlayer = FindObjectOfType<Player>();
+    }
+
+    ///funzione per cambiare contenuto context
+    public void ChangeContext()
+    {
+        StateBehaviourBase.Context context = new StateBehaviourBase.Context()
+        {
+
+            SetupDone = false,
+
+            currentPlayer = this._currentPlayer,
+
+        };
+
+        foreach (StateBehaviourBase state in SMController.GetBehaviours<StateBehaviourBase>())
+        {
+
+            state.Setup(context);
+            Debug.Log("context" + _currentPlayer.IdPlayer);
+
+        }
+
+    }
 }

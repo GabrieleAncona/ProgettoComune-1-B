@@ -6,13 +6,13 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class GameManager : MonoBehaviour {
     public static GameManager singleton;
+    public FlowSM stateMachine;
     public LifeManager lm;
     public TurnManager tm;
-    public HudManagerTest ui;
+    public HudManagerTest hud;
     public MainMenùController mc;
     public ActionMenuController acm;
     public SelectionController sc;
-
     /// <summary>
     /// dichiarazione delegati
     /// </summary>
@@ -21,41 +21,28 @@ public class GameManager : MonoBehaviour {
     public delegate void InitAction();
     public InitAction InitSM;
 
-    public Animator SMController;
+
+
+
+    //StateBehaviourBase.Context contextPlayer2 = new StateBehaviourBase.Context();
+
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
 
         SingletonFunction();
+        SetupManager();
 
-        SMController = GetComponent<Animator>();
-        StateBehaviourBase.Context contextPlayer1 = new StateBehaviourBase.Context()
-        {
-            //SetupDone = false,
-
-        };
-        StateBehaviourBase.Context contextPlayer2 = new StateBehaviourBase.Context()
-        {
-            //SetupDone = false,
-
-        };
-        foreach (StateBehaviourBase state in SMController.GetBehaviours<StateBehaviourBase>())
-        {
-           //state.Setup(contextPlayer1);
-        }
-        foreach (StateBehaviourBase state in SMController.GetBehaviours<StateBehaviourBase>())
-        {
-            //state.Setup(contextPlayer2);
-        }
-
-       /// GoToMainMenu();
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+
+
+
+    }
 
     /// <summary>
     /// iscrizione agli eventi
@@ -74,7 +61,7 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     private void OnDisable()
     {
-        if(singleton == this)
+        if (singleton == this)
         {
             singleton.MainMenu -= SetupMainMenu;
             singleton.InitSM -= SetupInit;
@@ -111,7 +98,7 @@ public class GameManager : MonoBehaviour {
             //SMController.SetTrigger("GoToMainMenu");
             Debug.Log("funziona");
         }
-      
+
     }
 
     public void SetupInit()
@@ -128,27 +115,24 @@ public class GameManager : MonoBehaviour {
     {
         SMController.SetTrigger("GoToMainMenu");
     }
-
     public void GoToInit()
     {
         SMController.SetTrigger("GoToInit");
     }*/
 
-    public void SetupActionMenu()
-    {
 
-        if(sc.isActiveTank == true || sc.isActiveHealer == true || sc.isActiveUtility == true || sc.isActiveDealer == true)
-        {
-            acm.isActionMenu = true;
-        }
-
-    }
 
     /// <summary>
     /// funzione che mi iscrive a tutti gli eventi
     /// </summary>
-    public static void Setup()
+    public void SetupManager()
     {
-
+        lm = FindObjectOfType<LifeManager>();
+        tm = FindObjectOfType<TurnManager>();
+        hud = FindObjectOfType<HudManagerTest>();
+        mc = FindObjectOfType<MainMenùController>();
+        acm = FindObjectOfType<ActionMenuController>();
+        sc = FindObjectOfType<SelectionController>();
+        stateMachine = FindObjectOfType<FlowSM>();
     }
 }
