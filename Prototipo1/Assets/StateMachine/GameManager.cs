@@ -4,7 +4,8 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(Animator))]
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
     public static GameManager singleton;
     public FlowSM stateMachine;
     public LifeManager lm;
@@ -20,7 +21,7 @@ public class GameManager : MonoBehaviour {
     public MenuActions MainMenu;
     public delegate void InitAction();
     public InitAction InitSM;
-
+    public Player PL;
 
 
 
@@ -134,5 +135,6 @@ public class GameManager : MonoBehaviour {
         acm = FindObjectOfType<ActionMenuController>();
         sc = FindObjectOfType<SelectionController>();
         stateMachine = FindObjectOfType<FlowSM>();
+        PL = FindObjectOfType<Player>();
     }
 }
