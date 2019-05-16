@@ -4,7 +4,8 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(Animator))]
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
     public static GameManager singleton;
     public FlowSM stateMachine;
     public LifeManager lm;

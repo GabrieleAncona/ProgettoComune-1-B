@@ -25,26 +25,26 @@ public class HudUnitsManager : MonoBehaviour
 
         firstIndex = GameManager.singleton.sc.contSelectionP1;
 
-        if (GameManager.singleton.PL.IdPlayer ==1)
+        if (GameManager.singleton._player.IdPlayer ==1)
         {
             if (Input.GetKeyDown(SU.ChangeSelectionButtonAdd) && CanvasID == 1)
-            {              
-                SetFirstController(firstIndex);
+            {
+                SetFirstController(firstIndex,false);
             }
             if (Input.GetKeyDown(SU.ChangeSelectionButtonRemove) && CanvasID == 1)
             {
-                SetFirstController(firstIndex);
+                SetFirstController(firstIndex,true);
             }
         }
-        if (GameManager.singleton.PL.IdPlayer == 2)
+        if (GameManager.singleton._player.IdPlayer == 2)
         {
             if (Input.GetKeyDown(SU.ChangeSelectionButtonAdd) && CanvasID == 2)
             {
-                SetFirstController(firstIndex);
+                SetFirstController(firstIndex,false);
             }
             if (Input.GetKeyDown(SU.ChangeSelectionButtonRemove) && CanvasID == 2)
             {
-                SetFirstController(firstIndex);
+                SetFirstController(firstIndex,true);
             }
         }
     }
@@ -57,15 +57,34 @@ public class HudUnitsManager : MonoBehaviour
         }
     }
 
-    public void SetFirstController(int firstUnit)
-    {
-        List<HudUnitController> newList = new List<HudUnitController>();
-        newList.Add(SingleHudUnit[firstUnit - 1]);
+    List<HudUnitController> newList = new List<HudUnitController>();
 
-        foreach (var item in SingleHudUnit)
+    public void SetFirstController(int firstUnit, bool Giù)
+    {
+        if (newList.Count == 0)
         {
-            if (item != SingleHudUnit[firstUnit - 1])
-                newList.Add(item);
+            newList.Add(SingleHudUnit[firstUnit - 1]);
+
+            foreach (var item in SingleHudUnit)
+            {
+                if (item != SingleHudUnit[firstUnit - 1])
+                    newList.Add(item);
+            } 
+        }
+        else
+        {
+            if (Giù == false)
+            {
+                HudUnitController HUC = newList[0];
+                newList.Remove(HUC);
+                newList.Add(HUC); 
+            }
+        else if (Giù == true)
+        {
+                HudUnitController HUC2 = newList[newList.Count - 1];
+                newList.Remove(HUC2);
+                newList.Insert(0, HUC2);
+        }
         }
         MoveUnits(newList);
     }
