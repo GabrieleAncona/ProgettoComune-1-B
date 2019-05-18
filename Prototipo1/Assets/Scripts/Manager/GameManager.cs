@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     public delegate void InitAction();
     public InitAction InitSM;
     public Player _player;
-
+    public HudUnitsManager hudUnit;
 
 
 
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
 
         SingletonFunction();

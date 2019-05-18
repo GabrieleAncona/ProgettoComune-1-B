@@ -23,6 +23,7 @@ public class TurnManager : MonoBehaviour
         if (isTurn == false)
         {
             SendMessage("RotationCameraPlayer2");
+           
 
         }
         if (isTurn == true)

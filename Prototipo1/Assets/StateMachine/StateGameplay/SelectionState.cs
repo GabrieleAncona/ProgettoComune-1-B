@@ -11,7 +11,7 @@ public class SelectionState : StateBehaviourBase
 
         ///disattivare canvas
 
-        GameManager.singleton.acm.isSelection = true;
+       /// GameManager.singleton.hudUnit.isActive = true;
         //GameManager.singleton.InitSM();
 
 
@@ -19,12 +19,13 @@ public class SelectionState : StateBehaviourBase
 
     public override void OnUpdate()
     {
-
+        GameManager.singleton.hudUnit.isActive = true;
     }
 
     public override void OnExit()
     {
-        GameManager.singleton.acm.isSelection = false;
+      
+        GameManager.singleton.hudUnit.isActive = false;
     }
 
 }

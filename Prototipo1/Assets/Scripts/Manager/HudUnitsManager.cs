@@ -6,6 +6,7 @@ using UnityEditor;
 
 public class HudUnitsManager : MonoBehaviour
 {
+    public bool isActive;
     SelectionUnits SU;
     SelectUnitsP2 SU2;
     public int CanvasID;
@@ -18,6 +19,7 @@ public class HudUnitsManager : MonoBehaviour
     {
         SU = FindObjectOfType<SelectionUnits>();
         SU2 = FindObjectOfType<SelectUnitsP2>();
+        isActive = true;
     }
 
     public int firstIndex; 
@@ -30,12 +32,12 @@ public class HudUnitsManager : MonoBehaviour
         {
             firstIndex = GameManager.singleton.sc.contSelectionP1;
 
-            if (Input.GetKeyDown(SU.ChangeSelectionButtonAdd) && CanvasID == 1)
+            if (Input.GetKeyDown(SU.ChangeSelectionButtonAdd) && CanvasID == 1 && isActive == true)
             {
                 SetFirstController(firstIndex,false);
                 OnMove = true;
             }
-            if (Input.GetKeyDown(SU.ChangeSelectionButtonRemove) && CanvasID == 1)
+            if (Input.GetKeyDown(SU.ChangeSelectionButtonRemove) && CanvasID == 1 && isActive == true)
             {
                 SetFirstController(firstIndex,true);
                 OnMove = true;
@@ -45,12 +47,12 @@ public class HudUnitsManager : MonoBehaviour
         {
             firstIndex = GameManager.singleton.sc2.contSelectionP2;
 
-            if (Input.GetKeyDown(SU2.ChangeSelectionButtonAdd) && CanvasID == 2)
+            if (Input.GetKeyDown(SU2.ChangeSelectionButtonAdd) && CanvasID == 2 && isActive == true)
             {
                 SetFirstController(firstIndex,false);
                 OnMove = true;
             }
-            if (Input.GetKeyDown(SU2.ChangeSelectionButtonRemove) && CanvasID == 2)
+            if (Input.GetKeyDown(SU2.ChangeSelectionButtonRemove) && CanvasID == 2 && isActive == true)
             {
                 SetFirstController(firstIndex,true);
                 OnMove = true;

@@ -25,7 +25,7 @@ public class MainMenùController : MonoBehaviour {
 
     public void SetupInitCanvas()
     {
-        ///menù.SetActive(false);
+        //menù.SetActive(false);
         //pause.SetActive(false);
         //menuIsActive = false;
         GameManager.singleton.stateMachine.SMController.SetTrigger("GoToInit");
