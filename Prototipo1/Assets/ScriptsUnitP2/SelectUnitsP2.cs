@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using GridSystem;
 
-public class SelectUnitsP2 : MonoBehaviour {
+public class SelectUnitsP2 : MonoBehaviour
+{
     public SelectControllerP2 selectionP2;
     public TurnManager turn;
     public KeyCode ChangeSelectionButtonAdd;
     public KeyCode ChangeSelectionButtonRemove;
     public PositionTester2 tankP2;
     public PositionDealer2 dealerP2;
+    public HudUnitsManager HUM;
 
     // Use this for initialization
     void Start()
@@ -24,7 +26,8 @@ public class SelectUnitsP2 : MonoBehaviour {
 
     void Update()
     {
-        if (turn.isTurn == false && selectionP2.isActiveTankP2 == false && selectionP2.isActiveHealerP2 == false && selectionP2.isActiveUtilityP2 == false && selectionP2.isActiveDealerP2 == false)
+        if (turn.isTurn == false && selectionP2.isActiveTankP2 == false && selectionP2.isActiveHealerP2 == false &&
+            selectionP2.isActiveUtilityP2 == false && selectionP2.isActiveDealerP2 == false && HUM.OnMove == false)
         {
             if (Input.GetKeyDown(ChangeSelectionButtonAdd))
             {

@@ -7,14 +7,17 @@ using UnityEditor;
 public class HudUnitsManager : MonoBehaviour
 {
     SelectionUnits SU;
+    SelectUnitsP2 SU2;
     public int CanvasID;
     public List<HudUnitController> SingleHudUnit = new List<HudUnitController>();
     public List<Transform> HudUnitPosition = new List<Transform>();
+    public bool OnMove;
 
     // Use this for initialization
     void Start()
     {
         SU = FindObjectOfType<SelectionUnits>();
+        SU2 = FindObjectOfType<SelectUnitsP2>();
     }
 
     public int firstIndex; 
@@ -23,28 +26,34 @@ public class HudUnitsManager : MonoBehaviour
     void Update()
     {
 
-        firstIndex = GameManager.singleton.sc.contSelectionP1;
-
-        if (GameManager.singleton._player.IdPlayer ==1)
+        if (GameManager.singleton._player.IdPlayer == 1 && OnMove == false)
         {
+            firstIndex = GameManager.singleton.sc.contSelectionP1;
+
             if (Input.GetKeyDown(SU.ChangeSelectionButtonAdd) && CanvasID == 1)
             {
                 SetFirstController(firstIndex,false);
+                OnMove = true;
             }
             if (Input.GetKeyDown(SU.ChangeSelectionButtonRemove) && CanvasID == 1)
             {
                 SetFirstController(firstIndex,true);
+                OnMove = true;
             }
         }
-        if (GameManager.singleton._player.IdPlayer == 2)
+        if (GameManager.singleton._player.IdPlayer == 2 && OnMove == false)
         {
-            if (Input.GetKeyDown(SU.ChangeSelectionButtonAdd) && CanvasID == 2)
+            firstIndex = GameManager.singleton.sc2.contSelectionP2;
+
+            if (Input.GetKeyDown(SU2.ChangeSelectionButtonAdd) && CanvasID == 2)
             {
                 SetFirstController(firstIndex,false);
+                OnMove = true;
             }
-            if (Input.GetKeyDown(SU.ChangeSelectionButtonRemove) && CanvasID == 2)
+            if (Input.GetKeyDown(SU2.ChangeSelectionButtonRemove) && CanvasID == 2)
             {
                 SetFirstController(firstIndex,true);
+                OnMove = true;
             }
         }
     }
@@ -53,8 +62,13 @@ public class HudUnitsManager : MonoBehaviour
     {
         for (int i = 0; i < OrderedList.Count; i++)
         {
-            OrderedList[i].transform.DOMove(HudUnitPosition[i].transform.position, 0.9f);
+            OrderedList[i].transform.DOMove(HudUnitPosition[i].transform.position, 0.9f).OnComplete(WaitoMove);
         }
+    }
+
+    public void WaitoMove()
+    {
+        OnMove = false;
     }
 
     List<HudUnitController> newList = new List<HudUnitController>();

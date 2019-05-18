@@ -156,7 +156,7 @@ public class SelectionController : MonoBehaviour {
             contSelectionP1 -= 1;
         }
 
-        if (contSelectionP1 <= 0)
+        if (contSelectionP1 < 1)
         {
             contSelectionP1 = 4;
         }

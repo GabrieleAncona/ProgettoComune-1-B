@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public MainMenùController mc;
     public ActionMenuController acm;
     public SelectionController sc;
+    public SelectControllerP2 sc2;
     /// <summary>
     /// dichiarazione delegati
     /// </summary>
@@ -138,5 +139,6 @@ public class GameManager : MonoBehaviour
         sc = FindObjectOfType<SelectionController>();
         stateMachine = FindObjectOfType<FlowSM>();
         _player = FindObjectOfType<Player>();
+        sc2 = FindObjectOfType<SelectControllerP2>();
     }
 }

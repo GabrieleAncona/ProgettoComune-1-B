@@ -11,6 +11,7 @@ public class SelectionUnits : MonoBehaviour
     public KeyCode ChangeSelectionButtonRemove;
     public PositionTester tankP1;
     public PositionDealer dealerP1;
+    public HudUnitsManager HUM;
 
     // Use this for initialization
     void Start ()
@@ -24,7 +25,8 @@ public class SelectionUnits : MonoBehaviour
 	
 	void Update()
     {
-        if (turn.isTurn == true && selection.isActiveTank == false && selection.isActiveHealer == false && selection.isActiveDealer == false && selection.isActiveUtility == false)
+        if (turn.isTurn == true && selection.isActiveTank == false && selection.isActiveHealer == false && selection.isActiveDealer == false 
+            && selection.isActiveUtility == false && HUM.OnMove == false)
         {
             if (Input.GetKeyDown(ChangeSelectionButtonAdd))
             {
