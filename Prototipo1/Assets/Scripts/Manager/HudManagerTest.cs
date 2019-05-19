@@ -75,9 +75,12 @@ public class HudManagerTest : MonoBehaviour
     public Slider MpDealerP2;
     public Slider abChargeDP1;
     public Slider abChargeDP2;
+    public Slider passTurnP1;
+    public Slider passTurnP2;
 
     public SelectionController selection;
     public SelectControllerP2 selectionP2;
+    public InputController InputPassTurn;
     public Text turnText;
     public Color newColor1;
     public Color newColor2;
@@ -107,6 +110,7 @@ public class HudManagerTest : MonoBehaviour
         turn = FindObjectOfType<TurnManager>();
         selection = FindObjectOfType<SelectionController>();
         selectionP2 = FindObjectOfType<SelectControllerP2>();
+        InputPassTurn = FindObjectOfType<InputController>();
 	}
 	
 	// Update is called once per frame
@@ -120,7 +124,10 @@ public class HudManagerTest : MonoBehaviour
         SetSliderHealerP2();
         SetSliderUtilityP2();
         SetSliderDealerP2();
+        SetSliderTurnP1();
+        SetSliderTurnP2();
         SetTextTurn();
+
     }
 
     public void SetSliderTankP1()
@@ -227,6 +234,15 @@ public class HudManagerTest : MonoBehaviour
         dealerMp2.text = dealerP2.contMp.ToString();
         lifeDP2.text = lm.lifeDealerPlayer2.ToString();
         AbChargeDP2.text = abDealerP2.CounterA.ToString();
+    }
+
+    public void SetSliderTurnP1()
+    {
+        passTurnP1.value = InputPassTurn.timer;
+    }
+    public void SetSliderTurnP2()
+    {
+        passTurnP2.value = InputPassTurn.timer;
     }
 
     public void SetTextTurn()

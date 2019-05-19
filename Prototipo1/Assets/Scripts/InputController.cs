@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using GridSystem;
 using DG.Tweening;
+using UnityEngine.UI;
+
 
 public class InputController : MonoBehaviour {
     public float timer;
@@ -21,6 +23,7 @@ public class InputController : MonoBehaviour {
     public AttackBaseUtility2 attUtilityP2;
     public AttackBaseDealer attDealerP1;
     public AttackBaseDealer2 attDealerP2;
+    
 
     public AbilityTank abTankP1;
     public AbilityTank2 abTankP2;
@@ -30,6 +33,7 @@ public class InputController : MonoBehaviour {
     public AbilityUtility2 abUtilityP2;
     public AbilityDealer abDealerP1;
     public AbilityDealer2 abDealerP2;
+    
 
     void Start()
     {
