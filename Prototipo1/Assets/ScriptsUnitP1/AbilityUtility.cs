@@ -156,6 +156,7 @@ public class AbilityUtility : MonoBehaviour {
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
                 Counter = 0;
+                GameManager.singleton.sc.isUtilityUsable = false;
             }
             else if (utility.hit.transform.gameObject.GetComponent<PositionHealer2>())
             {
@@ -164,6 +165,7 @@ public class AbilityUtility : MonoBehaviour {
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
                 Counter = 0;
+                GameManager.singleton.sc.isUtilityUsable = false;
             }
             else if (utility.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
@@ -172,6 +174,7 @@ public class AbilityUtility : MonoBehaviour {
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
                 Counter = 0;
+                GameManager.singleton.sc.isUtilityUsable = false;
             }
             else if (utility.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
@@ -180,6 +183,7 @@ public class AbilityUtility : MonoBehaviour {
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
                 Counter = 0;
+                GameManager.singleton.sc.isUtilityUsable = false;
             }
         }
     

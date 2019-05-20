@@ -30,7 +30,7 @@ public class SelectionUnits : MonoBehaviour
         {
             if (Input.GetKeyDown(ChangeSelectionButtonAdd))
             {
-                gameObject.GetComponent<MeshRenderer>().enabled = true;
+               /// gameObject.GetComponent<MeshRenderer>().enabled = true;
                 SendMessage("AddCont");
                 if (tankP1.isDead == true && selection.contSelectionP1 == 1) {
                    
@@ -68,7 +68,7 @@ public class SelectionUnits : MonoBehaviour
             {
                 SendMessage("SubTract");
                 Debug.Log("non si è rotto");
-                gameObject.GetComponent<MeshRenderer>().enabled = true;
+               /// gameObject.GetComponent<MeshRenderer>().enabled = true;
 
                 if (dealerP1.isDead == true && selection.contSelectionP1 == 4) {
 

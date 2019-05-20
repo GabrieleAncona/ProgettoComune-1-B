@@ -23,7 +23,7 @@ public class TurnManager : MonoBehaviour
         if (isTurn == false)
         {
             SendMessage("RotationCameraPlayer2");
-           
+            GameManager.singleton.sc.isTankUsable = true;
 
         }
         if (isTurn == true)

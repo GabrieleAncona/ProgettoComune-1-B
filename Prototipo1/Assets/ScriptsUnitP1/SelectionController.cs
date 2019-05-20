@@ -20,11 +20,19 @@ public class SelectionController : MonoBehaviour {
     public TurnManager turn;
     public HudManagerTest Text;
     public float duration;
-    
+    public bool isTankUsable;
+    public bool isHealerUsable;
+    public bool isUtilityUsable;
+    public bool isDealerUsable;
+
 
     void Start()
     {
-        duration = 0.5f;
+      isTankUsable = true;
+      isHealerUsable = true;
+      isUtilityUsable = true;
+      isDealerUsable = true;
+    duration = 0.5f;
         dealerP1 = FindObjectOfType<PositionDealer>();
         utilityP1 = FindObjectOfType<PositionUtility>();
         Text = FindObjectOfType<HudManagerTest>();
@@ -164,40 +172,40 @@ public class SelectionController : MonoBehaviour {
 
     public void ConfirmUnit()
     {
-        if(Input.GetKeyDown(confirmUnitButton) && contSelectionP1 == 1 && tankP1.isStun == false && turn.isTurn == true)
+        if(Input.GetKeyDown(confirmUnitButton) && contSelectionP1 == 1 && tankP1.isStun == false && turn.isTurn == true && isTankUsable == true)
         {
             Debug.Log("attiva tank");
             isActiveTank = true;
-          
+            isTankUsable = false;
             GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
             //transform.position = grid.GetWorldPosition(tankP1.x, tankP1.y);
             //gameObject.GetComponent<MeshRenderer>().enabled = false;
 
         }
-        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP1 == 2 && healerP1.isStun == false && turn.isTurn == true)
+        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP1 == 2 && healerP1.isStun == false && turn.isTurn == true && isHealerUsable == true)
         {
             Debug.Log("attiva healer");
             isActiveHealer = true;
-            
+            isHealerUsable = false;
             GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
             //transform.position = grid.GetWorldPosition(healerP1.x, healerP1.y);
             //gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
-        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP1 == 3 && utilityP1.isStun == false && turn.isTurn == true)
+        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP1 == 3 && utilityP1.isStun == false && turn.isTurn == true && isUtilityUsable == true)
         {
             Debug.Log("attiva utility");
             isActiveUtility = true;
-            
+            isUtilityUsable = false;
             GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
             //transform.position = grid.GetWorldPosition(utilityP1.x, utilityP1.y);
             //gameObject.GetComponent<MeshRenderer>().enabled = false;
 
         }
-        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP1 == 4 && dealerP1.isStun == false && turn.isTurn == true)
+        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP1 == 4 && dealerP1.isStun == false && turn.isTurn == true && isDealerUsable == true)
         {
             Debug.Log("attiva dealer");
             isActiveDealer = true;
-          
+            isDealerUsable = false;
             GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
             //transform.position = grid.GetWorldPosition(dealerP1.x, dealerP1.y);
             //gameObject.GetComponent<MeshRenderer>().enabled = false;

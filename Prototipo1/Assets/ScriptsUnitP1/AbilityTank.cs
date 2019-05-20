@@ -157,6 +157,7 @@ public class AbilityTank : MonoBehaviour
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
                 Counter = 0;
+                GameManager.singleton.sc.isTankUsable = false;
             }
             else if (tank.hit.transform.gameObject.GetComponent<PositionHealer2>())
             {
@@ -168,6 +169,7 @@ public class AbilityTank : MonoBehaviour
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
                 Counter = 0;
+                GameManager.singleton.sc.isTankUsable = false;
             }
             else if (tank.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
@@ -179,6 +181,7 @@ public class AbilityTank : MonoBehaviour
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
                 Counter = 0;
+                GameManager.singleton.sc.isTankUsable = false;
             }
             else if (tank.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
@@ -190,6 +193,7 @@ public class AbilityTank : MonoBehaviour
                 yield return new WaitForSeconds(2f);
                 turn.isTurn = false;
                 Counter = 0;
+                GameManager.singleton.sc.isTankUsable = false;
             }
 
 

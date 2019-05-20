@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class InputController : MonoBehaviour {
     public float timer;
+    
     public KeyCode UpButton;
     public KeyCode DownButton;
     public KeyCode LeftButton;
@@ -111,6 +112,26 @@ public class InputController : MonoBehaviour {
            
         }
 
-     
+       if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(GameManager.singleton.sc.isActiveTank == true)
+            {
+                GameManager.singleton.sc.isActiveTank = false;
+            }
+           else if (GameManager.singleton.sc.isActiveHealer == true)
+            {
+                GameManager.singleton.sc.isActiveHealer = false;
+            }
+           else if (GameManager.singleton.sc.isActiveUtility == true)
+            {
+                GameManager.singleton.sc.isActiveUtility = false;
+            }
+            else if (GameManager.singleton.sc.isActiveDealer == true)
+            {
+                GameManager.singleton.sc.isActiveDealer = false;
+            }
+            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+        }
+
     }
 }
