@@ -14,7 +14,7 @@ public class ActionMenuController : MonoBehaviour {
     void Start ()
     {
         ///starta con il movimento attivo
-        Movement();
+        
 
 	}
 	
@@ -27,10 +27,7 @@ public class ActionMenuController : MonoBehaviour {
     {
         if (isActionMenu == true)
         {
-            isMovement = true;
-            isAttack = false;
-            isAbility = false;
-            isSelection = false;
+            
             GameManager.singleton.stateMachine.SMController.SetTrigger("GoToMovement");
         }
     }
@@ -39,10 +36,7 @@ public class ActionMenuController : MonoBehaviour {
     {
         if (isActionMenu == true)
         {
-            isAttack = true;
-            isMovement = false;
-            isAbility = false;
-            isSelection = false;
+           
             GameManager.singleton.stateMachine.SMController.SetTrigger("GoToAttack");
         }
     }
@@ -51,28 +45,37 @@ public class ActionMenuController : MonoBehaviour {
     {
             if (isActionMenu == true)
             {
-                isAbility = true;
-                isMovement = false;
-                isAttack = false;
-                isSelection = false;
+               
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToAbility");
             }
     }
 
     public void BackSelection()
     {
-                if (isActionMenu == true)
-                {
-                    isSelection = true;
-                    isMovement = false;
-                    isAttack = false;
-                    isAbility = false;
-                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
-                }
+         if (isActionMenu == true)
+         {
+            if (GameManager.singleton.sc.isActiveTank == true)
+            {
+                GameManager.singleton.sc.isActiveTank = false;
+            }
+            else if (GameManager.singleton.sc.isActiveHealer == true)
+            {
+                GameManager.singleton.sc.isActiveHealer = false;
+            }
+            else if (GameManager.singleton.sc.isActiveUtility == true)
+            {
+                GameManager.singleton.sc.isActiveUtility = false;
+            }
+            else if (GameManager.singleton.sc.isActiveDealer == true)
+            {
+                GameManager.singleton.sc.isActiveDealer = false;
+            }
+            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+         }
     }
 
     public void SetupActionMenu()
     {
-
+        
     }
 }

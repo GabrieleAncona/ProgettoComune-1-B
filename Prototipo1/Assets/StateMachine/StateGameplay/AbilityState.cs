@@ -21,7 +21,7 @@ public class AbilityState : StateBehaviourBase
 
     public override void OnExit()
     {
-        GameManager.singleton.acm.isAbility = true;
+        GameManager.singleton.acm.isAbility = false;
     }
 
 }

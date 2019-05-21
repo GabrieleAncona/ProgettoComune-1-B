@@ -21,7 +21,7 @@ public class AttackBaseState : StateBehaviourBase
 
     public override void OnExit()
     {
-        GameManager.singleton.acm.isAttack = true;
+        GameManager.singleton.acm.isAttack = false;
     }
 
 }

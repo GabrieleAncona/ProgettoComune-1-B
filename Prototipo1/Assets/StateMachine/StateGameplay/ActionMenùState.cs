@@ -9,8 +9,8 @@ public class ActionMenùState : StateBehaviourBase
     {
         //Debug.LogFormat("SetupState {0} in Init_State", ctx.SetupDone);
 
-        
 
+        GameManager.singleton.acm.isActionMenu = true;
 
     }
 
@@ -21,7 +21,7 @@ public class ActionMenùState : StateBehaviourBase
 
     public override void OnExit()
     {
-
+        GameManager.singleton.acm.isActionMenu = false;
     }
 
 }

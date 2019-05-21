@@ -69,14 +69,14 @@ public class AttackBase1 : MonoBehaviour
 
     public void SetAttackBase()
     {
-        if(Input.GetKeyDown(attackButton) && turn.isTurn == true && isAttack == false && selection.isActiveTank == true)
+        if(turn.isTurn == true && GameManager.singleton.acm.isAttack == true && selection.isActiveTank == true)
         {
             isAttack = true;
             
             gameObject.GetComponent<InputController>().enabled = false;
 
         }
-        else if(Input.GetKeyDown(attackButton) && turn.isTurn == true && isAttack == true && selection.isActiveTank == true)
+        else if(turn.isTurn == true && isAttack == true && GameManager.singleton.acm.isAttack == false && selection.isActiveTank == true)
         {
             isAttack = false;
             gameObject.GetComponent<InputController>().enabled = true;
@@ -92,37 +92,25 @@ public class AttackBase1 : MonoBehaviour
 
                 
                 transform.DOLocalRotate(new Vector3(0, 90, 0), 0.2f);
-                isAttUp = true;
-                isAttDown = false;
-                isAttLeft = false;
-                isAttRight = false;
+                
                 //tank.transform.position = grid.GetWorldPosition(tank.x, tank.y);
             }
             if (Input.GetKeyDown(KeyCode.S))
             {
                 transform.DOLocalRotate(new Vector3(0, -90, 0), 0.2f);
-                isAttUp = false;
-                isAttDown = true;
-                isAttLeft = false;
-                isAttRight = false;
+               
                 //tank.transform.position = grid.GetWorldPosition(tank.x, tank.y);
             }
             if (Input.GetKeyDown(KeyCode.D))
             {
                 transform.DOLocalRotate(new Vector3(0, 180, 0), 0.2f);
-                isAttUp = false;
-                isAttDown = false;
-                isAttLeft = false;
-                isAttRight = true;
+                
                 //tank.transform.position = grid.GetWorldPosition(tank.x, tank.y);
             }
             if (Input.GetKeyDown(KeyCode.A))
             {
                 transform.DOLocalRotate(new Vector3(0, 0, 0), 0.2f);
-                isAttUp = false;
-                isAttDown = false;
-                isAttLeft = true;
-                isAttRight = false;
+                
                 //tank.transform.position = grid.GetWorldPosition(tank.x, tank.y);
             }
         }
@@ -132,11 +120,11 @@ public class AttackBase1 : MonoBehaviour
     {
         //SetRange();
         //tank destra
-        if(Input.GetKeyDown(KeyCode.Space) && isAttack == true  && tank.isUnitEnemie == false /* pezza */)
+        if(Input.GetKeyDown(KeyCode.Space) && isAttack == true  && tank.isUnitEnemie == false /* pezza*/)
         {
             if (tank.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
-                Debug.Log("w");
+                
                 DamageTankP2();
                 tankP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);

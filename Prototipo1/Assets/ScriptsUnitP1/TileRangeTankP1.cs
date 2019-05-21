@@ -28,11 +28,11 @@ public class TileRangeTankP1 : MonoBehaviour {
 
     public void SetTileRange()
     {
-       if(att.isAttack == true) 
+       if(GameManager.singleton.acm.isAttack == true) 
         {
             gameObject.GetComponent<MeshRenderer>().enabled = true;
         }
-         else if(att.isAttack == false)
+         else if(GameManager.singleton.acm.isAttack == false)
         {
             gameObject.GetComponent<MeshRenderer>().enabled = false;
         }

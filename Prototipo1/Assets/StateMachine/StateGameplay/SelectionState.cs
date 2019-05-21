@@ -21,12 +21,33 @@ public class SelectionState : StateBehaviourBase
     {
         GameManager.singleton.sc.gameObject.GetComponent<MeshRenderer>().enabled = true;
         GameManager.singleton.hudUnit.isActive = true;
+
+        if(ctx.currentPlayer.IdPlayer == 1)
+        {
+            GameManager.singleton.sc.isSelectionActive = true;
+        }
+
+        if (ctx.currentPlayer.IdPlayer == 2)
+        {
+            GameManager.singleton.sc2.isSelectionActive = true;
+        }
+
     }
 
     public override void OnExit()
     {
         GameManager.singleton.sc.gameObject.GetComponent<MeshRenderer>().enabled = false;
         GameManager.singleton.hudUnit.isActive = false;
+
+        if (ctx.currentPlayer.IdPlayer == 1)
+        {
+            GameManager.singleton.sc.isSelectionActive = false;
+        }
+
+        if (ctx.currentPlayer.IdPlayer == 2)
+        {
+            GameManager.singleton.sc2.isSelectionActive = false;
+        }
     }
 
 }

@@ -124,8 +124,8 @@ public class HudManagerTest : MonoBehaviour
         SetSliderHealerP2();
         SetSliderUtilityP2();
         SetSliderDealerP2();
-        SetSliderTurnP1();
-        SetSliderTurnP2();
+        //SetSliderTurnP1();
+        //SetSliderTurnP2();
         SetTextTurn();
 
     }
@@ -236,14 +236,14 @@ public class HudManagerTest : MonoBehaviour
         AbChargeDP2.text = abDealerP2.CounterA.ToString();
     }
 
-    public void SetSliderTurnP1()
+    /*public void SetSliderTurnP1()
     {
         passTurnP1.value = InputPassTurn.timer;
     }
     public void SetSliderTurnP2()
     {
         passTurnP2.value = InputPassTurn.timer;
-    }
+    }*/
 
     public void SetTextTurn()
     {

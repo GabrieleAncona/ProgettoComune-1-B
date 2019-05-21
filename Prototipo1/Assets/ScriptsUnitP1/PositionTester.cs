@@ -67,7 +67,7 @@ public class PositionTester : MonoBehaviour
 
 	public void GoToLeft()
     {
-        if (x > 0 && turn.isTurn == true && contMp > 0 && selection.isActiveTank == true && timer < 0)
+        if (x > 0 && turn.isTurn == true && contMp > 0 && selection.isActiveTank == true && timer < 0 && GameManager.singleton.acm.isMovement == true)
         {
             
                 transform.DOLocalRotate(new Vector3(0, -90, 0), 0.2f);
@@ -90,7 +90,7 @@ public class PositionTester : MonoBehaviour
 
     public void GoToRight()
     {
-        if (x < 11 && turn.isTurn == true && contMp > 0 && selection.isActiveTank == true && timer < 0)
+        if (x < 11 && turn.isTurn == true && contMp > 0 && selection.isActiveTank == true && timer < 0 && GameManager.singleton.acm.isMovement == true)
         {
          
                 transform.DOLocalRotate(new Vector3(0, 90, 0), 0.2f);
@@ -113,7 +113,7 @@ public class PositionTester : MonoBehaviour
 
     public void GoToDown()
     {
-        if (y > 0 && turn.isTurn == true && contMp > 0 && selection.isActiveTank == true && timer < 0)
+        if (y > 0 && turn.isTurn == true && contMp > 0 && selection.isActiveTank == true && timer < 0 && GameManager.singleton.acm.isMovement == true)
         {
            
                 transform.DOLocalRotate(new Vector3(0, 180, 0), 0.2f);
@@ -136,7 +136,7 @@ public class PositionTester : MonoBehaviour
 
     public void GoToUp()
     {
-        if (y < 11 && turn.isTurn == true && contMp > 0 && selection.isActiveTank == true && timer < 0)
+        if (y < 11 && turn.isTurn == true && contMp > 0 && selection.isActiveTank == true && timer < 0 && GameManager.singleton.acm.isMovement == true)
         { 
             
                 transform.DOLocalRotate(new Vector3(0, 0, 0), 0.2f);

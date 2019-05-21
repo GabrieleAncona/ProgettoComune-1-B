@@ -105,15 +105,29 @@ public class InputController : MonoBehaviour {
                 && attUtilityP1.isAttack == false && attUtilityP2.isAttack == false && abUtilityP1.isAbility == false && abUtilityP2.isAbility == false 
                 && attDealerP1.isAttack == false && attDealerP2.isAttack == false && abDealerP1.isAbility == false && abDealerP2.isAbility == false && timer >= 3f)
             {
-                SendMessage("ToPass");
+                if(GameManager.singleton.sc.isSelectionActive == true || GameManager.singleton.sc2.isSelectionActive == true)
+                    SendMessage("ToPass");
                 timer = 0f;
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToEndTurn");
             }
            
         }
 
+        ///funzione per tornare al menu di azione da uno stato qualsialsi di action
+        if (Input.GetKeyDown(KeyCode.Tab) && GameManager.singleton._player.IdPlayer == 1 && GameManager.singleton.sc.isSelectionActive == false)
+        {
+           
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+            
+        }
+
+        if (Input.GetKeyDown(KeyCode.P) && GameManager.singleton._player.IdPlayer == 2 && GameManager.singleton.sc2.isSelectionActive == false)
+        {
+            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+        }
+
         ///player 1 input provvisori
-       if (Input.GetKeyDown(KeyCode.C))
+       /*if (Input.GetKeyDown(KeyCode.C))
         {
             if(GameManager.singleton.sc.isActiveTank == true)
             {
@@ -154,7 +168,7 @@ public class InputController : MonoBehaviour {
                 GameManager.singleton.sc2.isActiveDealerP2 = false;
             }
             GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
-        }
+        }*/
 
     }
 }

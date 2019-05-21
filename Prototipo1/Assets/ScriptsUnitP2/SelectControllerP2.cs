@@ -25,6 +25,7 @@ public class SelectControllerP2 : MonoBehaviour {
     public bool isHealerUsable2;
     public bool isUtilityUsable2;
     public bool isDealerUsable2;
+    public bool isSelectionActive;
 
     void Start()
     {
