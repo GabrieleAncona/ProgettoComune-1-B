@@ -21,9 +21,17 @@ public class SelectControllerP2 : MonoBehaviour {
     public TurnManager turn;
     public HudManagerTest Text;
     public float duration;
+    public bool isTankUsable2;
+    public bool isHealerUsable2;
+    public bool isUtilityUsable2;
+    public bool isDealerUsable2;
 
     void Start()
     {
+        isTankUsable2 = true;
+        isHealerUsable2 = true;
+        isUtilityUsable2 = true;
+        isDealerUsable2 = true;
         duration = 0.5f;
         Text = FindObjectOfType<HudManagerTest>();
         turn = FindObjectOfType<TurnManager>();
@@ -157,30 +165,38 @@ public class SelectControllerP2 : MonoBehaviour {
 
     public void ConfirmUnit()
     {
-        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP2 == 1 && tankP2.isStun == false && turn.isTurn == false)
+        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP2 == 1 && tankP2.isStun == false && turn.isTurn == false && isTankUsable2 == true)
         {
             Debug.Log("attiva tank");
             isActiveTankP2 = true;
+            isTankUsable2 = false;
+            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
             //gameObject.GetComponent<MeshRenderer>().enabled = false;
 
         }
-        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP2 == 2 && healerP2.isStun == false && turn.isTurn == false)
+        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP2 == 2 && healerP2.isStun == false && turn.isTurn == false && isHealerUsable2 == true)
         {
             Debug.Log("attiva healer");
             isActiveHealerP2 = true;
+            isHealerUsable2 = false;
+            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
             //gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
-        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP2 == 3 && utilityP2.isStun == false && turn.isTurn == false)
+        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP2 == 3 && utilityP2.isStun == false && turn.isTurn == false && isUtilityUsable2 == true)
         {
             Debug.Log("attiva utility");
             isActiveUtilityP2 = true;
+            isUtilityUsable2 = false;
+            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
             //gameObject.GetComponent<MeshRenderer>().enabled = false;
 
         }
-        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP2 == 4 && dealerP2.isStun == false && turn.isTurn == false)
+        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP2 == 4 && dealerP2.isStun == false && turn.isTurn == false && isDealerUsable2 == true)
         {
             Debug.Log("attiva dealer");
             isActiveDealerP2 = true;
+            isDealerUsable2 = false;
+            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
             //gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
     }

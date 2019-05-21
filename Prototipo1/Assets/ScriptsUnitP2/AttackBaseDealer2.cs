@@ -135,7 +135,7 @@ public class AttackBaseDealer2 : MonoBehaviour
     {
         //SetRange();
         //tank destra
-        if (Input.GetKeyDown(KeyCode.K) && isAttack == true && isAttUp == true && dealerP2.isUnitEnemie == true)
+        if (Input.GetKeyDown(KeyCode.Space) && isAttack == true  && dealerP2.isUnitEnemie == true)
         {
             if (dealerP2.hit.transform.gameObject.GetComponent<PositionTester>())
             {
@@ -185,7 +185,7 @@ public class AttackBaseDealer2 : MonoBehaviour
         }
 
         //tanke sinistra
-        if (Input.GetKeyDown(KeyCode.I) && isAttack == true && isAttDown == true && dealerP2.isUnitEnemie == true)
+        /*if (Input.GetKeyDown(KeyCode.I) && isAttack == true && isAttDown == true && dealerP2.isUnitEnemie == true)
         {
 
 
@@ -336,7 +336,7 @@ public class AttackBaseDealer2 : MonoBehaviour
                     ab.CounterA = 0;
                 }
             }
-        }
+        }*/
     }
 
     //disattivo prewiew attacco/abilità quando finisco turno

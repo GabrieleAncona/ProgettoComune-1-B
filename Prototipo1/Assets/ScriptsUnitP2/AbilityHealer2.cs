@@ -138,7 +138,7 @@ public class AbilityHealer2 : MonoBehaviour
     {
         //SetRange();
         //destra
-        if (Input.GetKeyDown(KeyCode.K)  && isAbility == true  && isAttUp == true && healerP2.isUnitAlly == true /* altre unita */)
+        if (Input.GetKeyDown(KeyCode.Space)  && isAbility == true && healerP2.isUnitAlly == true /* altre unita */)
         {
             if (healerP2.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
@@ -163,7 +163,7 @@ public class AbilityHealer2 : MonoBehaviour
             }
         }
         //sinistra
-        if (Input.GetKeyDown(KeyCode.I)  && isAbility == true  && isAttDown == true && healerP2.isUnitAlly == true /* altre unita */)
+       /* if (Input.GetKeyDown(KeyCode.I)  && isAbility == true  && isAttDown == true && healerP2.isUnitAlly == true)
         {
             if (healerP2.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
@@ -188,7 +188,7 @@ public class AbilityHealer2 : MonoBehaviour
             }
         }
         //sopra
-        if (Input.GetKeyDown(KeyCode.L)  && isAbility == true  && isAttLeft == true && healerP2.isUnitAlly == true /* altre unita */)
+        if (Input.GetKeyDown(KeyCode.L)  && isAbility == true  && isAttLeft == true && healerP2.isUnitAlly == true)
         {
             if (healerP2.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
@@ -213,7 +213,7 @@ public class AbilityHealer2 : MonoBehaviour
             }
         }
         //sotto
-        if (Input.GetKeyDown(KeyCode.J)  && isAbility == true && isAttRight == true && healerP2.isUnitAlly == true /* altre unita */)
+        if (Input.GetKeyDown(KeyCode.J)  && isAbility == true && isAttRight == true && healerP2.isUnitAlly == true)
         {
 
             if (healerP2.hit.transform.gameObject.GetComponent<PositionTester2>())
@@ -237,7 +237,7 @@ public class AbilityHealer2 : MonoBehaviour
                 turn.isTurn = true;
                 Counter = 0;
             }
-        }
+        }*/
 
 
         //auto heal

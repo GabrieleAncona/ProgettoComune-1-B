@@ -24,12 +24,18 @@ public class TurnManager : MonoBehaviour
         {
             SendMessage("RotationCameraPlayer2");
             GameManager.singleton.sc.isTankUsable = true;
+            GameManager.singleton.sc.isHealerUsable = true;
+            GameManager.singleton.sc.isUtilityUsable = true;
+            GameManager.singleton.sc.isDealerUsable = true;
 
         }
         if (isTurn == true)
         {
             SendMessage("RotationCameraPlayer1");
-            
+            GameManager.singleton.sc2.isTankUsable2 = true;
+            GameManager.singleton.sc2.isHealerUsable2 = true;
+            GameManager.singleton.sc2.isUtilityUsable2 = true;
+            GameManager.singleton.sc2.isDealerUsable2 = true;
         }
 
 

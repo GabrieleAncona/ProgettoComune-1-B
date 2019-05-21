@@ -160,7 +160,7 @@ public class AbilityUtility2 : MonoBehaviour {
     {
         //SetRange();
         //tank destra
-        if (Input.GetKeyDown(KeyCode.K) && isAbility == true && isAttUp == true && utilityP2.isUnitEnemie == true)
+        if (Input.GetKeyDown(KeyCode.Space) && isAbility == true  && utilityP2.isUnitEnemie == true)
         {
             if (utilityP2.hit.transform.gameObject.GetComponent<PositionTester>())
             {
@@ -198,7 +198,7 @@ public class AbilityUtility2 : MonoBehaviour {
         }
 
         //tanke sinistra
-        if (Input.GetKeyDown(KeyCode.I) && isAbility == true && isAttDown == true && utilityP2.isUnitEnemie == true)
+        /*if (Input.GetKeyDown(KeyCode.I) && isAbility == true && isAttDown == true && utilityP2.isUnitEnemie == true)
         {
 
 
@@ -311,7 +311,7 @@ public class AbilityUtility2 : MonoBehaviour {
                     Counter = 0;
                 }
             }
-        }
+        }*/
     }
 
         //disattivo prewiew attacco/abilità quando finisco turno

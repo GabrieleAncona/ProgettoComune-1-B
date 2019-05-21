@@ -112,7 +112,8 @@ public class InputController : MonoBehaviour {
            
         }
 
-       if (Input.GetKeyDown(KeyCode.Escape))
+        ///player 1 input provvisori
+       if (Input.GetKeyDown(KeyCode.C))
         {
             if(GameManager.singleton.sc.isActiveTank == true)
             {
@@ -129,6 +130,28 @@ public class InputController : MonoBehaviour {
             else if (GameManager.singleton.sc.isActiveDealer == true)
             {
                 GameManager.singleton.sc.isActiveDealer = false;
+            }
+            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+        }
+
+        ///player 2
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            if (GameManager.singleton.sc2.isActiveTankP2 == true)
+            {
+                GameManager.singleton.sc2.isActiveTankP2 = false;
+            }
+            else if (GameManager.singleton.sc2.isActiveHealerP2 == true)
+            {
+                GameManager.singleton.sc2.isActiveHealerP2 = false;
+            }
+            else if (GameManager.singleton.sc2.isActiveUtilityP2 == true)
+            {
+                GameManager.singleton.sc2.isActiveUtilityP2 = false;
+            }
+            else if (GameManager.singleton.sc2.isActiveDealerP2 == true)
+            {
+                GameManager.singleton.sc2.isActiveDealerP2 = false;
             }
             GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
         }
