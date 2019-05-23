@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class MainMenùController : MonoBehaviour {
+public class MainMenùController : MenuBase {
     public GameObject menù;
     public GameObject pause;
     public GameObject help;
@@ -11,33 +11,19 @@ public class MainMenùController : MonoBehaviour {
 
     public void Start()
     {
-        SetupMainMenu();
+       
+        menuIsActive = true;
     }
 
 
     public void SetupMainMenu()
     {
-        menù.SetActive(true); 
-        menuIsActive = true;
-        GameManager.singleton.stateMachine.SMController.SetTrigger("GoToMainMenu");
-
-    }
-
-    public void SetupInitCanvas()
-    {
-        //menù.SetActive(false);
-        //pause.SetActive(false);
-        //menuIsActive = false;
-        GameManager.singleton.stateMachine.SMController.SetTrigger("GoToInit");
-    }
-
-    public void Play()
-    {
-       // GameManager.singleton.GoToInit();
-        menù.SetActive(false);
-        pause.SetActive(false);
+        menù.SetActive(false); 
         menuIsActive = false;
+        GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+
     }
+
     public void QuitGame() 
     {
 

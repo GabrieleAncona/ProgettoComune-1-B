@@ -7,27 +7,22 @@ public class InitState : StateBehaviourBase
 
     public override void OnEnter()
     {
-        //Debug.LogFormat("SetupState {0} in Init_State", ctx.SetupDone);
 
-        ///disattivare canvas
 
-        GameManager.singleton.mc.Play();
-        //GameManager.singleton.InitSM();
-        
-        
+        //GameManager.singleton.mc.ActiveMainMenu();
+        GameManager.singleton.Setup();
+        OnExit();
     }
 
     public override void OnUpdate()
     {
-        if (GameManager.singleton.mc.menuIsActive == false)
-        {
-            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
-        }
+     
     }
 
     public override void OnExit()
     {
-
+      
+        GameManager.singleton.SetupMainMenu();
     }
 
 

@@ -20,7 +20,7 @@ public class SelectionState : StateBehaviourBase
     public override void OnUpdate()
     {
         GameManager.singleton.sc.gameObject.GetComponent<MeshRenderer>().enabled = true;
-        GameManager.singleton.hudUnit.isActive = true;
+        GameManager.singleton.hudUnitsMng.isActive = true;
 
         if(ctx.currentPlayer.IdPlayer == 1)
         {
@@ -37,7 +37,7 @@ public class SelectionState : StateBehaviourBase
     public override void OnExit()
     {
         GameManager.singleton.sc.gameObject.GetComponent<MeshRenderer>().enabled = false;
-        GameManager.singleton.hudUnit.isActive = false;
+        GameManager.singleton.hudUnitsMng.isActive = false;
 
         if (ctx.currentPlayer.IdPlayer == 1)
         {

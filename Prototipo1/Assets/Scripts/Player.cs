@@ -5,24 +5,22 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int IdPlayer;
-    public List<Player> player = new List<Player>();
 
+    // Use this for initialization
+    void Start()
+    {
 
-	// Use this for initialization
-	void Start ()
+    }
+
+    // Update is called once per frame
+    void Update()
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		if(GameManager.singleton.tm.isTurn == true)
+        if (GameManager.singleton.turnMng.isTurn == true)
         {
             IdPlayer = 1;
         }
 
-        else if (GameManager.singleton.tm.isTurn == false)
+        else if (GameManager.singleton.turnMng.isTurn == false)
         {
             IdPlayer = 2;
         }
@@ -30,6 +28,6 @@ public class Player : MonoBehaviour
 
     public void ContenentList()
     {
-        
+
     }
 }

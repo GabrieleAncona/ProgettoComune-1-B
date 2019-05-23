@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[RequireComponent(typeof(Animator))]
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager singleton;
     public FlowSM stateMachine;
-    public LifeManager lm;
-    public TurnManager tm;
-    public HudManagerTest hud;
+    public LifeManager lifeMngr;
+    public TurnManager turnMng;
+    public HudManagerTest hudMng;
     public MainMenùController mc;
     public ActionMenuController acm;
+    public UiManager uiMng;
     public SelectionController sc;
-    public SelectControllerP2 sc2;
+    public SelectControllerP2 sc2;//NO
     /// <summary>
     /// dichiarazione delegati
     /// </summary>
@@ -23,29 +24,74 @@ public class GameManager : MonoBehaviour
     public delegate void InitAction();
     public InitAction InitSM;
     public Player _player;
-    public HudUnitsManager hudUnit;
+    public HudUnitsManager hudUnitsMng;
 
 
 
+    #region Getter
+    public UiManager GetUiManager()
+    {
+        if (uiMng == null)
+        {
+            Debug.LogWarning("testa di C, ti sei dimenticato il Manager" + uiMng.name);
+            uiMng = FindObjectOfType<UiManager>();
+        }
+        return uiMng;
+    }
 
-    //StateBehaviourBase.Context contextPlayer2 = new StateBehaviourBase.Context();
+    public LifeManager GetLifeManager()
+    {
+        if (uiMng == null)
+        {
+            Debug.LogWarning("testa di C, ti sei dimenticato il Manager" + lifeMngr.name);
+            lifeMngr = FindObjectOfType<LifeManager>();
+        }
+        return lifeMngr;
+    }
 
+    public TurnManager GetTurnManager()
+    {
+        if (turnMng == null)
+        {
+            Debug.LogWarning("testa di C, ti sei dimenticato il Manager" + turnMng.name);
+            turnMng = FindObjectOfType<TurnManager>();
+        }
+        return turnMng;
+    }
+
+    public HudUnitsManager GetHudUnitsManager()
+    {
+        if (hudUnitsMng == null)
+        {
+            Debug.LogWarning("testa di C, ti sei dimenticato il Manager" + hudUnitsMng.name);
+            hudUnitsMng = FindObjectOfType<HudUnitsManager>();
+        }
+        return hudUnitsMng;
+    }
+
+    public HudManagerTest GetHudManagerTest()
+    {
+        if (hudMng == null)
+        {
+            Debug.LogWarning("testa di C, ti sei dimenticato il Manager" + hudUnitsMng.name);
+            hudMng = FindObjectOfType<HudManagerTest>();
+        }
+        return hudMng;
+    }
+    #endregion
+    public void Setup()
+    {
+        GetUiManager();
+        //GetHudUnitsManager();
+        //GetHudManagerTest();
+        //GetTurnManager();
+        //GetLifeManager();
+    }
 
     // Use this for initialization
     void Awake()
     {
-
         SingletonFunction();
-        SetupManager();
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-
-
     }
 
     /// <summary>
@@ -53,11 +99,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void OnEnable()
     {
-        if (singleton == this)
-        {
-            singleton.MainMenu += SetupMainMenu;
-            singleton.InitSM += SetupInit;
-        }
+        singleton.MainMenu += SetupMainMenu;
     }
 
     /// <summary>
@@ -65,11 +107,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void OnDisable()
     {
-        if (singleton == this)
-        {
-            singleton.MainMenu -= SetupMainMenu;
-            singleton.InitSM -= SetupInit;
-        }
+
+        singleton.MainMenu -= SetupMainMenu;
+
+
     }
 
     /// <summary>
@@ -96,24 +137,14 @@ public class GameManager : MonoBehaviour
 
     public void SetupMainMenu()
     {
-        if (mc.menuIsActive == true)
+        if (MainMenu != null)
         {
-            mc.SetupMainMenu();
-            //SMController.SetTrigger("GoToMainMenu");
-            Debug.Log("funziona");
-        }
-
-    }
-
-    public void SetupInit()
-    {
-        if (mc.menuIsActive == true)
-        {
-            mc.SetupInitCanvas();
-            Debug.Log("inizializazione");
-            Debug.Log("funziona");
+            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToMainMenu");
         }
     }
+
+
+
 
     /*public void GoToMainMenu()
     {
@@ -129,11 +160,8 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// funzione che mi iscrive a tutti gli eventi
     /// </summary>
-    public void SetupManager()
+    public void SetupController()
     {
-        lm = FindObjectOfType<LifeManager>();
-        tm = FindObjectOfType<TurnManager>();
-        hud = FindObjectOfType<HudManagerTest>();
         mc = FindObjectOfType<MainMenùController>();
         acm = FindObjectOfType<ActionMenuController>();
         sc = FindObjectOfType<SelectionController>();
