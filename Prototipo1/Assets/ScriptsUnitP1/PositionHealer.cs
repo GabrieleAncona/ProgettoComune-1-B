@@ -55,9 +55,7 @@ public class PositionHealer : MonoBehaviour {
         MyTurn();
         Death();
 
-        if (selection.isActiveHealer == false) {
-            contMp = 4;
-        }
+        ResetMp();
     }
 
     public void GoToLeft()
@@ -276,4 +274,11 @@ public class PositionHealer : MonoBehaviour {
 
     }
 
+    public void ResetMp()
+    {
+        if (turn.isTurn == false)
+        {
+            contMp = 4;
+        }
+    }
 }

@@ -77,7 +77,7 @@ public class AbilityHealer2 : MonoBehaviour
     {
 
         //abilito abilita
-        if (Input.GetKeyDown(abilityButton) && turn.isTurn == false && isAbility == false && selectionP2.isActiveHealerP2 == true && Counter == 2)
+        if (turn.isTurn == false && GameManager.singleton.acm.isAbilityHealer2 == true && selectionP2.isActiveHealerP2 == true && Counter == 2)
         {
 
             isAbility = true;
@@ -85,7 +85,7 @@ public class AbilityHealer2 : MonoBehaviour
             gameObject.GetComponent<InputController>().enabled = false;
 
         }
-        else if (Input.GetKeyDown(abilityButton) && turn.isTurn == false && isAbility == true && selectionP2.isActiveHealerP2 == true) 
+        else if (turn.isTurn == false && GameManager.singleton.acm.isAbilityHealer2 == false && selectionP2.isActiveHealerP2 == true) 
         {
             isAbility = false;
             //riabilito input controller per i movimenti(wasd)

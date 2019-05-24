@@ -84,14 +84,14 @@ public class AttackBaseHealer : MonoBehaviour{
 
     public void SetAttackBase()
     {
-        if (Input.GetKeyDown(attackButtonHealer) && turn.isTurn == true && isAttackHealer == false && selection.isActiveHealer == true)
+        if (turn.isTurn == true && GameManager.singleton.acm.isAttackHealer == true && selection.isActiveHealer == true)
         {
             isAttackHealer = true;
             gameObject.GetComponent<InputController>().enabled = false;
 
 
         }
-        else if (Input.GetKeyDown(attackButtonHealer) && turn.isTurn == true && isAttackHealer == true && selection.isActiveHealer == true)
+        else if (turn.isTurn == true && GameManager.singleton.acm.isAttackHealer == false && selection.isActiveHealer == true)
         {
             isAttackHealer = false;
             gameObject.GetComponent<InputController>().enabled = true;

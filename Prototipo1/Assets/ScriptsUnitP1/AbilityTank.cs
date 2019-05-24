@@ -125,7 +125,7 @@ public class AbilityTank : MonoBehaviour
     {
         
         //abilito abilita
-        if (Input.GetKeyDown(abilityButton) && turn.isTurn == true && isAbility == false && selection.isActiveTank == true && Counter == 2)
+        if (turn.isTurn == true && GameManager.singleton.acm.isAbilityTank == true && selection.isActiveTank == true && Counter == 2)
         {
 
             isAbility = true;
@@ -133,7 +133,7 @@ public class AbilityTank : MonoBehaviour
             gameObject.GetComponent<InputController>().enabled = false;
 
         }
-        else if(Input.GetKeyDown(abilityButton) && turn.isTurn == true && isAbility == true && selection.isActiveTank == true)
+        else if(turn.isTurn == true && GameManager.singleton.acm.isAbilityTank == false && selection.isActiveTank == true)
         {
             isAbility = false;
             //riabilito input controller per i movimenti(wasd)

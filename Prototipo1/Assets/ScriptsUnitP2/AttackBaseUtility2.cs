@@ -73,14 +73,14 @@ public class AttackBaseUtility2 : MonoBehaviour {
 
     public void SetAttackBase()
     {
-        if (Input.GetKeyDown(attackButton) && turn.isTurn == false && isAttack == false && selectionP2.isActiveUtilityP2 == true)
+        if (turn.isTurn == false && GameManager.singleton.acm.isAttackUtility2 == true && selectionP2.isActiveUtilityP2 == true)
         {
             isAttack = true;
 
             gameObject.GetComponent<InputController>().enabled = false;
 
         }
-        else if (Input.GetKeyDown(attackButton) && turn.isTurn == false && isAttack == true && selectionP2.isActiveUtilityP2 == true)
+        else if (turn.isTurn == false && GameManager.singleton.acm.isAttackUtility2 == false && selectionP2.isActiveUtilityP2 == true)
         {
             isAttack = false;
             gameObject.GetComponent<InputController>().enabled = true;

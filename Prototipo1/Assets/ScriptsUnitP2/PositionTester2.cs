@@ -49,16 +49,13 @@ public class PositionTester2 : MonoBehaviour {
         RayCastingControllerAbility();
         Death();
         MyTurn();
+        ResetMp();
 
-        if (selectionP2.isActiveTankP2 == false)
-        {
-            contMp = 2;
-        }
 
     }
 
     public void GoToLeft() {
-        if (x > 0 && turn.isTurn == false && contMp > 0 && selectionP2.isActiveTankP2 == true && timer < 0) {
+        if (x > 0 && turn.isTurn == false && contMp > 0 && selectionP2.isActiveTankP2 == true && timer < 0 && GameManager.singleton.acm.isMovement == true) {
 
             transform.DOLocalRotate(new Vector3(0, -90, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x--, y);
@@ -79,7 +76,7 @@ public class PositionTester2 : MonoBehaviour {
     }
 
     public void GoToRight() {
-        if (x < 11 && turn.isTurn == false && contMp > 0 && selectionP2.isActiveTankP2 == true && timer < 0) {
+        if (x < 11 && turn.isTurn == false && contMp > 0 && selectionP2.isActiveTankP2 == true && timer < 0 && GameManager.singleton.acm.isMovement == true) {
 
             transform.DOLocalRotate(new Vector3(0, 90, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x++, y);
@@ -99,7 +96,7 @@ public class PositionTester2 : MonoBehaviour {
     }
 
     public void GoToDown() {
-        if (y > 0 && turn.isTurn == false && contMp > 0 && selectionP2.isActiveTankP2 == true && timer < 0) {
+        if (y > 0 && turn.isTurn == false && contMp > 0 && selectionP2.isActiveTankP2 == true && timer < 0 && GameManager.singleton.acm.isMovement == true) {
 
             transform.DOLocalRotate(new Vector3(0, 180, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x, y--);
@@ -119,7 +116,7 @@ public class PositionTester2 : MonoBehaviour {
     }
 
     public void GoToUp() {
-        if (y < 11 && turn.isTurn == false && contMp > 0 && selectionP2.isActiveTankP2 == true && timer < 0) {
+        if (y < 11 && turn.isTurn == false && contMp > 0 && selectionP2.isActiveTankP2 == true && timer < 0 && GameManager.singleton.acm.isMovement == true) {
 
             transform.DOLocalRotate(new Vector3(0, 0, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x, y++);
@@ -261,6 +258,14 @@ public class PositionTester2 : MonoBehaviour {
 
         }
 
+    }
+
+    public void ResetMp()
+    {
+        if (turn.isTurn == true)
+        {
+            contMp = 2;
+        }
     }
 
 }

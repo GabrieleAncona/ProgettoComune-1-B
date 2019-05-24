@@ -99,14 +99,14 @@ public class AbilityUtility2 : MonoBehaviour {
 
         public void SetAttackBase()
     {
-        if (Input.GetKeyDown(attackButton) && turn.isTurn == false && isAbility == false && selectionP2.isActiveUtilityP2 == true && Counter == 2)
+        if (turn.isTurn == false && GameManager.singleton.acm.isAbilityUtility2 == true && selectionP2.isActiveUtilityP2 == true && Counter == 2)
         {
             isAbility = true;
 
             gameObject.GetComponent<InputController>().enabled = false;
 
         }
-        else if (Input.GetKeyDown(attackButton) && turn.isTurn == false && isAbility == true && selectionP2.isActiveUtilityP2 == true )
+        else if (turn.isTurn == false && GameManager.singleton.acm.isAbilityUtility2 == false && selectionP2.isActiveUtilityP2 == true )
         {
             isAbility = false;
             gameObject.GetComponent<InputController>().enabled = true;

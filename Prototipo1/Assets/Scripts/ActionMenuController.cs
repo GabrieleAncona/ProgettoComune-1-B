@@ -5,11 +5,25 @@ using UnityEngine.UI;
 
 public class ActionMenuController : MonoBehaviour {
     public bool isMovement;
-    public bool isAttack;
-    public bool isAbility;
+    public bool isAttackTank;
+    public bool isAttackTank2;
+    public bool isAttackHealer;
+    public bool isAttackHealer2;
+    public bool isAttackUtility;
+    public bool isAttackUtility2;
+    public bool isAttackDealer;
+    public bool isAttackDealer2;
+    public bool isAbilityTank;
+    public bool isAbilityTank2;
+    public bool isAbilityHealer;
+    public bool isAbilityHealer2;
+    public bool isAbilityUtility;
+    public bool isAbilityUtility2;
+    public bool isAbilityDealer;
+    public bool isAbilityDealer2;
     public bool isSelection;
     public bool isActionMenu;
-
+    
     // Use this for initialization
     void Start ()
     {
@@ -50,7 +64,10 @@ public class ActionMenuController : MonoBehaviour {
             }
     }
 
-    public void BackSelection()
+    /// <summary>
+    /// funzione backselection player1
+    /// </summary>
+    public void BackSelectionPlayer1()
     {
          if (isActionMenu == true)
          {
@@ -73,6 +90,34 @@ public class ActionMenuController : MonoBehaviour {
             GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
          }
     }
+
+    /// <summary>
+    /// funzione backselection Player2
+    /// </summary>
+    public void BackSelectionPlayer2()
+    {
+        if (isActionMenu == true)
+        {
+            if (GameManager.singleton.sc2.isActiveTankP2 == true)
+            {
+                GameManager.singleton.sc2.isActiveTankP2 = false;
+            }
+            else if (GameManager.singleton.sc2.isActiveHealerP2 == true)
+            {
+                GameManager.singleton.sc2.isActiveHealerP2 = false;
+            }
+            else if (GameManager.singleton.sc2.isActiveUtilityP2 == true)
+            {
+                GameManager.singleton.sc2.isActiveUtilityP2 = false;
+            }
+            else if (GameManager.singleton.sc2.isActiveDealerP2 == true)
+            {
+                GameManager.singleton.sc2.isActiveDealerP2 = false;
+            }
+            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+        }
+    }
+
 
     public void SetupActionMenu()
     {

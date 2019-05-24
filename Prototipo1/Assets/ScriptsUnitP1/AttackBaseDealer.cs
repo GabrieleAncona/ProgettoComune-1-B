@@ -76,12 +76,12 @@ public class AttackBaseDealer : MonoBehaviour {
 
     public void SetAttackBase()
     {
-        if (Input.GetKeyDown(attackButton) && turn.isTurn == true && isAttack == false && selection.isActiveDealer == true)
+        if (turn.isTurn == true && GameManager.singleton.acm.isAttackDealer == true && selection.isActiveDealer == true)
         {
             isAttack = true;
             gameObject.GetComponent<InputController>().enabled = false;
         }
-        else if (Input.GetKeyDown(attackButton) && turn.isTurn == true && isAttack == true && selection.isActiveDealer == true)
+        else if (turn.isTurn == true && GameManager.singleton.acm.isAttackDealer == false && selection.isActiveDealer == true)
         {
             isAttack = false;
             gameObject.GetComponent<InputController>().enabled = true;

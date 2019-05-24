@@ -58,11 +58,7 @@ public class PositionTester : MonoBehaviour
         RayCastingControllerAbility();
         MyTurn();
         Death();
-
-        if (selection.isActiveTank == false)
-        {
-            contMp = 2;
-        }
+        ResetMp();
     }
 
 	public void GoToLeft()
@@ -287,6 +283,14 @@ public class PositionTester : MonoBehaviour
 
         }
 
+    }
+
+    public void ResetMp()
+    {
+        if (turn.isTurn == false)
+        {
+            contMp = 2;
+        }
     }
 
 }

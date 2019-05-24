@@ -129,13 +129,13 @@ public class AbilityUtility : MonoBehaviour {
     public void SetAbility()
     {
         //abilito abilita
-        if (Input.GetKeyDown(abilityButton) && turn.isTurn == true && isAbility == false && selection.isActiveUtility == true && Counter == 2)
+        if (turn.isTurn == true && GameManager.singleton.acm.isAbilityUtility == true && selection.isActiveUtility == true && Counter == 2)
         {
             isAbility = true;
             //disabilito input controller per i movimenti(wasd)
             gameObject.GetComponent<InputController>().enabled = false;
         }
-        else if (Input.GetKeyDown(abilityButton) && turn.isTurn == true && isAbility == true && selection.isActiveUtility == true)
+        else if (turn.isTurn == true && GameManager.singleton.acm.isAbilityUtility == false && selection.isActiveUtility == true)
         {
             isAbility = false;
             //riabilito input controller per i movimenti(wasd)

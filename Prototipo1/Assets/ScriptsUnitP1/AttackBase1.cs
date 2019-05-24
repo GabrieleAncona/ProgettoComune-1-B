@@ -69,14 +69,14 @@ public class AttackBase1 : MonoBehaviour
 
     public void SetAttackBase()
     {
-        if(turn.isTurn == true && GameManager.singleton.acm.isAttack == true && selection.isActiveTank == true)
+        if(turn.isTurn == true && GameManager.singleton.acm.isAttackTank == true && selection.isActiveTank == true)
         {
             isAttack = true;
             
             gameObject.GetComponent<InputController>().enabled = false;
 
         }
-        else if(turn.isTurn == true && isAttack == true && GameManager.singleton.acm.isAttack == false && selection.isActiveTank == true)
+        else if(turn.isTurn == true && isAttack == true && GameManager.singleton.acm.isAttackTank == false && selection.isActiveTank == true)
         {
             isAttack = false;
             gameObject.GetComponent<InputController>().enabled = true;
@@ -128,7 +128,7 @@ public class AttackBase1 : MonoBehaviour
                 DamageTankP2();
                 tankP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -140,7 +140,7 @@ public class AttackBase1 : MonoBehaviour
                 DamageHealerP2();
                 healerP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -151,7 +151,7 @@ public class AttackBase1 : MonoBehaviour
                 DamageUtilityP2();
                 utilityP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -162,7 +162,7 @@ public class AttackBase1 : MonoBehaviour
                 DamageDealerP2();
                 dealerP2.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;

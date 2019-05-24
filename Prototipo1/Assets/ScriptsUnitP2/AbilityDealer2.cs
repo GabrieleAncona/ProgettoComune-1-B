@@ -154,7 +154,7 @@ public class AbilityDealer2 : MonoBehaviour
         public void SetAbility()
         {
             //abilito abilita
-            if (Input.GetKeyDown(abilityButton) && turn.isTurn == false && isAbility == false && selectionP2.isActiveDealerP2 == true && CounterA == 2)
+            if (turn.isTurn == false && GameManager.singleton.acm.isAbilityDealer2 == true && selectionP2.isActiveDealerP2 == true && CounterA == 2)
             {
                 isAbility = true;
             selector.transform.GetChild(0).gameObject.SetActive(true);
@@ -162,7 +162,7 @@ public class AbilityDealer2 : MonoBehaviour
             //disabilito input controller per i movimenti(wasd)
             gameObject.GetComponent<InputController>().enabled = false;
             }
-            else if (Input.GetKeyDown(abilityButton) && turn.isTurn == false && isAbility == true && selectionP2.isActiveDealerP2 == true)
+            else if (turn.isTurn == false && GameManager.singleton.acm.isAbilityDealer2 == false && selectionP2.isActiveDealerP2 == true)
             {
                 isAbility = false;
             selector.transform.GetChild(0).gameObject.SetActive(true);

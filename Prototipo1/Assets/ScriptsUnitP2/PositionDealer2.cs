@@ -54,6 +54,7 @@ public class PositionDealer2 : MonoBehaviour {
         RayCastingAttackController();
         Death();
         MyTurn();
+        ResetMp();
         ///PEZZA
         if (contProv == 1)
         {
@@ -61,16 +62,13 @@ public class PositionDealer2 : MonoBehaviour {
             contProv = 0;
         }
 
-        if (selection.isActiveDealerP2 == false)
-        {
-            contMp = 3;
-        }
+      
         ///PEZZA
     }
 
     public void GoToLeft()
     {
-        if (x > 0 && turn.isTurn == false && contMp > 0 && selection.isActiveDealerP2 == true && timer < 0)
+        if (x > 0 && turn.isTurn == false && contMp > 0 && selection.isActiveDealerP2 == true && timer < 0 && GameManager.singleton.acm.isMovement == true)
         {
             transform.DOLocalRotate(new Vector3(0, -90, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x--, y);
@@ -91,7 +89,7 @@ public class PositionDealer2 : MonoBehaviour {
     }
     public void GoToRight()
     {
-        if (x < 11 && turn.isTurn == false && contMp > 0 && selection.isActiveDealerP2 == true && timer < 0)
+        if (x < 11 && turn.isTurn == false && contMp > 0 && selection.isActiveDealerP2 == true && timer < 0 && GameManager.singleton.acm.isMovement == true)
         {
             transform.DOLocalRotate(new Vector3(0, 90, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x++, y);
@@ -112,7 +110,7 @@ public class PositionDealer2 : MonoBehaviour {
     }
     public void GoToDown()
     {
-        if (y > 0 && turn.isTurn == false && contMp > 0 && selection.isActiveDealerP2 == true && timer < 0)
+        if (y > 0 && turn.isTurn == false && contMp > 0 && selection.isActiveDealerP2 == true && timer < 0 && GameManager.singleton.acm.isMovement == true)
         {
             transform.DOLocalRotate(new Vector3(0, 180, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x, y--);
@@ -133,7 +131,7 @@ public class PositionDealer2 : MonoBehaviour {
     }
     public void GoToUp()
     {
-        if (y < 11 && turn.isTurn == false && contMp > 0 && selection.isActiveDealerP2 == true && timer < 0)
+        if (y < 11 && turn.isTurn == false && contMp > 0 && selection.isActiveDealerP2 == true && timer < 0 && GameManager.singleton.acm.isMovement == true)
         {
             transform.DOLocalRotate(new Vector3(0, 0, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x, y++);
@@ -257,5 +255,13 @@ public class PositionDealer2 : MonoBehaviour {
 
         }
 
+    }
+
+    public void ResetMp()
+    {
+        if (turn.isTurn == true)
+        {
+            contMp = 3;
+        }
     }
 }

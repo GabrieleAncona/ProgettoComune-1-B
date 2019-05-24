@@ -54,10 +54,7 @@ public class PositionUtility : MonoBehaviour {
         RayCastingController();
         MyTurn();
         Death();
-
-        if (selection.isActiveUtility == false) {
-            contMp = 3;
-        }
+        ResetMp();
     }
 
     public void GoToLeft()
@@ -259,5 +256,13 @@ public class PositionUtility : MonoBehaviour {
 
         }
 
+    }
+
+    public void ResetMp()
+    {
+        if (turn.isTurn == false)
+        {
+            contMp = 3;
+        }
     }
 }

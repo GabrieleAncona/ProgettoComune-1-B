@@ -56,10 +56,7 @@ public class PositionDealer : MonoBehaviour {
         Death();
         MyTurn();
 
-        if (selection.isActiveDealer == false)
-        {
-            contMp = 3;
-        }
+        ResetMp();
     }
 
     public void GoToLeft()
@@ -260,5 +257,13 @@ public class PositionDealer : MonoBehaviour {
 
         }
 
+    }
+
+    public void ResetMp()
+    {
+        if (turn.isTurn == false)
+        {
+            contMp = 3;
+        }
     }
 }
