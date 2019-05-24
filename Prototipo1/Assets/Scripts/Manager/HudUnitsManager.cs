@@ -36,11 +36,13 @@ public class HudUnitsManager : MonoBehaviour
             {
                 SetFirstController(firstIndex,false);
                 OnMove = true;
+                
             }
             if (Input.GetKeyDown(SU.ChangeSelectionButtonRemove) && CanvasID == 1 && isActive == true)
             {
                 SetFirstController(firstIndex,true);
                 OnMove = true;
+                
             }
         }
         if (GameManager.singleton._player.IdPlayer == 2 && OnMove == false)
@@ -58,6 +60,7 @@ public class HudUnitsManager : MonoBehaviour
                 OnMove = true;
             }
         }
+        
     }
 
     public void MoveUnits(List<HudUnitController> OrderedList)
@@ -65,7 +68,9 @@ public class HudUnitsManager : MonoBehaviour
         for (int i = 0; i < OrderedList.Count; i++)
         {
             OrderedList[i].transform.DOMove(HudUnitPosition[i].transform.position, 0.9f).OnComplete(WaitoMove);
+            
         }
+        
     }
 
     public void WaitoMove()
@@ -85,7 +90,7 @@ public class HudUnitsManager : MonoBehaviour
             {
                 if (item != SingleHudUnit[firstUnit - 1])
                     newList.Add(item);
-            } 
+            }
         }
         else
         {
@@ -93,15 +98,16 @@ public class HudUnitsManager : MonoBehaviour
             {
                 HudUnitController HUC = newList[0];
                 newList.Remove(HUC);
-                newList.Add(HUC); 
+                newList.Add(HUC);
             }
-        else if (Giù == true)
-        {
+            else if (Giù == true)
+            {
                 HudUnitController HUC2 = newList[newList.Count - 1];
                 newList.Remove(HUC2);
                 newList.Insert(0, HUC2);
-        }
+            }
         }
         MoveUnits(newList);
     }
+
 }

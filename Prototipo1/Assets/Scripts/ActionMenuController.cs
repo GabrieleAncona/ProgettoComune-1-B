@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ActionMenuController : MonoBehaviour {
+public class ActionMenuController : MonoBehaviour
+{
     public bool isMovement;
     public bool isAttackTank;
     public bool isAttackTank2;

@@ -4,7 +4,8 @@ using UnityEngine;
 using GridSystem;
 using UnityEngine.UI;
 
-public class ButtonNavigation : MonoBehaviour {
+public class ButtonNavigation : MonoBehaviour
+{
     public int index = 0;
     public int totButton = 4;
     public float offset = 1f;
