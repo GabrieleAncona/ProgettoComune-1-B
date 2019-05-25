@@ -24,7 +24,9 @@ public class ActionMenuController : MonoBehaviour
     public bool isAbilityDealer2;
     public bool isSelection;
     public bool isActionMenu;
-    
+    public GameObject menuActionPlayer1;
+    public GameObject menuActionPlayer2;
+
     // Use this for initialization
     void Start ()
     {
