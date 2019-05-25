@@ -7,16 +7,22 @@ public class TileRangeHealerP2 : MonoBehaviour {
   
     public AttackBaseHealer2 att;
     public AbilityHealer2 ab;
+    public GameObject prewiew;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
 
         att = FindObjectOfType<AttackBaseHealer2>();
-        ab = FindObjectOfType<AbilityHealer2>();
-     
-        gameObject.GetComponent<MeshRenderer>().enabled = false;
 
+
+
+        prewiew.SetActive(true);
+    }
+
+    public void Start()
+    {
+        prewiew.SetActive(false);
     }
 
     // Update is called once per frame
@@ -28,13 +34,13 @@ public class TileRangeHealerP2 : MonoBehaviour {
 
     public void SetTileRangeHealer()
     {
-        if (att.isAttack == true || ab.isAbility == true)
+        if (att.isAttack == true)
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = true;
+            prewiew.SetActive(true);
         }
-        else if (att.isAttack == false || ab.isAbility == false)
+        else if (att.isAttack == false)
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            prewiew.SetActive(false);
         }
     }
 }

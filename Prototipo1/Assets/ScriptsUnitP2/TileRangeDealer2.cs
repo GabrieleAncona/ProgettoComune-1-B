@@ -7,34 +7,40 @@ public class TileRangeDealer2 : MonoBehaviour {
     public PositionDealer2 dealerP2;
     public AttackBaseDealer2 att;
     public AbilityDealer2 ab;
+    public GameObject prewiew;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
 
-        dealerP2 = FindObjectOfType<PositionDealer2>();
         att = FindObjectOfType<AttackBaseDealer2>();
-        ab = FindObjectOfType<AbilityDealer2>();
+
+
+
+        prewiew.SetActive(true);
+    }
+
+    public void Start()
+    {
+        prewiew.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        SetTileRangeDealerP2();
-
-
+        SetTileRangeHealer();
     }
 
-    public void SetTileRangeDealerP2()
+    public void SetTileRangeHealer()
     {
-        if (att.isAttack == true || ab.isAbility == true)
+        if (att.isAttack == true)
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = true;
+            prewiew.SetActive(true);
         }
-        else if (att.isAttack == false || ab.isAbility == false)
+        else if (att.isAttack == false)
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            prewiew.SetActive(false);
         }
     }
 }

@@ -4,11 +4,74 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: CTRL_arm_l
+    100004: CTRL_arm_r
+    100006: CTRL_leg_l
+    100008: CTRL_leg_r
+    100010: CTRL_pelvic
+    100012: ik_arm_l
+    100014: ik_arm_r
+    100016: J_elbow_l
+    100018: J_elbow_r
+    100020: J_finger_l
+    100022: J_finger_r
+    100024: J_Foot_l
+    100026: J_Foot_r
+    100028: J_hand_l
+    100030: J_hand_r
+    100032: J_Head
+    100034: J_Hip_l
+    100036: J_Hip_r
+    100038: J_inch_l
+    100040: J_inch_r
+    100042: J_Knee
+    100044: J_Pelvic
+    100046: J_shoulder_l
+    100048: J_shoulder_r
+    100050: J_Spine
+    100052: J_wrist_l
+    100054: J_wrist_r
+    100056: MASTER_STRL
+    100058: polySurface85
     400000: //RootNode
+    400002: CTRL_arm_l
+    400004: CTRL_arm_r
+    400006: CTRL_leg_l
+    400008: CTRL_leg_r
+    400010: CTRL_pelvic
+    400012: ik_arm_l
+    400014: ik_arm_r
+    400016: J_elbow_l
+    400018: J_elbow_r
+    400020: J_finger_l
+    400022: J_finger_r
+    400024: J_Foot_l
+    400026: J_Foot_r
+    400028: J_hand_l
+    400030: J_hand_r
+    400032: J_Head
+    400034: J_Hip_l
+    400036: J_Hip_r
+    400038: J_inch_l
+    400040: J_inch_r
+    400042: J_Knee
+    400044: J_Pelvic
+    400046: J_shoulder_l
+    400048: J_shoulder_r
+    400050: J_Spine
+    400052: J_wrist_l
+    400054: J_wrist_r
+    400056: MASTER_STRL
+    400058: polySurface85
     2100000: palette4
+    2100002: palette
+    2100004: lambert1
     2300000: //RootNode
+    2300002: polySurface85
     3300000: //RootNode
+    3300002: polySurface85
     4300000: SK_Healer_01
+    4300002: polySurface85
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:

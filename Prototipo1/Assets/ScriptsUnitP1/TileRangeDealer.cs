@@ -6,34 +6,41 @@ using GridSystem;
 public class TileRangeDealer : MonoBehaviour {
     public PositionDealer dealer;
     public AttackBaseDealer att;
-    public AbilityDealer ab;
+    public GameObject prewiew;
 
-	// Use this for initialization
-	void Start () {
-
-        dealer = FindObjectOfType<PositionDealer>();
-        att = FindObjectOfType<AttackBaseDealer>();
-        ab = FindObjectOfType<AbilityDealer>();
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
-        SetTileRangeDealer();
-
-
-    }
-
-    public void SetTileRangeDealer()
+    // Use this for initialization
+    void Awake()
     {
-        if (att.isAttack == true || ab.isAbility == true)
+
+        att = FindObjectOfType<AttackBaseDealer>();
+     
+
+
+        prewiew.SetActive(true);
+    }
+
+    public void Start()
+    {
+        prewiew.SetActive(false);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        SetTileRangeHealer();
+    }
+
+    public void SetTileRangeHealer()
+    {
+        if (att.isAttack == true)
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = true;
+            prewiew.SetActive(true);
         }
-        else if (att.isAttack == false || ab.isAbility == false)
+        else if (att.isAttack == false)
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            prewiew.SetActive(false);
         }
     }
+
 }

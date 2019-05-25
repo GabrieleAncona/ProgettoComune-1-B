@@ -4,19 +4,25 @@ using UnityEngine;
 using GridSystem;
 
 public class TileRangeHealerP1 : MonoBehaviour {
-    public PositionTester tankP1;
+   
     public AttackBaseHealer att;
     public AbilityHealer ab;
+    public GameObject prewiew;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
 
         att = FindObjectOfType<AttackBaseHealer>();
         ab = FindObjectOfType<AbilityHealer>();
-        tankP1 = FindObjectOfType<PositionTester>();
-        gameObject.GetComponent<MeshRenderer>().enabled = false;
+       
+     
+        prewiew.SetActive(true);
+    }
 
+    public void Start()
+    {
+        prewiew.SetActive(false);
     }
 
     // Update is called once per frame
@@ -28,13 +34,14 @@ public class TileRangeHealerP1 : MonoBehaviour {
 
     public void SetTileRangeHealer()
     {
-        if (att.isAttackHealer == true || ab.isAbility == true)
+        if (att.isAttackHealer == true)
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = true;
+            prewiew.SetActive(true);
         }
-        else if (att.isAttackHealer == false || ab.isAbility == false)
+
+        else if (att.isAttackHealer == false)
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            prewiew.SetActive(false);
         }
     }
    

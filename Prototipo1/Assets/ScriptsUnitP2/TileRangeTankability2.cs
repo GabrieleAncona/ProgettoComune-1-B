@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class TileRangeTankability2 : MonoBehaviour {
     public AbilityTank2 ab;
-
+    public GameObject prewiew;
 
     // Use this for initialization
+
+    private void Awake()
+    {
+        prewiew.SetActive(true);
+    }
+
     void Start()
     {
 
         ab = FindObjectOfType<AbilityTank2>();
 
-        gameObject.GetComponent<MeshRenderer>().enabled = false;
 
+        prewiew.SetActive(false);
     }
 
     // Update is called once per frame
@@ -27,11 +33,11 @@ public class TileRangeTankability2 : MonoBehaviour {
     {
         if (ab.isAbility == true)
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = true;
+            prewiew.SetActive(true);
         }
         else if (ab.isAbility == false)
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            prewiew.SetActive(false);
         }
     }
 }

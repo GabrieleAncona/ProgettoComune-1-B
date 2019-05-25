@@ -6,34 +6,40 @@ using GridSystem;
 public class TileRangeUtility2 : MonoBehaviour {
     public AttackBaseUtility2 att;
     public AbilityUtility2 ab;
+    public GameObject prewiew;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
 
         att = FindObjectOfType<AttackBaseUtility2>();
-        ab = FindObjectOfType<AbilityUtility2>();
 
-        gameObject.GetComponent<MeshRenderer>().enabled = false;
 
+
+        prewiew.SetActive(true);
+    }
+
+    public void Start()
+    {
+        prewiew.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        SetTileRangeUtilityP2();
+        SetTileRangeHealer();
     }
 
-    public void SetTileRangeUtilityP2()
+    public void SetTileRangeHealer()
     {
-        if (att.isAttack == true || ab.isAbility == true)
+        if (att.isAttack == true)
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = true;
+            prewiew.SetActive(true);
         }
-        else if (att.isAttack == false || ab.isAbility == false)
+        else if (att.isAttack == false)
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            prewiew.SetActive(false);
         }
     }
 }

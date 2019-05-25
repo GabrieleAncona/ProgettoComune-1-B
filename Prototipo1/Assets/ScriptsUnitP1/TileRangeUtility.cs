@@ -7,34 +7,41 @@ public class TileRangeUtility : MonoBehaviour {
    
     public AttackBaseUtility att;
     public AbilityUtility ab;
+    public GameObject prewiew;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
 
         att = FindObjectOfType<AttackBaseUtility>();
-        ab = FindObjectOfType<AbilityUtility>();
-  
-        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        //ab = FindObjectOfType<AbilityHealer>();
 
+
+        prewiew.SetActive(true);
+    }
+
+    public void Start()
+    {
+        prewiew.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        SetTileRangeUtility();
+        SetTileRangeHealer();
     }
 
-    public void SetTileRangeUtility()
+    public void SetTileRangeHealer()
     {
-        if (att.isAttack == true || ab.isAbility == true)
+        if (att.isAttack == true)
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = true;
+            prewiew.SetActive(true);
         }
-        else if (att.isAttack == false || ab.isAbility == false)
+        else if (att.isAttack == false)
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            prewiew.SetActive(false);
         }
     }
+
 }

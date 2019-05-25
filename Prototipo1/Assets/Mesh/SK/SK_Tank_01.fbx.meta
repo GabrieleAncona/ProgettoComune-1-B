@@ -4,10 +4,83 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: J_Elbow_l
+    100004: J_Elbow_r
+    100006: J_Feet_l
+    100008: J_Feet_r
+    100010: J_Fingers_l
+    100012: J_Fingers_r
+    100014: J_Head
+    100016: J_Knee_l
+    100018: J_Knee_r
+    100020: J_Neck
+    100022: J_Nocche_l
+    100024: J_Nocche_r
+    100026: J_Pelvic
+    100028: J_Polso_l
+    100030: J_Polso_r
+    100032: J_Scapola_l
+    100034: J_Scapola_r
+    100036: J_Shoulder_l
+    100038: J_Shoulder_r
+    100040: J_Spine
+    100042: J_Tight_l
+    100044: J_Tight_r
+    100046: L_Foot_CTRL
+    100048: L_Foot_ikH
+    100050: L_Hand_CTRL
+    100052: L_Hand_ikH
+    100054: L_Shoulder_CTRL
+    100056: Main_CTRL
+    100058: R_Foot_CTRL
+    100060: R_Foot_ikH
+    100062: R_Hand_CTRL
+    100064: R_Hand_ikH
+    100066: R_Shoulder_CTRL
+    100068: SK_Tank_01
+    100070: Spine_CTRL
     400000: //RootNode
+    400002: J_Elbow_l
+    400004: J_Elbow_r
+    400006: J_Feet_l
+    400008: J_Feet_r
+    400010: J_Fingers_l
+    400012: J_Fingers_r
+    400014: J_Head
+    400016: J_Knee_l
+    400018: J_Knee_r
+    400020: J_Neck
+    400022: J_Nocche_l
+    400024: J_Nocche_r
+    400026: J_Pelvic
+    400028: J_Polso_l
+    400030: J_Polso_r
+    400032: J_Scapola_l
+    400034: J_Scapola_r
+    400036: J_Shoulder_l
+    400038: J_Shoulder_r
+    400040: J_Spine
+    400042: J_Tight_l
+    400044: J_Tight_r
+    400046: L_Foot_CTRL
+    400048: L_Foot_ikH
+    400050: L_Hand_CTRL
+    400052: L_Hand_ikH
+    400054: L_Shoulder_CTRL
+    400056: Main_CTRL
+    400058: R_Foot_CTRL
+    400060: R_Foot_ikH
+    400062: R_Hand_CTRL
+    400064: R_Hand_ikH
+    400066: R_Shoulder_CTRL
+    400068: SK_Tank_01
+    400070: Spine_CTRL
     2100000: lambert3
+    2100002: blinn1
     2300000: //RootNode
+    2300002: SK_Tank_01
     3300000: //RootNode
+    3300002: SK_Tank_01
     4300000: SK_Tank_01
   externalObjects: {}
   materials:
