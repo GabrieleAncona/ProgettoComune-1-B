@@ -31,11 +31,15 @@ public class PositionTester : MonoBehaviour
     public bool isStun;
     public bool isDead;
     public int idPlayer;
+   
+    
 
     //public float random;
 
     public void Start()
     {
+        
+        
         //myTurn = false;
         // random = 2f;
         lm = FindObjectOfType<LifeManager>();
@@ -67,9 +71,13 @@ public class PositionTester : MonoBehaviour
         {
             
                 transform.DOLocalRotate(new Vector3(0, -90, 0), 0.2f);
-                transform.position = grid.GetWorldPosition(x--, y);
+            
+            transform.position = grid.GetWorldPosition(x--, y);
+           
                 transform.DOMoveX(x, duration).SetAutoKill(false);
-                turn.ContRound += 1;
+            
+          
+            turn.ContRound += 1;
                 maxRangeHzTankPlayer1 = x;
                 contMp--;
                 isLeft = true;
@@ -81,6 +89,7 @@ public class PositionTester : MonoBehaviour
             {
                 ab.Counter = 0;
             }
+            
         }
     }
 
@@ -90,9 +99,12 @@ public class PositionTester : MonoBehaviour
         {
          
                 transform.DOLocalRotate(new Vector3(0, 90, 0), 0.2f);
-                transform.position = grid.GetWorldPosition(x++, y);
+           
+            transform.position = grid.GetWorldPosition(x++, y);
                 transform.DOMoveX(x, duration).SetAutoKill(false);
-                turn.ContRound += 1;
+
+            
+            turn.ContRound += 1;
                 maxRangeHzTankPlayer1 = x;
                 contMp--;
             isRight = true;
@@ -104,6 +116,7 @@ public class PositionTester : MonoBehaviour
             {
                 ab.Counter = 0;
             }
+           
         }
     }
 
@@ -113,9 +126,12 @@ public class PositionTester : MonoBehaviour
         {
            
                 transform.DOLocalRotate(new Vector3(0, 180, 0), 0.2f);
-                transform.position = grid.GetWorldPosition(x, y--);
+           
+            transform.position = grid.GetWorldPosition(x, y--);
                 transform.DOMoveZ(y, duration).SetAutoKill(false); ;
-                turn.ContRound += 1;
+
+           
+            turn.ContRound += 1;
                 maxRangeVtTankPlayer1 = y;
                 contMp--;
             isDown = true;
@@ -127,6 +143,7 @@ public class PositionTester : MonoBehaviour
             {
                 ab.Counter = 0;
             }
+           
         }
     }
 
@@ -136,9 +153,12 @@ public class PositionTester : MonoBehaviour
         { 
             
                 transform.DOLocalRotate(new Vector3(0, 0, 0), 0.2f);
-                transform.position = grid.GetWorldPosition(x, y++);
+            
+            transform.position = grid.GetWorldPosition(x, y++);
                 transform.DOMoveZ(y, duration).SetAutoKill(false);
-                turn.ContRound += 1;
+
+          
+            turn.ContRound += 1;
                 maxRangeVtTankPlayer1 = y;
                 contMp--;
             isUp = true;
@@ -150,6 +170,7 @@ public class PositionTester : MonoBehaviour
             {
                 ab.Counter = 0;
             }
+            
         }
     }
 

@@ -34,6 +34,10 @@ public class HudManagerTest : MonoBehaviour
     
     public TurnManager turn;*/
     public LifeManager lm;
+    public TurnManager turn;
+    public Color newColor1;
+    public Color newColor2;
+    public Text turnText;
     /*public PositionTester tankP1;
     public PositionHealer healerP1;
     public PositionUtility utilityP1;
@@ -110,6 +114,7 @@ public class HudManagerTest : MonoBehaviour
         selectionP2 = FindObjectOfType<SelectControllerP2>();
         InputPassTurn = FindObjectOfType<InputController>();*/
         lm = FindObjectOfType<LifeManager>();
+        turn = FindObjectOfType<TurnManager>();
     }
 	
 	// Update is called once per frame
@@ -125,7 +130,7 @@ public class HudManagerTest : MonoBehaviour
         SetSliderDealerP2();
         //SetSliderTurnP1();
         //SetSliderTurnP2();
-        //SetTextTurn();
+        SetTextTurn();
 
     }
 
@@ -244,7 +249,7 @@ public class HudManagerTest : MonoBehaviour
         passTurnP2.value = InputPassTurn.timer;
     }*/
 
-    /*public void SetTextTurn()
+    public void SetTextTurn()
     {
         if (turn.isTurn == true) {
 
@@ -256,5 +261,5 @@ public class HudManagerTest : MonoBehaviour
             turnText.text = "Turno Player 2";
             turnText.color = newColor2;
         }
-    }*/
+    }
 }

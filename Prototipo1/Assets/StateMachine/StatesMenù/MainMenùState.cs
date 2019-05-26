@@ -8,7 +8,7 @@ public class MainMenùState : StateBehaviourBase
     {
         ///Debug.LogFormat("SetupState {0} in Init_State", ctx.SetupDone);
         //attivare canvas
-        GameManager.singleton.mc.Play();
+        //GameManager.singleton.mc.Play();
         //GameManager.singleton.MainMenu();
         
     }

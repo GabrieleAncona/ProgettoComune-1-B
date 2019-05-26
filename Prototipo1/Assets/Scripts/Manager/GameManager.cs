@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour
     public delegate void InitAction();
     public InitAction InitSM;
     public Player _player;
-    public HudUnitsManager hudUnit;
-
+    public GameObject hudUnit;
+    public GameObject hudUnit2;
 
 
 
@@ -131,6 +131,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void SetupManager()
     {
+       
         lm = FindObjectOfType<LifeManager>();
         tm = FindObjectOfType<TurnManager>();
         hud = FindObjectOfType<HudManagerTest>();
