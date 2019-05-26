@@ -31,7 +31,7 @@ public class SelectUnitsP2 : MonoBehaviour
         {
             if (Input.GetKeyDown(ChangeSelectionButtonAdd))
             {
-                gameObject.GetComponent<MeshRenderer>().enabled = true;
+                //gameObject.GetComponent<MeshRenderer>().enabled = true;
                 SendMessage("AddContP2");
 
                 if (tankP2.isDead == true && selectionP2.contSelectionP2 == 1) {
@@ -69,7 +69,7 @@ public class SelectUnitsP2 : MonoBehaviour
             {
                 SendMessage("SubTractP2");
   
-                gameObject.GetComponent<MeshRenderer>().enabled = true;
+               // gameObject.GetComponent<MeshRenderer>().enabled = true;
 
                 if (dealerP2.isDead == true && selectionP2.contSelectionP2 == 4) {
 

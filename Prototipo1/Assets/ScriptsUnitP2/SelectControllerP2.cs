@@ -26,6 +26,12 @@ public class SelectControllerP2 : MonoBehaviour {
     public bool isUtilityUsable2;
     public bool isDealerUsable2;
     public bool isSelectionActive;
+    public GameObject selector;
+
+    private void Awake()
+    {
+        selector.SetActive(true);
+    }
 
     void Start()
     {
@@ -43,7 +49,7 @@ public class SelectControllerP2 : MonoBehaviour {
         contSelectionP2 = 0;
         transform.position = grid.GetWorldPosition(x, y);
         gameObject.GetComponent<MeshRenderer>().enabled = false;
-
+        selector.SetActive(false);
 
     }
 
@@ -51,9 +57,15 @@ public class SelectControllerP2 : MonoBehaviour {
     void Update()
     {
         ConfirmUnit();
+        if (turn.isTurn == false)
+        {
+
+            selector.SetActive(true);
+        }
+
         if (turn.isTurn == true)
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            selector.SetActive(false); 
         }
 
         if (turn.isTurn == false)

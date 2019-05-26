@@ -141,8 +141,9 @@ public class AttackBaseDealer2 : MonoBehaviour
             {
                 DamageTankP1();
                 tankP1.transform.DOShakePosition(2f, strength, vibrato);
+                GameManager.singleton.acm.isActionDealer2 = false;
                 yield return new WaitForSeconds(2f);
-                turn.isTurn = true;
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.CounterA < 2)
                 {
                     ab.CounterA = 0;
@@ -152,8 +153,9 @@ public class AttackBaseDealer2 : MonoBehaviour
             {
                 DamageHealerP1();
                 healerP1.transform.DOShakePosition(2f, strength, vibrato);
+                GameManager.singleton.acm.isActionDealer2 = false;
                 yield return new WaitForSeconds(2f);
-                turn.isTurn = true;
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.CounterA < 2)
                 {
                     ab.CounterA = 0;
@@ -163,8 +165,9 @@ public class AttackBaseDealer2 : MonoBehaviour
             {
                 DamageUtilityP1();
                 utilityP1.transform.DOShakePosition(2f, strength, vibrato);
+                GameManager.singleton.acm.isActionDealer2 = false;
                 yield return new WaitForSeconds(2f);
-                turn.isTurn = true;
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.CounterA < 2)
                 {
                     ab.CounterA = 0;
@@ -174,8 +177,9 @@ public class AttackBaseDealer2 : MonoBehaviour
             {
                 DamageDealerP1();
                 dealerP1.transform.DOShakePosition(2f, strength, vibrato);
+                GameManager.singleton.acm.isActionDealer2 = false;
                 yield return new WaitForSeconds(2f);
-                turn.isTurn = true;
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.CounterA < 2)
                 {
                     ab.CounterA = 0;
@@ -353,7 +357,7 @@ public class AttackBaseDealer2 : MonoBehaviour
         lm.lifeTank -= att;
         isAttack = false;
         gameObject.GetComponent<InputController>().enabled = true;
-        selectionP2.isActiveDealerP2 = false;
+        // selectionP2.isActiveDealerP2 = false;
         selectionP2.contSelectionP2 = 0;
         // turn.isTurn = false;
         //tankP2.transform.DOShakePosition(2f, strength, vibrato);
@@ -364,7 +368,7 @@ public class AttackBaseDealer2 : MonoBehaviour
         lm.lifeHealer -= att;
         isAttack = false;
         gameObject.GetComponent<InputController>().enabled = true;
-        selectionP2.isActiveDealerP2 = false;
+        //selectionP2.isActiveDealerP2 = false;
         selectionP2.contSelectionP2 = 0;
         // turn.isTurn = false;
     }
@@ -374,7 +378,7 @@ public class AttackBaseDealer2 : MonoBehaviour
         lm.lifeUtility -= att;
         isAttack = false;
         gameObject.GetComponent<InputController>().enabled = true;
-        selectionP2.isActiveDealerP2 = false;
+        //selectionP2.isActiveDealerP2 = false;
         selectionP2.contSelectionP2 = 0;
         // turn.isTurn = false;
         //tankP2.transform.DOShakePosition(2f, strength, vibrato);
@@ -385,7 +389,7 @@ public class AttackBaseDealer2 : MonoBehaviour
         lm.lifeDealer -= att;
         isAttack = false;
         gameObject.GetComponent<InputController>().enabled = true;
-        selectionP2.isActiveDealerP2 = false;
+        // selectionP2.isActiveDealerP2 = false;
         selectionP2.contSelectionP2 = 0;
         // turn.isTurn = false;
     }

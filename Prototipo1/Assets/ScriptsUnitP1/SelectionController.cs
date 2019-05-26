@@ -25,6 +25,12 @@ public class SelectionController : MonoBehaviour {
     public bool isUtilityUsable;
     public bool isDealerUsable;
     public bool isSelectionActive;
+    public GameObject selector;
+
+    private void Awake()
+    {
+        selector.SetActive(true);
+    }
 
     void Start()
     {
@@ -42,7 +48,7 @@ public class SelectionController : MonoBehaviour {
         contSelectionP1 = 0;
         transform.position = grid.GetWorldPosition(x,y);
         gameObject.GetComponent<MeshRenderer>().enabled = false;
-
+        selector.SetActive(false);
 
     }
 
@@ -52,8 +58,13 @@ public class SelectionController : MonoBehaviour {
         ConfirmUnit();
         if(turn.isTurn == false)
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
 
+            selector.SetActive(false);
+        }
+
+        if(turn.isTurn == true)
+        {
+            selector.SetActive(true); ;
         }
 
         if(turn.isTurn == true)

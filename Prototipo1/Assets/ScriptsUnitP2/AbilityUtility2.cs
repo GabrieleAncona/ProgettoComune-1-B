@@ -166,32 +166,36 @@ public class AbilityUtility2 : MonoBehaviour {
             {
                 DamageTankP1();
                 tankP1.transform.DOShakePosition(2f, strength, vibrato);
+                GameManager.singleton.acm.isActionUtility2 = false;
                 yield return new WaitForSeconds(2f);
-                turn.isTurn = true;
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
             }
             else if (utilityP2.hit.transform.gameObject.GetComponent<PositionHealer>())
             {
                 DamageHealerP1();
                 healerP1.transform.DOShakePosition(2f, strength, vibrato);
+                GameManager.singleton.acm.isActionUtility2 = false;
                 yield return new WaitForSeconds(2f);
-                turn.isTurn = true;
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
             }
             else if (utilityP2.hit.transform.gameObject.GetComponent<PositionUtility>())
             {
                 DamageUtilityP1();
                 utilityP1.transform.DOShakePosition(2f, strength, vibrato);
+                GameManager.singleton.acm.isActionUtility2 = false;
                 yield return new WaitForSeconds(2f);
-                turn.isTurn = true;
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
             }
             else if (utilityP2.hit.transform.gameObject.GetComponent<PositionDealer>())
             {
                 DamageDealerP1();
                 dealerP1.transform.DOShakePosition(2f, strength, vibrato);
+                GameManager.singleton.acm.isActionUtility2 = false;
                 yield return new WaitForSeconds(2f);
-                turn.isTurn = true;
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
             }
 
@@ -329,8 +333,8 @@ public class AbilityUtility2 : MonoBehaviour {
             lm.lifeTank -= att;
             isAbility = false;
             gameObject.GetComponent<InputController>().enabled = true;
-            selectionP2.isActiveUtilityP2 = false;
-            selectionP2.contSelectionP2 = 0;
+        //  selectionP2.isActiveUtilityP2 = false;
+        selectionP2.contSelectionP2 = 0;
             tankP1.isStun = true;
             // turn.isTurn = false;
             //tankP2.transform.DOShakePosition(2f, strength, vibrato);
@@ -341,8 +345,8 @@ public class AbilityUtility2 : MonoBehaviour {
             lm.lifeHealer -= att;
             isAbility = false;
             gameObject.GetComponent<InputController>().enabled = true;
-            selectionP2.isActiveUtilityP2 = false;
-            selectionP2.contSelectionP2 = 0;
+        // selectionP2.isActiveUtilityP2 = false;
+        selectionP2.contSelectionP2 = 0;
             healerP1.isStun = true;
         // turn.isTurn = false;
     }
@@ -352,8 +356,8 @@ public class AbilityUtility2 : MonoBehaviour {
             lm.lifeUtility -= att;
             isAbility = false;
             gameObject.GetComponent<InputController>().enabled = true;
-            selectionP2.isActiveUtilityP2 = false;
-            selectionP2.contSelectionP2 = 0;
+        //  selectionP2.isActiveUtilityP2 = false;
+        selectionP2.contSelectionP2 = 0;
         utilityP1.isStun = true;
         // turn.isTurn = false;
         //tankP2.transform.DOShakePosition(2f, strength, vibrato);
@@ -364,8 +368,8 @@ public class AbilityUtility2 : MonoBehaviour {
             lm.lifeDealer -= att;
             isAbility = false;
             gameObject.GetComponent<InputController>().enabled = true;
-            selectionP2.isActiveUtilityP2 = false;
-            selectionP2.contSelectionP2 = 0;
+        //  selectionP2.isActiveUtilityP2 = false;
+        selectionP2.contSelectionP2 = 0;
             dealerP1.isStun = true;
         // turn.isTurn = false;
     }

@@ -164,8 +164,9 @@ public class AbilityTank2 : MonoBehaviour {
                 tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
                 tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 tankP1.transform.DOShakePosition(2f, strength, vibrato);
+                GameManager.singleton.acm.isActionTank2 = false;
                 yield return new WaitForSeconds(2f);
-                turn.isTurn = true;
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
             }
             else if (tankP2.hit.transform.gameObject.GetComponent<PositionHealer>())
@@ -174,8 +175,9 @@ public class AbilityTank2 : MonoBehaviour {
                 tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
                 tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 healerP1.transform.DOShakePosition(2f, strength, vibrato);
+                GameManager.singleton.acm.isActionTank2 = false;
                 yield return new WaitForSeconds(2f);
-                turn.isTurn = true;
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
             }
             else if (tankP2.hit.transform.gameObject.GetComponent<PositionUtility>())
@@ -184,8 +186,9 @@ public class AbilityTank2 : MonoBehaviour {
                 tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
                 tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 utilityP1.transform.DOShakePosition(2f, strength, vibrato);
+                GameManager.singleton.acm.isActionTank2 = false;
                 yield return new WaitForSeconds(2f);
-                turn.isTurn = true;
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
             }
             else if (tankP2.hit.transform.gameObject.GetComponent<PositionDealer>())
@@ -194,8 +197,9 @@ public class AbilityTank2 : MonoBehaviour {
                 tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
                 tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 dealerP1.transform.DOShakePosition(2f, strength, vibrato);
+                GameManager.singleton.acm.isActionTank2 = false;
                 yield return new WaitForSeconds(2f);
-                turn.isTurn = true;
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
             }
 
@@ -359,9 +363,9 @@ public class AbilityTank2 : MonoBehaviour {
                 lm.lifeTank -= att;
                 //turn.isTurn = true;
                 isAbility = false;
-                selectionP2.isActiveTankP2 = false;
-                //riabilito input controller per i movimenti(wasd)
-                gameObject.GetComponent<InputController>().enabled = true;
+        //selectionP2.isActiveTankP2 = false;
+        //riabilito input controller per i movimenti(wasd)
+        gameObject.GetComponent<InputController>().enabled = true;
                selectionP2.contSelectionP2 = 0;
     }
 
@@ -370,7 +374,7 @@ public class AbilityTank2 : MonoBehaviour {
         lm.lifeHealer -= att;
         //turn.isTurn = true;
         isAbility = false;
-        selectionP2.isActiveTankP2 = false;
+        //selectionP2.isActiveTankP2 = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
         selectionP2.contSelectionP2 = 0;
@@ -381,7 +385,7 @@ public class AbilityTank2 : MonoBehaviour {
         lm.lifeUtility -= att;
         //turn.isTurn = true;
         isAbility = false;
-        selectionP2.isActiveTankP2 = false;
+        // selectionP2.isActiveTankP2 = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
         selectionP2.contSelectionP2 = 0;
@@ -392,7 +396,7 @@ public class AbilityTank2 : MonoBehaviour {
         lm.lifeDealer -= att;
         //turn.isTurn = true;
         isAbility = false;
-        selectionP2.isActiveTankP2 = false;
+        // selectionP2.isActiveTankP2 = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
         selectionP2.contSelectionP2 = 0;

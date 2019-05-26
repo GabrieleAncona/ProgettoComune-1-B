@@ -12,6 +12,7 @@ public class ActionMenùState : StateBehaviourBase
 
         GameManager.singleton.acm.isActionMenu = true;
 
+       
     }
 
     public override void OnUpdate()
@@ -19,6 +20,7 @@ public class ActionMenùState : StateBehaviourBase
         if (ctx.currentPlayer.IdPlayer == 1)
         {
             GameManager.singleton.acm.menuActionPlayer1.SetActive(true);
+            
         }
         if (ctx.currentPlayer.IdPlayer == 2)
         {
@@ -32,6 +34,7 @@ public class ActionMenùState : StateBehaviourBase
         if (ctx.currentPlayer.IdPlayer == 1)
         {
             GameManager.singleton.acm.menuActionPlayer1.SetActive(false);
+           
         }
         if (ctx.currentPlayer.IdPlayer == 2)
         {

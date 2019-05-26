@@ -11,15 +11,15 @@ public class SelectionState : StateBehaviourBase
 
         ///disattivare canvas
 
-       /// GameManager.singleton.hudUnit.isActive = true;
+        /// GameManager.singleton.hudUnit.isActive = true;
         //GameManager.singleton.InitSM();
-
+       
 
     }
 
     public override void OnUpdate()
     {
-        GameManager.singleton.sc.gameObject.GetComponent<MeshRenderer>().enabled = true;
+        ///GameManager.singleton.sc.gameObject.GetComponent<MeshRenderer>().enabled = true;
         GameManager.singleton.hudUnit.isActive = true;
 
         if(ctx.currentPlayer.IdPlayer == 1)
@@ -36,7 +36,7 @@ public class SelectionState : StateBehaviourBase
 
     public override void OnExit()
     {
-        GameManager.singleton.sc.gameObject.GetComponent<MeshRenderer>().enabled = false;
+        ///GameManager.singleton.sc.gameObject.GetComponent<MeshRenderer>().enabled = false;
         GameManager.singleton.hudUnit.isActive = false;
 
         if (ctx.currentPlayer.IdPlayer == 1)

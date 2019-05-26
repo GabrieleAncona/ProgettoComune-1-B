@@ -144,8 +144,10 @@ public class AbilityHealer : MonoBehaviour {
                 if (lm.lifeTank < lm.lifeMaxTank)
                 {
                     HealTank();
+                    GameManager.singleton.acm.isActionHealer = false;
                     yield return new WaitForSeconds(2f);
-                    turn.isTurn = false;
+                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+                    
                     Counter = 0;
                 }
             }
@@ -154,8 +156,11 @@ public class AbilityHealer : MonoBehaviour {
                 if (lm.lifeDealer < lm.lifeMaxDealer)
                 {
                     HealDealer();
+                    GameManager.singleton.acm.isActionHealer = false;
                     yield return new WaitForSeconds(2f);
-                    turn.isTurn = false;
+
+                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+
                     Counter = 0;
                 }
             }
@@ -164,8 +169,9 @@ public class AbilityHealer : MonoBehaviour {
                 if (lm.lifeUtility < lm.lifeMaxUtility)
                 {
                     HealUtility();
+                    GameManager.singleton.acm.isActionHealer = false;
                     yield return new WaitForSeconds(2f);
-                    turn.isTurn = false;
+                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                     Counter = 0;
                 }
             }
@@ -284,12 +290,13 @@ public class AbilityHealer : MonoBehaviour {
             {
                 lm.lifeHealer += heal;
                 isAbility = false;
-                selection.isActiveHealer = false;
+                //  selection.isActiveHealer = false;
                 //riabilito input controller per i movimenti(wasd)
                 gameObject.GetComponent<InputController>().enabled = true;
                 selection.contSelectionP1 = 0;
+                GameManager.singleton.acm.isActionHealer = false;
                 yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
             }
             else
@@ -317,9 +324,9 @@ public class AbilityHealer : MonoBehaviour {
         {
             lm.lifeTank = 20;
         }
-        turn.isTurn = false;
+       
         isAbility = false;
-        selection.isActiveHealer = false;
+        //  selection.isActiveHealer = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
 
@@ -333,9 +340,9 @@ public class AbilityHealer : MonoBehaviour {
         {
             lm.lifeDealer = 20;
         }
-        turn.isTurn = false;
+        
         isAbility = false;
-        selection.isActiveHealer = false;
+        // selection.isActiveHealer = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
 
@@ -349,9 +356,9 @@ public class AbilityHealer : MonoBehaviour {
         {
             lm.lifeHealer = 20;
         }
-        turn.isTurn = false;
+       
         isAbility = false;
-        selection.isActiveHealer = false;
+        // selection.isActiveHealer = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
 
@@ -364,7 +371,7 @@ public class AbilityHealer : MonoBehaviour {
         if(turn.isTurn == false)
         {
             isAbility = false;
-            healerP1.contMp = 2;
+            healerP1.contMp = 4;
         }
     }
 

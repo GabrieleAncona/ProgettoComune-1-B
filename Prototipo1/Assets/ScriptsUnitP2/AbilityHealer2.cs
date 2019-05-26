@@ -143,22 +143,25 @@ public class AbilityHealer2 : MonoBehaviour
             if (healerP2.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
                 HealTank();
+                GameManager.singleton.acm.isActionHealer2 = false;
                 yield return new WaitForSeconds(2f);
-                turn.isTurn = true;
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
             }
             if (healerP2.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
                 HealUtility();
+                GameManager.singleton.acm.isActionHealer2 = false;
                 yield return new WaitForSeconds(2f);
-                turn.isTurn = true;
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
             }
             if (healerP2.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
                 HealDealer();
+                GameManager.singleton.acm.isActionHealer2 = false;
                 yield return new WaitForSeconds(2f);
-                turn.isTurn = true;
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
             }
         }
@@ -248,12 +251,13 @@ public class AbilityHealer2 : MonoBehaviour
             {
                 lm.lifeHealerPlayer2 += heal;
                 isAbility = false;
-                selectionP2.isActiveHealerP2 = false;
+                // selectionP2.isActiveHealerP2 = false;
                 //riabilito input controller per i movimenti(wasd)
                 gameObject.GetComponent<InputController>().enabled = true;
                 selectionP2.contSelectionP2 = 0;
+                GameManager.singleton.acm.isActionHealer2 = false;
                 yield return new WaitForSeconds(2f);
-                turn.isTurn = true;
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
             }
             else
@@ -278,7 +282,7 @@ public class AbilityHealer2 : MonoBehaviour
         isAbility = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
-        selectionP2.isActiveHealerP2 = false;
+        //selectionP2.isActiveHealerP2 = false;
         selectionP2.contSelectionP2 = 0;
     }
 
@@ -293,7 +297,7 @@ public class AbilityHealer2 : MonoBehaviour
         isAbility = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
-        selectionP2.isActiveHealerP2 = false;
+        //  selectionP2.isActiveHealerP2 = false;
         selectionP2.contSelectionP2 = 0;
     }
 
@@ -309,7 +313,7 @@ public class AbilityHealer2 : MonoBehaviour
         isAbility = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
-        selectionP2.isActiveHealerP2 = false;
+        // selectionP2.isActiveHealerP2 = false;
         selectionP2.contSelectionP2 = 0;
     }
 
@@ -329,7 +333,7 @@ public class AbilityHealer2 : MonoBehaviour
         if (turn.isTurn == true)
         {
             isAbility = false;
-            healerP2.contMp = 2;
+            healerP2.contMp = 4;
         }
     }
 }

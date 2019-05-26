@@ -86,12 +86,13 @@ public class AbilityDealer : MonoBehaviour {
         {
             Shoot();
             isAbility = false;
-            selection.isActiveDealer = false;
+            // selection.isActiveDealer = false;
             gameObject.GetComponent<InputController>().enabled = true;
+            GameManager.singleton.acm.isActionDealer = false;
             yield return new WaitForSeconds(3f);
             dealerP1.contMp = 3;
             selector.transform.GetChild(0).gameObject.SetActive(false);
-            turn.isTurn = false;
+            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
         }
        
     }

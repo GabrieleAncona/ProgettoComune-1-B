@@ -135,8 +135,10 @@ public class AttackBaseUtility : MonoBehaviour {
             {
                 DamageTankP2();
                 tankP2.transform.DOShakePosition(2f, strength, vibrato);
+                GameManager.singleton.acm.isActionUtility = false;
                 yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
+                
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -146,8 +148,10 @@ public class AttackBaseUtility : MonoBehaviour {
             {
                 DamageHealerP2();
                 healerP2.transform.DOShakePosition(2f, strength, vibrato);
+                GameManager.singleton.acm.isActionUtility = false;
                 yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
+               
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -157,8 +161,10 @@ public class AttackBaseUtility : MonoBehaviour {
             {
                 DamageDealerP2();
                 dealerP2.transform.DOShakePosition(2f, strength, vibrato);
+                GameManager.singleton.acm.isActionUtility = false;
                 yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
+               
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -168,8 +174,10 @@ public class AttackBaseUtility : MonoBehaviour {
             {
                 DamageUtilityP2();
                 utilityP2.transform.DOShakePosition(2f, strength, vibrato);
+                GameManager.singleton.acm.isActionUtility = false;
                 yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
+               
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -344,7 +352,7 @@ public class AttackBaseUtility : MonoBehaviour {
         lm.lifeTankPlayer2 -= att;
         //turn.isTurn = false;
         isAttack = false;
-        selection.isActiveUtility = false;
+       // selection.isActiveUtility = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
        
@@ -355,7 +363,7 @@ public class AttackBaseUtility : MonoBehaviour {
         lm.lifeHealerPlayer2 -= att;
         //turn.isTurn = false;
         isAttack = false;
-        selection.isActiveUtility = false;
+        // selection.isActiveUtility = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
         
@@ -366,7 +374,7 @@ public class AttackBaseUtility : MonoBehaviour {
         lm.lifeDealerPlayer2 -= att;
         //turn.isTurn = false;
         isAttack = false;
-        selection.isActiveUtility = false;
+        // selection.isActiveUtility = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
         
@@ -377,7 +385,7 @@ public class AttackBaseUtility : MonoBehaviour {
         lm.lifeUtilityPlayer2 -= att;
         // turn.isTurn = false;
         isAttack = false;
-        selection.isActiveUtility = false;
+        //  selection.isActiveUtility = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
         
