@@ -9,7 +9,6 @@ public class ButtonNavigation : MonoBehaviour
     public int index = 0;
     public int totButton = 3;
     public float offset = 1f;
-    public List<Button> ActionButton = new List<Button>();
     public List<Sprite> MovementSprite = new List<Sprite>();
     public List<Sprite> AttackSprite = new List<Sprite>();
     public List<Sprite> AbilitySprite = new List<Sprite>();
@@ -39,29 +38,59 @@ public class ButtonNavigation : MonoBehaviour
     {
         if (GameManager.singleton.acm.isActionMenu == true)
         {
-            if (Input.GetKeyDown(KeyCode.D))
+            if (GameManager.singleton._player.IdPlayer == 1)
             {
-                if (index < totButton)
+                if (Input.GetKeyDown(KeyCode.D))
                 {
-                    index++;
+                    if (index < totButton)
+                    {
+                        index++;
+                    }
+                    else if (index == totButton)
+                    {
+                        index = 0;
+                    }
                 }
-                else if (index == totButton)
+
+                if (Input.GetKeyDown(KeyCode.A))
                 {
-                    index = 0;
-                }
+                    if (index > 0)
+                    {
+                        index--;
+                    }
+                    else if (index == 0)
+                    {
+                        index = totButton;
+                    }
+                }  
             }
 
-            if (Input.GetKeyDown(KeyCode.A))
+            if (GameManager.singleton._player.IdPlayer == 2)
             {
-                if (index > 0)
+                if (Input.GetKeyDown(KeyCode.L))
                 {
-                    index--;
+                    if (index < totButton)
+                    {
+                        index++;
+                    }
+                    else if (index == totButton)
+                    {
+                        index = 0;
+                    }
                 }
-                else if (index == 0)
+
+                if (Input.GetKeyDown(KeyCode.J))
                 {
-                    index = totButton;
+                    if (index > 0)
+                    {
+                        index--;
+                    }
+                    else if (index == 0)
+                    {
+                        index = totButton;
+                    }
                 }
-            } 
+            }
         }
     }
 
