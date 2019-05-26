@@ -8,6 +8,7 @@ public class HudUnitController : MonoBehaviour
 {
     public HudUnitsManager HUM;
     public Transform SlideTransform;
+    public Transform SlideBackTransform;
     public int UnitIndex;
     public GameObject InfoUnit;
 
@@ -21,10 +22,7 @@ public class HudUnitController : MonoBehaviour
 	void Update ()
     {
         ConfirmedUnitSlide();
-        if (HUM.isActive == true)
-        {
-            InfoUnit.SetActive(false);
-        }
+        BackSlide();
 	}
 
     public void ConfirmedUnitSlide()
@@ -70,5 +68,29 @@ public class HudUnitController : MonoBehaviour
             transform.DOMove(SlideTransform.transform.position, 0.9f).OnComplete(HUM.WaitoMove);
             InfoUnit.SetActive(true);
         }*/
+    }
+
+    public void BackSlide()
+    {
+        if (GameManager.singleton.sc.isActiveTank == false && GameManager.singleton.sc.contSelectionP1 == 1 && UnitIndex == 1 && GameManager.singleton.tm.isTurn == true && HUM.CanvasID == 1)
+        {
+            transform.DOMove(SlideBackTransform.transform.position, 0.9f).OnComplete(HUM.WaitoMove);
+            InfoUnit.SetActive(false);
+        }
+        if (GameManager.singleton.sc.isActiveHealer == false && GameManager.singleton.sc.contSelectionP1 == 2 && UnitIndex == 2 && GameManager.singleton.tm.isTurn == true && HUM.CanvasID == 1)
+        {
+            transform.DOMove(SlideBackTransform.transform.position, 0.9f).OnComplete(HUM.WaitoMove);
+            InfoUnit.SetActive(false);
+        }
+        if (GameManager.singleton.sc.isActiveUtility == false && GameManager.singleton.sc.contSelectionP1 == 3 && UnitIndex == 3 && GameManager.singleton.tm.isTurn == true && HUM.CanvasID == 1)
+        {
+            transform.DOMove(SlideBackTransform.transform.position, 0.9f).OnComplete(HUM.WaitoMove);
+            InfoUnit.SetActive(false);
+        }
+        if (GameManager.singleton.sc.isActiveDealer == false && GameManager.singleton.sc.contSelectionP1 == 4 && UnitIndex == 4 && GameManager.singleton.tm.isTurn == true && HUM.CanvasID == 1)
+        {
+            transform.DOMove(SlideBackTransform.transform.position, 0.9f).OnComplete(HUM.WaitoMove);
+            InfoUnit.SetActive(false);
+        }
     }
 }
