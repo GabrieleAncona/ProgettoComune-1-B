@@ -114,61 +114,19 @@ public class InputController : MonoBehaviour {
         }
 
         ///funzione per tornare al menu di azione da uno stato qualsialsi di action
-        if (Input.GetKeyDown(KeyCode.Tab) && GameManager.singleton._player.IdPlayer == 1 && GameManager.singleton.sc.isSelectionActive == false)
+        if (Input.GetKeyDown(KeyCode.Tab) && GameManager.singleton._player.IdPlayer == 1 && GameManager.singleton.sc.isSelectionActive == false && GameManager.singleton.acm.isActionMenu == false)
         {
-           
+            Debug.Log("funziona input");
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
             
         }
 
-        if (Input.GetKeyDown(KeyCode.P) && GameManager.singleton._player.IdPlayer == 2 && GameManager.singleton.sc2.isSelectionActive == false)
+        if (Input.GetKeyDown(KeyCode.P) && GameManager.singleton._player.IdPlayer == 2 && GameManager.singleton.sc2.isSelectionActive == false && GameManager.singleton.acm.isActionMenu == false)
         {
+            Debug.Log("funziona input");
             GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
         }
 
-        ///player 1 input provvisori
-       /*if (Input.GetKeyDown(KeyCode.C))
-        {
-            if(GameManager.singleton.sc.isActiveTank == true)
-            {
-                GameManager.singleton.sc.isActiveTank = false;
-            }
-           else if (GameManager.singleton.sc.isActiveHealer == true)
-            {
-                GameManager.singleton.sc.isActiveHealer = false;
-            }
-           else if (GameManager.singleton.sc.isActiveUtility == true)
-            {
-                GameManager.singleton.sc.isActiveUtility = false;
-            }
-            else if (GameManager.singleton.sc.isActiveDealer == true)
-            {
-                GameManager.singleton.sc.isActiveDealer = false;
-            }
-            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
-        }
-
-        ///player 2
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            if (GameManager.singleton.sc2.isActiveTankP2 == true)
-            {
-                GameManager.singleton.sc2.isActiveTankP2 = false;
-            }
-            else if (GameManager.singleton.sc2.isActiveHealerP2 == true)
-            {
-                GameManager.singleton.sc2.isActiveHealerP2 = false;
-            }
-            else if (GameManager.singleton.sc2.isActiveUtilityP2 == true)
-            {
-                GameManager.singleton.sc2.isActiveUtilityP2 = false;
-            }
-            else if (GameManager.singleton.sc2.isActiveDealerP2 == true)
-            {
-                GameManager.singleton.sc2.isActiveDealerP2 = false;
-            }
-            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
-        }*/
-
+      
     }
 }

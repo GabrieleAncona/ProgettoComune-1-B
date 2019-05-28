@@ -12,7 +12,15 @@ public class HudUnitsManager : MonoBehaviour
     public int CanvasID;
     public List<HudUnitController> SingleHudUnit = new List<HudUnitController>();
     public List<Transform> HudUnitPosition = new List<Transform>();
-    public bool OnMove;
+
+    public bool OnMove
+    {
+        get { return _onMove; }
+        private set {
+            _onMove = value;
+        }
+    }
+    private bool _onMove;
 
     // Use this for initialization
     void Start()
@@ -34,6 +42,7 @@ public class HudUnitsManager : MonoBehaviour
 
             if (Input.GetKeyDown(SU.ChangeSelectionButtonAdd) && CanvasID == 1 && isActive == true)
             {
+                Debug.Log(OnMove);
                 SetFirstController(firstIndex,false);
                 OnMove = true;
                 
@@ -73,7 +82,7 @@ public class HudUnitsManager : MonoBehaviour
         
     }
 
-    public void WaitoMove()
+    private void WaitoMove()
     {
         OnMove = false;
     }
