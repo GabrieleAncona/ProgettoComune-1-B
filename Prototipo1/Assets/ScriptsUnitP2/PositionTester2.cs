@@ -32,7 +32,7 @@ public class PositionTester2 : MonoBehaviour {
     public void Start() {
         lm = FindObjectOfType<LifeManager>();
         timer = 0.5f;
-        contMp = 2;
+        contMp = 3;
         selectionP2 = FindObjectOfType<SelectControllerP2>();
         turn = FindObjectOfType<TurnManager>();
         transform.position = grid.GetWorldPosition(x, y);
@@ -264,7 +264,7 @@ public class PositionTester2 : MonoBehaviour {
     {
         if (turn.isTurn == true)
         {
-            contMp = 2;
+            contMp = 3;
         }
     }
 

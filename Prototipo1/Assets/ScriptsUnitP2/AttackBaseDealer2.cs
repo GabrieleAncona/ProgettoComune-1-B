@@ -142,6 +142,7 @@ public class AttackBaseDealer2 : MonoBehaviour
                 DamageTankP1();
                 tankP1.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionDealer2 = false;
+                GameManager.singleton.sc2.isDealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.CounterA < 2)
@@ -154,6 +155,7 @@ public class AttackBaseDealer2 : MonoBehaviour
                 DamageHealerP1();
                 healerP1.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionDealer2 = false;
+                GameManager.singleton.sc2.isDealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.CounterA < 2)
@@ -166,6 +168,7 @@ public class AttackBaseDealer2 : MonoBehaviour
                 DamageUtilityP1();
                 utilityP1.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionDealer2 = false;
+                GameManager.singleton.sc2.isDealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.CounterA < 2)
@@ -178,6 +181,7 @@ public class AttackBaseDealer2 : MonoBehaviour
                 DamageDealerP1();
                 dealerP1.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionDealer2 = false;
+                GameManager.singleton.sc2.isDealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.CounterA < 2)

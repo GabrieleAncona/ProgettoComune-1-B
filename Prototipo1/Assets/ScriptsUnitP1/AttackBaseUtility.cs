@@ -136,6 +136,7 @@ public class AttackBaseUtility : MonoBehaviour {
                 DamageTankP2();
                 tankP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionUtility = false;
+                GameManager.singleton.sc.isUtilityUsable = false;
                 yield return new WaitForSeconds(2f);
                 
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
@@ -149,6 +150,7 @@ public class AttackBaseUtility : MonoBehaviour {
                 DamageHealerP2();
                 healerP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionUtility = false;
+                GameManager.singleton.sc.isUtilityUsable = false;
                 yield return new WaitForSeconds(2f);
                
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
@@ -162,6 +164,7 @@ public class AttackBaseUtility : MonoBehaviour {
                 DamageDealerP2();
                 dealerP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionUtility = false;
+                GameManager.singleton.sc.isUtilityUsable = false;
                 yield return new WaitForSeconds(2f);
                
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
@@ -175,6 +178,7 @@ public class AttackBaseUtility : MonoBehaviour {
                 DamageUtilityP2();
                 utilityP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionUtility = false;
+                GameManager.singleton.sc.isUtilityUsable = false;
                 yield return new WaitForSeconds(2f);
                
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");

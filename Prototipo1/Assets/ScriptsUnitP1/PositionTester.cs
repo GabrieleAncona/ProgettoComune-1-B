@@ -50,7 +50,7 @@ public class PositionTester : MonoBehaviour
         maxRangeHzTankPlayer1 = x;
         maxRangeVtTankPlayer1 = y;
         //turn.isTurn = true;
-        contMp = 2;
+        contMp = 3;
         att = FindObjectOfType<AttackBase1>();
         ab = FindObjectOfType<AbilityTank>();
     }
@@ -310,7 +310,7 @@ public class PositionTester : MonoBehaviour
     {
         if (turn.isTurn == false)
         {
-            contMp = 2;
+            contMp = 3;
         }
     }
 

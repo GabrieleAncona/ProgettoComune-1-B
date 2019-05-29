@@ -42,7 +42,7 @@ public class PositionUtility : MonoBehaviour {
         maxRangeHzUtilityPlayer1 = x;
         maxRangeVtUtilityPlayer1 = y;
         turn.isTurn = true;
-        contMp = 3;
+        contMp = 4;
         att = FindObjectOfType<AttackBaseUtility>();
         ab = FindObjectOfType<AbilityUtility>();
     }
@@ -262,7 +262,7 @@ public class PositionUtility : MonoBehaviour {
     {
         if (turn.isTurn == false)
         {
-            contMp = 3;
+            contMp = 4;
         }
     }
 }

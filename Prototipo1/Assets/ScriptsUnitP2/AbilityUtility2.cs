@@ -167,6 +167,7 @@ public class AbilityUtility2 : MonoBehaviour {
                 DamageTankP1();
                 tankP1.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionUtility2 = false;
+                GameManager.singleton.sc2.isUtilityUsable2 = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
@@ -176,6 +177,7 @@ public class AbilityUtility2 : MonoBehaviour {
                 DamageHealerP1();
                 healerP1.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionUtility2 = false;
+                GameManager.singleton.sc2.isUtilityUsable2 = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
@@ -185,6 +187,7 @@ public class AbilityUtility2 : MonoBehaviour {
                 DamageUtilityP1();
                 utilityP1.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionUtility2 = false;
+                GameManager.singleton.sc2.isUtilityUsable2 = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
@@ -194,6 +197,7 @@ public class AbilityUtility2 : MonoBehaviour {
                 DamageDealerP1();
                 dealerP1.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionUtility2 = false;
+                GameManager.singleton.sc2.isUtilityUsable2 = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
@@ -324,7 +328,7 @@ public class AbilityUtility2 : MonoBehaviour {
             if (turn.isTurn == true)
             {
                 isAbility = false;
-            utilityP2.contMp = 2;
+            utilityP2.contMp = 4;
         }
         }
 

@@ -154,6 +154,7 @@ public class AbilityUtility : MonoBehaviour {
                 DamageTankP2();
                 tankP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionUtility = false;
+                GameManager.singleton.sc.isUtilityUsable = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
@@ -164,6 +165,7 @@ public class AbilityUtility : MonoBehaviour {
                 DamageHealerP2();
                 healerP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionUtility = false;
+                GameManager.singleton.sc.isUtilityUsable = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
@@ -184,6 +186,7 @@ public class AbilityUtility : MonoBehaviour {
                 DamageUtilityP2();
                 utilityP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionUtility = false;
+                GameManager.singleton.sc.isUtilityUsable = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
@@ -348,7 +351,7 @@ public class AbilityUtility : MonoBehaviour {
         if (turn.isTurn == false)
         {
             isAbility = false;
-            utility.contMp = 2;
+            utility.contMp = 4;
         }
     }
 

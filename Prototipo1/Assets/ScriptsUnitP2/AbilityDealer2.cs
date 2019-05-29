@@ -88,8 +88,9 @@ public class AbilityDealer2 : MonoBehaviour
             Shoot();
             isAbility = false;
             // selectionP2.isActiveDealerP2 = false;
-            dealerP2.contMp = 3;
+            dealerP2.contMp = 4;
             GameManager.singleton.acm.isActionDealer2 = false;
+            GameManager.singleton.sc2.isDealerUsable2 = false;
             yield return new WaitForSeconds(3f);
             selector.transform.GetChild(0).gameObject.SetActive(false);
             GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");

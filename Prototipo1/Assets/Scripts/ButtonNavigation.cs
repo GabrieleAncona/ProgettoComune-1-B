@@ -67,7 +67,7 @@ public class ButtonNavigation : MonoBehaviour
 
             if (GameManager.singleton._player.IdPlayer == 2)
             {
-                if (Input.GetKeyDown(KeyCode.L))
+                if (Input.GetKeyDown(KeyCode.RightArrow))
                 {
                     if (index < totButton)
                     {
@@ -79,7 +79,7 @@ public class ButtonNavigation : MonoBehaviour
                     }
                 }
 
-                if (Input.GetKeyDown(KeyCode.J))
+                if (Input.GetKeyDown(KeyCode.LeftArrow))
                 {
                     if (index > 0)
                     {

@@ -42,7 +42,7 @@ public class PositionDealer2 : MonoBehaviour {
         maxRangeHzDealerPlayer2 = x;
         maxRangeVtDealerPlayer2 = y;
         turn.isTurn = true;
-        contMp = 3;
+        contMp = 4;
         att = FindObjectOfType<AttackBaseDealer2>();
         ab = FindObjectOfType<AbilityDealer2>();
     }
@@ -261,7 +261,7 @@ public class PositionDealer2 : MonoBehaviour {
     {
         if (turn.isTurn == true)
         {
-            contMp = 3;
+            contMp = 4;
         }
     }
 }

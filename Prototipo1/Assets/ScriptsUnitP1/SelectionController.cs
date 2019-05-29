@@ -197,7 +197,7 @@ public class SelectionController : MonoBehaviour {
         {
             Debug.Log("attiva healer");
             isActiveHealer = true;
-            isHealerUsable = false;
+           isHealerUsable = false;
             GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
             //transform.position = grid.GetWorldPosition(healerP1.x, healerP1.y);
             //gameObject.GetComponent<MeshRenderer>().enabled = false;

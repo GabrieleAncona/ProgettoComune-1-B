@@ -42,7 +42,7 @@ public class PositionDealer : MonoBehaviour {
         transform.position = grid.GetWorldPosition(x, y);
         Debug.Log("X: " + x + "Y: " + y);
         turn.isTurn = true;
-        contMp = 3;
+        contMp = 4;
         att = FindObjectOfType<AttackBaseDealer>();
         ab = FindObjectOfType<AbilityDealer>();
     }
@@ -263,7 +263,7 @@ public class PositionDealer : MonoBehaviour {
     {
         if (turn.isTurn == false)
         {
-            contMp = 3;
+            contMp = 4;
         }
     }
 }

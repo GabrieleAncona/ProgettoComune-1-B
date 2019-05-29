@@ -41,7 +41,7 @@ public class PositionUtility2 : MonoBehaviour {
         maxRangeHzUtilityPlayer2 = x;
         maxRangeVtUtilityPlayer2 = y;
         //turn.isTurn = true;
-        contMp = 3;
+        contMp = 4;
         att = FindObjectOfType<AttackBaseUtility2>();
         ab = FindObjectOfType<AbilityUtility2>();
     }
@@ -253,7 +253,7 @@ public class PositionUtility2 : MonoBehaviour {
     {
         if(turn.isTurn == true)
         {
-            contMp = 3;
+            contMp = 4;
         }
     }
 }

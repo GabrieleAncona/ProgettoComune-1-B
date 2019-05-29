@@ -155,7 +155,8 @@ public class AbilityTank : MonoBehaviour
                 tank.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
                 tankP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionTank = false;
-                GameManager.singleton.acm.isActionTank = false;
+               
+                GameManager.singleton.sc.isTankUsable = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
@@ -169,6 +170,7 @@ public class AbilityTank : MonoBehaviour
                 
                 healerP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionTank = false;
+                GameManager.singleton.sc.isTankUsable = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
@@ -182,6 +184,7 @@ public class AbilityTank : MonoBehaviour
                 
                 utilityP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionTank = false;
+                GameManager.singleton.sc.isTankUsable = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
@@ -195,6 +198,7 @@ public class AbilityTank : MonoBehaviour
                
                 dealerP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionTank = false;
+                GameManager.singleton.sc.isTankUsable = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
@@ -364,7 +368,7 @@ public class AbilityTank : MonoBehaviour
         if (turn.isTurn == false)
         {
             isAbility = false;
-            tank.contMp = 2;
+            tank.contMp = 3;
         }
     }
 

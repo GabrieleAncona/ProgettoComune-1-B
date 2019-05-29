@@ -25,7 +25,7 @@ public class AbilityHealer2 : MonoBehaviour
     public bool isAttLeft;
     public bool isAttUp;
     public bool isAttDown;
-
+    public float timerAutoHeal;
     public int Counter;
     public int CounterTurnA;
     public bool isCharging;
@@ -43,6 +43,7 @@ public class AbilityHealer2 : MonoBehaviour
         isAbility = false;
         Counter = 2;
         CounterTurnA = 0;
+        timerAutoHeal = 0f;
     }
 
     // Update is called once per frame
@@ -53,6 +54,7 @@ public class AbilityHealer2 : MonoBehaviour
         StartCoroutine(SetDirectionAbility());
         DisactivePrewiewHealerP2();
         RotationAbility();
+        
     }
 
     public void ChargeAbility()
@@ -144,6 +146,7 @@ public class AbilityHealer2 : MonoBehaviour
             {
                 HealTank();
                 GameManager.singleton.acm.isActionHealer2 = false;
+                GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
@@ -152,6 +155,7 @@ public class AbilityHealer2 : MonoBehaviour
             {
                 HealUtility();
                 GameManager.singleton.acm.isActionHealer2 = false;
+                GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
@@ -160,6 +164,7 @@ public class AbilityHealer2 : MonoBehaviour
             {
                 HealDealer();
                 GameManager.singleton.acm.isActionHealer2 = false;
+                GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
@@ -244,25 +249,33 @@ public class AbilityHealer2 : MonoBehaviour
 
 
         //auto heal
-        if(Input.GetKeyDown(KeyCode.M) && isAbility == true && lm.lifeHealerPlayer2 < lm.lifeMaxHealerPlayer2)
+        if(Input.GetKey(KeyCode.Space) && isAbility == true && lm.lifeHealerPlayer2 < lm.lifeMaxHealerPlayer2)
         {
-            lm.lifeHealerPlayer2 += heal;
-            if (lm.lifeHealerPlayer2 < lm.lifeMaxHealerPlayer2)
-            {
+            timerAutoHeal += Time.deltaTime;
+
+            if (timerAutoHeal >= 2) {
+
                 lm.lifeHealerPlayer2 += heal;
-                isAbility = false;
-                // selectionP2.isActiveHealerP2 = false;
-                //riabilito input controller per i movimenti(wasd)
-                gameObject.GetComponent<InputController>().enabled = true;
-                selectionP2.contSelectionP2 = 0;
-                GameManager.singleton.acm.isActionHealer2 = false;
-                yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
-                Counter = 0;
-            }
-            else
-            {
-                lm.lifeHealerPlayer2 = lm.lifeMaxHealerPlayer2;
+                if (lm.lifeHealerPlayer2 < lm.lifeMaxHealerPlayer2)
+                {
+                    lm.lifeHealerPlayer2 += heal;
+                    isAbility = false;
+                    // selectionP2.isActiveHealerP2 = false;
+                    //riabilito input controller per i movimenti(wasd)
+                    gameObject.GetComponent<InputController>().enabled = true;
+                    selectionP2.contSelectionP2 = 0;
+                    GameManager.singleton.acm.isActionHealer2 = false;
+                    GameManager.singleton.sc2.isHealerUsable2 = false;
+                    yield return new WaitForSeconds(2f);
+                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+                    Counter = 0;
+                    timerAutoHeal = 0;
+                }
+                else
+                {
+                    lm.lifeHealerPlayer2 = lm.lifeMaxHealerPlayer2;
+                    timerAutoHeal = 0;
+                }
             }
            
         }

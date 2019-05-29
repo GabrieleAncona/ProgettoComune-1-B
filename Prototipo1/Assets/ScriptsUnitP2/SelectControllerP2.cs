@@ -191,7 +191,7 @@ public class SelectControllerP2 : MonoBehaviour {
         {
             Debug.Log("attiva healer");
             isActiveHealerP2 = true;
-            isHealerUsable2 = false;
+           isHealerUsable2 = false;
             GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
             //gameObject.GetComponent<MeshRenderer>().enabled = false;
         }

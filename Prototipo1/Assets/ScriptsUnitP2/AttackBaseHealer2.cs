@@ -10,6 +10,7 @@ public class AttackBaseHealer2 : MonoBehaviour {
     public LifeManager lm;
     public TurnManager turn;
     public int att = 1;
+    public int attMax = 2;
     public PositionTester tankP1;
     public PositionTester2 tankP2;
     public PositionHealer2 healerP2;
@@ -152,6 +153,7 @@ public class AttackBaseHealer2 : MonoBehaviour {
                 DamageTankP1();
                 tankP1.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionHealer2 = false;
+                GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.Counter < 2)
@@ -164,6 +166,7 @@ public class AttackBaseHealer2 : MonoBehaviour {
                 DamageHealerP1();
                 healerP1.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionHealer2 = false;
+                GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.Counter < 2)
@@ -176,6 +179,7 @@ public class AttackBaseHealer2 : MonoBehaviour {
                 DamageUtilityP1();
                 utilityP1.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionHealer2 = false;
+                GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.Counter < 2)
@@ -188,6 +192,7 @@ public class AttackBaseHealer2 : MonoBehaviour {
                 DamageDealerP1();
                 dealerP1.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionHealer2 = false;
+                GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.Counter < 2)
@@ -413,7 +418,7 @@ public class AttackBaseHealer2 : MonoBehaviour {
 
     public void DamageTankP1()
     {
-        lm.lifeTank -= att;
+        lm.lifeTank -= attMax;
         isAttack = false;
         //turn.isTurn = true;
         isHitTankP1 = true;
@@ -426,7 +431,7 @@ public class AttackBaseHealer2 : MonoBehaviour {
 
     public void DamageHealerP1()
     {
-        lm.lifeHealer -= att;
+        lm.lifeHealer -= attMax;
         isAttack = false;
         //turn.isTurn = true;
         isHitHealerP1 = true;
@@ -439,7 +444,7 @@ public class AttackBaseHealer2 : MonoBehaviour {
 
     public void DamageUtilityP1()
     {
-        lm.lifeUtility -= att;
+        lm.lifeUtility -= attMax;
         isAttack = false;
         //turn.isTurn = true;
         isHitUtilityP1 = true;
@@ -452,7 +457,7 @@ public class AttackBaseHealer2 : MonoBehaviour {
 
     public void DamageDealerP1()
     {
-        lm.lifeDealer -= att;
+        lm.lifeDealer -= attMax;
         isAttack = false;
         //turn.isTurn = true;
         isHitDealerP1 = true;

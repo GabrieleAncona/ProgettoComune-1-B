@@ -25,7 +25,7 @@ public class AbilityHealer : MonoBehaviour {
     public bool isAttLeft;
     public bool isAttUp;
     public bool isAttDown;
-
+    public float timerAutoHeal;
     public int Counter;
     public int CounterTurnA;
     public bool isCharging;
@@ -43,6 +43,7 @@ public class AbilityHealer : MonoBehaviour {
         isAbility = false;
         Counter = 2;
         CounterTurnA = 0;
+        timerAutoHeal = 0f;
     }
 
     // Update is called once per frame
@@ -145,6 +146,7 @@ public class AbilityHealer : MonoBehaviour {
                 {
                     HealTank();
                     GameManager.singleton.acm.isActionHealer = false;
+                    GameManager.singleton.sc.isHealerUsable = false;
                     yield return new WaitForSeconds(2f);
                     GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                     
@@ -157,6 +159,7 @@ public class AbilityHealer : MonoBehaviour {
                 {
                     HealDealer();
                     GameManager.singleton.acm.isActionHealer = false;
+                    GameManager.singleton.sc.isHealerUsable = false;
                     yield return new WaitForSeconds(2f);
 
                     GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
@@ -170,6 +173,7 @@ public class AbilityHealer : MonoBehaviour {
                 {
                     HealUtility();
                     GameManager.singleton.acm.isActionHealer = false;
+                    GameManager.singleton.sc.isHealerUsable = false;
                     yield return new WaitForSeconds(2f);
                     GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                     Counter = 0;
@@ -283,27 +287,36 @@ public class AbilityHealer : MonoBehaviour {
         }*/
 
         //autoheal 
-        if(Input.GetKeyDown(KeyCode.Z) && isAbility == true && lm.lifeHealer < lm.lifeMaxHealer)
+        if(Input.GetKey(KeyCode.Space) && isAbility == true && lm.lifeHealer < lm.lifeMaxHealer)
         {
-            lm.lifeHealer += heal;
-            if (lm.lifeHealer < lm.lifeMaxHealer)
+
+            timerAutoHeal += Time.deltaTime;
+
+            if (timerAutoHeal >= 2)
             {
+
                 lm.lifeHealer += heal;
-                isAbility = false;
-                //  selection.isActiveHealer = false;
-                //riabilito input controller per i movimenti(wasd)
-                gameObject.GetComponent<InputController>().enabled = true;
-                selection.contSelectionP1 = 0;
-                GameManager.singleton.acm.isActionHealer = false;
-                yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
-                Counter = 0;
+                if (lm.lifeHealer < lm.lifeMaxHealer)
+                {
+                    lm.lifeHealer += heal;
+                    isAbility = false;
+                    //  selection.isActiveHealer = false;
+                    //riabilito input controller per i movimenti(wasd)
+                    gameObject.GetComponent<InputController>().enabled = true;
+                    selection.contSelectionP1 = 0;
+                    GameManager.singleton.acm.isActionHealer = false;
+                    GameManager.singleton.sc.isHealerUsable = false;
+                    yield return new WaitForSeconds(2f);
+                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+                    Counter = 0;
+                    timerAutoHeal = 0;
+                }
+                else
+                {
+                    lm.lifeHealer = lm.lifeMaxHealer;
+                    timerAutoHeal = 0;
+                }
             }
-            else
-            {
-                lm.lifeHealer = lm.lifeMaxHealer;
-            }
-           
         }
 
 

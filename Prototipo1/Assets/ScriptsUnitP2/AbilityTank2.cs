@@ -165,6 +165,7 @@ public class AbilityTank2 : MonoBehaviour {
                 tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 tankP1.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionTank2 = false;
+                GameManager.singleton.sc2.isTankUsable2 = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
@@ -176,6 +177,7 @@ public class AbilityTank2 : MonoBehaviour {
                 tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 healerP1.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionTank2 = false;
+                GameManager.singleton.sc2.isTankUsable2 = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
@@ -187,6 +189,7 @@ public class AbilityTank2 : MonoBehaviour {
                 tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 utilityP1.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionTank2 = false;
+                GameManager.singleton.sc2.isTankUsable2 = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
@@ -198,6 +201,7 @@ public class AbilityTank2 : MonoBehaviour {
                 tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 dealerP1.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionTank2 = false;
+                GameManager.singleton.sc2.isTankUsable2 = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
@@ -353,7 +357,7 @@ public class AbilityTank2 : MonoBehaviour {
         if (turn.isTurn == true)
         {
             isAbility = false;
-            tankP2.contMp = 2;
+            tankP2.contMp = 3;
         }
     }
 

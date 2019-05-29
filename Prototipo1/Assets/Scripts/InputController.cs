@@ -121,7 +121,7 @@ public class InputController : MonoBehaviour {
             
         }
 
-        if (Input.GetKeyDown(KeyCode.P) && GameManager.singleton._player.IdPlayer == 2 && GameManager.singleton.sc2.isSelectionActive == false && GameManager.singleton.acm.isActionMenu == false)
+        if (Input.GetKeyDown(KeyCode.Return) && GameManager.singleton._player.IdPlayer == 2 && GameManager.singleton.sc2.isSelectionActive == false && GameManager.singleton.acm.isActionMenu == false)
         {
             Debug.Log("funziona input");
             GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
