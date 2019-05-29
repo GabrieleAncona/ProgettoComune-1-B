@@ -100,7 +100,7 @@ public class AbilityDealer2 : MonoBehaviour
         {
             if (isAbility == true)
             {
-                if (Input.GetKeyDown(KeyCode.K))
+                if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
                     transform.DOLocalRotate(new Vector3(0, 90, 0), 0.2f);
                     isAttUp = true;
@@ -113,7 +113,7 @@ public class AbilityDealer2 : MonoBehaviour
 
 
                 }
-                if (Input.GetKeyDown(KeyCode.I))
+                if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
                     transform.DOLocalRotate(new Vector3(0, -90, 0), 0.2f);
                     isAttUp = false;
@@ -126,7 +126,7 @@ public class AbilityDealer2 : MonoBehaviour
 
 
                 }
-                if (Input.GetKeyDown(KeyCode.J))
+                if (Input.GetKeyDown(KeyCode.LeftArrow))
                 {
                     transform.DOLocalRotate(new Vector3(0, 180, 0), 0.2f);
                     isAttUp = false;
@@ -138,7 +138,7 @@ public class AbilityDealer2 : MonoBehaviour
                     y = dealerP2.y;
 
                 }
-                if (Input.GetKeyDown(KeyCode.L))
+                if (Input.GetKeyDown(KeyCode.RightArrow))
                 {
                     transform.DOLocalRotate(new Vector3(0, 0, 0), 0.2f);
                     isAttUp = false;

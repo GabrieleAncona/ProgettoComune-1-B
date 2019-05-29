@@ -100,7 +100,7 @@ public class AbilityHealer2 : MonoBehaviour
     {
         if (isAbility == true)
         {
-            if (Input.GetKeyDown(KeyCode.K))
+            if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 transform.DOLocalRotate(new Vector3(0, 90, 0), 0.2f);
                 isAttUp = true;
@@ -108,7 +108,7 @@ public class AbilityHealer2 : MonoBehaviour
                 isAttLeft = false;
                 isAttRight = false;
             }
-            if (Input.GetKeyDown(KeyCode.I))
+            if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 transform.DOLocalRotate(new Vector3(0, -90, 0), 0.2f);
                 isAttUp = false;
@@ -116,7 +116,7 @@ public class AbilityHealer2 : MonoBehaviour
                 isAttLeft = false;
                 isAttRight = false;
             }
-            if (Input.GetKeyDown(KeyCode.J))
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 transform.DOLocalRotate(new Vector3(0, 180, 0), 0.2f);
                 isAttUp = false;
@@ -124,7 +124,7 @@ public class AbilityHealer2 : MonoBehaviour
                 isAttLeft = false;
                 isAttRight = true;
             }
-            if (Input.GetKeyDown(KeyCode.L))
+            if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 transform.DOLocalRotate(new Vector3(0, 0, 0), 0.2f);
                 isAttUp = false;
@@ -140,7 +140,7 @@ public class AbilityHealer2 : MonoBehaviour
     {
         //SetRange();
         //destra
-        if (Input.GetKeyDown(KeyCode.Space)  && isAbility == true && healerP2.isUnitAlly == true /* altre unita */)
+        if (Input.GetKeyDown(KeyCode.Return)  && isAbility == true && healerP2.isUnitAlly == true /* altre unita */)
         {
             if (healerP2.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
@@ -249,7 +249,7 @@ public class AbilityHealer2 : MonoBehaviour
 
 
         //auto heal
-        if(Input.GetKey(KeyCode.Space) && isAbility == true && lm.lifeHealerPlayer2 < lm.lifeMaxHealerPlayer2)
+        if(Input.GetKey(KeyCode.Return) && isAbility == true && lm.lifeHealerPlayer2 < lm.lifeMaxHealerPlayer2)
         {
             timerAutoHeal += Time.deltaTime;
 
