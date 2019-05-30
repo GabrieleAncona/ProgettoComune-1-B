@@ -30,9 +30,14 @@ public class PositionHealer : MonoBehaviour {
     public bool isStun;
     public bool isDead;
     public int idPlayer;
+    public GameObject cellPrew;
+    public bool isStart = false;
+    public GameObject[] Prew;
+    public int prova;
 
     public void Start()
     {
+        prova = 5;
         myTurn = false;
         lm = FindObjectOfType<LifeManager>();
         timer = 0.5f;
@@ -45,7 +50,7 @@ public class PositionHealer : MonoBehaviour {
         turn.isTurn = true;
         att = FindObjectOfType<AttackBaseHealer>();
         ab = FindObjectOfType<AbilityHealer>();
-
+      
     }
 
     void Update()
@@ -54,8 +59,8 @@ public class PositionHealer : MonoBehaviour {
         RayCastingController();
         MyTurn();
         Death();
-
         ResetMp();
+        //RayCastingControllerPrewiew();
     }
 
     public void GoToLeft()
@@ -213,7 +218,7 @@ public class PositionHealer : MonoBehaviour {
 
             if (Physics.Raycast(rayRight, out hit, 5) && hit.collider.tag == "UnitP2")
             {
-
+                
                 Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.forward * hit.distance, Color.red);
 
 
@@ -245,11 +250,41 @@ public class PositionHealer : MonoBehaviour {
         }
     }
 
+    /*public void RayCastingControllerPrewiew()
+    {
+
+
+        if (att.isAttackHealer == true)
+        {
+            
+            Ray rayPrew = new Ray(transform.position, transform.forward);
+            RaycastHit hitPrew;
+
+
+               if (Physics.Raycast(rayPrew, out hitPrew, prova) && isStart == false)
+               {
+                isStart = true;
+                    for (int i = 0; i < Prew.Length; i++)
+                    {
+                    
+                        ///Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.forward * hit.distance, Color.red);
+                        GameObject clone = (GameObject)Instantiate(cellPrew, transform.position + rayPrew.direction * i, transform.rotation);
+                        Prew[i] = clone;
+                    }
+               }
+        }
+            
+         if (att.isAttackHealer == false)
+        {
+            isStart = false;
+        }
+    }*/
+
     public void GetDamage(int damage)
     {
         lm.lifeHealer -= damage;
     }
-
+    
     public void MyTurn()
     {
         if (selection.isActiveHealer == true && turn.isTurn == true)
