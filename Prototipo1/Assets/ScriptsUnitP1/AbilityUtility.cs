@@ -4,7 +4,8 @@ using UnityEngine;
 using GridSystem;
 using DG.Tweening;
 
-public class AbilityUtility : MonoBehaviour {
+public class AbilityUtility : AbilityBase 
+{
 
     public int att = 2;
     public PositionUtility utility;
@@ -152,7 +153,11 @@ public class AbilityUtility : MonoBehaviour {
             if (utility.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
                 DamageTankP2();
-                tankP2.transform.DOShakePosition(2f, strength, vibrato);
+				if (OnAbility != null)
+				{
+					OnAbility();
+				}
+				tankP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionUtility = false;
                 GameManager.singleton.sc.isUtilityUsable = false;
                 yield return new WaitForSeconds(2f);
@@ -163,7 +168,11 @@ public class AbilityUtility : MonoBehaviour {
             else if (utility.hit.transform.gameObject.GetComponent<PositionHealer2>())
             {
                 DamageHealerP2();
-                healerP2.transform.DOShakePosition(2f, strength, vibrato);
+				if (OnAbility != null)
+				{
+					OnAbility();
+				}
+				healerP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionUtility = false;
                 GameManager.singleton.sc.isUtilityUsable = false;
                 yield return new WaitForSeconds(2f);
@@ -174,7 +183,11 @@ public class AbilityUtility : MonoBehaviour {
             else if (utility.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
                 DamageDealerP2();
-                dealerP2.transform.DOShakePosition(2f, strength, vibrato);
+				if (OnAbility != null)
+				{
+					OnAbility();
+				}
+				dealerP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionUtility = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
@@ -184,7 +197,11 @@ public class AbilityUtility : MonoBehaviour {
             else if (utility.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
                 DamageUtilityP2();
-                utilityP2.transform.DOShakePosition(2f, strength, vibrato);
+				if (OnAbility != null)
+				{
+					OnAbility();
+				}
+				utilityP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionUtility = false;
                 GameManager.singleton.sc.isUtilityUsable = false;
                 yield return new WaitForSeconds(2f);
