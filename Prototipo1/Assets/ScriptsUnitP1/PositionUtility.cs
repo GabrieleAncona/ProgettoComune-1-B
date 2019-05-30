@@ -4,7 +4,8 @@ using UnityEngine;
 using GridSystem;
 using DG.Tweening;
 
-public class PositionUtility : MonoBehaviour {
+public class PositionUtility : MovementBase
+{
     public int x, y;
     public BaseGrid grid;
     public TurnManager turn;
@@ -65,7 +66,11 @@ public class PositionUtility : MonoBehaviour {
             transform.DOLocalRotate(new Vector3(0, -90, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x--, y);
             transform.DOMoveX(x, duration).SetAutoKill(false);
-            turn.ContRound += 1;
+			if (OnMovement != null)
+			{
+				OnMovement();
+			}
+			turn.ContRound += 1;
             maxRangeHzUtilityPlayer1 = x;
             contMp--;
             isLeft = true;
@@ -88,7 +93,11 @@ public class PositionUtility : MonoBehaviour {
             transform.DOLocalRotate(new Vector3(0, 90, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x++, y);
             transform.DOMoveX(x, duration).SetAutoKill(false);
-            turn.ContRound += 1;
+			if (OnMovement != null)
+			{
+				OnMovement();
+			}
+			turn.ContRound += 1;
             maxRangeHzUtilityPlayer1 = x;
             contMp--;
             isRight = true;
@@ -111,8 +120,12 @@ public class PositionUtility : MonoBehaviour {
 
             transform.DOLocalRotate(new Vector3(0, 180, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x, y--);
-            transform.DOMoveZ(y, duration).SetAutoKill(false); ;
-            turn.ContRound += 1;
+            transform.DOMoveZ(y, duration).SetAutoKill(false);
+			if (OnMovement != null)
+			{
+				OnMovement();
+			}
+			turn.ContRound += 1;
             maxRangeVtUtilityPlayer1 = y;
             contMp--;
             isDown = true;
@@ -135,7 +148,11 @@ public class PositionUtility : MonoBehaviour {
             transform.DOLocalRotate(new Vector3(0, 0, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x, y++);
             transform.DOMoveZ(y, duration).SetAutoKill(false);
-            turn.ContRound += 1;
+			if (OnMovement != null)
+			{
+				OnMovement();
+			}
+			turn.ContRound += 1;
             maxRangeVtUtilityPlayer1 = y;
             contMp--;
             isUp = true;

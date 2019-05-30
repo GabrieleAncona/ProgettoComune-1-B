@@ -4,7 +4,8 @@ using UnityEngine;
 using GridSystem;
 using DG.Tweening;
 
-public class AbilityDealer : MonoBehaviour {
+public class AbilityDealer : AbilityBase
+{
 
     public int att = 2;
     public PositionUtility utility;
@@ -85,7 +86,11 @@ public class AbilityDealer : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.LeftControl) && isAbility == true)
         {
             Shoot();
-            isAbility = false;
+			if (OnAbility != null)
+			{
+				OnAbility();
+			}
+			isAbility = false;
             // selection.isActiveDealer = false;
             gameObject.GetComponent<InputController>().enabled = true;
             GameManager.singleton.acm.isActionDealer = false;

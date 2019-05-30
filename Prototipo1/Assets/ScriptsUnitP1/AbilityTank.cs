@@ -4,7 +4,7 @@ using UnityEngine;
 using GridSystem;
 using DG.Tweening;
 
-public class AbilityTank : MonoBehaviour
+public class AbilityTank : AbilityBase
 {
     public int att = 3;
     public PositionTester tank;
@@ -151,7 +151,11 @@ public class AbilityTank : MonoBehaviour
             if (tank.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
                 DamageTankP2();
-                tank.transform.position = grid.GetWorldPosition(tank.x++, tank.y);
+				if (OnAbility != null)
+				{
+					OnAbility();
+				}
+				tank.transform.position = grid.GetWorldPosition(tank.x++, tank.y);
                 tank.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
                 tankP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionTank = false;
@@ -165,7 +169,11 @@ public class AbilityTank : MonoBehaviour
             else if (tank.hit.transform.gameObject.GetComponent<PositionHealer2>())
             {
                 DamageHealerP2();
-                tank.transform.position = grid.GetWorldPosition(tank.x++, tank.y);
+				if (OnAbility != null)
+				{
+					OnAbility();
+				}
+				tank.transform.position = grid.GetWorldPosition(tank.x++, tank.y);
                 tank.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
                 
                 healerP2.transform.DOShakePosition(2f, strength, vibrato);
@@ -179,7 +187,11 @@ public class AbilityTank : MonoBehaviour
             else if (tank.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
                 DamageUtilityP2();
-                tank.transform.position = grid.GetWorldPosition(tank.x++, tank.y);
+				if (OnAbility != null)
+				{
+					OnAbility();
+				}
+				tank.transform.position = grid.GetWorldPosition(tank.x++, tank.y);
                 tank.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
                 
                 utilityP2.transform.DOShakePosition(2f, strength, vibrato);
@@ -193,7 +205,11 @@ public class AbilityTank : MonoBehaviour
             else if (tank.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
                 DamageDealerP2();
-                tank.transform.position = grid.GetWorldPosition(tank.x++, tank.y);
+				if (OnAbility != null)
+				{
+					OnAbility();
+				}
+				tank.transform.position = grid.GetWorldPosition(tank.x++, tank.y);
                 tank.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
                
                 dealerP2.transform.DOShakePosition(2f, strength, vibrato);

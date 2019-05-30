@@ -4,7 +4,8 @@ using UnityEngine;
 using GridSystem;
 using DG.Tweening;
 
-public class AttackBaseHealer : MonoBehaviour{
+public class AttackBaseHealer : AttackBase
+{
 
     public LifeManager lm;
     public TurnManager turn;
@@ -146,7 +147,11 @@ public class AttackBaseHealer : MonoBehaviour{
             if (healerP1.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
                 DamageTankP2();
-                tankP2.transform.DOShakePosition(2f, strength, vibrato);
+				if (OnAttack != null)
+				{
+					OnAttack();
+				}
+				tankP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionHealer = false;
                 GameManager.singleton.sc.isHealerUsable = false;
                 yield return new WaitForSeconds(2f);
@@ -160,7 +165,11 @@ public class AttackBaseHealer : MonoBehaviour{
             else if (healerP1.hit.transform.gameObject.GetComponent<PositionHealer2>())
             {
                 DamageHealerP2();
-                healerP2.transform.DOShakePosition(2f, strength, vibrato);
+				if (OnAttack != null)
+				{
+					OnAttack();
+				}
+				healerP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionHealer = false;
                 GameManager.singleton.sc.isHealerUsable = false;
                 yield return new WaitForSeconds(2f);
@@ -174,7 +183,11 @@ public class AttackBaseHealer : MonoBehaviour{
             else if (healerP1.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
                 DamageUtilityP2();
-                utilityP2.transform.DOShakePosition(2f, strength, vibrato);
+				if (OnAttack != null)
+				{
+					OnAttack();
+				}
+				utilityP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionHealer = false;
                 GameManager.singleton.sc.isHealerUsable = false;
                 yield return new WaitForSeconds(2f);
@@ -188,7 +201,11 @@ public class AttackBaseHealer : MonoBehaviour{
             else if (healerP1.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
                 DamageDealerP2();
-                dealerP2.transform.DOShakePosition(2f, strength, vibrato);
+				if (OnAttack != null)
+				{
+					OnAttack();
+				}
+				dealerP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionHealer = false;
                 GameManager.singleton.sc.isHealerUsable = false;
                 yield return new WaitForSeconds(2f);
