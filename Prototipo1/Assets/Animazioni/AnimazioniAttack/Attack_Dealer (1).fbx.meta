@@ -1,0 +1,146 @@
+fileFormatVersion: 2
+guid: cf61a428984954f4a95ba9ef68ca65ee
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: ik_arm_l
+    100004: ik_arm_r
+    100006: J_elbow_l
+    100008: J_elbow_r
+    100010: J_finger_l
+    100012: J_finger_r
+    100014: J_Foot_l
+    100016: J_Foot_r
+    100018: J_hand_l
+    100020: J_hand_r
+    100022: J_Head
+    100024: J_Hip_l
+    100026: J_Hip_r
+    100028: J_inch_l
+    100030: J_inch_r
+    100032: J_Knee
+    100034: J_Pelvic
+    100036: J_shoulder_l
+    100038: J_shoulder_r
+    100040: J_Spine
+    100042: J_wrist_l
+    100044: J_wrist_r
+    100046: Kunaiw
+    100048: Ranged
+    400000: //RootNode
+    400002: ik_arm_l
+    400004: ik_arm_r
+    400006: J_elbow_l
+    400008: J_elbow_r
+    400010: J_finger_l
+    400012: J_finger_r
+    400014: J_Foot_l
+    400016: J_Foot_r
+    400018: J_hand_l
+    400020: J_hand_r
+    400022: J_Head
+    400024: J_Hip_l
+    400026: J_Hip_r
+    400028: J_inch_l
+    400030: J_inch_r
+    400032: J_Knee
+    400034: J_Pelvic
+    400036: J_shoulder_l
+    400038: J_shoulder_r
+    400040: J_Spine
+    400042: J_wrist_l
+    400044: J_wrist_r
+    400046: Kunaiw
+    400048: Ranged
+    2100000: kunai
+    2100002: dealer
+    2300000: Kunaiw
+    3300000: Kunaiw
+    4300000: Kunaiw
+    4300002: Ranged
+    7400000: AttackDealer
+    9500000: //RootNode
+    13700000: Ranged
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -5,7 +5,8 @@ using GridSystem;
 using DG.Tweening;
 
 //healer giocatore 1
-public class PositionHealer : MonoBehaviour {
+public class PositionHealer : MovementBase
+{
     public float duration = 0.5f;
     public int x, y;
     public BaseGrid grid;
@@ -70,6 +71,10 @@ public class PositionHealer : MonoBehaviour {
             transform.DOLocalRotate(new Vector3(0, -90, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x--, y);
             transform.DOMoveX(x, duration).SetAutoKill(false);
+            if (OnMovement != null)
+            {
+                OnMovement();
+            }
             turn.ContRound += 1;
             maxRangeHzHealerPlayer1 = x;
             contMp--;
@@ -92,6 +97,10 @@ public class PositionHealer : MonoBehaviour {
             transform.DOLocalRotate(new Vector3(0, 90, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x++, y);
             transform.DOMoveX(x, duration).SetAutoKill(false);
+            if (OnMovement != null)
+            {
+                OnMovement();
+            }
             turn.ContRound += 1;
             maxRangeHzHealerPlayer1 = x;
             contMp--;
@@ -114,6 +123,10 @@ public class PositionHealer : MonoBehaviour {
             transform.DOLocalRotate(new Vector3(0, 180, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x, y--);
             transform.DOMoveZ(y, duration).SetAutoKill(false);
+            if (OnMovement != null)
+            {
+                OnMovement();
+            }
             turn.ContRound += 1;
             maxRangeVtHealerPlayer1 = y;
             contMp--;
@@ -136,6 +149,10 @@ public class PositionHealer : MonoBehaviour {
             transform.DOLocalRotate(new Vector3(0, 0, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x, y++);
             transform.DOMoveZ(y, duration).SetAutoKill(false);
+            if (OnMovement != null)
+            {
+                OnMovement();
+            }
             turn.ContRound += 1;
             maxRangeVtHealerPlayer1 = y;
             contMp--;
