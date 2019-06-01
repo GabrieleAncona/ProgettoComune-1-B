@@ -134,61 +134,64 @@ public class AttackBaseUtility2 : MonoBehaviour {
     {
         //SetRange();
         //tank destra
-        if (Input.GetKeyDown(KeyCode.Return) && isAttack == true  && utilityP2.isUnitEnemie == false)
-        {
-            if (utilityP2.hit.transform.gameObject.GetComponent<PositionTester>())
+        if (Input.GetKeyDown(KeyCode.Return))
             {
-                DamageTankP1();
-                tankP1.transform.DOShakePosition(2f, strength, vibrato);
-                GameManager.singleton.acm.isActionUtility2 = false;
-                GameManager.singleton.sc2.isUtilityUsable2 = false;
-                yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
-                if (ab.Counter < 2)
-                {
-                    ab.Counter = 0;
-                }
-            }
-            else if (utilityP2.hit.transform.gameObject.GetComponent<PositionHealer>())
+            if (isAttack == true && utilityP2.isUnitEnemie == true)
             {
-                DamageHealerP1();
-                healerP1.transform.DOShakePosition(2f, strength, vibrato);
-                GameManager.singleton.acm.isActionUtility2 = false;
-                GameManager.singleton.sc2.isUtilityUsable2 = false;
-                yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
-                if (ab.Counter < 2)
+                if (utilityP2.hit.transform.gameObject.GetComponent<PositionTester>())
                 {
-                    ab.Counter = 0;
+                    DamageTankP1();
+                    tankP1.transform.DOShakePosition(2f, strength, vibrato);
+                    GameManager.singleton.acm.isActionUtility2 = false;
+                    GameManager.singleton.sc2.isUtilityUsable2 = false;
+                    yield return new WaitForSeconds(2f);
+                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+                    if (ab.Counter < 2)
+                    {
+                        ab.Counter = 0;
+                    }
                 }
-            }
-            else if (utilityP2.hit.transform.gameObject.GetComponent<PositionUtility>())
-            {
-                DamageUtilityP1();
-                utilityP1.transform.DOShakePosition(2f, strength, vibrato);
-                GameManager.singleton.acm.isActionUtility2 = false;
-                GameManager.singleton.sc2.isUtilityUsable2 = false;
-                yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
-                if (ab.Counter < 2)
+                else if (utilityP2.hit.transform.gameObject.GetComponent<PositionHealer>())
                 {
-                    ab.Counter = 0;
+                    DamageHealerP1();
+                    healerP1.transform.DOShakePosition(2f, strength, vibrato);
+                    GameManager.singleton.acm.isActionUtility2 = false;
+                    GameManager.singleton.sc2.isUtilityUsable2 = false;
+                    yield return new WaitForSeconds(2f);
+                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+                    if (ab.Counter < 2)
+                    {
+                        ab.Counter = 0;
+                    }
                 }
-            }
-            else if (utilityP2.hit.transform.gameObject.GetComponent<PositionDealer>())
-            {
-                DamageDealerP1();
-                dealerP1.transform.DOShakePosition(2f, strength, vibrato);
-                GameManager.singleton.acm.isActionUtility2 = false;
-                GameManager.singleton.sc2.isUtilityUsable2 = false;
-                yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
-                if (ab.Counter < 2)
+                else if (utilityP2.hit.transform.gameObject.GetComponent<PositionUtility>())
                 {
-                    ab.Counter = 0;
+                    DamageUtilityP1();
+                    utilityP1.transform.DOShakePosition(2f, strength, vibrato);
+                    GameManager.singleton.acm.isActionUtility2 = false;
+                    GameManager.singleton.sc2.isUtilityUsable2 = false;
+                    yield return new WaitForSeconds(2f);
+                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+                    if (ab.Counter < 2)
+                    {
+                        ab.Counter = 0;
+                    }
                 }
-            }
+                else if (utilityP2.hit.transform.gameObject.GetComponent<PositionDealer>())
+                {
+                    DamageDealerP1();
+                    dealerP1.transform.DOShakePosition(2f, strength, vibrato);
+                    GameManager.singleton.acm.isActionUtility2 = false;
+                    GameManager.singleton.sc2.isUtilityUsable2 = false;
+                    yield return new WaitForSeconds(2f);
+                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+                    if (ab.Counter < 2)
+                    {
+                        ab.Counter = 0;
+                    }
+                }
 
+            }
         }
 
         //tanke sinistra
