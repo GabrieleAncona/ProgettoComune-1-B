@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 	MovementBase movementBase;
 	AttackBase attackbase;
 	AbilityBase abilitybase;
+    DeathBase deathbase;
 
 	AnimationController animCtrl;
 
@@ -17,10 +18,11 @@ public class Player : MonoBehaviour
 		movementBase = GetComponent<MovementBase>();
 		abilitybase = GetComponent<AbilityBase>();
 		attackbase = GetComponent<AttackBase>();
+        deathbase = GetComponent<DeathBase>();
 
 		animCtrl = GetComponent<AnimationController>();
 		if (animCtrl != null)
-			animCtrl.Init(movementBase, abilitybase, attackbase);
+			animCtrl.Init(movementBase, abilitybase, attackbase, deathbase);
 	}
 	
 	// Update is called once per frame

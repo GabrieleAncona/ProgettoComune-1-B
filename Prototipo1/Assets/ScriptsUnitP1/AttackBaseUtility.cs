@@ -4,7 +4,7 @@ using UnityEngine;
 using GridSystem;
 using DG.Tweening;
 
-public class AttackBaseUtility : AttackBase
+public class AttackBaseUtility : AttackBase 
 {
     public LifeManager lm;
     public TurnManager turn;
