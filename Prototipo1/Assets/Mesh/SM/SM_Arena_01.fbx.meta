@@ -164,6 +164,7 @@ ModelImporter:
     100316: SM_Footboard_02
     100318: SM_Footboard_03
     100320: SM_Footboard_04
+    100322: SM_Floor_027
     400000: //RootNode
     400002: SM_Bamboo_01
     400004: SM_Bamboo_02
@@ -325,6 +326,7 @@ ModelImporter:
     400316: SM_Footboard_02
     400318: SM_Footboard_03
     400320: SM_Footboard_04
+    400322: SM_Floor_027
     2100000: Palette_Mat1
     2100002: Grass_Mat
     2100004: Flower_L
@@ -493,6 +495,7 @@ ModelImporter:
     2300314: SM_Footboard_02
     2300316: SM_Footboard_03
     2300318: SM_Footboard_04
+    2300320: SM_Floor_027
     3300000: SM_Bamboo_01
     3300002: SM_Bamboo_02
     3300004: SM_Central_Footboard_03
@@ -653,6 +656,7 @@ ModelImporter:
     3300314: SM_Footboard_02
     3300316: SM_Footboard_03
     3300318: SM_Footboard_04
+    3300320: SM_Floor_027
     4300000: SM_Rock_02
     4300002: SM_Palanquin_04
     4300004: SM_Central_Footboard_03
@@ -813,6 +817,7 @@ ModelImporter:
     4300314: SM_Footboard_03
     4300316: SM_Footboard_02
     4300318: SM_Footboard_01
+    4300320: SM_Floor_027
   externalObjects: {}
   materials:
     importMaterials: 0
