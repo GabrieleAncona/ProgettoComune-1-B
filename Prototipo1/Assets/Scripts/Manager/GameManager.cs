@@ -131,7 +131,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void SetupManager()
     {
-       
+        lm = GetComponent<LifeManager>();
         lm = FindObjectOfType<LifeManager>();
         tm = FindObjectOfType<TurnManager>();
         hud = FindObjectOfType<HudManagerTest>();

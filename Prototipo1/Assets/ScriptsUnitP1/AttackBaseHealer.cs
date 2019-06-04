@@ -39,6 +39,8 @@ public class AttackBaseHealer : AttackBase
     public float strength;
     public int vibrato;
     public AbilityHealer ab;
+    public RaycastHit hitUnits;
+    public UnitsData units;
 
     // Use this for initialization
     void Start()
@@ -144,10 +146,12 @@ public class AttackBaseHealer : AttackBase
         // tanks
         if (Input.GetKeyDown(KeyCode.Space)  && isAttackHealer == true  && healerP1.isUnitEnemie == true)
         {
-            if (healerP1.hit.transform.gameObject.GetComponent<PositionTester2>())
+            if (hitUnits.transform.gameObject.GetComponent<Player>() != null && hitUnits.transform.gameObject.GetComponent<Player>().idUnitsGeneral != GetComponent<Player>().idUnitsGeneral)
             {
-                DamageTankP2();
-				if (OnAttack != null)
+
+                hitUnits.transform.gameObject.GetComponent<UnitController>().pedina.life -= GameManager.singleton.lm.DamageAttack(units.damageAttackBase);
+
+                if (OnAttack != null)
 				{
 					OnAttack();
 				}
@@ -162,9 +166,9 @@ public class AttackBaseHealer : AttackBase
                     ab.Counter = 0;
                 }
             }
-            else if (healerP1.hit.transform.gameObject.GetComponent<PositionHealer2>())
+            else if (hitUnits.transform.gameObject.GetComponent<Player>() != null && hitUnits.transform.gameObject.GetComponent<Player>().idUnitsGeneral != GetComponent<Player>().idUnitsGeneral)
             {
-                DamageHealerP2();
+                //DamageHealerP2();
 				if (OnAttack != null)
 				{
 					OnAttack();
@@ -180,9 +184,9 @@ public class AttackBaseHealer : AttackBase
                     ab.Counter = 0;
                 }
             }
-            else if (healerP1.hit.transform.gameObject.GetComponent<PositionUtility2>())
+            else if (hitUnits.transform.gameObject.GetComponent<Player>() != null && hitUnits.transform.gameObject.GetComponent<Player>().idUnitsGeneral != GetComponent<Player>().idUnitsGeneral)
             {
-                DamageUtilityP2();
+                //DamageUtilityP2();
 				if (OnAttack != null)
 				{
 					OnAttack();
@@ -198,9 +202,9 @@ public class AttackBaseHealer : AttackBase
                     ab.Counter = 0;
                 }
             }
-            else if (healerP1.hit.transform.gameObject.GetComponent<PositionDealer2>())
+            else if (hitUnits.transform.gameObject.GetComponent<Player>() != null && hitUnits.transform.gameObject.GetComponent<Player>().idUnitsGeneral != GetComponent<Player>().idUnitsGeneral)
             {
-                DamageDealerP2();
+                //DamageDealerP2();
 				if (OnAttack != null)
 				{
 					OnAttack();
@@ -220,158 +224,7 @@ public class AttackBaseHealer : AttackBase
         }
 
 
-        /*//tank
-        if (Input.GetKeyDown(KeyCode.S) && isAttackHealer == true && isAttDown == true && healerP1.isUnitEnemie == true)
-        {
-
-            if (healerP1.hit.transform.gameObject.GetComponent<PositionTester2>())
-            {
-                DamageTankP2();
-                tankP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                if (ab.Counter < 2)
-                {
-                    ab.Counter = 0;
-                }
-            }
-            else if (healerP1.hit.transform.gameObject.GetComponent<PositionHealer2>())
-            {
-                DamageHealerP2();
-                healerP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                if (ab.Counter < 2)
-                {
-                    ab.Counter = 0;
-                }
-            }
-            else if (healerP1.hit.transform.gameObject.GetComponent<PositionUtility2>())
-            {
-                DamageUtilityP2();
-                utilityP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                if (ab.Counter < 2)
-                {
-                    ab.Counter = 0;
-                }
-            }
-            else if (healerP1.hit.transform.gameObject.GetComponent<PositionDealer2>())
-            {
-                DamageDealerP2();
-                dealerP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                if (ab.Counter < 2)
-                {
-                    ab.Counter = 0;
-                }
-            }
-
-        }
-
-
-
-        //tank
-        if (Input.GetKeyDown(KeyCode.A) && isAttackHealer == true && isAttLeft == true && healerP1.isUnitEnemie == true)
-        {
-            if (healerP1.hit.transform.gameObject.GetComponent<PositionTester2>())
-            {
-                DamageTankP2();
-                tankP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                if (ab.Counter < 2)
-                {
-                    ab.Counter = 0;
-                }
-            }
-            else if (healerP1.hit.transform.gameObject.GetComponent<PositionHealer2>())
-            {
-                DamageHealerP2();
-                healerP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                if (ab.Counter < 2)
-                {
-                    ab.Counter = 0;
-                }
-            }
-            else if (healerP1.hit.transform.gameObject.GetComponent<PositionUtility2>())
-            {
-                DamageUtilityP2();
-                utilityP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                if (ab.Counter < 2)
-                {
-                    ab.Counter = 0;
-                }
-            }
-            else if (healerP1.hit.transform.gameObject.GetComponent<PositionDealer2>())
-            {
-                DamageDealerP2();
-                dealerP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                if (ab.Counter < 2)
-                {
-                    ab.Counter = 0;
-                }
-            }
-
-        }
-
-
-        // tank
-        if (Input.GetKeyDown(KeyCode.D)  && isAttackHealer == true && isAttRight == true && healerP1.isUnitEnemie == true)
-        {
-            if (healerP1.hit.transform.gameObject.GetComponent<PositionTester2>())
-            {
-                DamageTankP2();
-                tankP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                if (ab.Counter < 2)
-                {
-                    ab.Counter = 0;
-                }
-            }
-            else if (healerP1.hit.transform.gameObject.GetComponent<PositionHealer2>())
-            {
-                DamageHealerP2();
-                healerP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                if (ab.Counter < 2)
-                {
-                    ab.Counter = 0;
-                }
-            }
-            else if (healerP1.hit.transform.gameObject.GetComponent<PositionUtility2>())
-            {
-                DamageUtilityP2();
-                utilityP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                if (ab.Counter < 2)
-                {
-                    ab.Counter = 0;
-                }
-            }
-            else if (healerP1.hit.transform.gameObject.GetComponent<PositionDealer2>())
-            {
-                DamageDealerP2();
-                dealerP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                if (ab.Counter < 2)
-                {
-                    ab.Counter = 0;
-                }
-            }
-        }*/
+       
 
 
     }
@@ -447,7 +300,7 @@ public class AttackBaseHealer : AttackBase
         }
     }
 
-    public void DamageTankP2()
+    /*public void DamageTankP2()
     {
         lm.lifeTankPlayer2 -= att;
         isAttackHealer = false;
@@ -490,5 +343,5 @@ public class AttackBaseHealer : AttackBase
         //  selection.isActiveTank = false;
         selection.contSelectionP1 = 0;
         // turn.isTurn = false;
-    }
+    }*/
 }

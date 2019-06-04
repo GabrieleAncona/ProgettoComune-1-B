@@ -49,7 +49,8 @@ public class PositionHealer : MovementBase
         maxRangeHzHealerPlayer1 = x;
         maxRangeVtHealerPlayer1 = y;
         turn.isTurn = true;
-        att = FindObjectOfType<AttackBaseHealer>();
+        att = GetComponent<AttackBaseHealer>();
+       
         ab = FindObjectOfType<AbilityHealer>();
       
     }
@@ -240,7 +241,7 @@ public class PositionHealer : MovementBase
 
 
                 isUnitEnemie = true;
-
+                att.hitUnits = hit;
 
 
             }
