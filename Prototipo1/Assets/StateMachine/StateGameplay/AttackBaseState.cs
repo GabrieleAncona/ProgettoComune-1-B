@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AttackBaseState : StateBehaviourBase
 {
+    
 
     public override void OnEnter()
     {
@@ -17,7 +18,7 @@ public class AttackBaseState : StateBehaviourBase
         GameManager.singleton.acm.isAttackUtility2 = true;
         GameManager.singleton.acm.isAttackDealer = true;
         GameManager.singleton.acm.isAttackDealer2 = true;
-
+        
 
     }
 
@@ -36,6 +37,7 @@ public class AttackBaseState : StateBehaviourBase
         GameManager.singleton.acm.isAttackUtility2 = false;
         GameManager.singleton.acm.isAttackDealer = false;
         GameManager.singleton.acm.isAttackDealer2 = false;
+        
     }
 
 }

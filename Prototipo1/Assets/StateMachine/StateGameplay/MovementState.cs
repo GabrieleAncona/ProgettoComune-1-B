@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MovementState : StateBehaviourBase
 {
+    
+
     public override void OnEnter()
     {
         //Debug.LogFormat("SetupState {0} in Init_State", ctx.SetupDone);
@@ -12,7 +14,7 @@ public class MovementState : StateBehaviourBase
 
         GameManager.singleton.acm.isMovement = true;
         //GameManager.singleton.InitSM();
-
+        
 
     }
 
@@ -24,6 +26,7 @@ public class MovementState : StateBehaviourBase
     public override void OnExit()
     {
         GameManager.singleton.acm.isMovement = false;
+       
     }
 
 }

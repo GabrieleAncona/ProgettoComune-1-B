@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AbilityState : StateBehaviourBase
 {
+    
 
     public override void OnEnter()
     {
@@ -17,7 +19,7 @@ public class AbilityState : StateBehaviourBase
         GameManager.singleton.acm.isAbilityUtility2 = true;
         GameManager.singleton.acm.isAbilityDealer = true;
         GameManager.singleton.acm.isAbilityDealer2 = true;
-
+        
 
     }
 
@@ -36,6 +38,7 @@ public class AbilityState : StateBehaviourBase
         GameManager.singleton.acm.isAbilityUtility2 = false;
         GameManager.singleton.acm.isAbilityDealer = false;
         GameManager.singleton.acm.isAbilityDealer2 = false;
+        
     }
 
 }
