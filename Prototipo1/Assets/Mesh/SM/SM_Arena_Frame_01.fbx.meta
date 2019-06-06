@@ -26,6 +26,34 @@ ModelImporter:
     100040: SM_Wall_02
     100042: SM_Statue_03
     100044: SM_Walkway_01
+    100046: SM_Tree_010
+    100048: SM_Tree_011
+    100050: SM_Tree_012
+    100052: SM_Tree_013
+    100054: SM_Tree_014
+    100056: SM_Tree_015
+    100058: SM_Tree_016
+    100060: SM_Tree_017
+    100062: SM_Tree_018
+    100064: SM_Tree_019
+    100066: SM_Tree_02
+    100068: SM_Tree_020
+    100070: SM_Tree_021
+    100072: SM_Tree_022
+    100074: SM_Tree_023
+    100076: SM_Tree_024
+    100078: SM_Tree_025
+    100080: SM_Tree_026
+    100082: SM_Tree_027
+    100084: SM_Tree_028
+    100086: SM_Tree_029
+    100088: SM_Tree_03
+    100090: SM_Tree_04
+    100092: SM_Tree_05
+    100094: SM_Tree_06
+    100096: SM_Tree_07
+    100098: SM_Tree_08
+    100100: SM_Tree_09
     400000: SM_Arch_03
     400002: SM_Arena_Border_01
     400004: //RootNode
@@ -49,6 +77,34 @@ ModelImporter:
     400040: SM_Wall_02
     400042: SM_Statue_03
     400044: SM_Walkway_01
+    400046: SM_Tree_010
+    400048: SM_Tree_011
+    400050: SM_Tree_012
+    400052: SM_Tree_013
+    400054: SM_Tree_014
+    400056: SM_Tree_015
+    400058: SM_Tree_016
+    400060: SM_Tree_017
+    400062: SM_Tree_018
+    400064: SM_Tree_019
+    400066: SM_Tree_02
+    400068: SM_Tree_020
+    400070: SM_Tree_021
+    400072: SM_Tree_022
+    400074: SM_Tree_023
+    400076: SM_Tree_024
+    400078: SM_Tree_025
+    400080: SM_Tree_026
+    400082: SM_Tree_027
+    400084: SM_Tree_028
+    400086: SM_Tree_029
+    400088: SM_Tree_03
+    400090: SM_Tree_04
+    400092: SM_Tree_05
+    400094: SM_Tree_06
+    400096: SM_Tree_07
+    400098: SM_Tree_08
+    400100: SM_Tree_09
     2100000: Palette_Mat1
     2100002: M_Temple
     2100004: M_Water
@@ -81,6 +137,34 @@ ModelImporter:
     2300038: SM_Wall_02
     2300040: SM_Statue_03
     2300042: SM_Walkway_01
+    2300044: SM_Tree_010
+    2300046: SM_Tree_011
+    2300048: SM_Tree_012
+    2300050: SM_Tree_013
+    2300052: SM_Tree_014
+    2300054: SM_Tree_015
+    2300056: SM_Tree_016
+    2300058: SM_Tree_017
+    2300060: SM_Tree_018
+    2300062: SM_Tree_019
+    2300064: SM_Tree_02
+    2300066: SM_Tree_020
+    2300068: SM_Tree_021
+    2300070: SM_Tree_022
+    2300072: SM_Tree_023
+    2300074: SM_Tree_024
+    2300076: SM_Tree_025
+    2300078: SM_Tree_026
+    2300080: SM_Tree_027
+    2300082: SM_Tree_028
+    2300084: SM_Tree_029
+    2300086: SM_Tree_03
+    2300088: SM_Tree_04
+    2300090: SM_Tree_05
+    2300092: SM_Tree_06
+    2300094: SM_Tree_07
+    2300096: SM_Tree_08
+    2300098: SM_Tree_09
     3300000: SM_Arch_03
     3300002: SM_Arena_Border_01
     3300004: SM_Bridge_01
@@ -103,6 +187,34 @@ ModelImporter:
     3300038: SM_Wall_02
     3300040: SM_Statue_03
     3300042: SM_Walkway_01
+    3300044: SM_Tree_010
+    3300046: SM_Tree_011
+    3300048: SM_Tree_012
+    3300050: SM_Tree_013
+    3300052: SM_Tree_014
+    3300054: SM_Tree_015
+    3300056: SM_Tree_016
+    3300058: SM_Tree_017
+    3300060: SM_Tree_018
+    3300062: SM_Tree_019
+    3300064: SM_Tree_02
+    3300066: SM_Tree_020
+    3300068: SM_Tree_021
+    3300070: SM_Tree_022
+    3300072: SM_Tree_023
+    3300074: SM_Tree_024
+    3300076: SM_Tree_025
+    3300078: SM_Tree_026
+    3300080: SM_Tree_027
+    3300082: SM_Tree_028
+    3300084: SM_Tree_029
+    3300086: SM_Tree_03
+    3300088: SM_Tree_04
+    3300090: SM_Tree_05
+    3300092: SM_Tree_06
+    3300094: SM_Tree_07
+    3300096: SM_Tree_08
+    3300098: SM_Tree_09
     4300000: SM_Gate_01
     4300002: SM_Arch_03
     4300004: SM_Temple_01
@@ -125,6 +237,34 @@ ModelImporter:
     4300038: SM_Arena_Border_01
     4300040: SM_Statue_03
     4300042: SM_Walkway_01
+    4300044: SM_Tree_02
+    4300046: SM_Tree_03
+    4300048: SM_Tree_04
+    4300050: SM_Tree_05
+    4300052: SM_Tree_06
+    4300054: SM_Tree_07
+    4300056: SM_Tree_08
+    4300058: SM_Tree_09
+    4300060: SM_Tree_010
+    4300062: SM_Tree_011
+    4300064: SM_Tree_012
+    4300066: SM_Tree_013
+    4300068: SM_Tree_014
+    4300070: SM_Tree_015
+    4300072: SM_Tree_016
+    4300074: SM_Tree_017
+    4300076: SM_Tree_018
+    4300078: SM_Tree_019
+    4300080: SM_Tree_020
+    4300082: SM_Tree_021
+    4300084: SM_Tree_022
+    4300086: SM_Tree_023
+    4300088: SM_Tree_024
+    4300090: SM_Tree_025
+    4300092: SM_Tree_026
+    4300094: SM_Tree_027
+    4300096: SM_Tree_028
+    4300098: SM_Tree_029
   externalObjects: {}
   materials:
     importMaterials: 0
