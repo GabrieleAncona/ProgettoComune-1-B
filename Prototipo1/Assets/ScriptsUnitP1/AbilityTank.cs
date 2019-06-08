@@ -34,6 +34,7 @@ public class AbilityTank : AbilityBase
     public int Counter;
     public int CounterTurnA;
     public bool isCharging;
+    public HudUnitController HUC;
 
     // Use this for initialization
     void Start () {
@@ -78,6 +79,7 @@ public class AbilityTank : AbilityBase
         {
             Counter = 2;
             CounterTurnA = 0;
+            HUC.AbilityOff.enabled = false;
         }
     }
 
@@ -164,7 +166,6 @@ public class AbilityTank : AbilityBase
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
-               
             }
             else if (tank.hit.transform.gameObject.GetComponent<PositionHealer2>())
             {
@@ -182,7 +183,6 @@ public class AbilityTank : AbilityBase
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
-               
             }
             else if (tank.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
@@ -200,7 +200,6 @@ public class AbilityTank : AbilityBase
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
-               
             }
             else if (tank.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
@@ -218,7 +217,6 @@ public class AbilityTank : AbilityBase
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
-                
             }
 
 
@@ -397,6 +395,7 @@ public class AbilityTank : AbilityBase
         lm.lifeTankPlayer2 -= att;
         //turn.isTurn = false;
         isAbility = false;
+        HUC.AbilityOff.enabled = true;
         //  selection.isActiveTank = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
@@ -411,10 +410,12 @@ public class AbilityTank : AbilityBase
         lm.lifeHealerPlayer2 -= att;
         //turn.isTurn = false;
         isAbility = false;
+        HUC.AbilityOff.enabled = true;
         //  selection.isActiveTank = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
-        selection.contSelectionP1 = 0;
+        ///selection.contSelectionP1 = 0;
+        selection.contSelectionP1 = 1;
     }
     public void DamageUtilityP2()
     {
@@ -425,6 +426,7 @@ public class AbilityTank : AbilityBase
         lm.lifeUtilityPlayer2 -= att;
         //turn.isTurn = false;
         isAbility = false;
+        HUC.AbilityOff.enabled = true;
         // selection.isActiveTank = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
@@ -439,6 +441,7 @@ public class AbilityTank : AbilityBase
         lm.lifeDealerPlayer2 -= att;
         //turn.isTurn = false;
         isAbility = false;
+        HUC.AbilityOff.enabled = true;
         //  selection.isActiveTank = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;

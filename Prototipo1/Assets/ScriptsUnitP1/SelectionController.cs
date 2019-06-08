@@ -132,29 +132,32 @@ public class SelectionController : MonoBehaviour {
 
     public void AddCont()
     {
-        contSelectionP1 += 1;
+        if (GameManager.singleton.stateMachine.SMController.GetCurrentAnimatorStateInfo(0).IsName("selection state"))
+        {
+            contSelectionP1 += 1;
 
-        if(tankP1.isDead == true && contSelectionP1 == 1) 
-        {
-            contSelectionP1 += 1;
-        }
-         if(healerP1.isDead == true && contSelectionP1 == 2) 
-        {
-            contSelectionP1 += 1;
-        }
-        else if(utilityP1.isDead == true && contSelectionP1 == 3)
-        {
-            contSelectionP1 += 1;
-        }
-        else if (dealerP1.isDead == true && contSelectionP1 == 4) 
-        {
-            contSelectionP1 += 1;
-        }
+            if (tankP1.isDead == true && contSelectionP1 == 1)
+            {
+                contSelectionP1 += 1;
+            }
+            if (healerP1.isDead == true && contSelectionP1 == 2)
+            {
+                contSelectionP1 += 1;
+            }
+            else if (utilityP1.isDead == true && contSelectionP1 == 3)
+            {
+                contSelectionP1 += 1;
+            }
+            else if (dealerP1.isDead == true && contSelectionP1 == 4)
+            {
+                contSelectionP1 += 1;
+            }
 
 
-        if (contSelectionP1 > 4)
-        {
-            contSelectionP1 = 1;
+            if (contSelectionP1 > 4)
+            {
+                contSelectionP1 = 1;
+            } 
         }
     }
 

@@ -39,6 +39,7 @@ public class AbilityUtility : AbilityBase
     public int Counter;
     public int CounterTurnA;
     public bool isCharging;
+    public HudUnitController HUC;
 
     // Use this for initialization
     void Start()
@@ -85,6 +86,7 @@ public class AbilityUtility : AbilityBase
         {
             Counter = 2;
             CounterTurnA = 0;
+            HUC.AbilityOff.enabled = false;
         }
     }
 
@@ -163,7 +165,6 @@ public class AbilityUtility : AbilityBase
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
-               
             }
             else if (utility.hit.transform.gameObject.GetComponent<PositionHealer2>())
             {
@@ -178,7 +179,6 @@ public class AbilityUtility : AbilityBase
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
-             
             }
             else if (utility.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
@@ -192,7 +192,6 @@ public class AbilityUtility : AbilityBase
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
-               
             }
             else if (utility.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
@@ -207,7 +206,6 @@ public class AbilityUtility : AbilityBase
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
-                
             }
         }
     
@@ -381,6 +379,7 @@ public class AbilityUtility : AbilityBase
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
         tankP2.isStun = true;
+        HUC.AbilityOff.enabled = true;
     }
 
     public void DamageHealerP2()
@@ -392,6 +391,7 @@ public class AbilityUtility : AbilityBase
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
         healerP2.isStun = true;
+        HUC.AbilityOff.enabled = true;
     }
 
     public void DamageDealerP2()
@@ -403,6 +403,7 @@ public class AbilityUtility : AbilityBase
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
         dealerP2.isStun = true;
+        HUC.AbilityOff.enabled = true;
     }
 
     public void DamageUtilityP2()
@@ -414,5 +415,6 @@ public class AbilityUtility : AbilityBase
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
         utilityP2.isStun = true;
+        HUC.AbilityOff.enabled = true;
     }
 }

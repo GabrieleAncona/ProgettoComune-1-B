@@ -37,6 +37,7 @@ public class AbilityDealer : AbilityBase
     public int CounterA;
     public int CounterTurnA;
     public bool isCharging;
+    public HudUnitController HUC;
 
 
     // Use this for initialization
@@ -118,6 +119,7 @@ public class AbilityDealer : AbilityBase
         {
             CounterA = 2;
             CounterTurnA = 0;
+            HUC.AbilityOff.enabled = false;
         }
     }
 
@@ -218,6 +220,7 @@ public class AbilityDealer : AbilityBase
                     selector.transform.position = grid.GetWorldPosition(x , y);
                     Debug.Log(selector.transform.position);
                     CounterA = 0;
+                    HUC.AbilityOff.enabled = true;
                 }
                 else if (cont >= rangeFire || x >= 11)
                 {
@@ -226,6 +229,7 @@ public class AbilityDealer : AbilityBase
                     y = dealerP1.y;
                     selector.transform.position = grid.GetWorldPosition(dealerP1.x, dealerP1.y);
                     CounterA = 0;
+                    HUC.AbilityOff.enabled = true;
                 }
             }
             else if (isAttDown == true && Input.GetKeyDown(KeyCode.LeftShift))
@@ -238,6 +242,7 @@ public class AbilityDealer : AbilityBase
                     selector.transform.position = grid.GetWorldPosition(x, y);
                     Debug.Log(selector.transform.position);
                     CounterA = 0;
+                    HUC.AbilityOff.enabled = true;
                 }
                 else if (cont >= rangeFire || x <= 0)
                 {
@@ -246,6 +251,7 @@ public class AbilityDealer : AbilityBase
                     y = dealerP1.y;
                     selector.transform.position = grid.GetWorldPosition(dealerP1.x, dealerP1.y);
                     CounterA = 0;
+                    HUC.AbilityOff.enabled = true;
                 }
             }
             if (isAttLeft == true && Input.GetKeyDown(KeyCode.LeftShift))
@@ -258,6 +264,7 @@ public class AbilityDealer : AbilityBase
                     selector.transform.position = grid.GetWorldPosition(x, y);
                     Debug.Log(selector.transform.position);
                     CounterA = 0;
+                    HUC.AbilityOff.enabled = true;
                 }
                 else if (cont >= rangeFire || y >= 11)
                 {
@@ -267,6 +274,7 @@ public class AbilityDealer : AbilityBase
                     selector.transform.position = grid.GetWorldPosition(dealerP1.x, dealerP1.y);
                     Debug.Log(dealerP1.y);
                     CounterA = 0;
+                    HUC.AbilityOff.enabled = true;
                 }
             }
             else if (isAttRight == true && Input.GetKeyDown(KeyCode.LeftShift))
@@ -279,6 +287,7 @@ public class AbilityDealer : AbilityBase
                     selector.transform.position = grid.GetWorldPosition(x, y);
                     Debug.Log(selector.transform.position);
                     CounterA = 0;
+                    HUC.AbilityOff.enabled = true;
                 }
                 else if (cont >= rangeFire || y <= 0)
                 {
@@ -287,6 +296,7 @@ public class AbilityDealer : AbilityBase
                     y = dealerP1.y;
                     selector.transform.position = grid.GetWorldPosition(dealerP1.x, dealerP1.y);
                     CounterA = 0;
+                    HUC.AbilityOff.enabled = true;
                 }
             }
 

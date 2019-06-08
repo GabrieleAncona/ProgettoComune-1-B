@@ -26,7 +26,7 @@ public class SelectionUnits : MonoBehaviour
 	void Update()
     {
         if (turn.isTurn == true && selection.isActiveTank == false && selection.isActiveHealer == false && selection.isActiveDealer == false 
-            && selection.isActiveUtility == false && HUM.OnMove == false)
+            && selection.isActiveUtility == false && HUM.OnMove == false )
         {
             if (Input.GetKeyDown(ChangeSelectionButtonAdd))
             {

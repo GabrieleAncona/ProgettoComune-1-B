@@ -131,25 +131,31 @@ public class SelectControllerP2 : MonoBehaviour {
 
     public void AddContP2()
     {
-        contSelectionP2 += 1;
-
-        //if (tankP2.isDead == true && contSelectionP2 == 1) {
-           // contSelectionP2 += 1;
-        //}
-         if (healerP2.isDead == true && contSelectionP2 == 2) {
-            contSelectionP2 += 1;
-        }
-        else if (utilityP2.isDead == true && contSelectionP2 == 3) {
-            contSelectionP2 += 1;
-        }
-        else if (dealerP2.isDead == true && contSelectionP2 == 4) {
-            contSelectionP2 += 1;
-        }
-
-
-        if (contSelectionP2 > 4 /* 4*/)
+        if (GameManager.singleton.stateMachine.SMController.GetCurrentAnimatorStateInfo(0).IsName("selection state"))
         {
-            contSelectionP2 = 1;
+            contSelectionP2 += 1;
+
+            //if (tankP2.isDead == true && contSelectionP2 == 1) {
+            // contSelectionP2 += 1;
+            //}
+            if (healerP2.isDead == true && contSelectionP2 == 2)
+            {
+                contSelectionP2 += 1;
+            }
+            else if (utilityP2.isDead == true && contSelectionP2 == 3)
+            {
+                contSelectionP2 += 1;
+            }
+            else if (dealerP2.isDead == true && contSelectionP2 == 4)
+            {
+                contSelectionP2 += 1;
+            }
+
+
+            if (contSelectionP2 > 4 /* 4*/)
+            {
+                contSelectionP2 = 1;
+            } 
         }
     }
 
