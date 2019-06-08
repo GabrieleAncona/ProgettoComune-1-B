@@ -143,7 +143,7 @@ public class ButtonNavigation : MonoBehaviour
 
     public void ConfirmButtonSelection()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
             if (index == 0)
             {

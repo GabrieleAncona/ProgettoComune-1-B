@@ -40,8 +40,8 @@ public class AttackBaseHealer2 : MonoBehaviour {
     public int lifeHitDealerP1;
     public bool isHitUtilityP1;
     public bool isHitDealerP1;
-
     public AbilityHealer2 ab;
+    public GameObject vfxPoison;
 
     // Use this for initialization
     void Start()
@@ -419,6 +419,8 @@ public class AttackBaseHealer2 : MonoBehaviour {
     public void DamageTankP1()
     {
         lm.lifeTank -= attMax;
+        Instantiate(vfxPoison, tankP1.transform.position, Quaternion.identity);
+        
         isAttack = false;
         //turn.isTurn = true;
         isHitTankP1 = true;
@@ -432,6 +434,7 @@ public class AttackBaseHealer2 : MonoBehaviour {
     public void DamageHealerP1()
     {
         lm.lifeHealer -= attMax;
+        Instantiate(vfxPoison,  new Vector3(healerP2.x , 0 , healerP2.y) , Quaternion.identity);
         isAttack = false;
         //turn.isTurn = true;
         isHitHealerP1 = true;
@@ -445,6 +448,7 @@ public class AttackBaseHealer2 : MonoBehaviour {
     public void DamageUtilityP1()
     {
         lm.lifeUtility -= attMax;
+        Instantiate(vfxPoison, new Vector3(healerP2.x, 0, healerP2.y), Quaternion.identity);
         isAttack = false;
         //turn.isTurn = true;
         isHitUtilityP1 = true;
@@ -458,6 +462,7 @@ public class AttackBaseHealer2 : MonoBehaviour {
     public void DamageDealerP1()
     {
         lm.lifeDealer -= attMax;
+        Instantiate(vfxPoison, new Vector3(healerP2.x, 0, healerP2.y), Quaternion.identity);
         isAttack = false;
         //turn.isTurn = true;
         isHitDealerP1 = true;
