@@ -13,6 +13,7 @@ public class HudUnitController : MonoBehaviour
     public GameObject InfoUnit;
     public Slider LifeSlider;
     public List<Image> Gleam = new List<Image>();
+    public Image AbilityOff;
 
     // Use this for initialization
     void Start ()
@@ -90,64 +91,67 @@ public class HudUnitController : MonoBehaviour
 
     public void BackSlide()
     {
-        if (GameManager.singleton.sc.isActiveTank == false && GameManager.singleton.sc.contSelectionP1 == 1 && UnitIndex == 1 && GameManager.singleton.tm.isTurn == true && HUM.CanvasID == 1)
+        if (Input.GetKeyDown(KeyCode.U))
         {
-            transform.DOMove(SlideBackTransform.transform.position, 0.9f);
-            LifeSlider.transform.DOScale(new Vector3(0.6f, 1, 1), 0.9f);
-            InfoUnit.SetActive(false);
-            ActivateGleam();
-        }
-        if (GameManager.singleton.sc.isActiveHealer == false && GameManager.singleton.sc.contSelectionP1 == 2 && UnitIndex == 2 && GameManager.singleton.tm.isTurn == true && HUM.CanvasID == 1)
-        {
-            transform.DOMove(SlideBackTransform.transform.position, 0.9f);
-            LifeSlider.transform.DOScale(new Vector3(0.6f, 1, 1), 0.9f);
-            InfoUnit.SetActive(false);
-            ActivateGleam();
-        }
-        if (GameManager.singleton.sc.isActiveUtility == false && GameManager.singleton.sc.contSelectionP1 == 3 && UnitIndex == 3 && GameManager.singleton.tm.isTurn == true && HUM.CanvasID == 1)
-        {
-            transform.DOMove(SlideBackTransform.transform.position, 0.9f);
-            LifeSlider.transform.DOScale(new Vector3(0.6f, 1, 1), 0.9f);
-            InfoUnit.SetActive(false);
-            ActivateGleam();
-        }
-        if (GameManager.singleton.sc.isActiveDealer == false && GameManager.singleton.sc.contSelectionP1 == 4 && UnitIndex == 4 && GameManager.singleton.tm.isTurn == true && HUM.CanvasID == 1)
-        {
-            transform.DOMove(SlideBackTransform.transform.position, 0.9f);
-            LifeSlider.transform.DOScale(new Vector3(0.6f, 1, 1), 0.9f);
-            InfoUnit.SetActive(false);
-            ActivateGleam();
-        }
+            if (GameManager.singleton.sc.isActiveTank == false && GameManager.singleton.sc.contSelectionP1 == 1 && UnitIndex == 1 && GameManager.singleton.tm.isTurn == true && HUM.CanvasID == 1)
+            {
+                transform.DOMove(SlideBackTransform.transform.position, 0.9f);
+                LifeSlider.transform.DOScale(new Vector3(0.6f, 1, 1), 0.9f);
+                InfoUnit.SetActive(false);
+                ActivateGleam();
+            }
+            if (GameManager.singleton.sc.isActiveHealer == false && GameManager.singleton.sc.contSelectionP1 == 2 && UnitIndex == 2 && GameManager.singleton.tm.isTurn == true && HUM.CanvasID == 1)
+            {
+                transform.DOMove(SlideBackTransform.transform.position, 0.9f);
+                LifeSlider.transform.DOScale(new Vector3(0.6f, 1, 1), 0.9f);
+                InfoUnit.SetActive(false);
+                ActivateGleam();
+            }
+            if (GameManager.singleton.sc.isActiveUtility == false && GameManager.singleton.sc.contSelectionP1 == 3 && UnitIndex == 3 && GameManager.singleton.tm.isTurn == true && HUM.CanvasID == 1)
+            {
+                transform.DOMove(SlideBackTransform.transform.position, 0.9f);
+                LifeSlider.transform.DOScale(new Vector3(0.6f, 1, 1), 0.9f);
+                InfoUnit.SetActive(false);
+                ActivateGleam();
+            }
+            if (GameManager.singleton.sc.isActiveDealer == false && GameManager.singleton.sc.contSelectionP1 == 4 && UnitIndex == 4 && GameManager.singleton.tm.isTurn == true && HUM.CanvasID == 1)
+            {
+                transform.DOMove(SlideBackTransform.transform.position, 0.9f);
+                LifeSlider.transform.DOScale(new Vector3(0.6f, 1, 1), 0.9f);
+                InfoUnit.SetActive(false);
+                ActivateGleam();
+            }
 
-        if (GameManager.singleton.sc2.isActiveTankP2 == false && GameManager.singleton.sc2.contSelectionP2 == 1 && UnitIndex == 1 && GameManager.singleton.tm.isTurn == false && HUM.CanvasID == 2)
-        {
-            transform.DOMove(SlideBackTransform.transform.position, 0.9f);
-            LifeSlider.transform.DOScale(new Vector3(0.6f, 1, 1), 0.9f);
-            InfoUnit.SetActive(false);
-            ActivateGleam();
-        }
-        if (GameManager.singleton.sc2.isActiveHealerP2 == false && GameManager.singleton.sc2.contSelectionP2 == 2 && UnitIndex == 2 && GameManager.singleton.tm.isTurn == false && HUM.CanvasID == 2)
-        {
-            transform.DOMove(SlideBackTransform.transform.position, 0.9f);
-            LifeSlider.transform.DOScale(new Vector3(0.6f, 1, 1), 0.9f);
-            InfoUnit.SetActive(false);
-            ActivateGleam();
-        }
-        if (GameManager.singleton.sc2.isActiveUtilityP2 == false && GameManager.singleton.sc2.contSelectionP2 == 3 && UnitIndex == 3 && GameManager.singleton.tm.isTurn == false && HUM.CanvasID == 2)
-        {
-            transform.DOMove(SlideBackTransform.transform.position, 0.9f);
-            LifeSlider.transform.DOScale(new Vector3(0.6f, 1, 1), 0.9f);
-            InfoUnit.SetActive(false);
-            ActivateGleam();
-        }
-        if (GameManager.singleton.sc2.isActiveDealerP2 == false && GameManager.singleton.sc2.contSelectionP2 == 4 && UnitIndex == 4 && GameManager.singleton.tm.isTurn == false && HUM.CanvasID == 2)
-        {
-            transform.DOMove(SlideBackTransform.transform.position, 0.9f);
-            LifeSlider.transform.DOScale(new Vector3(0.6f, 1, 1), 0.9f);
-            InfoUnit.SetActive(false);
-            ActivateGleam();
-        }
-    }
+            if (GameManager.singleton.sc2.isActiveTankP2 == false && GameManager.singleton.sc2.contSelectionP2 == 1 && UnitIndex == 1 && GameManager.singleton.tm.isTurn == false && HUM.CanvasID == 2)
+            {
+                transform.DOMove(SlideBackTransform.transform.position, 0.9f);
+                LifeSlider.transform.DOScale(new Vector3(0.6f, 1, 1), 0.9f);
+                InfoUnit.SetActive(false);
+                ActivateGleam();
+            }
+            if (GameManager.singleton.sc2.isActiveHealerP2 == false && GameManager.singleton.sc2.contSelectionP2 == 2 && UnitIndex == 2 && GameManager.singleton.tm.isTurn == false && HUM.CanvasID == 2)
+            {
+                transform.DOMove(SlideBackTransform.transform.position, 0.9f);
+                LifeSlider.transform.DOScale(new Vector3(0.6f, 1, 1), 0.9f);
+                InfoUnit.SetActive(false);
+                ActivateGleam();
+            }
+            if (GameManager.singleton.sc2.isActiveUtilityP2 == false && GameManager.singleton.sc2.contSelectionP2 == 3 && UnitIndex == 3 && GameManager.singleton.tm.isTurn == false && HUM.CanvasID == 2)
+            {
+                transform.DOMove(SlideBackTransform.transform.position, 0.9f);
+                LifeSlider.transform.DOScale(new Vector3(0.6f, 1, 1), 0.9f);
+                InfoUnit.SetActive(false);
+                ActivateGleam();
+            }
+            if (GameManager.singleton.sc2.isActiveDealerP2 == false && GameManager.singleton.sc2.contSelectionP2 == 4 && UnitIndex == 4 && GameManager.singleton.tm.isTurn == false && HUM.CanvasID == 2)
+            {
+                transform.DOMove(SlideBackTransform.transform.position, 0.9f);
+                LifeSlider.transform.DOScale(new Vector3(0.6f, 1, 1), 0.9f);
+                InfoUnit.SetActive(false);
+                ActivateGleam();
+            }
+
+        }    }
 
     public void ActivateGleam()
     {

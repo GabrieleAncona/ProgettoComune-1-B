@@ -30,6 +30,7 @@ public class AbilityHealer : AbilityBase
     public int Counter;
     public int CounterTurnA;
     public bool isCharging;
+    public HudUnitController HUC;
 
     // Use this for initialization
     void Start()
@@ -72,6 +73,7 @@ public class AbilityHealer : AbilityBase
         {
             Counter = 2;
             CounterTurnA = 0;
+            HUC.AbilityOff.enabled = false;
         }
     }
 
@@ -150,7 +152,6 @@ public class AbilityHealer : AbilityBase
                     GameManager.singleton.sc.isHealerUsable = false;
                     yield return new WaitForSeconds(2f);
                     GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
-                    
                     Counter = 0;
                 }
             }
@@ -164,7 +165,6 @@ public class AbilityHealer : AbilityBase
                     yield return new WaitForSeconds(2f);
 
                     GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
-
                     Counter = 0;
                 }
             }
@@ -310,6 +310,7 @@ public class AbilityHealer : AbilityBase
                     yield return new WaitForSeconds(2f);
                     GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                     Counter = 0;
+                    HUC.AbilityOff.enabled = true;
                     timerAutoHeal = 0;
                 }
                 else
@@ -343,7 +344,7 @@ public class AbilityHealer : AbilityBase
         //  selection.isActiveHealer = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
-
+        HUC.AbilityOff.enabled = true;
         selection.contSelectionP1 = 0;
     }
 
@@ -359,7 +360,7 @@ public class AbilityHealer : AbilityBase
         // selection.isActiveHealer = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
-
+        HUC.AbilityOff.enabled = true;
         selection.contSelectionP1 = 0;
     }
 
@@ -375,7 +376,7 @@ public class AbilityHealer : AbilityBase
         // selection.isActiveHealer = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
-
+        HUC.AbilityOff.enabled = true;
         selection.contSelectionP1 = 0;
     }
 
