@@ -14,6 +14,9 @@ public class HudUnitController : MonoBehaviour
     public Slider LifeSlider;
     public List<Image> Gleam = new List<Image>();
     public Image AbilityOff;
+    public Image Poison;
+    public Image Freeze;
+
 
     // Use this for initialization
     void Start ()
@@ -91,7 +94,6 @@ public class HudUnitController : MonoBehaviour
 
     public void BackSlide()
     {
-       
             if (GameManager.singleton.sc.isActiveTank == false && GameManager.singleton.sc.contSelectionP1 == 1 && UnitIndex == 1 && GameManager.singleton.tm.isTurn == true && HUM.CanvasID == 1)
             {
                 transform.DOMove(SlideBackTransform.transform.position, 0.9f);
@@ -150,7 +152,7 @@ public class HudUnitController : MonoBehaviour
                 ActivateGleam();
             }
 
-    }    
+        }    
 
     public void ActivateGleam()
     {

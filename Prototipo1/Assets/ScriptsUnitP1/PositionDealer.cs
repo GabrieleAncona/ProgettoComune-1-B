@@ -269,9 +269,12 @@ public class PositionDealer : MovementBase
 
         if (lm.lifeDealer <= 0) {
 
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
             isDead = true;
-
+            if (OnDeath != null)
+            {
+                OnDeath();
+            }
         }
 
     }
@@ -282,5 +285,10 @@ public class PositionDealer : MovementBase
         {
             contMp = 4;
         }
+    }
+
+    public void TestAnimationEnd()
+    {
+        gameObject.SetActive(false);
     }
 }

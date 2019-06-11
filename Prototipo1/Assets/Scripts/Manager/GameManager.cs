@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     public Player _player;
     public GameObject hudUnit;
     public GameObject hudUnit2;
-
+    public ButtonNavigation buttNav;
 
 
     //StateBehaviourBase.Context contextPlayer2 = new StateBehaviourBase.Context();
@@ -141,5 +141,6 @@ public class GameManager : MonoBehaviour
         stateMachine = FindObjectOfType<FlowSM>();
         _player = FindObjectOfType<Player>();
         sc2 = FindObjectOfType<SelectControllerP2>();
+        buttNav = FindObjectOfType<ButtonNavigation>();
     }
 }
