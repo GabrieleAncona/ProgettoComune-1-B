@@ -1,0 +1,195 @@
+fileFormatVersion: 2
+guid: 6f5d09be0851e844288f089c64b31b61
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: CTRL_arm_l
+    100002: CTRL_arm_r
+    100004: CTRL_leg_l
+    100006: CTRL_leg_r
+    100008: CTRL_pelvic
+    100010: //RootNode
+    100012: Head_CTRL
+    100014: ik_arm_l
+    100016: ik_arm_r
+    100018: J_elbow_l
+    100020: J_elbow_r
+    100022: J_finger_l
+    100024: J_finger_r
+    100026: J_Foot_l
+    100028: J_Foot_r
+    100030: J_hand_l
+    100032: J_hand_r
+    100034: J_Head
+    100036: J_Hip_l
+    100038: J_Hip_r
+    100040: J_inch_l
+    100042: J_inch_r
+    100044: J_Knee
+    100046: J_Pelvic
+    100048: J_shoulder_l
+    100050: J_shoulder_r
+    100052: J_Spine
+    100054: J_wrist_l
+    100056: J_wrist_r
+    100058: Kunai
+    100060: MASTER_STRL
+    100062: Ranged
+    400000: CTRL_arm_l
+    400002: CTRL_arm_r
+    400004: CTRL_leg_l
+    400006: CTRL_leg_r
+    400008: CTRL_pelvic
+    400010: //RootNode
+    400012: Head_CTRL
+    400014: ik_arm_l
+    400016: ik_arm_r
+    400018: J_elbow_l
+    400020: J_elbow_r
+    400022: J_finger_l
+    400024: J_finger_r
+    400026: J_Foot_l
+    400028: J_Foot_r
+    400030: J_hand_l
+    400032: J_hand_r
+    400034: J_Head
+    400036: J_Hip_l
+    400038: J_Hip_r
+    400040: J_inch_l
+    400042: J_inch_r
+    400044: J_Knee
+    400046: J_Pelvic
+    400048: J_shoulder_l
+    400050: J_shoulder_r
+    400052: J_Spine
+    400054: J_wrist_l
+    400056: J_wrist_r
+    400058: Kunai
+    400060: MASTER_STRL
+    400062: Ranged
+    2100000: M_Dealer
+    2100002: M_Kunai
+    2300000: Kunai
+    3300000: Kunai
+    4300000: Ranged
+    4300002: Kunai
+    7400000: DEATH_Dealer
+    9500000: //RootNode
+    13700000: Ranged
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: DEATH_Dealer
+      takeName: DEATH_Dealer
+      firstFrame: 0
+      lastFrame: 45
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 1
+        functionName: TestAnimationEnd
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

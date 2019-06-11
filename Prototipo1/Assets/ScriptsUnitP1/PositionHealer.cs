@@ -320,9 +320,12 @@ public class PositionHealer : MovementBase
 
         if (lm.lifeHealer <= 0) {
 
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
             isDead = true;
-
+            if (OnDeath != null)
+            {
+                OnDeath();
+            }
         }
 
     }
@@ -333,5 +336,10 @@ public class PositionHealer : MovementBase
         {
             contMp = 4;
         }
+    }
+
+    public void TestAnimationEnd()
+    {
+        gameObject.SetActive(false);
     }
 }

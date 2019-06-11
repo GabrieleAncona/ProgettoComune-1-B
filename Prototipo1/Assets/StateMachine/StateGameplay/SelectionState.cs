@@ -13,7 +13,17 @@ public class SelectionState : StateBehaviourBase
 
         /// GameManager.singleton.hudUnit.isActive = true;
         //GameManager.singleton.InitSM();
-       
+
+        if (ctx.currentPlayer.IdPlayer == 1)
+        {
+            GameManager.singleton.acm.menuActionPlayer1.SetActive(false);
+
+        }
+        if (ctx.currentPlayer.IdPlayer == 2)
+        {
+            GameManager.singleton.acm.menuActionPlayer2.SetActive(false);
+        }
+
 
     }
 

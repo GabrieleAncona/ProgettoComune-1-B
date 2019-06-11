@@ -31,7 +31,7 @@ public class ButtonNavigation : MonoBehaviour
     {
         ChangeButtonNavigation();
         ConfirmButtonSelection();
-        ChangeImageButton();
+        //ChangeImageButton();
 	}
 
     public void ChangeButtonNavigation()
@@ -50,6 +50,7 @@ public class ButtonNavigation : MonoBehaviour
                     {
                         index = 0;
                     }
+                    ChangeImageButton();
                 }
 
                 if (Input.GetKeyDown(KeyCode.A))
@@ -62,6 +63,7 @@ public class ButtonNavigation : MonoBehaviour
                     {
                         index = totButton;
                     }
+                    ChangeImageButton();
                 }  
             }
 
@@ -77,6 +79,7 @@ public class ButtonNavigation : MonoBehaviour
                     {
                         index = 0;
                     }
+                    ChangeImageButton();
                 }
 
                 if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -89,6 +92,7 @@ public class ButtonNavigation : MonoBehaviour
                     {
                         index = totButton;
                     }
+                    ChangeImageButton();
                 }
             }
         }
@@ -149,18 +153,30 @@ public class ButtonNavigation : MonoBehaviour
             {
                 ///attivo movimento
                 AMC.Movement();
+                ///disattivo tutti gli altri 
+                attack.sprite = AttackSprite[2];
+                ability.sprite = AbilitySprite[2];
+                back.sprite = BackSprite[2];
             }
 
             if (index == 1)
             {
                 ///attivo attaco
                 AMC.Attack();
+                ///disattivo tutti gli altri 
+                movement.sprite = MovementSprite[2];
+                ability.sprite = AbilitySprite[2];
+                back.sprite = BackSprite[2];
             }
 
             if (index == 2)
             {
                 ///attivo abilita
                 AMC.Ability();
+                ///disattivo tutti gli altri 
+                movement.sprite = MovementSprite[2];
+                attack.sprite = AttackSprite[2];
+                back.sprite = BackSprite[2];
             }
 
             if (index == 3)
@@ -176,5 +192,15 @@ public class ButtonNavigation : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void ResetImageButton()
+    {
+
+        movement.sprite = MovementSprite[0];
+        attack.sprite = AttackSprite[0];
+        ability.sprite = AbilitySprite[0];
+        back.sprite = BackSprite[0];
+
     }
 }

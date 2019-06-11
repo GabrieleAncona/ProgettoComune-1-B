@@ -311,9 +311,12 @@ public class PositionTester : MovementBase
         if(lm.lifeTank <= 0) 
         {
 
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
             isDead = true;
-
+            if (OnDeath != null)
+            {
+                OnDeath();
+            }
         }
 
     }
@@ -326,4 +329,8 @@ public class PositionTester : MovementBase
         }
     }
 
+    public void TestAnimationEnd()
+    {
+        gameObject.SetActive(false);
+    }
 }

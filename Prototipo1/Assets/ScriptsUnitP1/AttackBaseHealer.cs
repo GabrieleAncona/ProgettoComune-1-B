@@ -168,7 +168,7 @@ public class AttackBaseHealer : AttackBase
             }
             else if (hitUnits.transform.gameObject.GetComponent<Player>() != null && hitUnits.transform.gameObject.GetComponent<Player>().idUnitsGeneral != GetComponent<Player>().idUnitsGeneral)
             {
-                //DamageHealerP2();
+                DamageHealerP2();
 				if (OnAttack != null)
 				{
 					OnAttack();
@@ -186,7 +186,7 @@ public class AttackBaseHealer : AttackBase
             }
             else if (hitUnits.transform.gameObject.GetComponent<Player>() != null && hitUnits.transform.gameObject.GetComponent<Player>().idUnitsGeneral != GetComponent<Player>().idUnitsGeneral)
             {
-                //DamageUtilityP2();
+                DamageUtilityP2();
 				if (OnAttack != null)
 				{
 					OnAttack();
@@ -204,7 +204,7 @@ public class AttackBaseHealer : AttackBase
             }
             else if (hitUnits.transform.gameObject.GetComponent<Player>() != null && hitUnits.transform.gameObject.GetComponent<Player>().idUnitsGeneral != GetComponent<Player>().idUnitsGeneral)
             {
-                //DamageDealerP2();
+                DamageDealerP2();
 				if (OnAttack != null)
 				{
 					OnAttack();
@@ -300,7 +300,7 @@ public class AttackBaseHealer : AttackBase
         }
     }
 
-    /*public void DamageTankP2()
+    public void DamageTankP2()
     {
         lm.lifeTankPlayer2 -= att;
         isAttackHealer = false;
@@ -343,5 +343,6 @@ public class AttackBaseHealer : AttackBase
         //  selection.isActiveTank = false;
         selection.contSelectionP1 = 0;
         // turn.isTurn = false;
-    }*/
+    }
+
 }
