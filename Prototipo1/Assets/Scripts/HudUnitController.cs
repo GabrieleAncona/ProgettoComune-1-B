@@ -91,8 +91,7 @@ public class HudUnitController : MonoBehaviour
 
     public void BackSlide()
     {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
+       
             if (GameManager.singleton.sc.isActiveTank == false && GameManager.singleton.sc.contSelectionP1 == 1 && UnitIndex == 1 && GameManager.singleton.tm.isTurn == true && HUM.CanvasID == 1)
             {
                 transform.DOMove(SlideBackTransform.transform.position, 0.9f);
@@ -151,7 +150,7 @@ public class HudUnitController : MonoBehaviour
                 ActivateGleam();
             }
 
-        }    }
+    }    
 
     public void ActivateGleam()
     {

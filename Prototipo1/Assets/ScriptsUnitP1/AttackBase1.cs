@@ -135,7 +135,7 @@ public class AttackBase1 : AttackBase
                 GameManager.singleton.sc.isTankUsable = false;
                 yield return new WaitForSeconds(2f);
                
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -153,8 +153,8 @@ public class AttackBase1 : AttackBase
                 GameManager.singleton.acm.isActionTank = false;
                 GameManager.singleton.sc.isTankUsable = false;
                 yield return new WaitForSeconds(2f);
-                
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -171,8 +171,8 @@ public class AttackBase1 : AttackBase
                 GameManager.singleton.acm.isActionTank = false;
                 GameManager.singleton.sc.isTankUsable = false;
                 yield return new WaitForSeconds(2f);
-               
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -189,8 +189,8 @@ public class AttackBase1 : AttackBase
                 GameManager.singleton.acm.isActionTank = false;
                 GameManager.singleton.sc.isTankUsable = false;
                 yield return new WaitForSeconds(2f);
-               
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -363,9 +363,9 @@ public class AttackBase1 : AttackBase
         lm.lifeTankPlayer2 -= att;
         isAttack = false;
         gameObject.GetComponent<InputController>().enabled = true;
-        //  selection.isActiveTank = false;
-        selection.contSelectionP1 = 0;
-       // turn.isTurn = false;
+        selection.isActiveTank = false;
+        selection.contSelectionP1 = 1;
+        // turn.isTurn = false;
         //tankP2.transform.DOShakePosition(2f, strength, vibrato);
     }
 
@@ -374,9 +374,10 @@ public class AttackBase1 : AttackBase
         lm.lifeHealerPlayer2 -= att;
         isAttack = false;
         gameObject.GetComponent<InputController>().enabled = true;
-        // selection.isActiveTank = false;
-        selection.contSelectionP1 = 0;
-       // turn.isTurn = false;
+        selection.contSelectionP1 = 1;
+         selection.isActiveTank = false;
+
+        // turn.isTurn = false;
     }
 
     public void DamageUtilityP2()
@@ -384,8 +385,9 @@ public class AttackBase1 : AttackBase
         lm.lifeUtilityPlayer2 -= att;
         isAttack = false;
         gameObject.GetComponent<InputController>().enabled = true;
-        // selection.isActiveTank = false;
-        selection.contSelectionP1 = 0;
+        selection.contSelectionP1 = 1;
+         selection.isActiveTank = false;
+
         // turn.isTurn = false;
         //tankP2.transform.DOShakePosition(2f, strength, vibrato);
     }
@@ -395,8 +397,9 @@ public class AttackBase1 : AttackBase
         lm.lifeDealerPlayer2 -= att;
         isAttack = false;
         gameObject.GetComponent<InputController>().enabled = true;
-        // selection.isActiveTank = false;
-        selection.contSelectionP1 = 0;
+        selection.contSelectionP1 = 1;
+         selection.isActiveTank = false;
+
         // turn.isTurn = false;
     }
 

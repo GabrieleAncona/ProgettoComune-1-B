@@ -191,7 +191,8 @@ public class SelectionController : MonoBehaviour {
             Debug.Log("attiva tank");
             isActiveTank = true;
             isTankUsable = false;
-            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+          //  GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToMovement");
             //transform.position = grid.GetWorldPosition(tankP1.x, tankP1.y);
             //gameObject.GetComponent<MeshRenderer>().enabled = false;
 
@@ -201,7 +202,8 @@ public class SelectionController : MonoBehaviour {
             Debug.Log("attiva healer");
             isActiveHealer = true;
            isHealerUsable = false;
-            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+           // GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToMovement");
             //transform.position = grid.GetWorldPosition(healerP1.x, healerP1.y);
             //gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
@@ -210,7 +212,8 @@ public class SelectionController : MonoBehaviour {
             Debug.Log("attiva utility");
             isActiveUtility = true;
             isUtilityUsable = false;
-            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+            //GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToMovement");
             //transform.position = grid.GetWorldPosition(utilityP1.x, utilityP1.y);
             //gameObject.GetComponent<MeshRenderer>().enabled = false;
 
@@ -220,7 +223,8 @@ public class SelectionController : MonoBehaviour {
             Debug.Log("attiva dealer");
             isActiveDealer = true;
             isDealerUsable = false;
-            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+           // GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToMovement");
             //transform.position = grid.GetWorldPosition(dealerP1.x, dealerP1.y);
             //gameObject.GetComponent<MeshRenderer>().enabled = false;
         }

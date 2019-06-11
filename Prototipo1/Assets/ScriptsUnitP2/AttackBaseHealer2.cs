@@ -155,7 +155,7 @@ public class AttackBaseHealer2 : MonoBehaviour {
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -168,7 +168,7 @@ public class AttackBaseHealer2 : MonoBehaviour {
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -181,7 +181,7 @@ public class AttackBaseHealer2 : MonoBehaviour {
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -194,7 +194,7 @@ public class AttackBaseHealer2 : MonoBehaviour {
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -427,8 +427,8 @@ public class AttackBaseHealer2 : MonoBehaviour {
         selectionP2.isActiveHealerP2 = false;
         gameObject.GetComponent<InputController>().enabled = true;
         lifeHitTankP1 = lm.lifeTank;
-        //selectionP2.isActiveHealerP2 = false;
-        selectionP2.contSelectionP2 = 0;
+        
+        selectionP2.contSelectionP2 = 2;
     }
 
     public void DamageHealerP1()
@@ -441,8 +441,8 @@ public class AttackBaseHealer2 : MonoBehaviour {
         selectionP2.isActiveHealerP2 = false;
         gameObject.GetComponent<InputController>().enabled = true;
         lifeHitHealerP1 = lm.lifeHealer;
-        //selectionP2.isActiveHealerP2 = false;
-        selectionP2.contSelectionP2 = 0;
+        
+        selectionP2.contSelectionP2 = 2;
     }
 
     public void DamageUtilityP1()
@@ -455,8 +455,8 @@ public class AttackBaseHealer2 : MonoBehaviour {
         selectionP2.isActiveHealerP2 = false;
         gameObject.GetComponent<InputController>().enabled = true;
         lifeHitUtilityP1 = lm.lifeUtility;
-        //selectionP2.isActiveHealerP2 = false;
-        selectionP2.contSelectionP2 = 0;
+       
+        selectionP2.contSelectionP2 = 2;
     }
 
     public void DamageDealerP1()
@@ -469,8 +469,8 @@ public class AttackBaseHealer2 : MonoBehaviour {
         selectionP2.isActiveHealerP2 = false;
         gameObject.GetComponent<InputController>().enabled = true;
         lifeHitDealerP1 = lm.lifeDealer;
-        // selectionP2.isActiveDealerP2 = false;
-        selectionP2.contSelectionP2 = 0;
+       
+        selectionP2.contSelectionP2 = 2;
     }
 
     //disattivo prewiew attacco/abilità

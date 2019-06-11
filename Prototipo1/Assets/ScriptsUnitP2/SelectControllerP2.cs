@@ -190,6 +190,7 @@ public class SelectControllerP2 : MonoBehaviour {
             isActiveTankP2 = true;
             isTankUsable2 = false;
             GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToMovement");
             //gameObject.GetComponent<MeshRenderer>().enabled = false;
 
         }
@@ -199,6 +200,7 @@ public class SelectControllerP2 : MonoBehaviour {
             isActiveHealerP2 = true;
            isHealerUsable2 = false;
             GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToMovement");
             //gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
         if (Input.GetKeyDown(confirmUnitButton) && contSelectionP2 == 3 && utilityP2.isStun == false && turn.isTurn == false && isUtilityUsable2 == true)
@@ -207,6 +209,7 @@ public class SelectControllerP2 : MonoBehaviour {
             isActiveUtilityP2 = true;
             isUtilityUsable2 = false;
             GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToMovement");
             //gameObject.GetComponent<MeshRenderer>().enabled = false;
 
         }
@@ -216,6 +219,7 @@ public class SelectControllerP2 : MonoBehaviour {
             isActiveDealerP2 = true;
             isDealerUsable2 = false;
             GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToMovement");
             //gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
     }

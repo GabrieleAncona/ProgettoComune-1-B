@@ -143,7 +143,7 @@ public class AttackBase2 : MonoBehaviour {
                 GameManager.singleton.acm.isActionTank2 = false;
                 GameManager.singleton.sc2.isTankUsable2 = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -156,7 +156,7 @@ public class AttackBase2 : MonoBehaviour {
                 GameManager.singleton.acm.isActionTank2 = false;
                 GameManager.singleton.sc2.isTankUsable2 = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -169,7 +169,7 @@ public class AttackBase2 : MonoBehaviour {
                 GameManager.singleton.acm.isActionTank2 = false;
                 GameManager.singleton.sc2.isTankUsable2 = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -182,7 +182,7 @@ public class AttackBase2 : MonoBehaviour {
                 GameManager.singleton.acm.isActionTank2 = false;
                 GameManager.singleton.sc2.isTankUsable2 = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -357,8 +357,8 @@ public class AttackBase2 : MonoBehaviour {
         lm.lifeTank -= att;
         isAttack = false;
         gameObject.GetComponent<InputController>().enabled = true;
-        //selectionP2.isActiveTankP2 = false;
-        selectionP2.contSelectionP2 = 0;
+        selectionP2.isActiveTankP2 = false;
+        selectionP2.contSelectionP2 = 1;
         // turn.isTurn = false;
         //tankP2.transform.DOShakePosition(2f, strength, vibrato);
     }
@@ -368,8 +368,8 @@ public class AttackBase2 : MonoBehaviour {
         lm.lifeHealer -= att;
         isAttack = false;
         gameObject.GetComponent<InputController>().enabled = true;
-        // selectionP2.isActiveTankP2 = false;
-        selectionP2.contSelectionP2 = 0;
+        selectionP2.isActiveTankP2 = false;
+        selectionP2.contSelectionP2 = 1;
         // turn.isTurn = false;
     }
 
@@ -378,8 +378,8 @@ public class AttackBase2 : MonoBehaviour {
         lm.lifeUtility -= att;
         isAttack = false;
         gameObject.GetComponent<InputController>().enabled = true;
-        // selectionP2.isActiveTankP2 = false;
-        selectionP2.contSelectionP2 = 0;
+        selectionP2.isActiveTankP2 = false;
+        selectionP2.contSelectionP2 = 1;
         // turn.isTurn = false;
         //tankP2.transform.DOShakePosition(2f, strength, vibrato);
     }
@@ -389,8 +389,8 @@ public class AttackBase2 : MonoBehaviour {
         lm.lifeDealer -= att;
         isAttack = false;
         gameObject.GetComponent<InputController>().enabled = true;
-        // selectionP2.isActiveTankP2 = false;
-        selectionP2.contSelectionP2 = 0;
+        selectionP2.isActiveTankP2 = false;
+        selectionP2.contSelectionP2 = 1;
         // turn.isTurn = false;
     }
 

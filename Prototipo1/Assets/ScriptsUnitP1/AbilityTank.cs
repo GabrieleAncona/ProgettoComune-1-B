@@ -163,203 +163,70 @@ public class AbilityTank : AbilityBase
                 GameManager.singleton.acm.isActionTank = false;
                
                 GameManager.singleton.sc.isTankUsable = false;
+                isAbility = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
-                Counter = 0;
-            }
-            else if (tank.hit.transform.gameObject.GetComponent<PositionHealer2>())
-            {
-                DamageHealerP2();
-				if (OnAbility != null)
-				{
-					OnAbility();
-				}
-				tank.transform.position = grid.GetWorldPosition(tank.x++, tank.y);
-                tank.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
-                
-                healerP2.transform.DOShakePosition(2f, strength, vibrato);
-                GameManager.singleton.acm.isActionTank = false;
-                GameManager.singleton.sc.isTankUsable = false;
-                yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
-                Counter = 0;
-            }
-            else if (tank.hit.transform.gameObject.GetComponent<PositionUtility2>())
-            {
-                DamageUtilityP2();
-				if (OnAbility != null)
-				{
-					OnAbility();
-				}
-				tank.transform.position = grid.GetWorldPosition(tank.x++, tank.y);
-                tank.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
-                
-                utilityP2.transform.DOShakePosition(2f, strength, vibrato);
-                GameManager.singleton.acm.isActionTank = false;
-                GameManager.singleton.sc.isTankUsable = false;
-                yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
-                Counter = 0;
-            }
-            else if (tank.hit.transform.gameObject.GetComponent<PositionDealer2>())
-            {
-                DamageDealerP2();
-				if (OnAbility != null)
-				{
-					OnAbility();
-				}
-				tank.transform.position = grid.GetWorldPosition(tank.x++, tank.y);
-                tank.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                
+                Counter = 0;
+            }
+            else if (tank.hit.transform.gameObject.GetComponent<PositionHealer2>())
+            {
+                DamageHealerP2();
+                if (OnAbility != null)
+                {
+                    OnAbility();
+                }
+                tank.transform.position = grid.GetWorldPosition(tank.x++, tank.y);
+                tank.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
+                healerP2.transform.DOShakePosition(2f, strength, vibrato);
+                GameManager.singleton.acm.isActionTank = false;
+                GameManager.singleton.sc.isTankUsable = false;
+                yield return new WaitForSeconds(2f);
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+                Counter = 0;
+               
+                
+			
+            }
+            else if (tank.hit.transform.gameObject.GetComponent<PositionUtility2>())
+            {
+                DamageUtilityP2();
+				if (OnAbility != null)
+				{
+					OnAbility();
+				}
+				tank.transform.position = grid.GetWorldPosition(tank.x++, tank.y);
+                tank.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
+                isAbility = false;
+                utilityP2.transform.DOShakePosition(2f, strength, vibrato);
+                GameManager.singleton.acm.isActionTank = false;
+                GameManager.singleton.sc.isTankUsable = false;
+                yield return new WaitForSeconds(2f);
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+                Counter = 0;
+            }
+            else if (tank.hit.transform.gameObject.GetComponent<PositionDealer2>())
+            {
+                DamageDealerP2();
+				if (OnAbility != null)
+				{
+					OnAbility();
+				}
+				tank.transform.position = grid.GetWorldPosition(tank.x++, tank.y);
+                tank.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
+                isAbility = false;
                 dealerP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionTank = false;
                 GameManager.singleton.sc.isTankUsable = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 Counter = 0;
             }
 
 
         }
         
-        /*//sinistra tank
-        if (Input.GetKeyDown(KeyCode.S)   && isAbility == true && tank.isUnitEnemie == false && isAttDown == true)
-        {
-            if (tank.hit.transform.gameObject.GetComponent<PositionTester2>())
-            {
-                DamageTankP2();
-                tank.transform.position = grid.GetWorldPosition(tank.x--, tank.y);
-                tank.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
-                tankP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                Counter = 0;
-            }
-            else if (tank.hit.transform.gameObject.GetComponent<PositionHealer2>())
-            {
-                DamageHealerP2();
-                tank.transform.position = grid.GetWorldPosition(tank.x--, tank.y);
-                tank.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
-                healerP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                Counter = 0;
-            }
-            else if (tank.hit.transform.gameObject.GetComponent<PositionUtility2>())
-            {
-                DamageUtilityP2();
-                tank.transform.position = grid.GetWorldPosition(tank.x--, tank.y);
-                tank.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
-                utilityP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                Counter = 0;
-            }
-            else if (tank.hit.transform.gameObject.GetComponent<PositionDealer2>())
-            {
-                DamageDealerP2();
-                tank.transform.position = grid.GetWorldPosition(tank.x--, tank.y);
-                tank.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
-                dealerP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                Counter = 0;
-            }
-        }
-        
-        //sopra tank
-        if (Input.GetKeyDown(KeyCode.A)  && isAbility == true && tank.isUnitEnemie == false && isAttLeft == true)
-        {
-            if (tank.hit.transform.gameObject.GetComponent<PositionTester2>())
-            {
-                DamageTankP2();
-                tank.transform.position = grid.GetWorldPosition(tank.x, tank.y++);
-                tank.transform.DOMoveZ(tank.y, duration).SetAutoKill(false);
-                tankP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                Counter = 0;
-            }
-            else if (tank.hit.transform.gameObject.GetComponent<PositionHealer2>())
-            {
-                DamageHealerP2();
-                tank.transform.position = grid.GetWorldPosition(tank.x, tank.y++);
-                tank.transform.DOMoveZ(tank.y, duration).SetAutoKill(false);
-                healerP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                Counter = 0;
-            }
-            else if (tank.hit.transform.gameObject.GetComponent<PositionUtility2>())
-            {
-                DamageUtilityP2();
-                tank.transform.position = grid.GetWorldPosition(tank.x, tank.y++);
-                tank.transform.DOMoveZ(tank.y, duration).SetAutoKill(false);
-                utilityP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                Counter = 0;
-            }
-            else if (tank.hit.transform.gameObject.GetComponent<PositionDealer2>())
-            {
-                DamageDealerP2();
-                tank.transform.position = grid.GetWorldPosition(tank.x, tank.y++);
-                tank.transform.DOMoveZ(tank.y, duration).SetAutoKill(false);
-                dealerP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                Counter = 0;
-            }
-        }
-
-
-         // sotto tank
-        if (Input.GetKeyDown(KeyCode.D)  && isAbility == true && tank.isUnitEnemie == false && isAttRight == true)
-        {
-            if (tank.hit.transform.gameObject.GetComponent<PositionTester2>())
-            {
-                DamageTankP2();
-                transform.position = grid.GetWorldPosition(tank.x, tank.y--);
-                transform.DOMoveZ(tank.y, duration).SetAutoKill(false);
-                tankP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                Counter = 0;
-            }
-            else if (tank.hit.transform.gameObject.GetComponent<PositionHealer2>())
-            {
-                DamageHealerP2();
-                transform.position = grid.GetWorldPosition(tank.x, tank.y--);
-                transform.DOMoveZ(tank.y, duration).SetAutoKill(false);
-                healerP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                Counter = 0;
-            }
-            else if (tank.hit.transform.gameObject.GetComponent<PositionUtility2>())
-            {
-                DamageUtilityP2();
-                transform.position = grid.GetWorldPosition(tank.x, tank.y--);
-                transform.DOMoveZ(tank.y, duration).SetAutoKill(false);
-                utilityP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                Counter = 0;
-            }
-            else if (tank.hit.transform.gameObject.GetComponent<PositionDealer2>())
-            {
-                DamageDealerP2();
-                transform.position = grid.GetWorldPosition(tank.x, tank.y--);
-                transform.DOMoveZ(tank.y, duration).SetAutoKill(false);
-                dealerP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                Counter = 0;
-            }
-        }*/
-
-  
-
+      
 
     }
     
@@ -394,11 +261,12 @@ public class AbilityTank : AbilityBase
         //SetRange();
         lm.lifeTankPlayer2 -= att;
         //turn.isTurn = false;
-        isAbility = false;
+       
         HUC.AbilityOff.enabled = true;
-        //  selection.isActiveTank = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
+        selection.contSelectionP1 = 1;
+        selection.isActiveTank = false;
     }
 
     public void DamageHealerP2()
@@ -408,14 +276,14 @@ public class AbilityTank : AbilityBase
         
         //SetRange();
         lm.lifeHealerPlayer2 -= att;
-        //turn.isTurn = false;
-        isAbility = false;
+        //turn.isTurn = false;    
         HUC.AbilityOff.enabled = true;
-        //  selection.isActiveTank = false;
+        isAbility = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
         ///selection.contSelectionP1 = 0;
         selection.contSelectionP1 = 1;
+        selection.isActiveTank = false;
     }
     public void DamageUtilityP2()
     {
@@ -425,10 +293,10 @@ public class AbilityTank : AbilityBase
         //SetRange();
         lm.lifeUtilityPlayer2 -= att;
         //turn.isTurn = false;
-        isAbility = false;
         HUC.AbilityOff.enabled = true;
-        // selection.isActiveTank = false;
         //riabilito input controller per i movimenti(wasd)
+        selection.contSelectionP1 = 1;
+        selection.isActiveTank = false;
         gameObject.GetComponent<InputController>().enabled = true;
     }
 
@@ -440,19 +308,18 @@ public class AbilityTank : AbilityBase
         //SetRange();
         lm.lifeDealerPlayer2 -= att;
         //turn.isTurn = false;
-        isAbility = false;
+       
         HUC.AbilityOff.enabled = true;
-        //  selection.isActiveTank = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
-        selection.contSelectionP1 = 0;
+        selection.contSelectionP1 = 1;
+        selection.isActiveTank = false;
     }
 
     public void OnTriggerEnter(Collider other)
     {
      if(other.gameObject.tag == "UnitP2")
         {
-            
 
             if(isAttUp == true) {
                 //tank.transform.position = grid.GetWorldPosition(tank.x, tank.y);

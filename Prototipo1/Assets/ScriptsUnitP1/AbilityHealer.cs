@@ -151,7 +151,7 @@ public class AbilityHealer : AbilityBase
                     GameManager.singleton.acm.isActionHealer = false;
                     GameManager.singleton.sc.isHealerUsable = false;
                     yield return new WaitForSeconds(2f);
-                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                     Counter = 0;
                 }
             }
@@ -163,8 +163,7 @@ public class AbilityHealer : AbilityBase
                     GameManager.singleton.acm.isActionHealer = false;
                     GameManager.singleton.sc.isHealerUsable = false;
                     yield return new WaitForSeconds(2f);
-
-                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                     Counter = 0;
                 }
             }
@@ -176,7 +175,7 @@ public class AbilityHealer : AbilityBase
                     GameManager.singleton.acm.isActionHealer = false;
                     GameManager.singleton.sc.isHealerUsable = false;
                     yield return new WaitForSeconds(2f);
-                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                     Counter = 0;
                 }
             }
@@ -301,10 +300,10 @@ public class AbilityHealer : AbilityBase
                 {
                     lm.lifeHealer += heal;
                     isAbility = false;
-                    //  selection.isActiveHealer = false;
+                    selection.isActiveHealer = false;
                     //riabilito input controller per i movimenti(wasd)
                     gameObject.GetComponent<InputController>().enabled = true;
-                    selection.contSelectionP1 = 0;
+                    selection.contSelectionP1 = 2;
                     GameManager.singleton.acm.isActionHealer = false;
                     GameManager.singleton.sc.isHealerUsable = false;
                     yield return new WaitForSeconds(2f);
@@ -341,11 +340,11 @@ public class AbilityHealer : AbilityBase
         }
        
         isAbility = false;
-        //  selection.isActiveHealer = false;
+        selection.isActiveHealer = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
         HUC.AbilityOff.enabled = true;
-        selection.contSelectionP1 = 0;
+        selection.contSelectionP1 = 2;
     }
 
     public void HealDealer()
@@ -357,11 +356,11 @@ public class AbilityHealer : AbilityBase
         }
         
         isAbility = false;
-        // selection.isActiveHealer = false;
+         selection.isActiveHealer = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
         HUC.AbilityOff.enabled = true;
-        selection.contSelectionP1 = 0;
+        selection.contSelectionP1 = 2;
     }
 
     public void HealUtility()
@@ -373,11 +372,11 @@ public class AbilityHealer : AbilityBase
         }
        
         isAbility = false;
-        // selection.isActiveHealer = false;
+         selection.isActiveHealer = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
         HUC.AbilityOff.enabled = true;
-        selection.contSelectionP1 = 0;
+        selection.contSelectionP1 = 2;
     }
 
     //disattivo prewiew attacco/abilità quando finisco turno

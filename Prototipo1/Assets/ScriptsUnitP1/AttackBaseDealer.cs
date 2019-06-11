@@ -146,8 +146,8 @@ public class AttackBaseDealer : AttackBase
                 GameManager.singleton.acm.isActionDealer = false;
                 GameManager.singleton.sc.isDealerUsable = false;
                 yield return new WaitForSeconds(2f);
-              
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -164,8 +164,8 @@ public class AttackBaseDealer : AttackBase
                 GameManager.singleton.acm.isActionDealer = false;
                 GameManager.singleton.sc.isDealerUsable = false;
                 yield return new WaitForSeconds(2f);
-               
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -182,8 +182,8 @@ public class AttackBaseDealer : AttackBase
                 GameManager.singleton.acm.isActionDealer = false;
                 GameManager.singleton.sc.isDealerUsable = false;
                 yield return new WaitForSeconds(2f);
-               
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -200,8 +200,8 @@ public class AttackBaseDealer : AttackBase
                 GameManager.singleton.acm.isActionDealer = false;
                 GameManager.singleton.sc.isDealerUsable = false;
                 yield return new WaitForSeconds(2f);
-               
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -378,8 +378,9 @@ public class AttackBaseDealer : AttackBase
         isAttack = false;
         //turn.isTurn = false;
         gameObject.GetComponent<InputController>().enabled = true;
-        // selection.isActiveDealer = false;
-        selection.contSelectionP1 = 0;
+        selection.contSelectionP1 = 4;
+        selection.isActiveDealer = false;
+
     }
 
     public void DamageHealerP2()
@@ -388,26 +389,28 @@ public class AttackBaseDealer : AttackBase
         isAttack = false;
         //turn.isTurn = false;
         gameObject.GetComponent<InputController>().enabled = true;
-        // selection.isActiveDealer = false;
-        selection.contSelectionP1 = 0;
+        selection.contSelectionP1 = 4;
+        selection.isActiveDealer = false;
+
     }
     public void DamageDealerP2()
     {
         lm.lifeDealerPlayer2 -= att;
         isAttack = false;
+        selection.contSelectionP1 = 4;
         //turn.isTurn = false;
         gameObject.GetComponent<InputController>().enabled = true;
-        //  selection.isActiveDealer = false;
-        selection.contSelectionP1 = 0;
+        selection.isActiveDealer = false;
     }
     public void DamageUtilityP2()
     {
         lm.lifeUtilityPlayer2 -= att;
         isAttack = false;
+        selection.contSelectionP1 = 4;
         //turn.isTurn = false;
         gameObject.GetComponent<InputController>().enabled = true;
-        //  selection.isActiveDealer = false;
-        selection.contSelectionP1 = 0;
+        selection.isActiveDealer = false;
+       
     }
 }
 

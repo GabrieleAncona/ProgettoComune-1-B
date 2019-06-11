@@ -169,7 +169,7 @@ public class AbilityUtility2 : MonoBehaviour {
                 GameManager.singleton.acm.isActionUtility2 = false;
                 GameManager.singleton.sc2.isUtilityUsable2 = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 Counter = 0;
             }
             else if (utilityP2.hit.transform.gameObject.GetComponent<PositionHealer>())
@@ -179,7 +179,7 @@ public class AbilityUtility2 : MonoBehaviour {
                 GameManager.singleton.acm.isActionUtility2 = false;
                 GameManager.singleton.sc2.isUtilityUsable2 = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 Counter = 0;
             }
             else if (utilityP2.hit.transform.gameObject.GetComponent<PositionUtility>())
@@ -189,7 +189,7 @@ public class AbilityUtility2 : MonoBehaviour {
                 GameManager.singleton.acm.isActionUtility2 = false;
                 GameManager.singleton.sc2.isUtilityUsable2 = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 Counter = 0;
             }
             else if (utilityP2.hit.transform.gameObject.GetComponent<PositionDealer>())
@@ -199,7 +199,7 @@ public class AbilityUtility2 : MonoBehaviour {
                 GameManager.singleton.acm.isActionUtility2 = false;
                 GameManager.singleton.sc2.isUtilityUsable2 = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 Counter = 0;
             }
 
@@ -337,9 +337,9 @@ public class AbilityUtility2 : MonoBehaviour {
             lm.lifeTank -= att;
             isAbility = false;
             gameObject.GetComponent<InputController>().enabled = true;
-        //  selectionP2.isActiveUtilityP2 = false;
-        selectionP2.contSelectionP2 = 0;
-            tankP1.isStun = true;
+          selectionP2.isActiveUtilityP2 = false;
+         selectionP2.contSelectionP2 = 3;
+        tankP1.isStun = true;
             // turn.isTurn = false;
             //tankP2.transform.DOShakePosition(2f, strength, vibrato);
         }
@@ -349,9 +349,9 @@ public class AbilityUtility2 : MonoBehaviour {
             lm.lifeHealer -= att;
             isAbility = false;
             gameObject.GetComponent<InputController>().enabled = true;
-        // selectionP2.isActiveUtilityP2 = false;
-        selectionP2.contSelectionP2 = 0;
-            healerP1.isStun = true;
+         selectionP2.isActiveUtilityP2 = false;
+        selectionP2.contSelectionP2 = 3;
+        healerP1.isStun = true;
         // turn.isTurn = false;
     }
 
@@ -360,8 +360,8 @@ public class AbilityUtility2 : MonoBehaviour {
             lm.lifeUtility -= att;
             isAbility = false;
             gameObject.GetComponent<InputController>().enabled = true;
-        //  selectionP2.isActiveUtilityP2 = false;
-        selectionP2.contSelectionP2 = 0;
+          selectionP2.isActiveUtilityP2 = false;
+        selectionP2.contSelectionP2 = 3;
         utilityP1.isStun = true;
         // turn.isTurn = false;
         //tankP2.transform.DOShakePosition(2f, strength, vibrato);
@@ -372,9 +372,9 @@ public class AbilityUtility2 : MonoBehaviour {
             lm.lifeDealer -= att;
             isAbility = false;
             gameObject.GetComponent<InputController>().enabled = true;
-        //  selectionP2.isActiveUtilityP2 = false;
-        selectionP2.contSelectionP2 = 0;
-            dealerP1.isStun = true;
+          selectionP2.isActiveUtilityP2 = false;
+        selectionP2.contSelectionP2 = 3;
+        dealerP1.isStun = true;
         // turn.isTurn = false;
     }
 

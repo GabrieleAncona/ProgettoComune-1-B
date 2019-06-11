@@ -149,7 +149,7 @@ public class AttackBaseHealer : AttackBase
             if (hitUnits.transform.gameObject.GetComponent<Player>() != null && hitUnits.transform.gameObject.GetComponent<Player>().idUnitsGeneral != GetComponent<Player>().idUnitsGeneral)
             {
 
-                hitUnits.transform.gameObject.GetComponent<UnitController>().pedina.life -= GameManager.singleton.lm.DamageAttack(units.damageAttackBase);
+                ///hitUnits.transform.gameObject.GetComponent<UnitController>().pedina.life -= GameManager.singleton.lm.DamageAttack(units.damageAttackBase);
 
                 if (OnAttack != null)
 				{
@@ -159,8 +159,8 @@ public class AttackBaseHealer : AttackBase
                 GameManager.singleton.acm.isActionHealer = false;
                 GameManager.singleton.sc.isHealerUsable = false;
                 yield return new WaitForSeconds(2f);
-                
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -177,8 +177,8 @@ public class AttackBaseHealer : AttackBase
                 GameManager.singleton.acm.isActionHealer = false;
                 GameManager.singleton.sc.isHealerUsable = false;
                 yield return new WaitForSeconds(2f);
-                
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -195,8 +195,8 @@ public class AttackBaseHealer : AttackBase
                 GameManager.singleton.acm.isActionHealer = false;
                 GameManager.singleton.sc.isHealerUsable = false;
                 yield return new WaitForSeconds(2f);
-                
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -213,8 +213,8 @@ public class AttackBaseHealer : AttackBase
                 GameManager.singleton.acm.isActionHealer = false;
                 GameManager.singleton.sc.isHealerUsable = false;
                 yield return new WaitForSeconds(2f);
-                
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -256,7 +256,6 @@ public class AttackBaseHealer : AttackBase
     {
         if (turn.isTurn == true && contTurn == 1 && isHitTank == true)
         {
-            
             lifeHitTankP2 -= att;
             lm.lifeTankPlayer2 = lifeHitTankP2;
             contTurn = 0;
@@ -265,15 +264,13 @@ public class AttackBaseHealer : AttackBase
 
         if (turn.isTurn == true && contTurn == 1 && isHitHealer == true)
         {
-
             lifeHitHealerP2 -= att;
             lm.lifeHealerPlayer2 = lifeHitHealerP2;
             contTurn = 0;
             isHitHealer = false;
         }
         if (turn.isTurn == true && contTurn == 1 && isHitUtility == true)
-        {
-
+        { 
             lifeHitUtilityP2 -= att;
             lm.lifeUtilityPlayer2 = lifeHitUtilityP2;
             contTurn = 0;
@@ -300,16 +297,17 @@ public class AttackBaseHealer : AttackBase
         }
     }
 
-    /*public void DamageTankP2()
+    public void DamageTankP2()
     {
         lm.lifeTankPlayer2 -= att;
         isAttackHealer = false;
         //turn.isTurn = false;
         isHitTank = true;
         gameObject.GetComponent<InputController>().enabled = true;
-        // selection.isActiveHealer = false;
+        selection.contSelectionP1 = 2;
+        selection.isActiveHealer = false;
         lifeHitTankP2 = lm.lifeTankPlayer2;
-        selection.contSelectionP1 = 0;
+       
     }
 
     public void DamageHealerP2()
@@ -319,9 +317,9 @@ public class AttackBaseHealer : AttackBase
         //turn.isTurn = false;
         isHitHealer = true;
         gameObject.GetComponent<InputController>().enabled = true;
-        //  selection.isActiveHealer = false;
+        selection.isActiveHealer = false;
         lifeHitHealerP2 = lm.lifeHealerPlayer2;
-        selection.contSelectionP1 = 0;
+        selection.contSelectionP1 = 2;
 
     }
     public void DamageUtilityP2()
@@ -329,8 +327,9 @@ public class AttackBaseHealer : AttackBase
         lm.lifeUtilityPlayer2 -= att;
         isAttackHealer = false;
         gameObject.GetComponent<InputController>().enabled = true;
-        //  selection.isActiveTank = false;
-        selection.contSelectionP1 = 0;
+        selection.contSelectionP1 = 2;
+        selection.isActiveHealer = false;
+
         // turn.isTurn = false;
         //tankP2.transform.DOShakePosition(2f, strength, vibrato);
     }
@@ -340,8 +339,9 @@ public class AttackBaseHealer : AttackBase
         lm.lifeDealerPlayer2 -= att;
         isAttackHealer = false;
         gameObject.GetComponent<InputController>().enabled = true;
-        //  selection.isActiveTank = false;
-        selection.contSelectionP1 = 0;
+        selection.contSelectionP1 = 2;
+        selection.isActiveHealer = false;
+
         // turn.isTurn = false;
-    }*/
+    }
 }

@@ -87,13 +87,14 @@ public class AbilityDealer2 : MonoBehaviour
         {
             Shoot();
             isAbility = false;
-            // selectionP2.isActiveDealerP2 = false;
+            selectionP2.isActiveDealerP2 = false;
+            selectionP2.contSelectionP2 = 4;
             dealerP2.contMp = 4;
             GameManager.singleton.acm.isActionDealer2 = false;
             GameManager.singleton.sc2.isDealerUsable2 = false;
             yield return new WaitForSeconds(3f);
             selector.transform.GetChild(0).gameObject.SetActive(false);
-            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
+            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
         }
     }
         public void RotationAbility()
