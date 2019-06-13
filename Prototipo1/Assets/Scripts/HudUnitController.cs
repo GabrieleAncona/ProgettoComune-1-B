@@ -16,6 +16,7 @@ public class HudUnitController : MonoBehaviour
     public Image AbilityOff;
     public Image Poison;
     public Image Freeze;
+    public Image Cross;
 
 
     // Use this for initialization

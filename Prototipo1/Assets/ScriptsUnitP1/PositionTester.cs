@@ -31,6 +31,8 @@ public class PositionTester : MovementBase
     public bool isStun;
     public bool isDead;
     public int idPlayer;
+
+    public HudUnitController HUC;
    
     
 
@@ -310,13 +312,13 @@ public class PositionTester : MovementBase
 
         if(lm.lifeTank <= 0) 
         {
-
             //gameObject.SetActive(false);
             isDead = true;
             if (OnDeath != null)
             {
                 OnDeath();
             }
+            HUC.Cross.enabled = true;
         }
 
     }

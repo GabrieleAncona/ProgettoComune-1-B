@@ -32,6 +32,8 @@ public class PositionDealer : MovementBase
     public bool isDead;
     public int idPlayer;
 
+    public HudUnitController HUC;
+
     // Use this for initialization
     void Start()
     {
@@ -266,17 +268,16 @@ public class PositionDealer : MovementBase
 
     public void Death()
     {
-
-        if (lm.lifeDealer <= 0) {
-
+        if (lm.lifeDealer <= 0)
+        {
             //gameObject.SetActive(false);
             isDead = true;
             if (OnDeath != null)
             {
                 OnDeath();
             }
+            HUC.Cross.enabled = true;
         }
-
     }
 
     public void ResetMp()
