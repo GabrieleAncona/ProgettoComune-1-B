@@ -118,14 +118,14 @@ public class InputController : MonoBehaviour {
         {
             Debug.Log("funziona input");
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
-            GameManager.singleton.buttNav.ResetImageButton();
+           /// GameManager.singleton.buttNav.ResetImageButton();
         }
 
         if (Input.GetKeyDown(KeyCode.Backspace) && GameManager.singleton._player.IdPlayer == 2 && GameManager.singleton.sc2.isSelectionActive == false && GameManager.singleton.acm.isActionMenu == false)
         {
             Debug.Log("funziona input");
             GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
-            GameManager.singleton.buttNav.ResetImageButton();
+            ///GameManager.singleton.buttNav.ResetImageButton();
         }
 
       

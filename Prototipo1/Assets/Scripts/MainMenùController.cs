@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class MainMenùController : MonoBehaviour {
     public GameObject menù;
-    public GameObject pause;
-    public GameObject help;
+    ///public GameObject pause;
+   /// public GameObject help;
     public bool menuIsActive;
 
     public void Start()
@@ -35,7 +35,7 @@ public class MainMenùController : MonoBehaviour {
     {
        // GameManager.singleton.GoToInit();
         menù.SetActive(false);
-        pause.SetActive(false);
+        ///pause.SetActive(false);
         menuIsActive = false;
     }
     public void QuitGame() 
@@ -54,27 +54,27 @@ public class MainMenùController : MonoBehaviour {
 
     public void MainMenu()
     {
-        pause.SetActive(false);
+        ///pause.SetActive(false);
         menù.SetActive(false);
     }
 
     public void MenùPause()
     {
-        pause.SetActive(true);
+        ///pause.SetActive(true);
     }
 
     public void ResumePause()
     {
-        pause.SetActive(false);
+        ///pause.SetActive(false);
     }
 
     public void Help()
     {
-        help.SetActive(true);
+       ///help.SetActive(true);
     }
    
     public void HelpExit()
     {
-        help.SetActive(false);
+       /// help.SetActive(false);
     }
 }

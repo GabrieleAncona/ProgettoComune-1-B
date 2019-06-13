@@ -148,11 +148,16 @@ public class AbilityHealer : AbilityBase
                 if (lm.lifeTank < lm.lifeMaxTank)
                 {
                     HealTank();
+                    GameObject gameObject = Instantiate(GameManager.singleton.vfx.vfxHealerHeal, new Vector3(tank.x , 0.3f , tank.y), Quaternion.identity);
+                    ///attivo clone instanziato
+                    gameObject.SetActive(true);
                     GameManager.singleton.acm.isActionHealer = false;
                     GameManager.singleton.sc.isHealerUsable = false;
                     yield return new WaitForSeconds(2f);
                     GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                     Counter = 0;
+                    yield return new WaitForSeconds(3f);
+                    Destroy(gameObject);
                 }
             }
             else if ((healerP1.hit.transform.gameObject.GetComponent<PositionDealer>()))
@@ -160,11 +165,14 @@ public class AbilityHealer : AbilityBase
                 if (lm.lifeDealer < lm.lifeMaxDealer)
                 {
                     HealDealer();
+                    GameObject gameObject = Instantiate(GameManager.singleton.vfx.vfxHealerHeal, new Vector3(dealer.x, 0.3f, dealer.y), Quaternion.identity);
                     GameManager.singleton.acm.isActionHealer = false;
                     GameManager.singleton.sc.isHealerUsable = false;
                     yield return new WaitForSeconds(2f);
                     GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                     Counter = 0;
+                    yield return new WaitForSeconds(3f);
+                    Destroy(gameObject);
                 }
             }
             else if ((healerP1.hit.transform.gameObject.GetComponent<PositionUtility>()))
@@ -172,11 +180,14 @@ public class AbilityHealer : AbilityBase
                 if (lm.lifeUtility < lm.lifeMaxUtility)
                 {
                     HealUtility();
+                    GameObject gameObject = Instantiate(GameManager.singleton.vfx.vfxHealerHeal, new Vector3(utility.x, 0.3f, utility.y), Quaternion.identity);
                     GameManager.singleton.acm.isActionHealer = false;
                     GameManager.singleton.sc.isHealerUsable = false;
                     yield return new WaitForSeconds(2f);
                     GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                     Counter = 0;
+                    yield return new WaitForSeconds(3f);
+                    Destroy(gameObject);
                 }
             }
         }
