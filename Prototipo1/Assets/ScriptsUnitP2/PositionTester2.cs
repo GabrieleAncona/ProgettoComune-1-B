@@ -255,7 +255,7 @@ public class PositionTester2 : MonoBehaviour {
 
             gameObject.SetActive(false);
             isDead = true;
-
+            SoundManager.PlaySound(SoundManager.Sound.tankDie);
         }
 
     }

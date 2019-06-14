@@ -149,6 +149,9 @@ public class ButtonNavigation : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
+
+            SoundManager.PlaySound(SoundManager.Sound.confirm);
+
             if (index == 0)
             {
                 ///attivo movimento

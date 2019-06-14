@@ -138,7 +138,7 @@ public class HudManagerTest : MonoBehaviour
     public void SetSliderTankP1()
     {
         //tankMp.text = tankP1.contMp.ToString();
-        lifeTP1.text = lm.lifeTank.ToString();
+        //lifeTP1.text = lm.lifeTank.ToString();
         /*miniBarTankP1.value = lm.lifeTank;
         AbChargeTP1.text = abTankP1.Counter.ToString();
         if (selection.isActiveTank == true)

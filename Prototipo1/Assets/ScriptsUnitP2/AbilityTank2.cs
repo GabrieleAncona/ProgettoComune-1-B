@@ -161,6 +161,7 @@ public class AbilityTank2 : MonoBehaviour {
             if (tankP2.hit.transform.gameObject.GetComponent<PositionTester>())
             {
                 DamageTankP1();
+                SoundManager.PlaySound(SoundManager.Sound.tankAbility);
                 tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
                 tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 tankP1.transform.DOShakePosition(2f, strength, vibrato);
@@ -173,6 +174,7 @@ public class AbilityTank2 : MonoBehaviour {
             else if (tankP2.hit.transform.gameObject.GetComponent<PositionHealer>())
             {
                 DamageHealerP1();
+                SoundManager.PlaySound(SoundManager.Sound.tankAbility);
                 tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
                 tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 healerP1.transform.DOShakePosition(2f, strength, vibrato);
@@ -185,6 +187,7 @@ public class AbilityTank2 : MonoBehaviour {
             else if (tankP2.hit.transform.gameObject.GetComponent<PositionUtility>())
             {
                 DamageUtilityP1();
+                SoundManager.PlaySound(SoundManager.Sound.tankAbility);
                 tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
                 tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 utilityP1.transform.DOShakePosition(2f, strength, vibrato);
@@ -197,6 +200,7 @@ public class AbilityTank2 : MonoBehaviour {
             else if (tankP2.hit.transform.gameObject.GetComponent<PositionDealer>())
             {
                 DamageDealerP1();
+                SoundManager.PlaySound(SoundManager.Sound.tankAbility);
                 tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
                 tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 dealerP1.transform.DOShakePosition(2f, strength, vibrato);

@@ -145,6 +145,7 @@ public class AbilityHealer2 : MonoBehaviour
             if (healerP2.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
                 HealTank();
+                SoundManager.PlaySound(SoundManager.Sound.curaHealer);
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
@@ -154,6 +155,7 @@ public class AbilityHealer2 : MonoBehaviour
             if (healerP2.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
                 HealUtility();
+                SoundManager.PlaySound(SoundManager.Sound.curaHealer);
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
@@ -163,6 +165,7 @@ public class AbilityHealer2 : MonoBehaviour
             if (healerP2.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
                 HealDealer();
+                SoundManager.PlaySound(SoundManager.Sound.curaHealer);
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
@@ -259,6 +262,7 @@ public class AbilityHealer2 : MonoBehaviour
                 if (lm.lifeHealerPlayer2 < lm.lifeMaxHealerPlayer2)
                 {
                     lm.lifeHealerPlayer2 += heal;
+                    SoundManager.PlaySound(SoundManager.Sound.curaHealer);
                     isAbility = false;
                     selectionP2.isActiveHealerP2 = false;
                     //riabilito input controller per i movimenti(wasd)

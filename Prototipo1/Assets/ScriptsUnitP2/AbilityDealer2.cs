@@ -86,6 +86,7 @@ public class AbilityDealer2 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightControl) && isAbility == true)
         {
             Shoot();
+            SoundManager.PlaySound(SoundManager.Sound.fireball);
             isAbility = false;
             selectionP2.isActiveDealerP2 = false;
             selectionP2.contSelectionP2 = 4;

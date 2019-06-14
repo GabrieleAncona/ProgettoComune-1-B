@@ -189,6 +189,7 @@ public class SelectionController : MonoBehaviour {
         if(Input.GetKeyDown(confirmUnitButton) && contSelectionP1 == 1 && tankP1.isStun == false && turn.isTurn == true && isTankUsable == true)
         {
             Debug.Log("attiva tank");
+            SoundManager.PlaySound(SoundManager.Sound.tankVoice);
             isActiveTank = true;
             isTankUsable = false;
           //  GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
@@ -200,6 +201,7 @@ public class SelectionController : MonoBehaviour {
         if (Input.GetKeyDown(confirmUnitButton) && contSelectionP1 == 2 && healerP1.isStun == false && turn.isTurn == true && isHealerUsable == true)
         {
             Debug.Log("attiva healer");
+            SoundManager.PlaySound(SoundManager.Sound.healerVoice);
             isActiveHealer = true;
            isHealerUsable = false;
            // GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
@@ -210,6 +212,7 @@ public class SelectionController : MonoBehaviour {
         if (Input.GetKeyDown(confirmUnitButton) && contSelectionP1 == 3 && utilityP1.isStun == false && turn.isTurn == true && isUtilityUsable == true)
         {
             Debug.Log("attiva utility");
+            //inserire audio utility
             isActiveUtility = true;
             isUtilityUsable = false;
             //GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
@@ -221,6 +224,7 @@ public class SelectionController : MonoBehaviour {
         if (Input.GetKeyDown(confirmUnitButton) && contSelectionP1 == 4 && dealerP1.isStun == false && turn.isTurn == true && isDealerUsable == true)
         {
             Debug.Log("attiva dealer");
+            SoundManager.PlaySound(SoundManager.Sound.dealerVoice);
             isActiveDealer = true;
             isDealerUsable = false;
            // GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");

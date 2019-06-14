@@ -318,6 +318,7 @@ public class PositionTester : MovementBase
             {
                 OnDeath();
             }
+            SoundManager.PlaySound(SoundManager.Sound.tankDie);
             HUC.Cross.enabled = true;
         }
 

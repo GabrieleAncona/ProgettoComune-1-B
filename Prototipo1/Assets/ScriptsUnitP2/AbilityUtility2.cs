@@ -165,6 +165,7 @@ public class AbilityUtility2 : MonoBehaviour {
             if (utilityP2.hit.transform.gameObject.GetComponent<PositionTester>())
             {
                 DamageTankP1();
+                SoundManager.PlaySound(SoundManager.Sound.ghiaccio);
                 tankP1.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionUtility2 = false;
                 GameManager.singleton.sc2.isUtilityUsable2 = false;
@@ -175,6 +176,7 @@ public class AbilityUtility2 : MonoBehaviour {
             else if (utilityP2.hit.transform.gameObject.GetComponent<PositionHealer>())
             {
                 DamageHealerP1();
+                SoundManager.PlaySound(SoundManager.Sound.ghiaccio);
                 healerP1.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionUtility2 = false;
                 GameManager.singleton.sc2.isUtilityUsable2 = false;
@@ -185,6 +187,7 @@ public class AbilityUtility2 : MonoBehaviour {
             else if (utilityP2.hit.transform.gameObject.GetComponent<PositionUtility>())
             {
                 DamageUtilityP1();
+                SoundManager.PlaySound(SoundManager.Sound.ghiaccio);
                 utilityP1.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionUtility2 = false;
                 GameManager.singleton.sc2.isUtilityUsable2 = false;
@@ -195,6 +198,7 @@ public class AbilityUtility2 : MonoBehaviour {
             else if (utilityP2.hit.transform.gameObject.GetComponent<PositionDealer>())
             {
                 DamageDealerP1();
+                SoundManager.PlaySound(SoundManager.Sound.ghiaccio);
                 dealerP1.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionUtility2 = false;
                 GameManager.singleton.sc2.isUtilityUsable2 = false;

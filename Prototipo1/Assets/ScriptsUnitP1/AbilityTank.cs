@@ -153,7 +153,8 @@ public class AbilityTank : AbilityBase
             if (tank.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
                 DamageTankP2();
-				if (OnAbility != null)
+                SoundManager.PlaySound(SoundManager.Sound.tankAbility);
+                if (OnAbility != null)
 				{
 					OnAbility();
 				}
@@ -172,6 +173,7 @@ public class AbilityTank : AbilityBase
             else if (tank.hit.transform.gameObject.GetComponent<PositionHealer2>())
             {
                 DamageHealerP2();
+                SoundManager.PlaySound(SoundManager.Sound.tankAbility);
                 if (OnAbility != null)
                 {
                     OnAbility();
@@ -191,7 +193,8 @@ public class AbilityTank : AbilityBase
             else if (tank.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
                 DamageUtilityP2();
-				if (OnAbility != null)
+                SoundManager.PlaySound(SoundManager.Sound.tankAbility);
+                if (OnAbility != null)
 				{
 					OnAbility();
 				}
@@ -208,7 +211,8 @@ public class AbilityTank : AbilityBase
             else if (tank.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
                 DamageDealerP2();
-				if (OnAbility != null)
+                SoundManager.PlaySound(SoundManager.Sound.tankAbility);
+                if (OnAbility != null)
 				{
 					OnAbility();
 				}

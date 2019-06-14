@@ -91,7 +91,8 @@ public class AbilityDealer : AbilityBase
 			{
 				OnAbility();
 			}
-			isAbility = false;
+           SoundManager.PlaySound(SoundManager.Sound.fireball);
+            isAbility = false;
             selection.isActiveDealer = false;
             selection.contSelectionP1 = 4;
             gameObject.GetComponent<InputController>().enabled = true;
