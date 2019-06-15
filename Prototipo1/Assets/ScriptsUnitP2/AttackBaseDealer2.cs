@@ -144,7 +144,7 @@ public class AttackBaseDealer2 : MonoBehaviour
                 GameManager.singleton.acm.isActionDealer2 = false;
                 GameManager.singleton.sc2.isDealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.CounterA < 2)
                 {
                     ab.CounterA = 0;
@@ -157,7 +157,7 @@ public class AttackBaseDealer2 : MonoBehaviour
                 GameManager.singleton.acm.isActionDealer2 = false;
                 GameManager.singleton.sc2.isDealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.CounterA < 2)
                 {
                     ab.CounterA = 0;
@@ -170,7 +170,7 @@ public class AttackBaseDealer2 : MonoBehaviour
                 GameManager.singleton.acm.isActionDealer2 = false;
                 GameManager.singleton.sc2.isDealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.CounterA < 2)
                 {
                     ab.CounterA = 0;
@@ -183,7 +183,7 @@ public class AttackBaseDealer2 : MonoBehaviour
                 GameManager.singleton.acm.isActionDealer2 = false;
                 GameManager.singleton.sc2.isDealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.CounterA < 2)
                 {
                     ab.CounterA = 0;
@@ -361,8 +361,8 @@ public class AttackBaseDealer2 : MonoBehaviour
         lm.lifeTank -= att;
         isAttack = false;
         gameObject.GetComponent<InputController>().enabled = true;
-        selectionP2.isActiveDealerP2 = false;
-        selectionP2.contSelectionP2 = 4;
+        // selectionP2.isActiveDealerP2 = false;
+        selectionP2.contSelectionP2 = 0;
         // turn.isTurn = false;
         //tankP2.transform.DOShakePosition(2f, strength, vibrato);
     }
@@ -372,8 +372,8 @@ public class AttackBaseDealer2 : MonoBehaviour
         lm.lifeHealer -= att;
         isAttack = false;
         gameObject.GetComponent<InputController>().enabled = true;
-        selectionP2.isActiveDealerP2 = false;
-        selectionP2.contSelectionP2 = 4;
+        //selectionP2.isActiveDealerP2 = false;
+        selectionP2.contSelectionP2 = 0;
         // turn.isTurn = false;
     }
 
@@ -382,8 +382,8 @@ public class AttackBaseDealer2 : MonoBehaviour
         lm.lifeUtility -= att;
         isAttack = false;
         gameObject.GetComponent<InputController>().enabled = true;
-        selectionP2.isActiveDealerP2 = false;
-        selectionP2.contSelectionP2 = 4;
+        //selectionP2.isActiveDealerP2 = false;
+        selectionP2.contSelectionP2 = 0;
         // turn.isTurn = false;
         //tankP2.transform.DOShakePosition(2f, strength, vibrato);
     }
@@ -393,8 +393,8 @@ public class AttackBaseDealer2 : MonoBehaviour
         lm.lifeDealer -= att;
         isAttack = false;
         gameObject.GetComponent<InputController>().enabled = true;
-        selectionP2.isActiveDealerP2 = false;
-        selectionP2.contSelectionP2 = 4;
+        // selectionP2.isActiveDealerP2 = false;
+        selectionP2.contSelectionP2 = 0;
         // turn.isTurn = false;
     }
 

@@ -86,16 +86,14 @@ public class AbilityDealer2 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightControl) && isAbility == true)
         {
             Shoot();
-            SoundManager.PlaySound(SoundManager.Sound.fireball);
             isAbility = false;
-            selectionP2.isActiveDealerP2 = false;
-            selectionP2.contSelectionP2 = 4;
+            // selectionP2.isActiveDealerP2 = false;
             dealerP2.contMp = 4;
             GameManager.singleton.acm.isActionDealer2 = false;
             GameManager.singleton.sc2.isDealerUsable2 = false;
             yield return new WaitForSeconds(3f);
             selector.transform.GetChild(0).gameObject.SetActive(false);
-            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
         }
     }
         public void RotationAbility()

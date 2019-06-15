@@ -25,8 +25,8 @@ public class GameManager : MonoBehaviour
     public Player _player;
     public GameObject hudUnit;
     public GameObject hudUnit2;
-    public ButtonNavigation buttNav;
-    public VfxManager vfx;
+
+
 
     //StateBehaviourBase.Context contextPlayer2 = new StateBehaviourBase.Context();
 
@@ -131,7 +131,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void SetupManager()
     {
-        vfx = FindObjectOfType<VfxManager>();
         lm = GetComponent<LifeManager>();
         lm = FindObjectOfType<LifeManager>();
         tm = FindObjectOfType<TurnManager>();
@@ -142,6 +141,5 @@ public class GameManager : MonoBehaviour
         stateMachine = FindObjectOfType<FlowSM>();
         _player = FindObjectOfType<Player>();
         sc2 = FindObjectOfType<SelectControllerP2>();
-        buttNav = FindObjectOfType<ButtonNavigation>();
     }
 }

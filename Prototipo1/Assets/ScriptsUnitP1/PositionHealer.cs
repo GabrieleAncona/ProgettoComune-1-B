@@ -36,8 +36,6 @@ public class PositionHealer : MovementBase
     public GameObject[] Prew;
     public int prova;
 
-    public HudUnitController HUC;
-
     public void Start()
     {
         prova = 5;
@@ -319,15 +317,12 @@ public class PositionHealer : MovementBase
 
     public void Death() 
     {
+
         if (lm.lifeHealer <= 0) {
 
-            //gameObject.SetActive(false);
+            gameObject.SetActive(false);
             isDead = true;
-            if (OnDeath != null)
-            {
-                OnDeath();
-            }
-            HUC.Cross.enabled = true;
+
         }
 
     }
@@ -338,10 +333,5 @@ public class PositionHealer : MovementBase
         {
             contMp = 4;
         }
-    }
-
-    public void TestAnimationEnd()
-    {
-        gameObject.SetActive(false);
     }
 }

@@ -6,7 +6,7 @@ using DG.Tweening;
 
 
 public class AttackBaseHealer2 : MonoBehaviour {
-    public float speedBullet = 0.5f;
+
     public LifeManager lm;
     public TurnManager turn;
     public int att = 1;
@@ -41,7 +41,7 @@ public class AttackBaseHealer2 : MonoBehaviour {
     public bool isHitUtilityP1;
     public bool isHitDealerP1;
     public AbilityHealer2 ab;
-    public GameObject gameObjectDot;
+    public GameObject vfxPoison;
 
     // Use this for initialization
     void Start()
@@ -151,16 +151,11 @@ public class AttackBaseHealer2 : MonoBehaviour {
             if (healerP2.hit.transform.gameObject.GetComponent<PositionTester>())
             {
                 DamageTankP1();
-                Shoot();
-                yield return new WaitForSeconds(0.5f);
-                GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxHealerHit, new Vector3(tankP1.x, 0.3f, tankP1.y), Quaternion.identity);
                 tankP1.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
-                yield return new WaitForSeconds(0.5f);
-                Destroy(gameObjectHit);
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -173,7 +168,7 @@ public class AttackBaseHealer2 : MonoBehaviour {
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -186,7 +181,7 @@ public class AttackBaseHealer2 : MonoBehaviour {
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -199,7 +194,7 @@ public class AttackBaseHealer2 : MonoBehaviour {
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -208,16 +203,160 @@ public class AttackBaseHealer2 : MonoBehaviour {
 
         }
 
-       
+        //tanke sinistra
+       /* if (Input.GetKeyDown(KeyCode.I) && isAttack == true && isAttDown == true && healerP2.isUnitEnemie == true)
+        {
+
+
+            if (healerP2.hit.transform.gameObject.GetComponent<PositionTester>())
+            {
+                DamageTankP1();
+                tankP1.transform.DOShakePosition(2f, strength, vibrato);
+                yield return new WaitForSeconds(2f);
+                turn.isTurn = true;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
+            }
+            else if (healerP2.hit.transform.gameObject.GetComponent<PositionHealer>())
+            {
+                DamageHealerP1();
+                healerP1.transform.DOShakePosition(2f, strength, vibrato);
+                yield return new WaitForSeconds(2f);
+                turn.isTurn = true;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
+            }
+            else if (healerP2.hit.transform.gameObject.GetComponent<PositionUtility>())
+            {
+                DamageUtilityP1();
+                utilityP1.transform.DOShakePosition(2f, strength, vibrato);
+                yield return new WaitForSeconds(2f);
+                turn.isTurn = true;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
+            }
+            else if (healerP2.hit.transform.gameObject.GetComponent<PositionDealer>())
+            {
+                DamageDealerP1();
+                dealerP1.transform.DOShakePosition(2f, strength, vibrato);
+                yield return new WaitForSeconds(2f);
+                turn.isTurn = true;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
+            }
+        }
+
+        //tank sopra
+        if (Input.GetKeyDown(KeyCode.L) && isAttack == true && isAttLeft == true && healerP2.isUnitEnemie == true)
+        {
+
+            if (healerP2.hit.transform.gameObject.GetComponent<PositionTester>())
+            {
+                DamageTankP1();
+                tankP1.transform.DOShakePosition(2f, strength, vibrato);
+                yield return new WaitForSeconds(2f);
+                turn.isTurn = true;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
+            }
+            else if (healerP2.hit.transform.gameObject.GetComponent<PositionHealer>())
+            {
+                DamageHealerP1();
+                healerP1.transform.DOShakePosition(2f, strength, vibrato);
+                yield return new WaitForSeconds(2f);
+                turn.isTurn = true;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
+            }
+            else if (healerP2.hit.transform.gameObject.GetComponent<PositionUtility>())
+            {
+                DamageUtilityP1();
+                utilityP1.transform.DOShakePosition(2f, strength, vibrato);
+                yield return new WaitForSeconds(2f);
+                turn.isTurn = true;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
+            }
+            else if (healerP2.hit.transform.gameObject.GetComponent<PositionDealer>())
+            {
+                DamageDealerP1();
+                dealerP1.transform.DOShakePosition(2f, strength, vibrato);
+                yield return new WaitForSeconds(2f);
+                turn.isTurn = true;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
+            }
+
+        }
+
+        // healer sotto
+        if (Input.GetKeyDown(KeyCode.J) && isAttack == true && isAttRight == true && healerP2.isUnitEnemie == true)
+        {
+
+            if (healerP2.hit.transform.gameObject.GetComponent<PositionTester>())
+            {
+                DamageTankP1();
+                tankP1.transform.DOShakePosition(2f, strength, vibrato);
+                yield return new WaitForSeconds(2f);
+                turn.isTurn = true;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
+            }
+            else if (healerP2.hit.transform.gameObject.GetComponent<PositionHealer>())
+            {
+                DamageHealerP1();
+                healerP1.transform.DOShakePosition(2f, strength, vibrato);
+                yield return new WaitForSeconds(2f);
+                turn.isTurn = true;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
+            }
+            else if (healerP2.hit.transform.gameObject.GetComponent<PositionUtility>())
+            {
+                DamageUtilityP1();
+                utilityP1.transform.DOShakePosition(2f, strength, vibrato);
+                yield return new WaitForSeconds(2f);
+                turn.isTurn = true;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
+            }
+            else if (healerP2.hit.transform.gameObject.GetComponent<PositionDealer>())
+            {
+                DamageDealerP1();
+                dealerP1.transform.DOShakePosition(2f, strength, vibrato);
+                yield return new WaitForSeconds(2f);
+                turn.isTurn = true;
+                if (ab.Counter < 2)
+                {
+                    ab.Counter = 0;
+                }
+            }
+        }*/
     }
-    /// <summary>
-    /// funzione per instanzare vfx attacco
-    /// </summary>
-    public void Shoot()
-    {
-      GameObject gameObject = Instantiate(GameManager.singleton.vfx.vfxHealerPosion, transform.forward + new Vector3(healerP2.x , 1 , healerP2.y) , Quaternion.identity);
-      gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * speedBullet);
-    }
+
+
 
     public void ContTurn()
     {
@@ -226,7 +365,7 @@ public class AttackBaseHealer2 : MonoBehaviour {
             contTurn += 1;
         }
 
-        if (turn.isTurn == true && contTurn == 0 && isHitHealerP1 == true)
+        if (turn.isTurn == true && contTurn == 0 && isHitTankP1 == true)
         {
             contTurn += 1;
         }
@@ -244,7 +383,7 @@ public class AttackBaseHealer2 : MonoBehaviour {
     {
         if (turn.isTurn == false && contTurn == 1 && isHitTankP1 == true)
         {
-            Destroy(gameObjectDot);
+
             lifeHitTankP1 -= att;
             lm.lifeTank = lifeHitTankP1;
             contTurn = 0;
@@ -253,7 +392,7 @@ public class AttackBaseHealer2 : MonoBehaviour {
 
         if (turn.isTurn == false && contTurn == 1 && isHitHealerP1 == true)
         {
-            Destroy(gameObjectDot);
+
             lifeHitHealerP1 -= att;
             lm.lifeHealer = lifeHitHealerP1;
             contTurn = 0;
@@ -261,7 +400,7 @@ public class AttackBaseHealer2 : MonoBehaviour {
         }
         if (turn.isTurn == false && contTurn == 1 && isHitUtilityP1 == true)
         {
-            Destroy(gameObjectDot);
+
             lifeHitUtilityP1 -= att;
             lm.lifeUtility = lifeHitUtilityP1;
             contTurn = 0;
@@ -269,7 +408,7 @@ public class AttackBaseHealer2 : MonoBehaviour {
         }
         if (turn.isTurn == false && contTurn == 1 && isHitDealerP1 == true)
         {
-            Destroy(gameObjectDot);
+
             lifeHitDealerP1 -= att;
             lm.lifeDealer = lifeHitDealerP1;
             contTurn = 0;
@@ -280,53 +419,58 @@ public class AttackBaseHealer2 : MonoBehaviour {
     public void DamageTankP1()
     {
         lm.lifeTank -= attMax;
-        gameObjectDot = Instantiate(GameManager.singleton.vfx.vfxHealerDot, new Vector3(tankP1.x, 1, tankP1.y), Quaternion.identity);
+        Instantiate(vfxPoison, tankP1.transform.position, Quaternion.identity);
+        
         isAttack = false;
         //turn.isTurn = true;
         isHitTankP1 = true;
         selectionP2.isActiveHealerP2 = false;
         gameObject.GetComponent<InputController>().enabled = true;
         lifeHitTankP1 = lm.lifeTank;
-        selectionP2.contSelectionP2 = 2;
+        //selectionP2.isActiveHealerP2 = false;
+        selectionP2.contSelectionP2 = 0;
     }
 
     public void DamageHealerP1()
     {
         lm.lifeHealer -= attMax;
-        gameObjectDot = Instantiate(GameManager.singleton.vfx.vfxHealerDot, new Vector3(healerP1.x, 1, healerP1.y), Quaternion.identity);
+        Instantiate(vfxPoison,  new Vector3(healerP2.x , 0 , healerP2.y) , Quaternion.identity);
         isAttack = false;
         //turn.isTurn = true;
         isHitHealerP1 = true;
         selectionP2.isActiveHealerP2 = false;
         gameObject.GetComponent<InputController>().enabled = true;
         lifeHitHealerP1 = lm.lifeHealer;
-        selectionP2.contSelectionP2 = 2;
+        //selectionP2.isActiveHealerP2 = false;
+        selectionP2.contSelectionP2 = 0;
     }
 
     public void DamageUtilityP1()
     {
         lm.lifeUtility -= attMax;
-        gameObjectDot = Instantiate(GameManager.singleton.vfx.vfxHealerDot, new Vector3(utilityP1.x, 1, utilityP1.y), Quaternion.identity);
+        Instantiate(vfxPoison, new Vector3(healerP2.x, 0, healerP2.y), Quaternion.identity);
         isAttack = false;
         //turn.isTurn = true;
         isHitUtilityP1 = true;
         selectionP2.isActiveHealerP2 = false;
         gameObject.GetComponent<InputController>().enabled = true;
         lifeHitUtilityP1 = lm.lifeUtility;
-        selectionP2.contSelectionP2 = 2;
+        //selectionP2.isActiveHealerP2 = false;
+        selectionP2.contSelectionP2 = 0;
     }
 
     public void DamageDealerP1()
     {
         lm.lifeDealer -= attMax;
-        gameObjectDot = Instantiate(GameManager.singleton.vfx.vfxHealerDot, new Vector3(dealerP1.x, 1, dealerP1.y), Quaternion.identity);
+        Instantiate(vfxPoison, new Vector3(healerP2.x, 0, healerP2.y), Quaternion.identity);
         isAttack = false;
         //turn.isTurn = true;
         isHitDealerP1 = true;
         selectionP2.isActiveHealerP2 = false;
         gameObject.GetComponent<InputController>().enabled = true;
         lifeHitDealerP1 = lm.lifeDealer;
-        selectionP2.contSelectionP2 = 2;
+        // selectionP2.isActiveDealerP2 = false;
+        selectionP2.contSelectionP2 = 0;
     }
 
     //disattivo prewiew attacco/abilità

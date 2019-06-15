@@ -143,8 +143,8 @@ public class AttackBaseUtility : AttackBase
                 GameManager.singleton.acm.isActionUtility = false;
                 GameManager.singleton.sc.isUtilityUsable = false;
                 yield return new WaitForSeconds(2f);
-
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+                
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -161,7 +161,8 @@ public class AttackBaseUtility : AttackBase
                 GameManager.singleton.acm.isActionUtility = false;
                 GameManager.singleton.sc.isUtilityUsable = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+               
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -178,8 +179,8 @@ public class AttackBaseUtility : AttackBase
                 GameManager.singleton.acm.isActionUtility = false;
                 GameManager.singleton.sc.isUtilityUsable = false;
                 yield return new WaitForSeconds(2f);
-
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+               
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -196,8 +197,8 @@ public class AttackBaseUtility : AttackBase
                 GameManager.singleton.acm.isActionUtility = false;
                 GameManager.singleton.sc.isUtilityUsable = false;
                 yield return new WaitForSeconds(2f);
-
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+               
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 if (ab.Counter < 2)
                 {
                     ab.Counter = 0;
@@ -372,8 +373,7 @@ public class AttackBaseUtility : AttackBase
         lm.lifeTankPlayer2 -= att;
         //turn.isTurn = false;
         isAttack = false;
-        selection.contSelectionP1 = 3;
-        selection.isActiveUtility = false;
+       // selection.isActiveUtility = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
        
@@ -384,11 +384,10 @@ public class AttackBaseUtility : AttackBase
         lm.lifeHealerPlayer2 -= att;
         //turn.isTurn = false;
         isAttack = false;
-        selection.contSelectionP1 = 3;
-         selection.isActiveUtility = false;
+        // selection.isActiveUtility = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
-
+        
     }
 
     public void DamageDealerP2()
@@ -396,8 +395,7 @@ public class AttackBaseUtility : AttackBase
         lm.lifeDealerPlayer2 -= att;
         //turn.isTurn = false;
         isAttack = false;
-        selection.contSelectionP1 = 3;
-         selection.isActiveUtility = false;
+        // selection.isActiveUtility = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
         
@@ -408,8 +406,7 @@ public class AttackBaseUtility : AttackBase
         lm.lifeUtilityPlayer2 -= att;
         // turn.isTurn = false;
         isAttack = false;
-        selection.contSelectionP1 = 3;
-          selection.isActiveUtility = false;
+        //  selection.isActiveUtility = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
         

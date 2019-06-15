@@ -145,31 +145,28 @@ public class AbilityHealer2 : MonoBehaviour
             if (healerP2.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
                 HealTank();
-                SoundManager.PlaySound(SoundManager.Sound.curaHealer);
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
             }
             if (healerP2.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
                 HealUtility();
-                SoundManager.PlaySound(SoundManager.Sound.curaHealer);
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
             }
             if (healerP2.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
                 HealDealer();
-                SoundManager.PlaySound(SoundManager.Sound.curaHealer);
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
             }
         }
@@ -262,12 +259,11 @@ public class AbilityHealer2 : MonoBehaviour
                 if (lm.lifeHealerPlayer2 < lm.lifeMaxHealerPlayer2)
                 {
                     lm.lifeHealerPlayer2 += heal;
-                    SoundManager.PlaySound(SoundManager.Sound.curaHealer);
                     isAbility = false;
-                    selectionP2.isActiveHealerP2 = false;
+                    // selectionP2.isActiveHealerP2 = false;
                     //riabilito input controller per i movimenti(wasd)
                     gameObject.GetComponent<InputController>().enabled = true;
-                    selectionP2.contSelectionP2 = 2;
+                    selectionP2.contSelectionP2 = 0;
                     GameManager.singleton.acm.isActionHealer2 = false;
                     GameManager.singleton.sc2.isHealerUsable2 = false;
                     yield return new WaitForSeconds(2f);
@@ -299,8 +295,8 @@ public class AbilityHealer2 : MonoBehaviour
         isAbility = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
-        selectionP2.isActiveHealerP2 = false;
-        selectionP2.contSelectionP2 = 2;
+        //selectionP2.isActiveHealerP2 = false;
+        selectionP2.contSelectionP2 = 0;
     }
 
     public void HealUtility()
@@ -314,8 +310,8 @@ public class AbilityHealer2 : MonoBehaviour
         isAbility = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
-        selectionP2.isActiveHealerP2 = false;
-        selectionP2.contSelectionP2 = 2;
+        //  selectionP2.isActiveHealerP2 = false;
+        selectionP2.contSelectionP2 = 0;
     }
 
 
@@ -330,8 +326,8 @@ public class AbilityHealer2 : MonoBehaviour
         isAbility = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
-        selectionP2.isActiveHealerP2 = false;
-        selectionP2.contSelectionP2 = 2;
+        // selectionP2.isActiveHealerP2 = false;
+        selectionP2.contSelectionP2 = 0;
     }
 
 
