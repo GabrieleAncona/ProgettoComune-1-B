@@ -56,7 +56,6 @@ public class ActionMenuController : MonoBehaviour
     {
         if (isActionMenu == true)
         {
-            
             GameManager.singleton.stateMachine.SMController.SetTrigger("GoToMovement");
         }
     }
