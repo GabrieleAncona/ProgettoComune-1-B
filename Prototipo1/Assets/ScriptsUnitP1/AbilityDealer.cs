@@ -91,17 +91,15 @@ public class AbilityDealer : AbilityBase
 			{
 				OnAbility();
 			}
-           SoundManager.PlaySound(SoundManager.Sound.fireball);
-            isAbility = false;
-            selection.isActiveDealer = false;
-            selection.contSelectionP1 = 4;
+			isAbility = false;
+            // selection.isActiveDealer = false;
             gameObject.GetComponent<InputController>().enabled = true;
             GameManager.singleton.acm.isActionDealer = false;
             GameManager.singleton.sc.isDealerUsable = false;
             yield return new WaitForSeconds(3f);
             dealerP1.contMp = 4;
             selector.transform.GetChild(0).gameObject.SetActive(false);
-            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
         }
        
     }

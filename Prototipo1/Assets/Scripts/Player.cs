@@ -39,4 +39,8 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void ContenentList()
+    {
+        
+    }
 }

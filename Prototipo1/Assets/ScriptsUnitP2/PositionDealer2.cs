@@ -252,7 +252,6 @@ public class PositionDealer2 : MonoBehaviour {
 
             gameObject.SetActive(false);
             isDead = true;
-            SoundManager.PlaySound(SoundManager.Sound.maleDie);
 
         }
 

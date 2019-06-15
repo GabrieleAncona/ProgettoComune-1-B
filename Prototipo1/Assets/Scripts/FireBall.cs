@@ -45,28 +45,24 @@ public class FireBall : MonoBehaviour {
                 if (other.gameObject.GetComponent<PositionTester2>())
                 {
                     Destroy(gameObject);
-                    SoundManager.PlaySound(SoundManager.Sound.esplosione);
                     other.GetComponent<PositionTester2>().GetDamage(Damage);
                     tankP2.transform.DOShakePosition(2f, strength, vibrato);
                 }
                 else if (other.gameObject.GetComponent<PositionHealer2>())
                 {
                     Destroy(gameObject);
-                    SoundManager.PlaySound(SoundManager.Sound.esplosione);
                     other.GetComponent<PositionHealer2>().GetDamage(Damage);
                     healerP2.transform.DOShakePosition(2f, strength, vibrato);
                 }
                 else if (other.gameObject.GetComponent<PositionUtility2>())
                 {
                     Destroy(gameObject);
-                    SoundManager.PlaySound(SoundManager.Sound.esplosione);
                     other.GetComponent<PositionUtility2>().GetDamage(Damage);
                     utilityP2.transform.DOShakePosition(2f, strength, vibrato);
                 }
                 else if (other.gameObject.GetComponent<PositionDealer2>())
                 {
                     Destroy(gameObject);
-                    SoundManager.PlaySound(SoundManager.Sound.esplosione);
                     other.GetComponent<PositionDealer2>().GetDamage(Damage);
                     dealerP2.transform.DOShakePosition(2f, strength, vibrato);
                 }
@@ -78,28 +74,24 @@ public class FireBall : MonoBehaviour {
                 if (other.gameObject.GetComponent<PositionTester>())
                 {
                     Destroy(gameObject);
-                    SoundManager.PlaySound(SoundManager.Sound.esplosione);
                     other.GetComponent<PositionTester>().GetDamage(Damage);
                     tankP1.transform.DOShakePosition(2f, strength, vibrato);
                 }
                 else if (other.gameObject.GetComponent<PositionHealer>())
                 {
                     Destroy(gameObject);
-                    SoundManager.PlaySound(SoundManager.Sound.esplosione);
                     other.GetComponent<PositionHealer>().GetDamage(Damage);
                     healerP1.transform.DOShakePosition(2f, strength, vibrato);
                 }
                 else if (other.gameObject.GetComponent<PositionUtility>())
                 {
                     Destroy(gameObject);
-                    SoundManager.PlaySound(SoundManager.Sound.esplosione);
                     other.GetComponent<PositionUtility>().GetDamage(Damage);
                     utilityP1.transform.DOShakePosition(2f, strength, vibrato);
                 }
                 else if (other.gameObject.GetComponent<PositionDealer>())
                 {
                     Destroy(gameObject);
-                    SoundManager.PlaySound(SoundManager.Sound.esplosione);
                     other.GetComponent<PositionDealer>().GetDamage(Damage);
                     dealerP1.transform.DOShakePosition(2f, strength, vibrato);
                 }
@@ -109,13 +101,11 @@ public class FireBall : MonoBehaviour {
 
             case "Obstacle":
                 Destroy(gameObject);
-                SoundManager.PlaySound(SoundManager.Sound.esplosione);
                 break;
 
             case "SelectorFire":
                 spwanCross();
                 Destroy(gameObject);
-                SoundManager.PlaySound(SoundManager.Sound.esplosione);
                 exploded = true;
                 
                 break;

@@ -30,7 +30,15 @@ public class ActionMenùState : StateBehaviourBase
     public override void OnExit()
     {
         GameManager.singleton.acm.isActionMenu = false;
-       
+        if (ctx.currentPlayer.IdPlayer == 1)
+        {
+            GameManager.singleton.acm.menuActionPlayer1.SetActive(false);
+           
+        }
+        if (ctx.currentPlayer.IdPlayer == 2)
+        {
+            GameManager.singleton.acm.menuActionPlayer2.SetActive(false);
+        }
     }
 
 }

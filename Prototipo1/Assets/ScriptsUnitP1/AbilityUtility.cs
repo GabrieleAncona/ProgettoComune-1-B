@@ -155,8 +155,7 @@ public class AbilityUtility : AbilityBase
             if (utility.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
                 DamageTankP2();
-                SoundManager.PlaySound(SoundManager.Sound.ghiaccio);
-                if (OnAbility != null)
+				if (OnAbility != null)
 				{
 					OnAbility();
 				}
@@ -164,14 +163,13 @@ public class AbilityUtility : AbilityBase
                 GameManager.singleton.acm.isActionUtility = false;
                 GameManager.singleton.sc.isUtilityUsable = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
             }
             else if (utility.hit.transform.gameObject.GetComponent<PositionHealer2>())
             {
                 DamageHealerP2();
-                SoundManager.PlaySound(SoundManager.Sound.ghiaccio);
-                if (OnAbility != null)
+				if (OnAbility != null)
 				{
 					OnAbility();
 				}
@@ -179,28 +177,26 @@ public class AbilityUtility : AbilityBase
                 GameManager.singleton.acm.isActionUtility = false;
                 GameManager.singleton.sc.isUtilityUsable = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
             }
             else if (utility.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
                 DamageDealerP2();
-                SoundManager.PlaySound(SoundManager.Sound.ghiaccio);
-                if (OnAbility != null)
+				if (OnAbility != null)
 				{
 					OnAbility();
 				}
 				dealerP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionUtility = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
             }
             else if (utility.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
                 DamageUtilityP2();
-                SoundManager.PlaySound(SoundManager.Sound.ghiaccio);
-                if (OnAbility != null)
+				if (OnAbility != null)
 				{
 					OnAbility();
 				}
@@ -208,7 +204,7 @@ public class AbilityUtility : AbilityBase
                 GameManager.singleton.acm.isActionUtility = false;
                 GameManager.singleton.sc.isUtilityUsable = false;
                 yield return new WaitForSeconds(2f);
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                 Counter = 0;
             }
         }
@@ -379,7 +375,7 @@ public class AbilityUtility : AbilityBase
         lm.lifeTankPlayer2 -= att;
         //turn.isTurn = false;
         isAbility = false;
-        selection.isActiveUtility = false;
+        // selection.isActiveUtility = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
         tankP2.isStun = true;
@@ -391,7 +387,7 @@ public class AbilityUtility : AbilityBase
         lm.lifeHealerPlayer2 -= att;
         //turn.isTurn = false;
         isAbility = false;
-        selection.isActiveUtility = false;
+        // selection.isActiveUtility = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
         healerP2.isStun = true;
@@ -403,12 +399,11 @@ public class AbilityUtility : AbilityBase
         lm.lifeDealerPlayer2 -= att;
         //turn.isTurn = false;
         isAbility = false;
-        selection.isActiveUtility = false;
+        // selection.isActiveUtility = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
         dealerP2.isStun = true;
         HUC.AbilityOff.enabled = true;
-        selection.contSelectionP1 = 3;
     }
 
     public void DamageUtilityP2()
@@ -416,11 +411,10 @@ public class AbilityUtility : AbilityBase
         lm.lifeUtilityPlayer2 -= att;
        // turn.isTurn = false;
         isAbility = false;
-        selection.isActiveUtility = false;
+        // selection.isActiveUtility = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
         utilityP2.isStun = true;
         HUC.AbilityOff.enabled = true;
-        selection.contSelectionP1 = 3;
     }
 }

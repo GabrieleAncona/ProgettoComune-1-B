@@ -145,7 +145,7 @@ public class AttackBaseUtility2 : MonoBehaviour {
                     GameManager.singleton.acm.isActionUtility2 = false;
                     GameManager.singleton.sc2.isUtilityUsable2 = false;
                     yield return new WaitForSeconds(2f);
-                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                     if (ab.Counter < 2)
                     {
                         ab.Counter = 0;
@@ -158,7 +158,7 @@ public class AttackBaseUtility2 : MonoBehaviour {
                     GameManager.singleton.acm.isActionUtility2 = false;
                     GameManager.singleton.sc2.isUtilityUsable2 = false;
                     yield return new WaitForSeconds(2f);
-                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                     if (ab.Counter < 2)
                     {
                         ab.Counter = 0;
@@ -171,7 +171,7 @@ public class AttackBaseUtility2 : MonoBehaviour {
                     GameManager.singleton.acm.isActionUtility2 = false;
                     GameManager.singleton.sc2.isUtilityUsable2 = false;
                     yield return new WaitForSeconds(2f);
-                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                     if (ab.Counter < 2)
                     {
                         ab.Counter = 0;
@@ -184,7 +184,7 @@ public class AttackBaseUtility2 : MonoBehaviour {
                     GameManager.singleton.acm.isActionUtility2 = false;
                     GameManager.singleton.sc2.isUtilityUsable2 = false;
                     yield return new WaitForSeconds(2f);
-                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                     if (ab.Counter < 2)
                     {
                         ab.Counter = 0;
@@ -361,8 +361,8 @@ public class AttackBaseUtility2 : MonoBehaviour {
         lm.lifeTank -= att;
         isAttack = false;
         gameObject.GetComponent<InputController>().enabled = true;
-        selectionP2.isActiveUtilityP2 = false;
-        selectionP2.contSelectionP2 = 3;
+        // selectionP2.isActiveUtilityP2 = false;
+        selectionP2.contSelectionP2 = 0;
         // turn.isTurn = false;
         //tankP2.transform.DOShakePosition(2f, strength, vibrato);
     }
@@ -372,8 +372,8 @@ public class AttackBaseUtility2 : MonoBehaviour {
         lm.lifeHealer -= att;
         isAttack = false;
         gameObject.GetComponent<InputController>().enabled = true;
-        selectionP2.isActiveUtilityP2 = false;
-        selectionP2.contSelectionP2 = 3;
+        // selectionP2.isActiveUtilityP2 = false;
+        selectionP2.contSelectionP2 = 0;
         // turn.isTurn = false;
     }
 
@@ -382,8 +382,8 @@ public class AttackBaseUtility2 : MonoBehaviour {
         lm.lifeUtility -= att;
         isAttack = false;
         gameObject.GetComponent<InputController>().enabled = true;
-        selectionP2.isActiveUtilityP2 = false;
-        selectionP2.contSelectionP2 = 3;
+        // selectionP2.isActiveUtilityP2 = false;
+        selectionP2.contSelectionP2 = 0;
         // turn.isTurn = false;
         //tankP2.transform.DOShakePosition(2f, strength, vibrato);
     }
@@ -393,8 +393,8 @@ public class AttackBaseUtility2 : MonoBehaviour {
         lm.lifeDealer -= att;
         isAttack = false;
         gameObject.GetComponent<InputController>().enabled = true;
-        selectionP2.isActiveUtilityP2 = false;
-        selectionP2.contSelectionP2 = 3;
+        //selectionP2.isActiveUtilityP2 = false;
+        selectionP2.contSelectionP2 = 0;
         // turn.isTurn = false;
     }
 

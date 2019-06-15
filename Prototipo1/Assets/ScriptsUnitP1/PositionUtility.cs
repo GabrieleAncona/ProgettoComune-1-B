@@ -31,8 +31,6 @@ public class PositionUtility : MovementBase
     public bool isDead;
     public int idPlayer;
 
-    public HudUnitController HUC;
-
     // Use this for initialization
     void Start()
     {
@@ -276,7 +274,7 @@ public class PositionUtility : MovementBase
             {
                 OnDeath();
             }
-            HUC.Cross.enabled = true;
+
         }
 
     }

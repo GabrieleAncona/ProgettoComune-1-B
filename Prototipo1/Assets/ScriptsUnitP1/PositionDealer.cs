@@ -32,8 +32,6 @@ public class PositionDealer : MovementBase
     public bool isDead;
     public int idPlayer;
 
-    public HudUnitController HUC;
-
     // Use this for initialization
     void Start()
     {
@@ -268,17 +266,14 @@ public class PositionDealer : MovementBase
 
     public void Death()
     {
-        if (lm.lifeDealer <= 0)
-        {
-            //gameObject.SetActive(false);
+
+        if (lm.lifeDealer <= 0) {
+
+            gameObject.SetActive(false);
             isDead = true;
-            if (OnDeath != null)
-            {
-                OnDeath();
-            }
-            SoundManager.PlaySound(SoundManager.Sound.maleDie);
-            HUC.Cross.enabled = true;
+
         }
+
     }
 
     public void ResetMp()
@@ -287,10 +282,5 @@ public class PositionDealer : MovementBase
         {
             contMp = 4;
         }
-    }
-
-    public void TestAnimationEnd()
-    {
-        gameObject.SetActive(false);
     }
 }
