@@ -31,7 +31,7 @@ public class ButtonNavigation : MonoBehaviour
     {
         ChangeButtonNavigation();
         ConfirmButtonSelection();
-        ChangeImageButton();
+        //ChangeImageButton();
 	}
 
     public void ChangeButtonNavigation()
@@ -50,6 +50,7 @@ public class ButtonNavigation : MonoBehaviour
                     {
                         index = 0;
                     }
+                    ChangeImageButton();
                 }
 
                 if (Input.GetKeyDown(KeyCode.A))
@@ -62,6 +63,7 @@ public class ButtonNavigation : MonoBehaviour
                     {
                         index = totButton;
                     }
+                    ChangeImageButton();
                 }  
             }
 
@@ -77,6 +79,7 @@ public class ButtonNavigation : MonoBehaviour
                     {
                         index = 0;
                     }
+                    ChangeImageButton();
                 }
 
                 if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -89,6 +92,7 @@ public class ButtonNavigation : MonoBehaviour
                     {
                         index = totButton;
                     }
+                    ChangeImageButton();
                 }
             }
         }
@@ -99,45 +103,65 @@ public class ButtonNavigation : MonoBehaviour
         if (index == 0)
         {
             ///illumino icona movimento
-            back.sprite = BackSprite[1];
             movement.sprite = MovementSprite[0];
+            ///sprite normale per tutte le altre
+            back.sprite = BackSprite[1];
             attack.sprite = AttackSprite[1];
+            ability.sprite = AbilitySprite[1];
+            ///attivo text mov
             text[index].SetActive(true);
+            /// disattivo altri text
             text[3].SetActive(false);
-            text[index+1].SetActive(false);
+            text[1].SetActive(false);
+            text[2].SetActive(false);
         }
 
         if (index == 1)
         {
             ///illumino icona attacco base
-            movement.sprite = MovementSprite[1];
             attack.sprite = AttackSprite[0];
+            ///sprite normale per tutte le altre
+            movement.sprite = MovementSprite[1];
             ability.sprite = AbilitySprite[1];
+            back.sprite = BackSprite[1];
+            ///attivo text atk
             text[index].SetActive(true);
-            text[index - 1].SetActive(false);
-            text[index + 1].SetActive(false);
+            /// disattivo altri text
+            text[0].SetActive(false);
+            text[2].SetActive(false);
+            text[3].SetActive(false);
         }
 
         if (index == 2)
         {
             ///illumino icona abilita
-            attack.sprite = AttackSprite[1];
             ability.sprite = AbilitySprite[0];
+            ///sprite normale per tutte le altre
+            attack.sprite = AttackSprite[1];
             back.sprite = BackSprite[1];
+            movement.sprite = MovementSprite[1];
+            ///attivo text ab
             text[index].SetActive(true);
-            text[index - 1].SetActive(false);
-            text[index + 1].SetActive(false);
+            /// disattivo altri text
+            text[1].SetActive(false);
+            text[3].SetActive(false);
+            text[0].SetActive(false);
         }
 
         if (index == 3)
         {
             ///illumino icona back
-            ability.sprite = AbilitySprite[1];
             back.sprite = BackSprite[0];
+            ///sprite normale per tutte le altre
+            ability.sprite = AbilitySprite[1];
+            attack.sprite = AttackSprite[1];
             movement.sprite = MovementSprite[1];
+            ///attivo text back
             text[index].SetActive(true);
-            text[index - 1].SetActive(false);
+            /// disattivo altri text 
+            text[2].SetActive(false);
             text[0].SetActive(false);
+            text[1].SetActive(false);
         }
     }
 
@@ -145,36 +169,64 @@ public class ButtonNavigation : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
-            if (index == 0)
-            {
-                ///attivo movimento
-                AMC.Movement();
-            }
+            SoundManager.PlaySound(SoundManager.Sound.confirm);
+            SwitchSprite();
+        }
+    }
 
-            if (index == 1)
-            {
-                ///attivo attaco
-                AMC.Attack();
-            }
+    public void SwitchSprite()
+    {
+        if (index == 0)
+        {
+            ///attivo movimento
+            AMC.Movement();
+            ///disattivo tutti gli altri 
+            attack.sprite = AttackSprite[2];
+            ability.sprite = AbilitySprite[2];
+            back.sprite = BackSprite[2];
+        }
 
-            if (index == 2)
-            {
-                ///attivo abilita
-                AMC.Ability();
-            }
+        if (index == 1)
+        {
+            ///attivo attaco
+            AMC.Attack();
+            ///disattivo tutti gli altri 
+            movement.sprite = MovementSprite[2];
+            ability.sprite = AbilitySprite[2];
+            back.sprite = BackSprite[2];
+        }
 
-            if (index == 3)
+        if (index == 2)
+        {
+            ///attivo abilita
+            AMC.Ability();
+            ///disattivo tutti gli altri 
+            movement.sprite = MovementSprite[2];
+            attack.sprite = AttackSprite[2];
+            back.sprite = BackSprite[2];
+        }
+
+        if (index == 3)
+        {
+            ///attivo back
+            if (GameManager.singleton._player.IdPlayer == 1)
             {
-                ///attivo back
-                if (GameManager.singleton._player.IdPlayer == 1)
-                {
-                    AMC.BackSelectionPlayer1();
-                }
-                if (GameManager.singleton._player.IdPlayer == 2)
-                {
-                    AMC.BackSelectionPlayer2();
-                }
+                AMC.BackSelectionPlayer1();
+            }
+            if (GameManager.singleton._player.IdPlayer == 2)
+            {
+                AMC.BackSelectionPlayer2();
             }
         }
+    }
+
+    public void ResetImageButton()
+    {
+
+        movement.sprite = MovementSprite[0];
+        attack.sprite = AttackSprite[0];
+        ability.sprite = AbilitySprite[0];
+        back.sprite = BackSprite[0];
+
     }
 }
