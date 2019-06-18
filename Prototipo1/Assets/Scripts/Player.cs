@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 	AttackBase attackbase;
 	AbilityBase abilitybase;
     DeathBase deathbase;
+	HitBase hitbase;
 	AnimationController animCtrl;
     public int idUnitsGeneral;
     public int idunit;
@@ -20,9 +21,10 @@ public class Player : MonoBehaviour
 		abilitybase = GetComponent<AbilityBase>();
 		attackbase = GetComponent<AttackBase>();
         deathbase = GetComponent<DeathBase>();
+		hitbase = GetComponent<HitBase>();
 		animCtrl = GetComponent<AnimationController>();
 		if (animCtrl != null)
-			animCtrl.Init(movementBase, abilitybase, attackbase, deathbase);
+			animCtrl.Init(movementBase, abilitybase, attackbase, deathbase, hitbase);
 	}
 	
 	// Update is called once per frame

@@ -7,7 +7,7 @@ public class AnimationController : MonoBehaviour {
 
 	private Animator _anim;
 
-	public void Init(MovementBase _movement, AbilityBase _ability, AttackBase _attack, DeathBase _death)
+	public void Init(MovementBase _movement, AbilityBase _ability, AttackBase _attack, DeathBase _death, HitBase _hit)
 	{
 		_anim = GetComponent<Animator>();
 
@@ -19,7 +19,9 @@ public class AnimationController : MonoBehaviour {
 			_attack.OnAttack += HandleAttack;
         if (_death != null)
             _death.OnDeath += HandleDeath;
-    }
+		if (_hit != null)
+			_hit.OnHit += HandleHit;
+	}
 
 
 	private void HandleMovement() 
@@ -38,10 +40,14 @@ public class AnimationController : MonoBehaviour {
     {
         GoToDeath();       
     }
+	private void HandleHit()
+	{
+		GoToHit();
+	}
 
 
 
-    private void GoToMovement()
+	private void GoToMovement()
 	{
 		_anim.SetTrigger("GoToMovement");
 	}
@@ -60,6 +66,9 @@ public class AnimationController : MonoBehaviour {
 	private void GoToDeath()
 	{
 		_anim.SetTrigger("GoToDeath");
-
+	}
+	private void GoToHit()
+	{
+		_anim.SetTrigger("GoToHit");
 	}
 }

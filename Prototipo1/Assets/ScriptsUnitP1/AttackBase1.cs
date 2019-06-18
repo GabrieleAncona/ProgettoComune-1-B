@@ -131,6 +131,7 @@ public class AttackBase1 : AttackBase
 					OnAttack();
 				}
 				tankP2.transform.DOShakePosition(2f, strength, vibrato);
+				//lm.HitAnim();
                 GameManager.singleton.acm.isActionTank = false;
                 GameManager.singleton.sc.isTankUsable = false;
                 yield return new WaitForSeconds(2f);
@@ -150,7 +151,8 @@ public class AttackBase1 : AttackBase
 					OnAttack();
 				}
 				healerP2.transform.DOShakePosition(2f, strength, vibrato);
-                GameManager.singleton.acm.isActionTank = false;
+				//lm.HitAnim();
+				GameManager.singleton.acm.isActionTank = false;
                 GameManager.singleton.sc.isTankUsable = false;
                 yield return new WaitForSeconds(2f);
 
@@ -168,7 +170,8 @@ public class AttackBase1 : AttackBase
 					OnAttack();
 				}
 				utilityP2.transform.DOShakePosition(2f, strength, vibrato);
-                GameManager.singleton.acm.isActionTank = false;
+				//lm.HitAnim();
+				GameManager.singleton.acm.isActionTank = false;
                 GameManager.singleton.sc.isTankUsable = false;
                 yield return new WaitForSeconds(2f);
 
@@ -186,7 +189,8 @@ public class AttackBase1 : AttackBase
 					OnAttack();
 				}
 				dealerP2.transform.DOShakePosition(2f, strength, vibrato);
-                GameManager.singleton.acm.isActionTank = false;
+				//lm.HitAnim();
+				GameManager.singleton.acm.isActionTank = false;
                 GameManager.singleton.sc.isTankUsable = false;
                 yield return new WaitForSeconds(2f);
 
