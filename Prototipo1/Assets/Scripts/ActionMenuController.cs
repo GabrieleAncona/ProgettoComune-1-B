@@ -219,10 +219,4 @@ public class ActionMenuController : MonoBehaviour
             GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
         }
     }
-
-
-    public void SetupActionMenu()
-    {
-        
-    }
 }

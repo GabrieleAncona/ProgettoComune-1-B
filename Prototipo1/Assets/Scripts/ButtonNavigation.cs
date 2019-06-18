@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GridSystem;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class ButtonNavigation : MonoBehaviour
 {
@@ -19,9 +20,12 @@ public class ButtonNavigation : MonoBehaviour
     public Image attack;
     public Image ability;
     public Image back;
+	public List<Transform> slidetransform = new List<Transform>();
+	public List<Transform> slidebacktransform = new List<Transform>();
 
-    // Use this for initialization
-    void Start ()
+
+	// Use this for initialization
+	void Start ()
     {
         AMC = FindObjectOfType<ActionMenuController>();
     }
@@ -184,7 +188,12 @@ public class ButtonNavigation : MonoBehaviour
             attack.sprite = AttackSprite[2];
             ability.sprite = AbilitySprite[2];
             back.sprite = BackSprite[2];
-        }
+			//slide
+
+			RectTransform moved = movement.GetComponent<RectTransform>();
+			RectTransform dest = slidetransform[0].GetComponent<RectTransform>();
+			moved.DOMove(dest.anchoredPosition, 0.9f);
+		}
 
         if (index == 1)
         {
@@ -194,7 +203,9 @@ public class ButtonNavigation : MonoBehaviour
             movement.sprite = MovementSprite[2];
             ability.sprite = AbilitySprite[2];
             back.sprite = BackSprite[2];
-        }
+			//slide
+			transform.DOMove(slidetransform[1].transform.position, 0.9f);
+		}
 
         if (index == 2)
         {
@@ -204,7 +215,9 @@ public class ButtonNavigation : MonoBehaviour
             movement.sprite = MovementSprite[2];
             attack.sprite = AttackSprite[2];
             back.sprite = BackSprite[2];
-        }
+			//slide
+			transform.DOMove(slidetransform[2].transform.position, 0.9f);
+		}
 
         if (index == 3)
         {
@@ -222,11 +235,9 @@ public class ButtonNavigation : MonoBehaviour
 
     public void ResetImageButton()
     {
-
         movement.sprite = MovementSprite[0];
         attack.sprite = AttackSprite[0];
         ability.sprite = AbilitySprite[0];
         back.sprite = BackSprite[0];
-
     }
 }
