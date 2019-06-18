@@ -10,4 +10,7 @@ public class VfxManager : MonoBehaviour
     public GameObject vfxHealerPosion;
     public GameObject vfxHealerDot;
     public GameObject vfxHealerHit;
+    public GameObject vfxUtilityAtt;
+    public GameObject vfxUtilityAb;
+    public GameObject vfxUtilityHit;
 }

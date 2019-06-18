@@ -41,6 +41,8 @@ public class AttackBaseHealer : AttackBase
     public AbilityHealer ab;
     public RaycastHit hitUnits;
     public UnitsData units;
+    public float speedBullet = 500f;
+    public GameObject gameObjectDot;
 
     // Use this for initialization
     void Start()
@@ -146,18 +148,23 @@ public class AttackBaseHealer : AttackBase
         // tanks
         if (Input.GetKeyDown(KeyCode.Space)  && isAttackHealer == true  && healerP1.isUnitEnemie == true)
         {
-            if (hitUnits.transform.gameObject.GetComponent<Player>() != null && hitUnits.transform.gameObject.GetComponent<Player>().idUnitsGeneral != GetComponent<Player>().idUnitsGeneral)
+            if (healerP2.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
 
                 ///hitUnits.transform.gameObject.GetComponent<UnitController>().pedina.life -= GameManager.singleton.lm.DamageAttack(units.damageAttackBase);
-
+                DamageTankP2();
                 if (OnAttack != null)
 				{
 					OnAttack();
 				}
-				tankP2.transform.DOShakePosition(2f, strength, vibrato);
+                Shoot();
+                yield return new WaitForSeconds(0.5f);
+                GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxHealerHit, new Vector3(tankP2.x, 0.3f, tankP2.y), Quaternion.identity);
+                tankP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionHealer = false;
                 GameManager.singleton.sc.isHealerUsable = false;
+                yield return new WaitForSeconds(0.5f);
+                Destroy(gameObjectHit);
                 yield return new WaitForSeconds(2f);
 
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
@@ -166,16 +173,21 @@ public class AttackBaseHealer : AttackBase
                     ab.Counter = 0;
                 }
             }
-            else if (hitUnits.transform.gameObject.GetComponent<Player>() != null && hitUnits.transform.gameObject.GetComponent<Player>().idUnitsGeneral != GetComponent<Player>().idUnitsGeneral)
+            else if (healerP2.hit.transform.gameObject.GetComponent<PositionHealer2>())
             {
-                //DamageHealerP2();
+                DamageHealerP2();
 				if (OnAttack != null)
 				{
 					OnAttack();
 				}
-				healerP2.transform.DOShakePosition(2f, strength, vibrato);
+                Shoot();
+                yield return new WaitForSeconds(0.5f);
+                GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxHealerHit, new Vector3(healerP2.x, 0.3f, healerP2.y), Quaternion.identity);
+                healerP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionHealer = false;
                 GameManager.singleton.sc.isHealerUsable = false;
+                yield return new WaitForSeconds(0.5f);
+                Destroy(gameObjectHit);
                 yield return new WaitForSeconds(2f);
 
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
@@ -184,16 +196,21 @@ public class AttackBaseHealer : AttackBase
                     ab.Counter = 0;
                 }
             }
-            else if (hitUnits.transform.gameObject.GetComponent<Player>() != null && hitUnits.transform.gameObject.GetComponent<Player>().idUnitsGeneral != GetComponent<Player>().idUnitsGeneral)
+            else if (healerP2.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
-                //DamageUtilityP2();
+                DamageUtilityP2();
 				if (OnAttack != null)
 				{
 					OnAttack();
 				}
-				utilityP2.transform.DOShakePosition(2f, strength, vibrato);
+                Shoot();
+                yield return new WaitForSeconds(0.5f);
+                GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxHealerHit, new Vector3(utilityP2.x, 0.3f, utilityP2.y), Quaternion.identity);
+                utilityP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionHealer = false;
                 GameManager.singleton.sc.isHealerUsable = false;
+                yield return new WaitForSeconds(0.5f);
+                Destroy(gameObjectHit);
                 yield return new WaitForSeconds(2f);
 
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
@@ -202,16 +219,21 @@ public class AttackBaseHealer : AttackBase
                     ab.Counter = 0;
                 }
             }
-            else if (hitUnits.transform.gameObject.GetComponent<Player>() != null && hitUnits.transform.gameObject.GetComponent<Player>().idUnitsGeneral != GetComponent<Player>().idUnitsGeneral)
+            else if (healerP2.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
-                //DamageDealerP2();
+                DamageDealerP2();
 				if (OnAttack != null)
 				{
 					OnAttack();
 				}
-				dealerP2.transform.DOShakePosition(2f, strength, vibrato);
+                Shoot();
+                yield return new WaitForSeconds(0.5f);
+                GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxHealerHit, new Vector3(dealerP2.x, 0.3f, dealerP2.y), Quaternion.identity);
+                dealerP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionHealer = false;
                 GameManager.singleton.sc.isHealerUsable = false;
+                yield return new WaitForSeconds(0.5f);
+                Destroy(gameObjectHit);
                 yield return new WaitForSeconds(2f);
 
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
@@ -227,6 +249,15 @@ public class AttackBaseHealer : AttackBase
        
 
 
+    }
+
+    /// <summary>
+    /// funzione per instanzare vfx attacco
+    /// </summary>
+    public void Shoot()
+    {
+        GameObject gameObject = Instantiate(GameManager.singleton.vfx.vfxHealerPosion, transform.forward + new Vector3(healerP1.x, 1, healerP1.y), Quaternion.identity);
+        gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * speedBullet);
     }
 
     public void ContTurn()
@@ -256,6 +287,7 @@ public class AttackBaseHealer : AttackBase
     {
         if (turn.isTurn == true && contTurn == 1 && isHitTank == true)
         {
+            Destroy(gameObjectDot);
             lifeHitTankP2 -= att;
             lm.lifeTankPlayer2 = lifeHitTankP2;
             contTurn = 0;
@@ -264,13 +296,15 @@ public class AttackBaseHealer : AttackBase
 
         if (turn.isTurn == true && contTurn == 1 && isHitHealer == true)
         {
+            Destroy(gameObjectDot);
             lifeHitHealerP2 -= att;
             lm.lifeHealerPlayer2 = lifeHitHealerP2;
             contTurn = 0;
             isHitHealer = false;
         }
         if (turn.isTurn == true && contTurn == 1 && isHitUtility == true)
-        { 
+        {
+            Destroy(gameObjectDot);
             lifeHitUtilityP2 -= att;
             lm.lifeUtilityPlayer2 = lifeHitUtilityP2;
             contTurn = 0;
@@ -279,7 +313,7 @@ public class AttackBaseHealer : AttackBase
 
         if (turn.isTurn == true && contTurn == 1 && isHitDealer == true)
         {
-
+            Destroy(gameObjectDot);
             lifeHitDealerP2 -= att;
             lm.lifeDealerPlayer2 = lifeHitDealerP2;
             contTurn = 0;
@@ -299,6 +333,7 @@ public class AttackBaseHealer : AttackBase
 
     public void DamageTankP2()
     {
+        gameObjectDot = Instantiate(GameManager.singleton.vfx.vfxHealerDot, new Vector3(tankP2.x, 1, tankP2.y), Quaternion.identity);
         lm.lifeTankPlayer2 -= att;
         isAttackHealer = false;
         //turn.isTurn = false;
@@ -312,6 +347,7 @@ public class AttackBaseHealer : AttackBase
 
     public void DamageHealerP2()
     {
+        gameObjectDot = Instantiate(GameManager.singleton.vfx.vfxHealerDot, new Vector3(healerP2.x, 1, healerP2.y), Quaternion.identity);
         lm.lifeHealerPlayer2 -= att;
         isAttackHealer = false;
         //turn.isTurn = false;
@@ -324,6 +360,7 @@ public class AttackBaseHealer : AttackBase
     }
     public void DamageUtilityP2()
     {
+        gameObjectDot = Instantiate(GameManager.singleton.vfx.vfxHealerDot, new Vector3(utilityP2.x, 1, utilityP2.y), Quaternion.identity);
         lm.lifeUtilityPlayer2 -= att;
         isAttackHealer = false;
         gameObject.GetComponent<InputController>().enabled = true;
@@ -336,6 +373,7 @@ public class AttackBaseHealer : AttackBase
 
     public void DamageDealerP2()
     {
+        gameObjectDot = Instantiate(GameManager.singleton.vfx.vfxHealerDot, new Vector3(dealerP2.x, 1, dealerP2.y), Quaternion.identity);
         lm.lifeDealerPlayer2 -= att;
         isAttackHealer = false;
         gameObject.GetComponent<InputController>().enabled = true;

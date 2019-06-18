@@ -169,9 +169,15 @@ public class AttackBaseHealer2 : MonoBehaviour {
             else if (healerP2.hit.transform.gameObject.GetComponent<PositionHealer>())
             {
                 DamageHealerP1();
+                Shoot();
+                yield return new WaitForSeconds(0.5f);
+                GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxHealerHit, new Vector3(healerP1.x, 0.3f, healerP1.y), Quaternion.identity);
                 healerP1.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
+                yield return new WaitForSeconds(0.5f);
+                Destroy(gameObjectHit);
+              
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
@@ -182,9 +188,14 @@ public class AttackBaseHealer2 : MonoBehaviour {
             else if (healerP2.hit.transform.gameObject.GetComponent<PositionUtility>())
             {
                 DamageUtilityP1();
+                Shoot();
+                yield return new WaitForSeconds(0.5f);
+                GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxHealerHit, new Vector3(utilityP1.x, 0.3f, utilityP1.y), Quaternion.identity);
                 utilityP1.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
+                yield return new WaitForSeconds(0.5f);
+                Destroy(gameObjectHit);
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
@@ -195,9 +206,14 @@ public class AttackBaseHealer2 : MonoBehaviour {
             else if (healerP2.hit.transform.gameObject.GetComponent<PositionDealer>())
             {
                 DamageDealerP1();
+                Shoot();
+                yield return new WaitForSeconds(0.5f);
+                GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxHealerHit, new Vector3(dealerP1.x, 0.3f, dealerP1.y), Quaternion.identity);
                 dealerP1.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
+                yield return new WaitForSeconds(0.5f);
+                Destroy(gameObjectHit);
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)

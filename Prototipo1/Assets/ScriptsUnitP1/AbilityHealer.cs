@@ -148,7 +148,7 @@ public class AbilityHealer : AbilityBase
                 if (lm.lifeTank < lm.lifeMaxTank)
                 {
                     HealTank();
-                    //GameObject gameObject = Instantiate(GameManager.singleton.vfx.vfxHealerHeal, new Vector3(tank.x , 0.3f , tank.y), Quaternion.identity);
+                    GameObject gameObject = Instantiate(GameManager.singleton.vfx.vfxHealerHeal, new Vector3(tank.x , 0.3f , tank.y), Quaternion.identity);
                     SoundManager.PlaySound(SoundManager.Sound.curaHealer);
                     ///attivo clone instanziato
                     gameObject.SetActive(true);
@@ -167,6 +167,8 @@ public class AbilityHealer : AbilityBase
                 {
                     HealDealer();
                     GameObject gameObject = Instantiate(GameManager.singleton.vfx.vfxHealerHeal, new Vector3(dealer.x, 0.3f, dealer.y), Quaternion.identity);
+                    ///attivo clone instanziato
+                    gameObject.SetActive(true);
                     SoundManager.PlaySound(SoundManager.Sound.curaHealer);
                     GameManager.singleton.acm.isActionHealer = false;
                     GameManager.singleton.sc.isHealerUsable = false;
@@ -183,6 +185,8 @@ public class AbilityHealer : AbilityBase
                 {
                     HealUtility();
                     GameObject gameObject = Instantiate(GameManager.singleton.vfx.vfxHealerHeal, new Vector3(utility.x, 0.3f, utility.y), Quaternion.identity);
+                    ///attivo clone instanziato
+                    gameObject.SetActive(true);
                     SoundManager.PlaySound(SoundManager.Sound.curaHealer);
                     GameManager.singleton.acm.isActionHealer = false;
                     GameManager.singleton.sc.isHealerUsable = false;

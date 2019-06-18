@@ -40,6 +40,7 @@ public class AbilityUtility : AbilityBase
     public int CounterTurnA;
     public bool isCharging;
     public HudUnitController HUC;
+    public GameObject gameObjectVfx;
 
     // Use this for initialization
     void Start()
@@ -214,120 +215,7 @@ public class AbilityUtility : AbilityBase
         }
     
 
-        //sinistra tank
-       /* if (Input.GetKeyDown(KeyCode.Space)  && isAbility == true && utility.isUnitEnemie == true && isAttDown == true)
-        {
-            if (utility.hit.transform.gameObject.GetComponent<PositionTester2>())
-            {
-                DamageTankP2();
-                tankP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                Counter = 0;
-            }
-            else if (utility.hit.transform.gameObject.GetComponent<PositionHealer2>())
-            {
-                DamageHealerP2();
-                healerP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                Counter = 0;
-            }
-            else if (utility.hit.transform.gameObject.GetComponent<PositionDealer2>())
-            {
-                DamageDealerP2();
-                dealerP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                Counter = 0;
-            }
-            else if (utility.hit.transform.gameObject.GetComponent<PositionUtility2>())
-            {
-                DamageUtilityP2();
-                utilityP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                Counter = 0;
-            }
-        }
-      
-      
-
-        //sopra tank
-        if (Input.GetKeyDown(KeyCode.Space) && isAbility == true && utility.isUnitEnemie == true && isAttLeft == true)
-        {
-            if (utility.hit.transform.gameObject.GetComponent<PositionTester2>())
-            {
-                DamageTankP2();
-                tankP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                Counter = 0;
-            }
-            else if (utility.hit.transform.gameObject.GetComponent<PositionHealer2>())
-            {
-                DamageHealerP2();
-                healerP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                Counter = 0;
-            }
-            else if (utility.hit.transform.gameObject.GetComponent<PositionDealer2>())
-            {
-                DamageDealerP2();
-                dealerP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                Counter = 0;
-            }
-            else if (utility.hit.transform.gameObject.GetComponent<PositionUtility2>())
-            {
-                DamageUtilityP2();
-                utilityP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                Counter = 0;
-            }
-        }
-        //sopra healer
-       
-
-        //sotto tank
-        if (Input.GetKeyDown(KeyCode.Space) && isAbility == true && utility.isUnitEnemie == true && isAttRight == true)
-        {
-            if (utility.hit.transform.gameObject.GetComponent<PositionTester2>())
-            {
-                DamageTankP2();
-                tankP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-           
-            }
-            else if (utility.hit.transform.gameObject.GetComponent<PositionHealer2>())
-            {
-                DamageHealerP2();
-                healerP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-      
-            }
-            else if (utility.hit.transform.gameObject.GetComponent<PositionDealer2>())
-            {
-                DamageDealerP2();
-                dealerP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-
-            }
-            else if (utility.hit.transform.gameObject.GetComponent<PositionUtility2>())
-            {
-                DamageUtilityP2();
-                utilityP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-
-            }
-        }*/
+        
        
     }
 
@@ -344,6 +232,7 @@ public class AbilityUtility : AbilityBase
             utilityP2.isStun = false;
             dealerP2.isStun = false;
             CounterStun = 0;
+            Destroy(gameObjectVfx);
         }
     }
 
@@ -376,6 +265,7 @@ public class AbilityUtility : AbilityBase
 
     public void DamageTankP2()
     {
+        gameObjectVfx = Instantiate(GameManager.singleton.vfx.vfxUtilityAb, new Vector3(tankP2.x, 1, tankP2.y), Quaternion.identity);
         lm.lifeTankPlayer2 -= att;
         //turn.isTurn = false;
         isAbility = false;
@@ -388,6 +278,7 @@ public class AbilityUtility : AbilityBase
 
     public void DamageHealerP2()
     {
+        gameObjectVfx = Instantiate(GameManager.singleton.vfx.vfxUtilityAb, new Vector3(healerP2.x, 1, healerP2.y), Quaternion.identity);
         lm.lifeHealerPlayer2 -= att;
         //turn.isTurn = false;
         isAbility = false;
@@ -400,6 +291,7 @@ public class AbilityUtility : AbilityBase
 
     public void DamageDealerP2()
     {
+        gameObjectVfx = Instantiate(GameManager.singleton.vfx.vfxUtilityAb, new Vector3(utilityP2.x, 1, utilityP2.y), Quaternion.identity);
         lm.lifeDealerPlayer2 -= att;
         //turn.isTurn = false;
         isAbility = false;
@@ -413,6 +305,7 @@ public class AbilityUtility : AbilityBase
 
     public void DamageUtilityP2()
     {
+        gameObjectVfx = Instantiate(GameManager.singleton.vfx.vfxUtilityAb, new Vector3(dealerP2.x, 1, dealerP2.y), Quaternion.identity);
         lm.lifeUtilityPlayer2 -= att;
        // turn.isTurn = false;
         isAbility = false;

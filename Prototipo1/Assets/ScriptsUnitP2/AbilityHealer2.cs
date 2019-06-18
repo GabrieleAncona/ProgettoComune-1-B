@@ -145,32 +145,47 @@ public class AbilityHealer2 : MonoBehaviour
             if (healerP2.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
                 HealTank();
+                GameObject gameObject = Instantiate(GameManager.singleton.vfx.vfxHealerHeal, new Vector3(tankP2.x, 0.3f, tankP2.y), Quaternion.identity);
+                ///attivo clone instanziato
+                gameObject.SetActive(true);
                 SoundManager.PlaySound(SoundManager.Sound.curaHealer);
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 Counter = 0;
+                yield return new WaitForSeconds(3f);
+                Destroy(gameObject);
             }
             if (healerP2.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
                 HealUtility();
+                GameObject gameObject = Instantiate(GameManager.singleton.vfx.vfxHealerHeal, new Vector3(utilityP2.x, 0.3f, utilityP2.y), Quaternion.identity);
+                ///attivo clone instanziato
+                gameObject.SetActive(true);
                 SoundManager.PlaySound(SoundManager.Sound.curaHealer);
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 Counter = 0;
+                yield return new WaitForSeconds(3f);
+                Destroy(gameObject);
             }
             if (healerP2.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
                 HealDealer();
+                GameObject gameObject = Instantiate(GameManager.singleton.vfx.vfxHealerHeal, new Vector3(dealerP2.x, 0.3f, dealerP2.y), Quaternion.identity);
+                ///attivo clone instanziato
+                gameObject.SetActive(true);
                 SoundManager.PlaySound(SoundManager.Sound.curaHealer);
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 Counter = 0;
+                yield return new WaitForSeconds(3f);
+                Destroy(gameObject);
             }
         }
         //sinistra

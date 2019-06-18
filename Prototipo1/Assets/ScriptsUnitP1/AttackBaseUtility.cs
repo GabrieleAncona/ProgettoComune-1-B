@@ -32,6 +32,7 @@ public class AttackBaseUtility : AttackBase
     public float strength;
     public int vibrato;
     public AbilityUtility ab;
+    public float speedBullet = 500f;
 
     // Use this for initialization
     void Start()
@@ -139,9 +140,14 @@ public class AttackBaseUtility : AttackBase
 				{
 					OnAttack();
 				}
-				tankP2.transform.DOShakePosition(2f, strength, vibrato);
+               // Shoot();
+                //yield return new WaitForSeconds(0.5f);
+                //GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxUtilityHit, new Vector3(tankP2.x, 0.3f, tankP2.y), Quaternion.identity);
+                tankP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionUtility = false;
                 GameManager.singleton.sc.isUtilityUsable = false;
+                //yield return new WaitForSeconds(0.5f);
+                //Destroy(gameObjectHit);
                 yield return new WaitForSeconds(2f);
 
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
@@ -157,9 +163,14 @@ public class AttackBaseUtility : AttackBase
 				{
 					OnAttack();
 				}
-				healerP2.transform.DOShakePosition(2f, strength, vibrato);
+                //Shoot();
+                //yield return new WaitForSeconds(0.5f);
+                //GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxUtilityHit, new Vector3(healerP2.x, 0.3f, healerP2.y), Quaternion.identity);
+                healerP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionUtility = false;
                 GameManager.singleton.sc.isUtilityUsable = false;
+               // yield return new WaitForSeconds(0.5f);
+                //Destroy(gameObjectHit);
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
@@ -174,11 +185,15 @@ public class AttackBaseUtility : AttackBase
 				{
 					OnAttack();
 				}
-				dealerP2.transform.DOShakePosition(2f, strength, vibrato);
+                //Shoot();
+                //yield return new WaitForSeconds(0.5f);
+                //GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxUtilityHit, new Vector3(utilityP2.x, 0.3f, utilityP2.y), Quaternion.identity);
+                dealerP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionUtility = false;
                 GameManager.singleton.sc.isUtilityUsable = false;
+               // yield return new WaitForSeconds(0.5f);
+                //Destroy(gameObjectHit);
                 yield return new WaitForSeconds(2f);
-
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
                 {
@@ -192,11 +207,15 @@ public class AttackBaseUtility : AttackBase
 				{
 					OnAttack();
 				}
-				utilityP2.transform.DOShakePosition(2f, strength, vibrato);
+                //Shoot();
+                //yield return new WaitForSeconds(0.5f);
+                //GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxUtilityHit, new Vector3(dealerP2.x, 0.3f, dealerP2.y), Quaternion.identity);
+                utilityP2.transform.DOShakePosition(2f, strength, vibrato);
                 GameManager.singleton.acm.isActionUtility = false;
                 GameManager.singleton.sc.isUtilityUsable = false;
+               // yield return new WaitForSeconds(0.5f);
+                //Destroy(gameObjectHit);
                 yield return new WaitForSeconds(2f);
-
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
                 {
@@ -205,158 +224,13 @@ public class AttackBaseUtility : AttackBase
             }
         }
 
-
-        //sinistra tank
-        /*if (Input.GetKeyDown(KeyCode.S) && isAttack == true && utility.isUnitEnemie == true && isAttDown == true)
-        {
-            if (utility.hit.transform.gameObject.GetComponent<PositionTester2>())
-            {
-                DamageTankP2();
-                tankP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                if (ab.Counter < 2)
-                {
-                    ab.Counter = 0;
-                }
-            }
-            else if (utility.hit.transform.gameObject.GetComponent<PositionHealer2>())
-            {
-                DamageHealerP2();
-                healerP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                if (ab.Counter < 2)
-                {
-                    ab.Counter = 0;
-                }
-            }
-            else if (utility.hit.transform.gameObject.GetComponent<PositionDealer2>())
-            {
-                DamageDealerP2();
-                dealerP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                if (ab.Counter < 2)
-                {
-                    ab.Counter = 0;
-                }
-            }
-            else if (utility.hit.transform.gameObject.GetComponent<PositionUtility2>())
-            {
-                DamageUtilityP2();
-                utilityP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                if (ab.Counter < 2)
-                {
-                    ab.Counter = 0;
-                }
-            }
-        }
-
-
-
-        //sopra tank
-        if (Input.GetKeyDown(KeyCode.A) && isAttack == true && utility.isUnitEnemie == true && isAttLeft == true)
-        {
-            if (utility.hit.transform.gameObject.GetComponent<PositionTester2>())
-            {
-                DamageTankP2();
-                tankP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                if (ab.Counter < 2)
-                {
-                    ab.Counter = 0;
-                }
-            }
-            else if (utility.hit.transform.gameObject.GetComponent<PositionHealer2>())
-            {
-                DamageHealerP2();
-                healerP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                if (ab.Counter < 2)
-                {
-                    ab.Counter = 0;
-                }
-            }
-            else if (utility.hit.transform.gameObject.GetComponent<PositionDealer2>())
-            {
-                DamageDealerP2();
-                dealerP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                if (ab.Counter < 2)
-                {
-                    ab.Counter = 0;
-                }
-            }
-            else if (utility.hit.transform.gameObject.GetComponent<PositionUtility2>())
-            {
-                DamageUtilityP2();
-                utilityP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                if (ab.Counter < 2)
-                {
-                    ab.Counter = 0;
-                }
-            }
-        }
-        //sopra healer
-
-
-        //sotto tank
-        if (Input.GetKeyDown(KeyCode.D) && isAttack == true && utility.isUnitEnemie == true && isAttRight == true)
-        {
-            if (utility.hit.transform.gameObject.GetComponent<PositionTester2>())
-            {
-                DamageTankP2();
-                tankP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                if (ab.Counter < 2)
-                {
-                    ab.Counter = 0;
-                }
-            }
-            else if (utility.hit.transform.gameObject.GetComponent<PositionHealer2>())
-            {
-                DamageHealerP2();
-                healerP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                if (ab.Counter < 2)
-                {
-                    ab.Counter = 0;
-                }
-            }
-            else if (utility.hit.transform.gameObject.GetComponent<PositionDealer2>())
-            {
-                DamageDealerP2();
-                dealerP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                if (ab.Counter < 2)
-                {
-                    ab.Counter = 0;
-                }
-            }
-            else if (utility.hit.transform.gameObject.GetComponent<PositionUtility2>())
-            {
-                DamageUtilityP2();
-                utilityP2.transform.DOShakePosition(2f, strength, vibrato);
-                yield return new WaitForSeconds(2f);
-                turn.isTurn = false;
-                if (ab.Counter < 2)
-                {
-                    ab.Counter = 0;
-                }
-            }
-        }*/
     }
+
+    /*public void Shoot()
+    {
+        GameObject gameObject = Instantiate(GameManager.singleton.vfx.vfxUtilityAtt, transform.forward + new Vector3(utility.x, 1, utility.y), Quaternion.identity);
+        gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * speedBullet);
+    }*/
 
     //disattivo prewiew attacco/abilità quando finisco turno
     public void DisactivePrewiewUtility()
