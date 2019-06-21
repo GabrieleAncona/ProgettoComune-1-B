@@ -6,7 +6,6 @@ using DG.Tweening;
 
 public class AbilityHealer : AbilityBase
 {
-
     public int heal = 4;
     public PositionHealer healerP1;
     public BaseGrid grid;

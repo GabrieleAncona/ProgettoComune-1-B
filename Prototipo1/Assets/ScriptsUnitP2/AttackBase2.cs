@@ -4,8 +4,8 @@ using UnityEngine;
 using GridSystem;
 using DG.Tweening;
 
-public class AttackBase2 : MonoBehaviour {
-
+public class AttackBase2 : AttackBase
+{
     public LifeManager lm;
     public TurnManager turn;
     public int att = 4;
@@ -139,7 +139,12 @@ public class AttackBase2 : MonoBehaviour {
             if (tankP2.hit.transform.gameObject.GetComponent<PositionTester>())
             {
                 DamageTankP1();
-                tankP1.transform.DOShakePosition(2f, strength, vibrato);
+                if (OnAttack != null)
+                {
+                    OnAttack();
+                }
+                //tankP1.transform.DOShakePosition(2f, strength, vibrato);
+                tankP2.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionTank2 = false;
                 GameManager.singleton.sc2.isTankUsable2 = false;
                 yield return new WaitForSeconds(2f);
@@ -152,7 +157,12 @@ public class AttackBase2 : MonoBehaviour {
             else if (tankP2.hit.transform.gameObject.GetComponent<PositionHealer>())
             {
                 DamageHealerP1();
-                healerP1.transform.DOShakePosition(2f, strength, vibrato);
+                if (OnAttack != null)
+                {
+                    OnAttack();
+                }
+                //healerP1.transform.DOShakePosition(2f, strength, vibrato);
+                tankP2.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionTank2 = false;
                 GameManager.singleton.sc2.isTankUsable2 = false;
                 yield return new WaitForSeconds(2f);
@@ -165,7 +175,12 @@ public class AttackBase2 : MonoBehaviour {
             else if (tankP2.hit.transform.gameObject.GetComponent<PositionUtility>())
             {
                 DamageUtilityP1();
-                utilityP1.transform.DOShakePosition(2f, strength, vibrato);
+                if (OnAttack != null)
+                {
+                    OnAttack();
+                }
+                //utilityP1.transform.DOShakePosition(2f, strength, vibrato);
+                tankP2.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionTank2 = false;
                 GameManager.singleton.sc2.isTankUsable2 = false;
                 yield return new WaitForSeconds(2f);
@@ -178,7 +193,12 @@ public class AttackBase2 : MonoBehaviour {
             else if (tankP2.hit.transform.gameObject.GetComponent<PositionDealer>())
             {
                 DamageDealerP1();
-                dealerP1.transform.DOShakePosition(2f, strength, vibrato);
+                if (OnAttack != null)
+                {
+                    OnAttack();
+                }
+                //dealerP1.transform.DOShakePosition(2f, strength, vibrato);
+                tankP2.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionTank2 = false;
                 GameManager.singleton.sc2.isTankUsable2 = false;
                 yield return new WaitForSeconds(2f);

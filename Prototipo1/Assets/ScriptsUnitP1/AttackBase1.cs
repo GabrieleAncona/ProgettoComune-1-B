@@ -89,8 +89,6 @@ public class AttackBase1 : AttackBase
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
-
-                
                 transform.DOLocalRotate(new Vector3(0, 90, 0), 0.2f);
                 
                 //tank.transform.position = grid.GetWorldPosition(tank.x, tank.y);
@@ -130,8 +128,8 @@ public class AttackBase1 : AttackBase
 				{
 					OnAttack();
 				}
-				tankP2.transform.DOShakePosition(2f, strength, vibrato);
-				//lm.HitAnim();
+                //tankP2.transform.DOShakePosition(2f, strength, vibrato);
+                tank.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionTank = false;
                 GameManager.singleton.sc.isTankUsable = false;
                 yield return new WaitForSeconds(2f);
@@ -150,9 +148,9 @@ public class AttackBase1 : AttackBase
 				{
 					OnAttack();
 				}
-				healerP2.transform.DOShakePosition(2f, strength, vibrato);
-				//lm.HitAnim();
-				GameManager.singleton.acm.isActionTank = false;
+                //healerP2.transform.DOShakePosition(2f, strength, vibrato);
+                tank.hit.transform.GetComponent<Player>().HitAnim();
+                GameManager.singleton.acm.isActionTank = false;
                 GameManager.singleton.sc.isTankUsable = false;
                 yield return new WaitForSeconds(2f);
 
@@ -169,9 +167,9 @@ public class AttackBase1 : AttackBase
 				{
 					OnAttack();
 				}
-				utilityP2.transform.DOShakePosition(2f, strength, vibrato);
-				//lm.HitAnim();
-				GameManager.singleton.acm.isActionTank = false;
+                //utilityP2.transform.DOShakePosition(2f, strength, vibrato);
+                tank.hit.transform.GetComponent<Player>().HitAnim();
+                GameManager.singleton.acm.isActionTank = false;
                 GameManager.singleton.sc.isTankUsable = false;
                 yield return new WaitForSeconds(2f);
 
@@ -188,9 +186,9 @@ public class AttackBase1 : AttackBase
 				{
 					OnAttack();
 				}
-				dealerP2.transform.DOShakePosition(2f, strength, vibrato);
-				//lm.HitAnim();
-				GameManager.singleton.acm.isActionTank = false;
+                //dealerP2.transform.DOShakePosition(2f, strength, vibrato);
+                tank.hit.transform.GetComponent<Player>().HitAnim();
+                GameManager.singleton.acm.isActionTank = false;
                 GameManager.singleton.sc.isTankUsable = false;
                 yield return new WaitForSeconds(2f);
 

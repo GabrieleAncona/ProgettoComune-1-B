@@ -4,7 +4,7 @@ using UnityEngine;
 using GridSystem;
 using DG.Tweening;
 
-public class AttackBaseDealer2 : MonoBehaviour
+public class AttackBaseDealer2 : AttackBase
 {
     public LifeManager lm;
     public TurnManager turn;
@@ -35,7 +35,6 @@ public class AttackBaseDealer2 : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
         selectionP2 = FindObjectOfType<SelectControllerP2>();
         tankP1 = FindObjectOfType<PositionTester>();
         healerP1 = FindObjectOfType<PositionHealer>();
@@ -49,12 +48,10 @@ public class AttackBaseDealer2 : MonoBehaviour
         isAttack = false;
         vibrato = 10;
         strength = 0.1f;
-
     }
 
     void Update()
     {
-
         SetAttackBase();
         RotationAttack();
         StartCoroutine(SetDirectionAttackBase());
@@ -140,7 +137,12 @@ public class AttackBaseDealer2 : MonoBehaviour
             if (dealerP2.hit.transform.gameObject.GetComponent<PositionTester>())
             {
                 DamageTankP1();
-                tankP1.transform.DOShakePosition(2f, strength, vibrato);
+                if (OnAttack != null)
+                {
+                    OnAttack();
+                }
+                //tankP1.transform.DOShakePosition(2f, strength, vibrato);
+                dealerP2.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionDealer2 = false;
                 GameManager.singleton.sc2.isDealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
@@ -153,7 +155,12 @@ public class AttackBaseDealer2 : MonoBehaviour
             else if (dealerP2.hit.transform.gameObject.GetComponent<PositionHealer>())
             {
                 DamageHealerP1();
-                healerP1.transform.DOShakePosition(2f, strength, vibrato);
+                if (OnAttack != null)
+                {
+                    OnAttack();
+                }
+                //healerP1.transform.DOShakePosition(2f, strength, vibrato);
+                dealerP2.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionDealer2 = false;
                 GameManager.singleton.sc2.isDealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
@@ -166,7 +173,12 @@ public class AttackBaseDealer2 : MonoBehaviour
             else if (dealerP2.hit.transform.gameObject.GetComponent<PositionUtility>())
             {
                 DamageUtilityP1();
-                utilityP1.transform.DOShakePosition(2f, strength, vibrato);
+                if (OnAttack != null)
+                {
+                    OnAttack();
+                }
+                //utilityP1.transform.DOShakePosition(2f, strength, vibrato);
+                dealerP2.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionDealer2 = false;
                 GameManager.singleton.sc2.isDealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
@@ -179,7 +191,12 @@ public class AttackBaseDealer2 : MonoBehaviour
             else if (dealerP2.hit.transform.gameObject.GetComponent<PositionDealer>())
             {
                 DamageDealerP1();
-                dealerP1.transform.DOShakePosition(2f, strength, vibrato);
+                if (OnAttack != null)
+                {
+                    OnAttack();
+                }
+                //dealerP1.transform.DOShakePosition(2f, strength, vibrato);
+                dealerP2.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionDealer2 = false;
                 GameManager.singleton.sc2.isDealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
@@ -189,7 +206,6 @@ public class AttackBaseDealer2 : MonoBehaviour
                     ab.CounterA = 0;
                 }
             }
-
         }
 
         //tanke sinistra

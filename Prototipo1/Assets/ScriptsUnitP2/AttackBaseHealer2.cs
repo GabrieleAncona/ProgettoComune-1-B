@@ -5,7 +5,8 @@ using GridSystem;
 using DG.Tweening;
 
 
-public class AttackBaseHealer2 : MonoBehaviour {
+public class AttackBaseHealer2 : AttackBase
+{
     public float speedBullet = 0.5f;
     public LifeManager lm;
     public TurnManager turn;
@@ -152,9 +153,14 @@ public class AttackBaseHealer2 : MonoBehaviour {
             {
                 DamageTankP1();
                 Shoot();
+                if (OnAttack != null)
+                {
+                    OnAttack();
+                }
                 yield return new WaitForSeconds(0.5f);
                 GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxHealerHit, new Vector3(tankP1.x, 0.3f, tankP1.y), Quaternion.identity);
-                tankP1.transform.DOShakePosition(2f, strength, vibrato);
+                //tankP1.transform.DOShakePosition(2f, strength, vibrato);
+                healerP2.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(0.5f);
@@ -170,9 +176,14 @@ public class AttackBaseHealer2 : MonoBehaviour {
             {
                 DamageHealerP1();
                 Shoot();
+                if (OnAttack != null)
+                {
+                    OnAttack();
+                }
                 yield return new WaitForSeconds(0.5f);
                 GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxHealerHit, new Vector3(healerP1.x, 0.3f, healerP1.y), Quaternion.identity);
-                healerP1.transform.DOShakePosition(2f, strength, vibrato);
+                //healerP1.transform.DOShakePosition(2f, strength, vibrato);
+                healerP2.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(0.5f);
@@ -189,9 +200,14 @@ public class AttackBaseHealer2 : MonoBehaviour {
             {
                 DamageUtilityP1();
                 Shoot();
+                if (OnAttack != null)
+                {
+                    OnAttack();
+                }
                 yield return new WaitForSeconds(0.5f);
                 GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxHealerHit, new Vector3(utilityP1.x, 0.3f, utilityP1.y), Quaternion.identity);
-                utilityP1.transform.DOShakePosition(2f, strength, vibrato);
+                //utilityP1.transform.DOShakePosition(2f, strength, vibrato);
+                healerP2.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(0.5f);
@@ -207,9 +223,14 @@ public class AttackBaseHealer2 : MonoBehaviour {
             {
                 DamageDealerP1();
                 Shoot();
+                if (OnAttack != null)
+                {
+                    OnAttack();
+                }
                 yield return new WaitForSeconds(0.5f);
                 GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxHealerHit, new Vector3(dealerP1.x, 0.3f, dealerP1.y), Quaternion.identity);
-                dealerP1.transform.DOShakePosition(2f, strength, vibrato);
+                //dealerP1.transform.DOShakePosition(2f, strength, vibrato);
+                healerP2.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(0.5f);

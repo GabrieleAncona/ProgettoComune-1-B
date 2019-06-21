@@ -161,7 +161,8 @@ public class AbilityUtility : AbilityBase
 				{
 					OnAbility();
 				}
-				tankP2.transform.DOShakePosition(2f, strength, vibrato);
+                //tankP2.transform.DOShakePosition(2f, strength, vibrato);
+                utility.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionUtility = false;
                 GameManager.singleton.sc.isUtilityUsable = false;
                 yield return new WaitForSeconds(2f);
@@ -176,7 +177,8 @@ public class AbilityUtility : AbilityBase
 				{
 					OnAbility();
 				}
-				healerP2.transform.DOShakePosition(2f, strength, vibrato);
+                //healerP2.transform.DOShakePosition(2f, strength, vibrato);
+                utility.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionUtility = false;
                 GameManager.singleton.sc.isUtilityUsable = false;
                 yield return new WaitForSeconds(2f);
@@ -191,7 +193,8 @@ public class AbilityUtility : AbilityBase
 				{
 					OnAbility();
 				}
-				dealerP2.transform.DOShakePosition(2f, strength, vibrato);
+                //dealerP2.transform.DOShakePosition(2f, strength, vibrato);
+                utility.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionUtility = false;
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
@@ -205,7 +208,8 @@ public class AbilityUtility : AbilityBase
 				{
 					OnAbility();
 				}
-				utilityP2.transform.DOShakePosition(2f, strength, vibrato);
+                //utilityP2.transform.DOShakePosition(2f, strength, vibrato);
+                utility.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionUtility = false;
                 GameManager.singleton.sc.isUtilityUsable = false;
                 yield return new WaitForSeconds(2f);

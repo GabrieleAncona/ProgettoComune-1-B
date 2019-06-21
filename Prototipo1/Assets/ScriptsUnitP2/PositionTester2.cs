@@ -5,7 +5,8 @@ using GridSystem;
 using DG.Tweening;
 
 //tank giocatore 2
-public class PositionTester2 : MonoBehaviour {
+public class PositionTester2 : MovementBase
+{
     public float duration = 0.5f;
     public int x, y;
     public BaseGrid grid;
@@ -28,6 +29,8 @@ public class PositionTester2 : MonoBehaviour {
     public bool myTurn;
     public bool isStun;
     public bool isDead;
+
+    public HudUnitController HUC;
 
     public void Start() {
         lm = FindObjectOfType<LifeManager>();
@@ -60,6 +63,10 @@ public class PositionTester2 : MonoBehaviour {
             transform.DOLocalRotate(new Vector3(0, -90, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x--, y);
             transform.DOMoveX(x, duration).SetAutoKill(false);
+            if (OnMovement != null)
+            {
+                OnMovement();
+            }
             turn.ContRound += 1;
             maxRangeHzTankPlayer2 = x;
             contMp--;
@@ -81,6 +88,10 @@ public class PositionTester2 : MonoBehaviour {
             transform.DOLocalRotate(new Vector3(0, 90, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x++, y);
             transform.DOMoveX(x, duration).SetAutoKill(false);
+            if (OnMovement != null)
+            {
+                OnMovement();
+            }
             turn.ContRound += 1;
             maxRangeHzTankPlayer2 = x;
             contMp--;
@@ -100,7 +111,11 @@ public class PositionTester2 : MonoBehaviour {
 
             transform.DOLocalRotate(new Vector3(0, 180, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x, y--);
-            transform.DOMoveZ(y, duration).SetAutoKill(false); ;
+            transform.DOMoveZ(y, duration).SetAutoKill(false);
+            if (OnMovement != null)
+            {
+                OnMovement();
+            }
             turn.ContRound += 1;
             maxRangeVtTankPlayer2 = y;
             contMp--;
@@ -120,7 +135,11 @@ public class PositionTester2 : MonoBehaviour {
 
             transform.DOLocalRotate(new Vector3(0, 0, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x, y++);
-            transform.DOMoveZ(y, duration).SetAutoKill(false); ;
+            transform.DOMoveZ(y, duration).SetAutoKill(false);
+            if (OnMovement != null)
+            {
+                OnMovement();
+            }
             turn.ContRound += 1;
             maxRangeVtTankPlayer2 = y;
             contMp--;
@@ -255,7 +274,12 @@ public class PositionTester2 : MonoBehaviour {
 
             gameObject.SetActive(false);
             isDead = true;
+            if (OnDeath != null)
+            {
+                OnDeath();
+            }
             SoundManager.PlaySound(SoundManager.Sound.tankDie);
+            HUC.Cross.enabled = true;
         }
 
     }

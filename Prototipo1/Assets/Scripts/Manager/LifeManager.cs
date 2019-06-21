@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using GridSystem;
 
-public class LifeManager : HitBase
+public class LifeManager : MonoBehaviour
 {
     public int lifeTank;
     public int lifeHealer;
@@ -89,14 +89,6 @@ public class LifeManager : HitBase
 
         return _damage;
     }
-
-	/*public void HitAnim()
-	{
-		if (OnHit != null)
-		{
-			OnHit();
-		}
-	}*/
 
    /* public int DamageAbility(int _dmg)
     {

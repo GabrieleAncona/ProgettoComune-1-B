@@ -4,7 +4,7 @@ using UnityEngine;
 using GridSystem;
 using DG.Tweening;
 
-public class AbilityDealer2 : MonoBehaviour
+public class AbilityDealer2 : AbilityBase
 {
     public BaseGrid grid;
     public KeyCode abilityButton;
@@ -86,6 +86,10 @@ public class AbilityDealer2 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightControl) && isAbility == true)
         {
             Shoot();
+            if (OnAbility != null)
+            {
+                OnAbility();
+            }
             SoundManager.PlaySound(SoundManager.Sound.fireball);
             isAbility = false;
             selectionP2.isActiveDealerP2 = false;

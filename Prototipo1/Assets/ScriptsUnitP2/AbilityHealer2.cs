@@ -4,7 +4,7 @@ using UnityEngine;
 using GridSystem;
 using DG.Tweening;
 
-public class AbilityHealer2 : MonoBehaviour
+public class AbilityHealer2 : AbilityBase
 {
     public int heal = 4;
     public PositionHealer2 healerP2;

@@ -142,7 +142,8 @@ public class AttackBaseDealer : AttackBase
 				{
 					OnAttack();
 				}
-				tankP2.transform.DOShakePosition(2f, strength, vibrato);
+                //tankP2.transform.DOShakePosition(2f, strength, vibrato);
+                dealer.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionDealer = false;
                 GameManager.singleton.sc.isDealerUsable = false;
                 yield return new WaitForSeconds(2f);
@@ -160,7 +161,8 @@ public class AttackBaseDealer : AttackBase
 				{
 					OnAttack();
 				}
-				healerP2.transform.DOShakePosition(2f, strength, vibrato);
+                //healerP2.transform.DOShakePosition(2f, strength, vibrato);
+                dealer.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionDealer = false;
                 GameManager.singleton.sc.isDealerUsable = false;
                 yield return new WaitForSeconds(2f);
@@ -178,7 +180,8 @@ public class AttackBaseDealer : AttackBase
 				{
 					OnAttack();
 				}
-				dealerP2.transform.DOShakePosition(2f, strength, vibrato);
+                //dealerP2.transform.DOShakePosition(2f, strength, vibrato);
+                dealer.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionDealer = false;
                 GameManager.singleton.sc.isDealerUsable = false;
                 yield return new WaitForSeconds(2f);
@@ -196,7 +199,8 @@ public class AttackBaseDealer : AttackBase
 				{
 					OnAttack();
 				}
-				utilityP2.transform.DOShakePosition(2f, strength, vibrato);
+                //utilityP2.transform.DOShakePosition(2f, strength, vibrato);
+                dealer.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionDealer = false;
                 GameManager.singleton.sc.isDealerUsable = false;
                 yield return new WaitForSeconds(2f);

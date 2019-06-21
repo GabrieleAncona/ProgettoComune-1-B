@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : HitBase
 {
     public int IdPlayer;
 	MovementBase movementBase;
 	AttackBase attackbase;
 	AbilityBase abilitybase;
     DeathBase deathbase;
-	HitBase hitbase;
 	AnimationController animCtrl;
     public int idUnitsGeneral;
     public int idunit;
@@ -21,10 +20,10 @@ public class Player : MonoBehaviour
 		abilitybase = GetComponent<AbilityBase>();
 		attackbase = GetComponent<AttackBase>();
         deathbase = GetComponent<DeathBase>();
-		hitbase = GetComponent<HitBase>();
+        //hitbase = FindObjectOfType<HitBase>();
 		animCtrl = GetComponent<AnimationController>();
 		if (animCtrl != null)
-			animCtrl.Init(movementBase, abilitybase, attackbase, deathbase, hitbase);
+			animCtrl.Init(movementBase, abilitybase, attackbase, deathbase, this);
 	}
 	
 	// Update is called once per frame
@@ -41,4 +40,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void HitAnim()
+    {
+        if (OnHit != null)
+        {
+            OnHit();
+        }
+    }
 }

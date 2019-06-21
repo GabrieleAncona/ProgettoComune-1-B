@@ -4,8 +4,8 @@ using UnityEngine;
 using GridSystem;
 using DG.Tweening;
 
-public class AbilityUtility2 : MonoBehaviour {
-
+public class AbilityUtility2 : AbilityBase
+{
     public LifeManager lm;
     public TurnManager turn;
     public int att = 3;
@@ -166,8 +166,13 @@ public class AbilityUtility2 : MonoBehaviour {
             if (utilityP2.hit.transform.gameObject.GetComponent<PositionTester>())
             {
                 DamageTankP1();
+                if (OnAbility != null)
+                {
+                    OnAbility();
+                }
                 SoundManager.PlaySound(SoundManager.Sound.ghiaccio);
-                tankP1.transform.DOShakePosition(2f, strength, vibrato);
+                //tankP1.transform.DOShakePosition(2f, strength, vibrato);
+                utilityP2.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionUtility2 = false;
                 GameManager.singleton.sc2.isUtilityUsable2 = false;
                 yield return new WaitForSeconds(2f);
@@ -177,8 +182,13 @@ public class AbilityUtility2 : MonoBehaviour {
             else if (utilityP2.hit.transform.gameObject.GetComponent<PositionHealer>())
             {
                 DamageHealerP1();
+                if (OnAbility != null)
+                {
+                    OnAbility();
+                }
                 SoundManager.PlaySound(SoundManager.Sound.ghiaccio);
-                healerP1.transform.DOShakePosition(2f, strength, vibrato);
+                //healerP1.transform.DOShakePosition(2f, strength, vibrato);
+                utilityP2.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionUtility2 = false;
                 GameManager.singleton.sc2.isUtilityUsable2 = false;
                 yield return new WaitForSeconds(2f);
@@ -188,8 +198,13 @@ public class AbilityUtility2 : MonoBehaviour {
             else if (utilityP2.hit.transform.gameObject.GetComponent<PositionUtility>())
             {
                 DamageUtilityP1();
+                if (OnAbility != null)
+                {
+                    OnAbility();
+                }
                 SoundManager.PlaySound(SoundManager.Sound.ghiaccio);
-                utilityP1.transform.DOShakePosition(2f, strength, vibrato);
+                //utilityP1.transform.DOShakePosition(2f, strength, vibrato);
+                utilityP2.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionUtility2 = false;
                 GameManager.singleton.sc2.isUtilityUsable2 = false;
                 yield return new WaitForSeconds(2f);
@@ -199,8 +214,13 @@ public class AbilityUtility2 : MonoBehaviour {
             else if (utilityP2.hit.transform.gameObject.GetComponent<PositionDealer>())
             {
                 DamageDealerP1();
+                if (OnAbility != null)
+                {
+                    OnAbility();
+                }
                 SoundManager.PlaySound(SoundManager.Sound.ghiaccio);
-                dealerP1.transform.DOShakePosition(2f, strength, vibrato);
+                //dealerP1.transform.DOShakePosition(2f, strength, vibrato);
+                utilityP2.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionUtility2 = false;
                 GameManager.singleton.sc2.isUtilityUsable2 = false;
                 yield return new WaitForSeconds(2f);

@@ -4,8 +4,8 @@ using UnityEngine;
 using GridSystem;
 using DG.Tweening;
 
-public class AbilityTank2 : MonoBehaviour {
-
+public class AbilityTank2 : AbilityBase
+{
     public LifeManager lm;
     public TurnManager turn;
     public int att = 3;
@@ -161,10 +161,15 @@ public class AbilityTank2 : MonoBehaviour {
             if (tankP2.hit.transform.gameObject.GetComponent<PositionTester>())
             {
                 DamageTankP1();
+                if (OnAbility != null)
+                {
+                    OnAbility();
+                }
                 SoundManager.PlaySound(SoundManager.Sound.tankAbility);
                 tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
                 tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
-                tankP1.transform.DOShakePosition(2f, strength, vibrato);
+                //tankP1.transform.DOShakePosition(2f, strength, vibrato);
+                tankP2.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionTank2 = false;
                 GameManager.singleton.sc2.isTankUsable2 = false;
                 yield return new WaitForSeconds(2f);
@@ -174,10 +179,15 @@ public class AbilityTank2 : MonoBehaviour {
             else if (tankP2.hit.transform.gameObject.GetComponent<PositionHealer>())
             {
                 DamageHealerP1();
+                if (OnAbility != null)
+                {
+                    OnAbility();
+                }
                 SoundManager.PlaySound(SoundManager.Sound.tankAbility);
                 tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
                 tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
-                healerP1.transform.DOShakePosition(2f, strength, vibrato);
+                //healerP1.transform.DOShakePosition(2f, strength, vibrato);
+                tankP2.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionTank2 = false;
                 GameManager.singleton.sc2.isTankUsable2 = false;
                 yield return new WaitForSeconds(2f);
@@ -187,10 +197,15 @@ public class AbilityTank2 : MonoBehaviour {
             else if (tankP2.hit.transform.gameObject.GetComponent<PositionUtility>())
             {
                 DamageUtilityP1();
+                if (OnAbility != null)
+                {
+                    OnAbility();
+                }
                 SoundManager.PlaySound(SoundManager.Sound.tankAbility);
                 tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
                 tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
-                utilityP1.transform.DOShakePosition(2f, strength, vibrato);
+                //utilityP1.transform.DOShakePosition(2f, strength, vibrato);
+                tankP2.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionTank2 = false;
                 GameManager.singleton.sc2.isTankUsable2 = false;
                 yield return new WaitForSeconds(2f);
@@ -200,10 +215,15 @@ public class AbilityTank2 : MonoBehaviour {
             else if (tankP2.hit.transform.gameObject.GetComponent<PositionDealer>())
             {
                 DamageDealerP1();
+                if (OnAbility != null)
+                {
+                    OnAbility();
+                }
                 SoundManager.PlaySound(SoundManager.Sound.tankAbility);
                 tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
                 tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
-                dealerP1.transform.DOShakePosition(2f, strength, vibrato);
+                //dealerP1.transform.DOShakePosition(2f, strength, vibrato);
+                tankP2.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionTank2 = false;
                 GameManager.singleton.sc2.isTankUsable2 = false;
                 yield return new WaitForSeconds(2f);

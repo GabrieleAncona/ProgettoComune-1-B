@@ -40,25 +40,29 @@ public class FireCross : MonoBehaviour {
                 {
                     Destroy(gameObject);
                     other.GetComponent<PositionTester2>().GetDamage(Damage);
-                    tankP2.transform.DOShakePosition(2f, strength, vibrato);
+                    //tankP2.transform.DOShakePosition(2f, strength, vibrato);
+                    tankP2.hit.transform.GetComponent<Player>().HitAnim();
                 }
                 else if (other.gameObject.GetComponent<PositionHealer2>())
                 {
                     Destroy(gameObject);
                     other.GetComponent<PositionHealer2>().GetDamage(Damage);
-                    healerP2.transform.DOShakePosition(2f, strength, vibrato);
+                    //healerP2.transform.DOShakePosition(2f, strength, vibrato);
+                    healerP2.hit.transform.GetComponent<Player>().HitAnim();
                 }
                 else if (other.gameObject.GetComponent<PositionUtility2>())
                 {
                     Destroy(gameObject);
                     other.GetComponent<PositionUtility2>().GetDamage(Damage);
-                    utilityP2.transform.DOShakePosition(2f, strength, vibrato);
+                    //utilityP2.transform.DOShakePosition(2f, strength, vibrato);
+                    utilityP2.hit.transform.GetComponent<Player>().HitAnim();
                 }
                 else if (other.gameObject.GetComponent<PositionDealer2>())
                 {
                     Destroy(gameObject);
                     other.GetComponent<PositionDealer2>().GetDamage(Damage);
-                    dealerP2.transform.DOShakePosition(2f, strength, vibrato);
+                    //dealerP2.transform.DOShakePosition(2f, strength, vibrato);
+                    dealerP2.hit.transform.GetComponent<Player>().HitAnim();
                 }
     
                 break;
@@ -68,25 +72,29 @@ public class FireCross : MonoBehaviour {
                 {
                     Destroy(gameObject);
                     other.GetComponent<PositionTester>().GetDamage(Damage);
-                    tankP1.transform.DOShakePosition(2f, strength, vibrato);
+                    //tankP1.transform.DOShakePosition(2f, strength, vibrato);
+                    tankP1.hit.transform.GetComponent<Player>().HitAnim();
                 }
                 else if (other.gameObject.GetComponent<PositionHealer>())
                 {
                     Destroy(gameObject);
                     other.GetComponent<PositionHealer>().GetDamage(Damage);
-                    healerP1.transform.DOShakePosition(2f, strength, vibrato);
+                    //healerP1.transform.DOShakePosition(2f, strength, vibrato);
+                    healerP1.hit.transform.GetComponent<Player>().HitAnim();
                 }
                 else if (other.gameObject.GetComponent<PositionUtility>())
                 {
                     Destroy(gameObject);
                     other.GetComponent<PositionUtility>().GetDamage(Damage);
-                    utilityP1.transform.DOShakePosition(2f, strength, vibrato);
+                    //utilityP1.transform.DOShakePosition(2f, strength, vibrato);
+                    utilityP1.hit.transform.GetComponent<Player>().HitAnim();
                 }
                 else if (other.gameObject.GetComponent<PositionDealer>())
                 {
                     Destroy(gameObject);
                     other.GetComponent<PositionDealer>().GetDamage(Damage);
-                    dealerP1.transform.DOShakePosition(2f, strength, vibrato);
+                    //dealerP1.transform.DOShakePosition(2f, strength, vibrato);
+                    dealerP1.hit.transform.GetComponent<Player>().HitAnim();
                 }
 
                 break;

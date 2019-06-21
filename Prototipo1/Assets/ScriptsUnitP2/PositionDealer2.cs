@@ -4,7 +4,8 @@ using UnityEngine;
 using GridSystem;
 using DG.Tweening;
 
-public class PositionDealer2 : MonoBehaviour {
+public class PositionDealer2 : MovementBase
+{
     public int x, y;
     public BaseGrid grid;
     public TurnManager turn;
@@ -29,6 +30,8 @@ public class PositionDealer2 : MonoBehaviour {
     public bool isStun;
     public int contProv;
     public bool isDead;
+
+    public HudUnitController HUC;
 
     // Use this for initialization
     void Start()
@@ -73,6 +76,10 @@ public class PositionDealer2 : MonoBehaviour {
             transform.DOLocalRotate(new Vector3(0, -90, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x--, y);
             transform.DOMoveX(x, duration).SetAutoKill(false);
+            if (OnMovement != null)
+            {
+                OnMovement();
+            }
             turn.ContRound += 1;
             maxRangeHzDealerPlayer2 = x;
             contMp--;
@@ -94,6 +101,10 @@ public class PositionDealer2 : MonoBehaviour {
             transform.DOLocalRotate(new Vector3(0, 90, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x++, y);
             transform.DOMoveX(x, duration).SetAutoKill(false);
+            if (OnMovement != null)
+            {
+                OnMovement();
+            }
             turn.ContRound += 1;
             maxRangeHzDealerPlayer2 = x;
             contMp--;
@@ -114,7 +125,11 @@ public class PositionDealer2 : MonoBehaviour {
         {
             transform.DOLocalRotate(new Vector3(0, 180, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x, y--);
-            transform.DOMoveZ(y, duration).SetAutoKill(false); ;
+            transform.DOMoveZ(y, duration).SetAutoKill(false);
+            if (OnMovement != null)
+            {
+                OnMovement();
+            }
             turn.ContRound += 1;
             maxRangeVtDealerPlayer2 = y;
             contMp--;
@@ -136,6 +151,10 @@ public class PositionDealer2 : MonoBehaviour {
             transform.DOLocalRotate(new Vector3(0, 0, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x, y++);
             transform.DOMoveZ(y, duration).SetAutoKill(false);
+            if (OnMovement != null)
+            {
+                OnMovement();
+            }
             turn.ContRound += 1;
             maxRangeVtDealerPlayer2 = y;
             contMp--;
@@ -252,8 +271,12 @@ public class PositionDealer2 : MonoBehaviour {
 
             gameObject.SetActive(false);
             isDead = true;
+            if (OnDeath != null)
+            {
+                OnDeath();
+            }
             SoundManager.PlaySound(SoundManager.Sound.maleDie);
-
+            HUC.Cross.enabled = true;
         }
 
     }

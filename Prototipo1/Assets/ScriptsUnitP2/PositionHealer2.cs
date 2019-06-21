@@ -5,7 +5,7 @@ using GridSystem;
 using DG.Tweening;
 
 //healere giocatore 2
-public class PositionHealer2 : MonoBehaviour
+public class PositionHealer2 : MovementBase
 {
     public float duration = 0.5f;
     public int x, y;
@@ -30,6 +30,8 @@ public class PositionHealer2 : MonoBehaviour
     public bool myTurn;
     public bool isStun;
     public bool isDead;
+
+    public HudUnitController HUC;
 
     public void Start()
     {
@@ -63,6 +65,10 @@ public class PositionHealer2 : MonoBehaviour
             transform.DOLocalRotate(new Vector3(0, -90, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x--, y);
             transform.DOMoveX(x, duration).SetAutoKill(false);
+            if (OnMovement != null)
+            {
+                OnMovement();
+            }
             turn.ContRound += 1;
             maxRangeHzHealerPlayer2 = x;
             contMp--;
@@ -85,6 +91,10 @@ public class PositionHealer2 : MonoBehaviour
             transform.DOLocalRotate(new Vector3 (0, 90, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x++, y);
             transform.DOMoveX(x, duration).SetAutoKill(false);
+            if (OnMovement != null)
+            {
+                OnMovement();
+            }
             turn.ContRound += 1;
             maxRangeHzHealerPlayer2 = x;
             contMp--;
@@ -107,6 +117,10 @@ public class PositionHealer2 : MonoBehaviour
             transform.DOLocalRotate(new Vector3(0, 180, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x, y--);
             transform.DOMoveZ(y, duration).SetAutoKill(false);
+            if (OnMovement != null)
+            {
+                OnMovement();
+            }
             turn.ContRound += 1;
             maxRangeVtHealerPlayer2 = y;
             contMp--;
@@ -129,6 +143,10 @@ public class PositionHealer2 : MonoBehaviour
             transform.DOLocalRotate(new Vector3(0, 0, 0), 0.2f);
             transform.position = grid.GetWorldPosition(x, y++);
             transform.DOMoveZ(y, duration).SetAutoKill(false);
+            if (OnMovement != null)
+            {
+                OnMovement();
+            }
             turn.ContRound += 1;
             maxRangeVtHealerPlayer2 = y;
             contMp--;
@@ -263,7 +281,11 @@ public class PositionHealer2 : MonoBehaviour
 
             gameObject.SetActive(false);
             isDead = true;
-
+            if (OnDeath != null)
+            {
+                OnDeath();
+            }
+            HUC.Cross.enabled = true;
         }
 
     }
