@@ -190,9 +190,9 @@ public class ButtonNavigation : MonoBehaviour
             back.sprite = BackSprite[2];
 			//slide
 
-			RectTransform moved = movement.GetComponent<RectTransform>();
+			/*RectTransform moved = movement.GetComponent<RectTransform>();
 			RectTransform dest = slidetransform[0].GetComponent<RectTransform>();
-			moved.DOMove(dest.anchoredPosition, 0.9f);
+			moved.DOMove(dest.anchoredPosition, 0.9f);*/
 		}
 
         if (index == 1)
@@ -204,7 +204,7 @@ public class ButtonNavigation : MonoBehaviour
             ability.sprite = AbilitySprite[2];
             back.sprite = BackSprite[2];
 			//slide
-			transform.DOMove(slidetransform[1].transform.position, 0.9f);
+			//transform.DOMove(slidetransform[1].transform.position, 0.9f);
 		}
 
         if (index == 2)
@@ -216,7 +216,7 @@ public class ButtonNavigation : MonoBehaviour
             attack.sprite = AttackSprite[2];
             back.sprite = BackSprite[2];
 			//slide
-			transform.DOMove(slidetransform[2].transform.position, 0.9f);
+			//transform.DOMove(slidetransform[2].transform.position, 0.9f);
 		}
 
         if (index == 3)

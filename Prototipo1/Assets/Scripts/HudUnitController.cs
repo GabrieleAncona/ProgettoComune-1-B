@@ -14,8 +14,6 @@ public class HudUnitController : MonoBehaviour
     public Slider LifeSlider;
     public List<Image> Gleam = new List<Image>();
     public Image AbilityOff;
-    public Image Poison;
-    public Image Freeze;
     public Image Cross;
 
 

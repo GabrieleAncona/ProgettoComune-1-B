@@ -36,6 +36,7 @@ public class AbilityUtility2 : AbilityBase
     public int CounterTurnA;
     public bool isCharging;
     public GameObject gameObjectVfx;
+    public HudUnitsManager HUM;
 
     // Use this for initialization
     void Start()
@@ -178,6 +179,7 @@ public class AbilityUtility2 : AbilityBase
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 Counter = 0;
+                HUM.Freeze[0].enabled = true;
             }
             else if (utilityP2.hit.transform.gameObject.GetComponent<PositionHealer>())
             {
@@ -194,6 +196,7 @@ public class AbilityUtility2 : AbilityBase
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 Counter = 0;
+                HUM.Freeze[1].enabled = true;
             }
             else if (utilityP2.hit.transform.gameObject.GetComponent<PositionUtility>())
             {
@@ -210,6 +213,7 @@ public class AbilityUtility2 : AbilityBase
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 Counter = 0;
+                HUM.Freeze[2].enabled = true;
             }
             else if (utilityP2.hit.transform.gameObject.GetComponent<PositionDealer>())
             {
@@ -226,11 +230,9 @@ public class AbilityUtility2 : AbilityBase
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 Counter = 0;
+                HUM.Freeze[3].enabled = true;
             }
-
         }
-
-        
     }
 
         //disattivo prewiew attacco/abilità quando finisco turno
@@ -302,9 +304,13 @@ public class AbilityUtility2 : AbilityBase
             else if (counterStun >= 1 && turn.isTurn == false)
             {
             tankP1.isStun = false;
+            HUM.Freeze[0].enabled = false;
             healerP1.isStun = false;
+            HUM.Freeze[1].enabled = false;
             utilityP1.isStun = false;
+            HUM.Freeze[2].enabled = false;
             dealerP1.isStun = false;
+            HUM.Freeze[3].enabled = false;
             counterStun = 0;
             Destroy(gameObjectVfx);
         }

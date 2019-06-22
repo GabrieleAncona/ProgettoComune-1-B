@@ -26,21 +26,43 @@ public class MovementState : StateBehaviourBase
 
     public override void OnUpdate()
     {
-        ButtonNavigation buttonNavigation = FindObjectOfType<ButtonNavigation>();
-        buttonNavigation.index = 0;
-        buttonNavigation.SwitchSprite();
-        buttonNavigation.text[3].SetActive(false);
-        buttonNavigation.text[2].SetActive(false);
-        buttonNavigation.text[1].SetActive(false);
-        buttonNavigation.text[0].SetActive(true);
+        if (GameManager.singleton.acm.menuActionPlayer1.activeSelf == true)
+        {
+            ButtonNavigation buttonNavigation = FindObjectOfType<ButtonNavigation>();
+            buttonNavigation.index = 0;
+            buttonNavigation.SwitchSprite();
+            buttonNavigation.text[3].SetActive(false);
+            buttonNavigation.text[2].SetActive(false);
+            buttonNavigation.text[1].SetActive(false);
+            buttonNavigation.text[0].SetActive(true); 
+        }
+        if (GameManager.singleton.acm.menuActionPlayer2.activeSelf == true)
+        {
+            ButtonNavigation buttonNavigation = FindObjectOfType<ButtonNavigation>();
+            buttonNavigation.index = 0;
+            buttonNavigation.SwitchSprite();
+            buttonNavigation.text[3].SetActive(false);
+            buttonNavigation.text[2].SetActive(false);
+            buttonNavigation.text[1].SetActive(false);
+            buttonNavigation.text[0].SetActive(true); 
+        }
     }
 
     public override void OnExit()
     {
-        GameManager.singleton.acm.isMovement = false;
-        ButtonNavigation buttonNavigation = FindObjectOfType<ButtonNavigation>();
-        buttonNavigation.index = 0;
-        buttonNavigation.ChangeImageButton();
+        if (GameManager.singleton.acm.menuActionPlayer1.activeSelf == true)
+        {
+            GameManager.singleton.acm.isMovement = false;
+            ButtonNavigation buttonNavigation = FindObjectOfType<ButtonNavigation>();
+            buttonNavigation.index = 0;
+            buttonNavigation.ChangeImageButton(); 
+        }
+        if (GameManager.singleton.acm.menuActionPlayer2.activeSelf == true)
+        {
+            GameManager.singleton.acm.isMovement = false;
+            ButtonNavigation buttonNavigation = FindObjectOfType<ButtonNavigation>();
+            buttonNavigation.index = 0;
+            buttonNavigation.ChangeImageButton(); 
+        }
     }
-
 }

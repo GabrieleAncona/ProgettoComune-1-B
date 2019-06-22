@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEditor;
+using UnityEngine.UI;
 
 public class HudUnitsManager : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class HudUnitsManager : MonoBehaviour
     public int CanvasID;
     public List<HudUnitController> SingleHudUnit = new List<HudUnitController>();
     public List<Transform> HudUnitPosition = new List<Transform>();
+
+    public List<Image> Poison = new List<Image>();
+    public List<Image> Freeze = new List<Image>();
 
     public bool OnMove
     {

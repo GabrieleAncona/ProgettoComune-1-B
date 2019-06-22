@@ -43,6 +43,7 @@ public class AttackBaseHealer : AttackBase
     public UnitsData units;
     public float speedBullet = 500f;
     public GameObject gameObjectDot;
+    public HudUnitsManager HUM;
 
     // Use this for initialization
     void Start()
@@ -167,6 +168,7 @@ public class AttackBaseHealer : AttackBase
                 yield return new WaitForSeconds(0.5f);
                 Destroy(gameObjectHit);
                 yield return new WaitForSeconds(2f);
+                HUM.Poison[0].enabled = true;
 
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
@@ -191,6 +193,7 @@ public class AttackBaseHealer : AttackBase
                 yield return new WaitForSeconds(0.5f);
                 Destroy(gameObjectHit);
                 yield return new WaitForSeconds(2f);
+                HUM.Poison[1].enabled = true;
 
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
@@ -215,6 +218,7 @@ public class AttackBaseHealer : AttackBase
                 yield return new WaitForSeconds(0.5f);
                 Destroy(gameObjectHit);
                 yield return new WaitForSeconds(2f);
+                HUM.Poison[2].enabled = true;
 
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
@@ -239,6 +243,7 @@ public class AttackBaseHealer : AttackBase
                 yield return new WaitForSeconds(0.5f);
                 Destroy(gameObjectHit);
                 yield return new WaitForSeconds(2f);
+                HUM.Poison[3].enabled = true;
 
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
@@ -296,6 +301,7 @@ public class AttackBaseHealer : AttackBase
             lm.lifeTankPlayer2 = lifeHitTankP2;
             contTurn = 0;
             isHitTank = false;
+            HUM.Poison[0].enabled = false;
         }
 
         if (turn.isTurn == true && contTurn == 1 && isHitHealer == true)
@@ -305,6 +311,7 @@ public class AttackBaseHealer : AttackBase
             lm.lifeHealerPlayer2 = lifeHitHealerP2;
             contTurn = 0;
             isHitHealer = false;
+            HUM.Poison[1].enabled = false;
         }
         if (turn.isTurn == true && contTurn == 1 && isHitUtility == true)
         {
@@ -313,6 +320,7 @@ public class AttackBaseHealer : AttackBase
             lm.lifeUtilityPlayer2 = lifeHitUtilityP2;
             contTurn = 0;
             isHitUtility = false;
+            HUM.Poison[2].enabled = false;
         }
 
         if (turn.isTurn == true && contTurn == 1 && isHitDealer == true)
@@ -322,6 +330,7 @@ public class AttackBaseHealer : AttackBase
             lm.lifeDealerPlayer2 = lifeHitDealerP2;
             contTurn = 0;
             isHitDealer = false;
+            HUM.Poison[3].enabled = false;
         }
 
     }
