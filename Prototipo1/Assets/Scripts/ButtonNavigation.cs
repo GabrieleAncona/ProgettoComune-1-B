@@ -188,11 +188,13 @@ public class ButtonNavigation : MonoBehaviour
             attack.sprite = AttackSprite[2];
             ability.sprite = AbilitySprite[2];
             back.sprite = BackSprite[2];
-			//slide
-
-			/*RectTransform moved = movement.GetComponent<RectTransform>();
+			//slide movment
+			RectTransform moved = movement.GetComponent<RectTransform>();
 			RectTransform dest = slidetransform[0].GetComponent<RectTransform>();
-			moved.DOMove(dest.anchoredPosition, 0.9f);*/
+            Vector2 destination2D = new Vector2(moved.anchoredPosition.x, dest.anchoredPosition.y);
+            moved.DOLocalMoveY(10, 0.4f).OnComplete(() => {
+                Debug.Log("Movimento " + destination2D);
+            });
 		}
 
         if (index == 1)
@@ -203,9 +205,14 @@ public class ButtonNavigation : MonoBehaviour
             movement.sprite = MovementSprite[2];
             ability.sprite = AbilitySprite[2];
             back.sprite = BackSprite[2];
-			//slide
-			//transform.DOMove(slidetransform[1].transform.position, 0.9f);
-		}
+            //slide
+            RectTransform moved = attack.GetComponent<RectTransform>();
+            RectTransform dest = slidetransform[1].GetComponent<RectTransform>();
+            Vector2 destination2D = new Vector2(moved.anchoredPosition.x, dest.anchoredPosition.y);
+            moved.DOLocalMoveY(10, 0.4f).OnComplete(() => {
+                Debug.Log("Movimento " + destination2D);
+            });
+        }
 
         if (index == 2)
         {
@@ -215,9 +222,11 @@ public class ButtonNavigation : MonoBehaviour
             movement.sprite = MovementSprite[2];
             attack.sprite = AttackSprite[2];
             back.sprite = BackSprite[2];
-			//slide
-			//transform.DOMove(slidetransform[2].transform.position, 0.9f);
-		}
+            //slide 
+            /*RectTransform moved = movement.GetComponent<RectTransform>();
+            RectTransform dest = slidetransform[2].GetComponent<RectTransform>();
+            moved.DOMove(dest.anchoredPosition, 0.4f);*/
+        }
 
         if (index == 3)
         {
