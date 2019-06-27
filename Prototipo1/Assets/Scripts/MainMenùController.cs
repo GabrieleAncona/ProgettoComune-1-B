@@ -8,12 +8,42 @@ public class MainMenùController : MonoBehaviour {
     ///public GameObject pause;
    /// public GameObject help;
     public bool menuIsActive;
+    public KeyCode pauseButton;
+    public KeyCode helpButton;
+    public GameObject panelPause;
+    public GameObject panelGeneralTutorial;
+    public GameObject panelTutorialButtons;
+    public GameObject panelTutorialStat;
+    public GameObject panelTutorialUnits;
+    public bool isActiveTutorial;
+    public bool isActivePause;
+
+
+    private void Awake()
+    {
+        //panelGeneralTutorial.SetActive(true);
+    }
 
     public void Start()
     {
         SetupMainMenu();
+       // panelGeneralTutorial.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(pauseButton) && isActivePause == false)
+        {
+            MenuPause();
+            isActivePause = true;
+        }
+
+        if (Input.GetKeyDown(helpButton) && isActiveTutorial == false)
+        {
+            Help();
+            isActiveTutorial = true;
+        }
+    }
 
     public void SetupMainMenu()
     {
@@ -48,8 +78,8 @@ public class MainMenùController : MonoBehaviour {
     public void Restart() 
     {
 
-        SceneManager.LoadScene("BLOCKOUT");
-
+        SceneManager.LoadScene("Si-Ling");
+        GameManager.singleton.stateMachine.SMController.SetTrigger("GoToMainMenu");
     }
 
     public void MainMenu()
@@ -58,19 +88,20 @@ public class MainMenùController : MonoBehaviour {
         menù.SetActive(false);
     }
 
-    public void MenùPause()
+    public void MenuPause()
     {
-        ///pause.SetActive(true);
+        GameManager.singleton.stateMachine.SMController.SetTrigger("GoToOption");
     }
 
     public void ResumePause()
     {
-        ///pause.SetActive(false);
+       panelPause.SetActive(false);
+       GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
     }
 
     public void Help()
     {
-       ///help.SetActive(true);
+        GameManager.singleton.stateMachine.SMController.SetTrigger("GoToTutorial");
     }
    
     public void HelpExit()

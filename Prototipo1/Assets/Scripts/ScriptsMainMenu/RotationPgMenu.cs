@@ -12,8 +12,8 @@ public class RotationPgMenu : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        indexNumber = 0;
-        transform.SetSiblingIndex(indexNumber);
+        ///indexNumber = 0;
+        ///transform.SetSiblingIndex(indexNumber);
 	}
 	
 	// Update is called once per frame

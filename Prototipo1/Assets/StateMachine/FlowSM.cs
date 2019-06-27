@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 /// <summary>
 /// State machine del Flow.
-/// Decide quando cambiare gli stati.
 /// </summary>
 public class FlowSM : MonoBehaviour
 {
@@ -49,17 +48,13 @@ public class FlowSM : MonoBehaviour
         {
 
             SetupDone = false,
-
             currentPlayer = GameManager.singleton._player,
-
+           
         };
 
         foreach (StateBehaviourBase state in SMController.GetBehaviours<StateBehaviourBase>())
         {
-
             state.Setup(context);
-///            Debug.Log(context.currentPlayer.IdPlayer);
-
         }
 
     }

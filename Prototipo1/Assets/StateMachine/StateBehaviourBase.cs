@@ -9,7 +9,7 @@ public class StateBehaviourBase : StateMachineBehaviour
     {
         public bool SetupDone;
         public Player currentPlayer;
-
+        
     }
 
     protected Context ctx;
