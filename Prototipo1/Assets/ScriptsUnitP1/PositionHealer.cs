@@ -328,6 +328,7 @@ public class PositionHealer : MovementBase
                 OnDeath();
             }
             HUC.Cross.enabled = true;
+            SoundManager.PlaySound(SoundManager.Sound.healerDie);
         }
 
     }
