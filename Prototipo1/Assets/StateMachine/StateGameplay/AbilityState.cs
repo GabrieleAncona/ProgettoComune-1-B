@@ -30,15 +30,26 @@ public class AbilityState : StateBehaviourBase
 
     public override void OnExit()
     {
-        GameManager.singleton.acm.isAbilityTank = false;
-        GameManager.singleton.acm.isAbilityTank2 = false;
-        GameManager.singleton.acm.isAbilityHealer = false;
-        GameManager.singleton.acm.isAbilityHealer2 = false;
-        GameManager.singleton.acm.isAbilityUtility = false;
-        GameManager.singleton.acm.isAbilityUtility2 = false;
-        GameManager.singleton.acm.isAbilityDealer = false;
-        GameManager.singleton.acm.isAbilityDealer2 = false;
-        
-    }
+        if (GameManager.singleton.acm.menuActionPlayer1.activeSelf == true)
+        {
+            GameManager.singleton.acm.isAbilityTank = false;
+            GameManager.singleton.acm.isAbilityHealer = false;
+            GameManager.singleton.acm.isAbilityUtility = false;
+            GameManager.singleton.acm.isAbilityDealer = false;
+            ButtonNavigation buttonNavigation = FindObjectOfType<ButtonNavigation>();
+            buttonNavigation.index = 2;
+            buttonNavigation.ChangeImageButton();
+        }
 
+        if (GameManager.singleton.acm.menuActionPlayer2.activeSelf == true)
+        {
+            GameManager.singleton.acm.isAbilityTank2 = false;
+            GameManager.singleton.acm.isAbilityHealer2 = false;
+            GameManager.singleton.acm.isAbilityUtility2 = false;
+            GameManager.singleton.acm.isAbilityDealer2 = false;
+            ButtonNavigation buttonNavigation = FindObjectOfType<ButtonNavigation>();
+            buttonNavigation.index = 2;
+            buttonNavigation.ChangeImageButton();
+        }
+    }
 }

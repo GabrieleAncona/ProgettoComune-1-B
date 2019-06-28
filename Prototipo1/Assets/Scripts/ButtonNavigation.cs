@@ -22,6 +22,9 @@ public class ButtonNavigation : MonoBehaviour
     public Image back;
 	public List<Transform> slidetransform = new List<Transform>();
 	public List<Transform> slidebacktransform = new List<Transform>();
+    public bool activemov;
+    public bool activeatk;
+    public bool activeab;
 
 
 	// Use this for initialization
@@ -182,50 +185,56 @@ public class ButtonNavigation : MonoBehaviour
     {
         if (index == 0)
         {
-            ///attivo movimento
+            ///attivo movement
             AMC.Movement();
             ///disattivo tutti gli altri 
             attack.sprite = AttackSprite[2];
             ability.sprite = AbilitySprite[2];
             back.sprite = BackSprite[2];
-			//slide movment
+			//slide movement
 			RectTransform moved = movement.GetComponent<RectTransform>();
 			RectTransform dest = slidetransform[0].GetComponent<RectTransform>();
             Vector2 destination2D = new Vector2(moved.anchoredPosition.x, dest.anchoredPosition.y);
-            moved.DOLocalMoveY(10, 0.4f).OnComplete(() => {
+            moved.DOLocalMoveY(destination2D.y, 0.4f).OnComplete(() => {
                 Debug.Log("Movimento " + destination2D);
+                activemov = true;
             });
 		}
 
         if (index == 1)
         {
-            ///attivo attaco
+            ///attivo attack
             AMC.Attack();
             ///disattivo tutti gli altri 
             movement.sprite = MovementSprite[2];
             ability.sprite = AbilitySprite[2];
             back.sprite = BackSprite[2];
-            //slide
+            //slide attack
             RectTransform moved = attack.GetComponent<RectTransform>();
             RectTransform dest = slidetransform[1].GetComponent<RectTransform>();
             Vector2 destination2D = new Vector2(moved.anchoredPosition.x, dest.anchoredPosition.y);
-            moved.DOLocalMoveY(10, 0.4f).OnComplete(() => {
-                Debug.Log("Movimento " + destination2D);
+            moved.DOLocalMoveY(destination2D.y, 0.4f).OnComplete(() => {
+                Debug.Log("attack" + destination2D);
+                activeatk = true;
             });
         }
 
         if (index == 2)
         {
-            ///attivo abilita
+            ///attivo ability
             AMC.Ability();
             ///disattivo tutti gli altri 
             movement.sprite = MovementSprite[2];
             attack.sprite = AttackSprite[2];
             back.sprite = BackSprite[2];
-            //slide 
-            /*RectTransform moved = movement.GetComponent<RectTransform>();
-            RectTransform dest = slidetransform[2].GetComponent<RectTransform>();
-            moved.DOMove(dest.anchoredPosition, 0.4f);*/
+            //slide ability
+            RectTransform moved = ability.GetComponent<RectTransform>();
+            RectTransform dest = slidetransform[0].GetComponent<RectTransform>();
+            Vector2 destination2D = new Vector2(moved.anchoredPosition.x, dest.anchoredPosition.y);
+            moved.DOLocalMoveY(destination2D.y, 0.4f).OnComplete(() => {
+                Debug.Log("ability" + destination2D);
+                activeab = true;
+            });
         }
 
         if (index == 3)

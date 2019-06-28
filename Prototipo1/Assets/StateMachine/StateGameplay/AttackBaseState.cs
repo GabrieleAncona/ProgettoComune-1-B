@@ -29,15 +29,27 @@ public class AttackBaseState : StateBehaviourBase
 
     public override void OnExit()
     {
-        GameManager.singleton.acm.isAttackTank = false;
-        GameManager.singleton.acm.isAttackTank2 = false;
-        GameManager.singleton.acm.isAttackHealer = false;
-        GameManager.singleton.acm.isAttackHealer2 = false;
-        GameManager.singleton.acm.isAttackUtility = false;
-        GameManager.singleton.acm.isAttackUtility2 = false;
-        GameManager.singleton.acm.isAttackDealer = false;
-        GameManager.singleton.acm.isAttackDealer2 = false;
-        
+        if (GameManager.singleton.acm.menuActionPlayer1.activeSelf == true)
+        {
+            GameManager.singleton.acm.isAttackTank = false;
+            GameManager.singleton.acm.isAttackHealer = false;
+            GameManager.singleton.acm.isAttackUtility = false;
+            GameManager.singleton.acm.isAttackDealer = false;
+            ButtonNavigation buttonNavigation = FindObjectOfType<ButtonNavigation>();
+            buttonNavigation.index = 1;
+            buttonNavigation.ChangeImageButton();
+        }
+
+        if (GameManager.singleton.acm.menuActionPlayer2.activeSelf == true)
+        {
+            GameManager.singleton.acm.isAttackTank2 = false;
+            GameManager.singleton.acm.isAttackHealer2 = false;
+            GameManager.singleton.acm.isAttackUtility2 = false;
+            GameManager.singleton.acm.isAttackDealer2 = false;
+            ButtonNavigation buttonNavigation = FindObjectOfType<ButtonNavigation>();
+            buttonNavigation.index = 1;
+            buttonNavigation.ChangeImageButton();
+        }
     }
 
 }
