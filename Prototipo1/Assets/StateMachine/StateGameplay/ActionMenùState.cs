@@ -59,6 +59,44 @@ public class ActionMenùState : StateBehaviourBase
         if (ctx.currentPlayer.IdPlayer == 2)
         {
             GameManager.singleton.acm.menuActionPlayer2.SetActive(true);
+
+            ButtonNavigation buttonNavigation = FindObjectOfType<ButtonNavigation>();
+            if (buttonNavigation.activemov == true)
+            {
+                //slide back movement button
+                RectTransform movedback = buttonNavigation.movement.GetComponent<RectTransform>();
+                RectTransform destback = buttonNavigation.slidebacktransform[0].GetComponent<RectTransform>();
+                Vector2 destination2Dback = new Vector2(movedback.anchoredPosition.x, destback.anchoredPosition.y);
+                movedback.DOLocalMoveY(destination2Dback.y, 0.4f).OnComplete(() =>
+                {
+                    Debug.Log("Movimento " + destination2Dback);
+                    buttonNavigation.activemov = false;
+                });
+            }
+            if (buttonNavigation.activeatk == true)
+            {
+                //slide back attack button
+                RectTransform movedback = buttonNavigation.attack.GetComponent<RectTransform>();
+                RectTransform destback = buttonNavigation.slidebacktransform[1].GetComponent<RectTransform>();
+                Vector2 destination2Dback = new Vector2(movedback.anchoredPosition.x, destback.anchoredPosition.y);
+                movedback.DOLocalMoveY(destination2Dback.y, 0.4f).OnComplete(() =>
+                {
+                    Debug.Log("attack" + destination2Dback);
+                    buttonNavigation.activeatk = false;
+                });
+            }
+            if (buttonNavigation.activeab == true)
+            {
+                // slide back ability button
+                RectTransform movedback = buttonNavigation.ability.GetComponent<RectTransform>();
+                RectTransform destback = buttonNavigation.slidebacktransform[2].GetComponent<RectTransform>();
+                Vector2 destination2Dback = new Vector2(movedback.anchoredPosition.x, destback.anchoredPosition.y);
+                movedback.DOLocalMoveY(destination2Dback.y, 0.4f).OnComplete(() =>
+                {
+                    Debug.Log("ability" + destination2Dback);
+                    buttonNavigation.activeab = false;
+                });
+            }
         }
     }
 
