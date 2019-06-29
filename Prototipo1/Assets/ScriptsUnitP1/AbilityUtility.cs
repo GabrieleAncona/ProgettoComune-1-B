@@ -302,23 +302,9 @@ public class AbilityUtility : AbilityBase
         HUC.AbilityOff.enabled = true;
     }
 
-    public void DamageDealerP2()
-    {
-        gameObjectVfx = Instantiate(GameManager.singleton.vfx.vfxUtilityAb, new Vector3(utilityP2.x, 1, utilityP2.y), Quaternion.identity);
-        lm.lifeDealerPlayer2 -= att;
-        //turn.isTurn = false;
-        isAbility = false;
-        selection.isActiveUtility = false;
-        //riabilito input controller per i movimenti(wasd)
-        gameObject.GetComponent<InputController>().enabled = true;
-        dealerP2.isStun = true;
-        HUC.AbilityOff.enabled = true;
-        selection.contSelectionP1 = 3;
-    }
-
     public void DamageUtilityP2()
     {
-        gameObjectVfx = Instantiate(GameManager.singleton.vfx.vfxUtilityAb, new Vector3(dealerP2.x, 1, dealerP2.y), Quaternion.identity);
+        gameObjectVfx = Instantiate(GameManager.singleton.vfx.vfxUtilityAb, new Vector3(utilityP2.x, 1, utilityP2.y), Quaternion.identity);
         lm.lifeUtilityPlayer2 -= att;
        // turn.isTurn = false;
         isAbility = false;
@@ -326,6 +312,20 @@ public class AbilityUtility : AbilityBase
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
         utilityP2.isStun = true;
+        HUC.AbilityOff.enabled = true;
+        selection.contSelectionP1 = 3;
+    }
+
+    public void DamageDealerP2()
+    {
+        gameObjectVfx = Instantiate(GameManager.singleton.vfx.vfxUtilityAb, new Vector3(dealerP2.x, 1, dealerP2.y), Quaternion.identity);
+        lm.lifeDealerPlayer2 -= att;
+        //turn.isTurn = false;
+        isAbility = false;
+        selection.isActiveUtility = false;
+        //riabilito input controller per i movimenti(wasd)
+        gameObject.GetComponent<InputController>().enabled = true;
+        dealerP2.isStun = true;
         HUC.AbilityOff.enabled = true;
         selection.contSelectionP1 = 3;
     }

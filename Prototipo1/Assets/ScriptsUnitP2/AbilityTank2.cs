@@ -34,6 +34,7 @@ public class AbilityTank2 : AbilityBase
     public int Counter;
     public int CounterTurnA;
     public bool isCharging;
+    public HudUnitController HUC;
 
     // Use this for initialization
     void Start()
@@ -79,6 +80,7 @@ public class AbilityTank2 : AbilityBase
         {
             Counter = 2;
             CounterTurnA = 0;
+            HUC.AbilityOff.enabled = false;
         }
     }
 
@@ -388,13 +390,13 @@ public class AbilityTank2 : AbilityBase
 
     public void DamageTankP1()
     {
-                lm.lifeTank -= att;
-                //turn.isTurn = true;
-                isAbility = false;
+        lm.lifeTank -= att;
+        isAbility = false;
+        HUC.AbilityOff.enabled = true;
         selectionP2.isActiveTankP2 = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
-               selectionP2.contSelectionP2 = 1;
+        selectionP2.contSelectionP2 = 1;
     }
 
     public void DamageHealerP1()
@@ -402,6 +404,7 @@ public class AbilityTank2 : AbilityBase
         lm.lifeHealer -= att;
         //turn.isTurn = true;
         isAbility = false;
+        HUC.AbilityOff.enabled = true;
         selectionP2.isActiveTankP2 = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
@@ -413,6 +416,7 @@ public class AbilityTank2 : AbilityBase
         lm.lifeUtility -= att;
         //turn.isTurn = true;
         isAbility = false;
+        HUC.AbilityOff.enabled = true;
         selectionP2.isActiveTankP2 = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
@@ -424,6 +428,7 @@ public class AbilityTank2 : AbilityBase
         lm.lifeDealer -= att;
         //turn.isTurn = true;
         isAbility = false;
+        HUC.AbilityOff.enabled = true;
          selectionP2.isActiveTankP2 = false;
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;

@@ -29,6 +29,7 @@ public class AbilityHealer2 : AbilityBase
     public int Counter;
     public int CounterTurnA;
     public bool isCharging;
+    public HudUnitController HUC;
 
     // Use this for initialization
     void Start()
@@ -54,7 +55,6 @@ public class AbilityHealer2 : AbilityBase
         StartCoroutine(SetDirectionAbility());
         DisactivePrewiewHealerP2();
         RotationAbility();
-        
     }
 
     public void ChargeAbility()
@@ -72,6 +72,7 @@ public class AbilityHealer2 : AbilityBase
         {
             Counter = 2;
             CounterTurnA = 0;
+            HUC.AbilityOff.enabled = false;
         }
     }
 
@@ -288,6 +289,7 @@ public class AbilityHealer2 : AbilityBase
                     yield return new WaitForSeconds(2f);
                     GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
                     Counter = 0;
+                    HUC.AbilityOff.enabled = true;
                     timerAutoHeal = 0;
                 }
                 else
@@ -315,6 +317,7 @@ public class AbilityHealer2 : AbilityBase
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
         selectionP2.isActiveHealerP2 = false;
+        HUC.AbilityOff.enabled = true;
         selectionP2.contSelectionP2 = 2;
     }
 
@@ -330,6 +333,7 @@ public class AbilityHealer2 : AbilityBase
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
         selectionP2.isActiveHealerP2 = false;
+        HUC.AbilityOff.enabled = true;
         selectionP2.contSelectionP2 = 2;
     }
 
@@ -346,6 +350,7 @@ public class AbilityHealer2 : AbilityBase
         //riabilito input controller per i movimenti(wasd)
         gameObject.GetComponent<InputController>().enabled = true;
         selectionP2.isActiveHealerP2 = false;
+        HUC.AbilityOff.enabled = true;
         selectionP2.contSelectionP2 = 2;
     }
 

@@ -37,6 +37,7 @@ public class AbilityUtility2 : AbilityBase
     public bool isCharging;
     public GameObject gameObjectVfx;
     public HudUnitsManager HUM;
+    public HudUnitController HUC;
 
     // Use this for initialization
     void Start()
@@ -85,6 +86,7 @@ public class AbilityUtility2 : AbilityBase
         {
             Counter = 2;
             CounterTurnA = 0;
+            HUC.AbilityOff.enabled = false;
         }
     }
 
@@ -254,9 +256,10 @@ public class AbilityUtility2 : AbilityBase
           selectionP2.isActiveUtilityP2 = false;
          selectionP2.contSelectionP2 = 3;
         tankP1.isStun = true;
-            // turn.isTurn = false;
-            //tankP2.transform.DOShakePosition(2f, strength, vibrato);
-        }
+        HUC.AbilityOff.enabled = true;
+        // turn.isTurn = false;
+        //tankP2.transform.DOShakePosition(2f, strength, vibrato);
+    }
 
         public void DamageHealerP1()
         {
@@ -267,6 +270,7 @@ public class AbilityUtility2 : AbilityBase
          selectionP2.isActiveUtilityP2 = false;
         selectionP2.contSelectionP2 = 3;
         healerP1.isStun = true;
+        HUC.AbilityOff.enabled = true;
         // turn.isTurn = false;
     }
 
@@ -279,6 +283,7 @@ public class AbilityUtility2 : AbilityBase
           selectionP2.isActiveUtilityP2 = false;
         selectionP2.contSelectionP2 = 3;
         utilityP1.isStun = true;
+        HUC.AbilityOff.enabled = true;
         // turn.isTurn = false;
         //tankP2.transform.DOShakePosition(2f, strength, vibrato);
     }
@@ -292,6 +297,7 @@ public class AbilityUtility2 : AbilityBase
           selectionP2.isActiveUtilityP2 = false;
         selectionP2.contSelectionP2 = 3;
         dealerP1.isStun = true;
+        HUC.AbilityOff.enabled = true;
         // turn.isTurn = false;
     }
 

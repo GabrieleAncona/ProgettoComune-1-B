@@ -29,6 +29,7 @@ public class AbilityDealer2 : AbilityBase
     public int CounterA;
     public int CounterTurnA;
     public bool isCharging;
+    public HudUnitController HUC;
 
     // Use this for initialization
     void Start()
@@ -72,6 +73,7 @@ public class AbilityDealer2 : AbilityBase
         {
             CounterA = 2;
             CounterTurnA = 0;
+            HUC.AbilityOff.enabled = false;
         }
     }
 
@@ -200,16 +202,16 @@ public class AbilityDealer2 : AbilityBase
                         cont++;
                         selector.transform.position = grid.GetWorldPosition(x, y);
                         Debug.Log(selector.transform.position);
-                    CounterA = 0;
-                }
+                        CounterA = 0;
+                    }
                     else if (cont >= rangeFire || x > 11)
                     {
                         cont = 0;
-                    x = dealerP2.x;
-                    y = dealerP2.y;
-                    selector.transform.position = grid.GetWorldPosition(dealerP2.x, dealerP2.y);
-                    CounterA = 0;
-                }
+                        x = dealerP2.x;
+                        y = dealerP2.y;
+                        selector.transform.position = grid.GetWorldPosition(dealerP2.x, dealerP2.y);
+                        CounterA = 0;
+                    }
                 }
                 else if (isAttDown == true && Input.GetKeyDown(KeyCode.RightShift))
                 {
@@ -220,16 +222,16 @@ public class AbilityDealer2 : AbilityBase
                         cont++;
                         selector.transform.position = grid.GetWorldPosition(x, y);
                         Debug.Log(selector.transform.position);
-                    CounterA = 0;
-                }
+                        CounterA = 0;
+                    }
                     else if (cont >= rangeFire || x < 0)
                     {
                         cont = 0;
-                    x = dealerP2.x;
-                    y = dealerP2.y;
-                    selector.transform.position = grid.GetWorldPosition(dealerP2.x, dealerP2.y);
-                    CounterA = 0;
-                }
+                        x = dealerP2.x;
+                        y = dealerP2.y;
+                        selector.transform.position = grid.GetWorldPosition(dealerP2.x, dealerP2.y);
+                        CounterA = 0;
+                    }
                 }
                 if (isAttLeft == true && Input.GetKeyDown(KeyCode.RightShift))
                 {
@@ -240,17 +242,17 @@ public class AbilityDealer2 : AbilityBase
                         cont++;
                         selector.transform.position = grid.GetWorldPosition(x, y);
                         Debug.Log(selector.transform.position);
-                    CounterA = 0;
-                }
+                        CounterA = 0;
+                    }
                     else if (cont >= rangeFire || y >= 11)
                     {
                         cont = 0;
-                    x = dealerP2.x;
-                    y = dealerP2.y;
-                    selector.transform.position = grid.GetWorldPosition(dealerP2.x, dealerP2.y);
+                        x = dealerP2.x;
+                        y = dealerP2.y;
+                        selector.transform.position = grid.GetWorldPosition(dealerP2.x, dealerP2.y);
                         Debug.Log(dealerP2.y);
-                    CounterA = 0;
-                }
+                        CounterA = 0;
+                    }
                 }
                 else if (isAttRight == true && Input.GetKeyDown(KeyCode.RightShift))
                 {
@@ -261,16 +263,16 @@ public class AbilityDealer2 : AbilityBase
                         cont++;
                         selector.transform.position = grid.GetWorldPosition(x, y);
                         Debug.Log(selector.transform.position);
-                    CounterA = 0;
-                }
+                        CounterA = 0;
+                    }
                     else if (cont >= rangeFire || y < 0)
                     {
                         cont = 0;
-                    x = dealerP2.x;
-                    y = dealerP2.y;
-                    selector.transform.position = grid.GetWorldPosition(dealerP2.x, dealerP2.y);
-                    CounterA = 0;
-                }
+                        x = dealerP2.x;
+                        y = dealerP2.y;
+                        selector.transform.position = grid.GetWorldPosition(dealerP2.x, dealerP2.y);
+                        CounterA = 0;
+                    }
                 }
 
             }
@@ -278,16 +280,12 @@ public class AbilityDealer2 : AbilityBase
 
         public void Shoot()
         {
-
             GameObject temp;
             temp = Instantiate(fireBall, transform.forward + new Vector3(dealerP2.transform.position.x, 0.5f, dealerP2.transform.position.z), Quaternion.identity);
             temp.GetComponent<Rigidbody>().AddForce(transform.forward * speed);
             Debug.Log("sparo palla di fuoco");
-
-        }
-
-
-    
+        HUC.AbilityOff.enabled = true;
+    }
 
         //disattivo prewiew attacco/abilità quando finisco turno
         public void DisactivePrewiewDealer()
@@ -297,6 +295,4 @@ public class AbilityDealer2 : AbilityBase
                 isAbility = false;
             }
         }
-
-    
 }

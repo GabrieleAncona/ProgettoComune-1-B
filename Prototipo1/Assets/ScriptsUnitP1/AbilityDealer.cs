@@ -222,7 +222,6 @@ public class AbilityDealer : AbilityBase
                     selector.transform.position = grid.GetWorldPosition(x , y);
                     Debug.Log(selector.transform.position);
                     CounterA = 0;
-                    HUC.AbilityOff.enabled = true;
                 }
                 else if (cont >= rangeFire || x >= 11)
                 {
@@ -231,7 +230,6 @@ public class AbilityDealer : AbilityBase
                     y = dealerP1.y;
                     selector.transform.position = grid.GetWorldPosition(dealerP1.x, dealerP1.y);
                     CounterA = 0;
-                    HUC.AbilityOff.enabled = true;
                 }
             }
             else if (isAttDown == true && Input.GetKeyDown(KeyCode.LeftShift))
@@ -244,7 +242,6 @@ public class AbilityDealer : AbilityBase
                     selector.transform.position = grid.GetWorldPosition(x, y);
                     Debug.Log(selector.transform.position);
                     CounterA = 0;
-                    HUC.AbilityOff.enabled = true;
                 }
                 else if (cont >= rangeFire || x <= 0)
                 {
@@ -253,7 +250,6 @@ public class AbilityDealer : AbilityBase
                     y = dealerP1.y;
                     selector.transform.position = grid.GetWorldPosition(dealerP1.x, dealerP1.y);
                     CounterA = 0;
-                    HUC.AbilityOff.enabled = true;
                 }
             }
             if (isAttLeft == true && Input.GetKeyDown(KeyCode.LeftShift))
@@ -266,7 +262,6 @@ public class AbilityDealer : AbilityBase
                     selector.transform.position = grid.GetWorldPosition(x, y);
                     Debug.Log(selector.transform.position);
                     CounterA = 0;
-                    HUC.AbilityOff.enabled = true;
                 }
                 else if (cont >= rangeFire || y >= 11)
                 {
@@ -276,7 +271,6 @@ public class AbilityDealer : AbilityBase
                     selector.transform.position = grid.GetWorldPosition(dealerP1.x, dealerP1.y);
                     Debug.Log(dealerP1.y);
                     CounterA = 0;
-                    HUC.AbilityOff.enabled = true;
                 }
             }
             else if (isAttRight == true && Input.GetKeyDown(KeyCode.LeftShift))
@@ -289,7 +283,6 @@ public class AbilityDealer : AbilityBase
                     selector.transform.position = grid.GetWorldPosition(x, y);
                     Debug.Log(selector.transform.position);
                     CounterA = 0;
-                    HUC.AbilityOff.enabled = true;
                 }
                 else if (cont >= rangeFire || y <= 0)
                 {
@@ -298,7 +291,6 @@ public class AbilityDealer : AbilityBase
                     y = dealerP1.y;
                     selector.transform.position = grid.GetWorldPosition(dealerP1.x, dealerP1.y);
                     CounterA = 0;
-                    HUC.AbilityOff.enabled = true;
                 }
             }
 
@@ -311,6 +303,7 @@ public class AbilityDealer : AbilityBase
             temp = Instantiate(fireBall, transform.forward + new Vector3(dealerP1.transform.position.x, 0.5f, dealerP1.transform.position.z), Quaternion.identity);
             temp.GetComponent<Rigidbody>().AddForce(transform.forward * speed);
             Debug.Log("sparo palla di fuoco");
+        HUC.AbilityOff.enabled = true;
     }
 
 
