@@ -11,16 +11,22 @@ public class AbilityState : StateBehaviourBase
     {
         //Debug.LogFormat("SetupState {0} in Init_State", ctx.SetupDone);
 
-        GameManager.singleton.acm.isAbilityTank = true;
-        GameManager.singleton.acm.isAbilityTank2 = true;
-        GameManager.singleton.acm.isAbilityHealer = true;
-        GameManager.singleton.acm.isAbilityHealer2 = true;
-        GameManager.singleton.acm.isAbilityUtility = true;
-        GameManager.singleton.acm.isAbilityUtility2 = true;
-        GameManager.singleton.acm.isAbilityDealer = true;
-        GameManager.singleton.acm.isAbilityDealer2 = true;
-        
+        if (GameManager.singleton.acm.menuActionPlayer1.activeSelf == true)
+        {
+            GameManager.singleton.acm.isAbilityTank = true;
+            GameManager.singleton.acm.isAbilityHealer = true;
+            GameManager.singleton.acm.isAbilityUtility = true;
+            GameManager.singleton.acm.isAbilityDealer = true; 
+        }
 
+        if (GameManager.singleton.acm.menuActionPlayer2.activeSelf == true)
+        {
+            GameManager.singleton.acm.isAbilityTank2 = true;
+            GameManager.singleton.acm.isAbilityHealer2 = true;
+            GameManager.singleton.acm.isAbilityUtility2 = true;
+            GameManager.singleton.acm.isAbilityDealer2 = true; 
+        }
+        
     }
 
     public override void OnUpdate()

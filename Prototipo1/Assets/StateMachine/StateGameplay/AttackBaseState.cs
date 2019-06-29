@@ -10,15 +10,21 @@ public class AttackBaseState : StateBehaviourBase
     {
         //Debug.LogFormat("SetupState {0} in Init_State", ctx.SetupDone);
 
-        GameManager.singleton.acm.isAttackTank = true;
-        GameManager.singleton.acm.isAttackTank2 = true;
-        GameManager.singleton.acm.isAttackHealer = true;
-        GameManager.singleton.acm.isAttackHealer2 = true;
-        GameManager.singleton.acm.isAttackUtility = true;
-        GameManager.singleton.acm.isAttackUtility2 = true;
-        GameManager.singleton.acm.isAttackDealer = true;
-        GameManager.singleton.acm.isAttackDealer2 = true;
-        
+        if (GameManager.singleton.acm.menuActionPlayer1.activeSelf == true)
+        {
+            GameManager.singleton.acm.isAttackTank = true;
+            GameManager.singleton.acm.isAttackHealer = true;
+            GameManager.singleton.acm.isAttackUtility = true;
+            GameManager.singleton.acm.isAttackDealer = true; 
+        }
+
+        if (GameManager.singleton.acm.menuActionPlayer2.activeSelf == true)
+        {
+            GameManager.singleton.acm.isAttackTank2 = true;
+            GameManager.singleton.acm.isAttackHealer2 = true;
+            GameManager.singleton.acm.isAttackUtility2 = true;
+            GameManager.singleton.acm.isAttackDealer2 = true; 
+        }
 
     }
 
