@@ -191,7 +191,7 @@ public class ButtonNavigation : MonoBehaviour
             attack.sprite = AttackSprite[2];
             ability.sprite = AbilitySprite[2];
             back.sprite = BackSprite[2];
-			//slide movement
+			///slide movement
 			RectTransform moved = movement.GetComponent<RectTransform>();
 			RectTransform dest = slidetransform[0].GetComponent<RectTransform>();
             Vector2 destination2D = new Vector2(moved.anchoredPosition.x, dest.anchoredPosition.y);
@@ -209,7 +209,7 @@ public class ButtonNavigation : MonoBehaviour
             movement.sprite = MovementSprite[2];
             ability.sprite = AbilitySprite[2];
             back.sprite = BackSprite[2];
-            //slide attack
+            ///slide attack
             RectTransform moved = attack.GetComponent<RectTransform>();
             RectTransform dest = slidetransform[1].GetComponent<RectTransform>();
             Vector2 destination2D = new Vector2(moved.anchoredPosition.x, dest.anchoredPosition.y);
@@ -227,7 +227,7 @@ public class ButtonNavigation : MonoBehaviour
             movement.sprite = MovementSprite[2];
             attack.sprite = AttackSprite[2];
             back.sprite = BackSprite[2];
-            //slide ability
+            ///slide ability
             RectTransform moved = ability.GetComponent<RectTransform>();
             RectTransform dest = slidetransform[0].GetComponent<RectTransform>();
             Vector2 destination2D = new Vector2(moved.anchoredPosition.x, dest.anchoredPosition.y);
