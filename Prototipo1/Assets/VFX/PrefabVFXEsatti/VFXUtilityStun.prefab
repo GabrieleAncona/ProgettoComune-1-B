@@ -114,7 +114,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1794053696210196}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.833, y: 0.026, z: 6.868}
+  m_LocalPosition: {x: 7.0684443, y: 0.068635225, z: 39.63425}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4812572383346816}
@@ -157,7 +157,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1838812267105986}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.066999435, y: 0.06999999, z: 0.08300018}
+  m_LocalPosition: {x: 0.066999435, y: 0.356, z: 0.08300018}
   m_LocalScale: {x: 0.011434016, y: 0.011434016, z: 0.011434016}
   m_Children: []
   m_Father: {fileID: 4346523857516026}
@@ -170,10 +170,10 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1242550898539472}
   serializedVersion: 5
-  lengthInSec: 9
+  lengthInSec: 1000
   simulationSpeed: 1
   stopAction: 0
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -4760,10 +4760,10 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1672951132360112}
   serializedVersion: 5
-  lengthInSec: 9
+  lengthInSec: 1000
   simulationSpeed: 1
   stopAction: 0
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -9407,10 +9407,10 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1837273017070962}
   serializedVersion: 5
-  lengthInSec: 9
+  lengthInSec: 1000
   simulationSpeed: 1
   stopAction: 0
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -9478,8 +9478,8 @@ ParticleSystem:
     enabled: 1
     startLifetime:
       serializedVersion: 2
-      minMaxState: 3
-      scalar: 6.5
+      minMaxState: 0
+      scalar: 1000
       minScalar: 3
       maxCurve:
         serializedVersion: 2
@@ -10355,17 +10355,17 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.033904105
+          time: 0.00082531635
           value: 1
-          inSlope: 1
-          outSlope: 1
+          inSlope: 0.07022098
+          outSlope: 0.07022098
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 1
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.088865116
-          value: 0.7410687
+          time: 0.04250981
+          value: 0.98835266
           inSlope: 0.06364922
           outSlope: 0.06364922
           tangentMode: 0
@@ -10373,8 +10373,8 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.93402135
-          value: 0.7304496
+          time: 0.1535343
+          value: 0.97017664
           inSlope: 0.4691064
           outSlope: 0.4691064
           tangentMode: 0
@@ -10382,8 +10382,8 @@ ParticleSystem:
           inWeight: 0.14604974
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 1
-          value: 0
+          time: 0.31707764
+          value: 0.9520569
           inSlope: 1
           outSlope: 1
           tangentMode: 0
@@ -10712,11 +10712,11 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 8847
+        atime1: 249
         atime2: 32768
-        atime3: 45678
+        atime3: 58982
         atime4: 65535
-        atime5: 0
+        atime5: 65535
         atime6: 0
         atime7: 0
         m_Mode: 0
@@ -14024,10 +14024,10 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1838812267105986}
   serializedVersion: 5
-  lengthInSec: 9
+  lengthInSec: 1000
   simulationSpeed: 1
   stopAction: 0
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -14096,7 +14096,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 1000
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -14972,17 +14972,17 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.033904105
+          time: 0.00082531635
           value: 1
-          inSlope: 1
-          outSlope: 1
+          inSlope: 0.07022098
+          outSlope: 0.07022098
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 1
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.088865116
-          value: 0.7410687
+          time: 0.04250981
+          value: 0.98835266
           inSlope: 0.06364922
           outSlope: 0.06364922
           tangentMode: 0
@@ -14990,8 +14990,8 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.93402135
-          value: 0.7304496
+          time: 0.21656835
+          value: 0.9361343
           inSlope: 0.4691064
           outSlope: 0.4691064
           tangentMode: 0
@@ -14999,8 +14999,8 @@ ParticleSystem:
           inWeight: 0.14604974
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 1
-          value: 0
+          time: 0.5066376
+          value: 0.9381256
           inSlope: 1
           outSlope: 1
           tangentMode: 0
