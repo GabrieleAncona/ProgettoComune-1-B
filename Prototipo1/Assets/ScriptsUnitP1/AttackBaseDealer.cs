@@ -80,12 +80,12 @@ public class AttackBaseDealer : AttackBase
         if (turn.isTurn == true && GameManager.singleton.acm.isAttackDealer == true && selection.isActiveDealer == true)
         {
             isAttack = true;
-            gameObject.GetComponent<InputController>().enabled = false;
+            //gameObject.GetComponent<InputController>().enabled = false;
         }
         else if (turn.isTurn == true && GameManager.singleton.acm.isAttackDealer == false && selection.isActiveDealer == true)
         {
             isAttack = false;
-            gameObject.GetComponent<InputController>().enabled = true;
+            //gameObject.GetComponent<InputController>().enabled = true;
         }
     }
 
@@ -381,7 +381,7 @@ public class AttackBaseDealer : AttackBase
         lm.lifeTankPlayer2 -= att;
         isAttack = false;
         //turn.isTurn = false;
-        gameObject.GetComponent<InputController>().enabled = true;
+       // gameObject.GetComponent<InputController>().enabled = true;
         selection.contSelectionP1 = 4;
         selection.isActiveDealer = false;
 
@@ -392,7 +392,7 @@ public class AttackBaseDealer : AttackBase
         lm.lifeHealerPlayer2 -= att;
         isAttack = false;
         //turn.isTurn = false;
-        gameObject.GetComponent<InputController>().enabled = true;
+       // gameObject.GetComponent<InputController>().enabled = true;
         selection.contSelectionP1 = 4;
         selection.isActiveDealer = false;
 
@@ -403,7 +403,7 @@ public class AttackBaseDealer : AttackBase
         isAttack = false;
         selection.contSelectionP1 = 4;
         //turn.isTurn = false;
-        gameObject.GetComponent<InputController>().enabled = true;
+       // gameObject.GetComponent<InputController>().enabled = true;
         selection.isActiveDealer = false;
     }
     public void DamageUtilityP2()
@@ -412,7 +412,7 @@ public class AttackBaseDealer : AttackBase
         isAttack = false;
         selection.contSelectionP1 = 4;
         //turn.isTurn = false;
-        gameObject.GetComponent<InputController>().enabled = true;
+      //  gameObject.GetComponent<InputController>().enabled = true;
         selection.isActiveDealer = false;
        
     }
