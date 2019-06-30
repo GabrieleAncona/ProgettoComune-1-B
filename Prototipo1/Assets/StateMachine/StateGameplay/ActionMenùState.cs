@@ -55,6 +55,8 @@ public class ActionMenùState : StateBehaviourBase
                     buttonNavigation.activeab = false;
                 }); 
             }
+            buttonNavigation.KeyboardKey1.enabled = true;
+            buttonNavigation.KeyboardKey2.enabled = true;
         }
         if (ctx.currentPlayer.IdPlayer == 2)
         {
@@ -97,11 +99,25 @@ public class ActionMenùState : StateBehaviourBase
                     buttonNavigation.activeab = false;
                 });
             }
+            buttonNavigation.KeyboardKey1.enabled = true;
+            buttonNavigation.KeyboardKey2.enabled = true;
         }
     }
 
     public override void OnExit()
     {
         GameManager.singleton.acm.isActionMenu = false;
+        if (ctx.currentPlayer.IdPlayer == 1)
+        {
+            ButtonNavigation buttonNavigation = FindObjectOfType<ButtonNavigation>();
+            buttonNavigation.KeyboardKey1.enabled = false;
+            buttonNavigation.KeyboardKey2.enabled = false;
+        }
+        if (ctx.currentPlayer.IdPlayer == 2)
+        {
+            ButtonNavigation buttonNavigation = FindObjectOfType<ButtonNavigation>();
+            buttonNavigation.KeyboardKey1.enabled = false;
+            buttonNavigation.KeyboardKey2.enabled = false;
+        }
     }
 }

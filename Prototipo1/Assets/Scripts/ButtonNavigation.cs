@@ -25,10 +25,13 @@ public class ButtonNavigation : MonoBehaviour
     public bool activemov;
     public bool activeatk;
     public bool activeab;
+    public Image KeyboardKey1;
+    public Image KeyboardKey2;
+    public Image GamepadButton1;
+    public Image GamepadButton2;
 
-
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         AMC = FindObjectOfType<ActionMenuController>();
     }

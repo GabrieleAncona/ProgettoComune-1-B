@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SelectionState : StateBehaviourBase
 {
+    public IntellGamePad intellgamepad;
 
     public override void OnEnter()
     {
@@ -16,49 +17,91 @@ public class SelectionState : StateBehaviourBase
         if (ctx.currentPlayer.IdPlayer == 1)
         {
             GameManager.singleton.acm.menuActionPlayer1.SetActive(false);
-
         }
         if (ctx.currentPlayer.IdPlayer == 2)
         {
             GameManager.singleton.acm.menuActionPlayer2.SetActive(false);
         }
-
-
     }
 
     public override void OnUpdate()
     {
         ///GameManager.singleton.sc.gameObject.GetComponent<MeshRenderer>().enabled = true;
-        GameManager.singleton.hudUnit.GetComponent<HudUnitsManager>().isActive = true;
-        GameManager.singleton.hudUnit2.GetComponent<HudUnitsManager>().isActive = true;
 
         if (ctx.currentPlayer.IdPlayer == 1)
         {
-            GameManager.singleton.sc.isSelectionActive = true;
+            if (intellgamepad == null || (intellgamepad.ID != 0 || intellgamepad.CurrentGamePadState.IsConnected == false))
+            {
+                GameManager.singleton.hudUnit.GetComponent<HudUnitsManager>().isActive = true;
+                GameManager.singleton.sc.isSelectionActive = true;
+                GameManager.singleton.hudUnit.GetComponent<HudUnitsManager>().KeyboardKey1.enabled = true;
+                GameManager.singleton.hudUnit.GetComponent<HudUnitsManager>().KeyboardKey2.enabled = true; 
+            }
+            else if (intellgamepad.ID == 0 && intellgamepad.CurrentGamePadState.IsConnected == true)
+            {
+                GameManager.singleton.hudUnit.GetComponent<HudUnitsManager>().isActive = true;
+                GameManager.singleton.sc.isSelectionActive = true;
+                GameManager.singleton.hudUnit.GetComponent<HudUnitsManager>().GamepadButton1.enabled = true;
+                GameManager.singleton.hudUnit.GetComponent<HudUnitsManager>().GamepadButton2.enabled = true;
+            }
         }
 
         if (ctx.currentPlayer.IdPlayer == 2)
         {
-            GameManager.singleton.sc2.isSelectionActive = true;
+            if (intellgamepad == null || (intellgamepad.ID != 1 || intellgamepad.CurrentGamePadState.IsConnected == false))
+            {
+                GameManager.singleton.hudUnit2.GetComponent<HudUnitsManager>().isActive = true;
+                GameManager.singleton.sc2.isSelectionActive = true;
+                GameManager.singleton.hudUnit2.GetComponent<HudUnitsManager>().KeyboardKey1.enabled = true;
+                GameManager.singleton.hudUnit2.GetComponent<HudUnitsManager>().KeyboardKey2.enabled = true; 
+            }
+            if (intellgamepad.ID == 1 && intellgamepad.CurrentGamePadState.IsConnected == false)
+            {
+                GameManager.singleton.hudUnit2.GetComponent<HudUnitsManager>().isActive = true;
+                GameManager.singleton.sc2.isSelectionActive = true;
+                GameManager.singleton.hudUnit2.GetComponent<HudUnitsManager>().GamepadButton1.enabled = true;
+                GameManager.singleton.hudUnit2.GetComponent<HudUnitsManager>().GamepadButton2.enabled = true;
+            }
         }
-
     }
 
     public override void OnExit()
     {
         ///GameManager.singleton.sc.gameObject.GetComponent<MeshRenderer>().enabled = false;
-        GameManager.singleton.hudUnit.GetComponent<HudUnitsManager>().isActive = false;
-        GameManager.singleton.hudUnit2.GetComponent<HudUnitsManager>().isActive = false;
-
         if (ctx.currentPlayer.IdPlayer == 1)
         {
-            GameManager.singleton.sc.isSelectionActive = false;
+            if (intellgamepad == null || (intellgamepad.ID != 0 || intellgamepad.CurrentGamePadState.IsConnected == false))
+            {
+                GameManager.singleton.sc.isSelectionActive = false;
+                GameManager.singleton.hudUnit.GetComponent<HudUnitsManager>().KeyboardKey1.enabled = false;
+                GameManager.singleton.hudUnit.GetComponent<HudUnitsManager>().KeyboardKey2.enabled = false;
+                GameManager.singleton.hudUnit.GetComponent<HudUnitsManager>().isActive = false; 
+            }
+            if (intellgamepad.ID == 0 && intellgamepad.CurrentGamePadState.IsConnected == true)
+            {
+                GameManager.singleton.sc.isSelectionActive = false;
+                GameManager.singleton.hudUnit.GetComponent<HudUnitsManager>().GamepadButton1.enabled = false;
+                GameManager.singleton.hudUnit.GetComponent<HudUnitsManager>().GamepadButton2.enabled = false;
+                GameManager.singleton.hudUnit.GetComponent<HudUnitsManager>().isActive = false;
+            }
         }
 
         if (ctx.currentPlayer.IdPlayer == 2)
         {
-            GameManager.singleton.sc2.isSelectionActive = false;
+            if (intellgamepad == null || (intellgamepad.ID != 1 || intellgamepad.CurrentGamePadState.IsConnected == false))
+            {
+                GameManager.singleton.sc2.isSelectionActive = false;
+                GameManager.singleton.hudUnit2.GetComponent<HudUnitsManager>().KeyboardKey1.enabled = false;
+                GameManager.singleton.hudUnit2.GetComponent<HudUnitsManager>().KeyboardKey2.enabled = false;
+                GameManager.singleton.hudUnit2.GetComponent<HudUnitsManager>().isActive = false; 
+            }
+            if (intellgamepad.ID == 1 && intellgamepad.CurrentGamePadState.IsConnected == true)
+            {
+                GameManager.singleton.sc2.isSelectionActive = false;
+                GameManager.singleton.hudUnit2.GetComponent<HudUnitsManager>().GamepadButton1.enabled = false;
+                GameManager.singleton.hudUnit2.GetComponent<HudUnitsManager>().GamepadButton2.enabled = false;
+                GameManager.singleton.hudUnit2.GetComponent<HudUnitsManager>().isActive = false;
+            }
         }
     }
-
 }

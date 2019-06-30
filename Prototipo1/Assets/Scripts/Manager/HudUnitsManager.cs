@@ -17,6 +17,11 @@ public class HudUnitsManager : MonoBehaviour
     public List<Image> Poison = new List<Image>();
     public List<Image> Freeze = new List<Image>();
 
+    public Image KeyboardKey1;
+    public Image KeyboardKey2;
+    public Image GamepadButton1;
+    public Image GamepadButton2;
+
     public bool OnMove
     {
         get { return _onMove; }
