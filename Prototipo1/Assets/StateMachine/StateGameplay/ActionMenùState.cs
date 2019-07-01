@@ -10,6 +10,7 @@ public class ActionMenùState : StateBehaviourBase
     {
         //Debug.LogFormat("SetupState {0} in Init_State", ctx.SetupDone);
         GameManager.singleton.acm.isActionMenu = true;
+        //ctx.previousState = "ActionMenuState";
     }
 
     public override void OnUpdate()
