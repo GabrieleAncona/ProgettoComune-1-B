@@ -12,7 +12,6 @@ public class EndturnState : StateBehaviourBase
 
     public override void OnUpdate()
     {
-       
         if(ctx.currentPlayer.IdPlayer == 1)
         {
             GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
