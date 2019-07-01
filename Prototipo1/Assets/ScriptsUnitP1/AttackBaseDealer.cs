@@ -142,6 +142,7 @@ public class AttackBaseDealer : AttackBase
 				{
 					OnAttack();
 				}
+                SoundManager.PlaySound(SoundManager.Sound.dealerAttack);
                 //tankP2.transform.DOShakePosition(2f, strength, vibrato);
                 dealer.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionDealer = false;
@@ -161,6 +162,7 @@ public class AttackBaseDealer : AttackBase
 				{
 					OnAttack();
 				}
+                SoundManager.PlaySound(SoundManager.Sound.dealerAttack);
                 //healerP2.transform.DOShakePosition(2f, strength, vibrato);
                 dealer.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionDealer = false;
@@ -180,6 +182,7 @@ public class AttackBaseDealer : AttackBase
 				{
 					OnAttack();
 				}
+                SoundManager.PlaySound(SoundManager.Sound.dealerAttack);
                 //dealerP2.transform.DOShakePosition(2f, strength, vibrato);
                 dealer.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionDealer = false;
@@ -199,6 +202,7 @@ public class AttackBaseDealer : AttackBase
 				{
 					OnAttack();
 				}
+                SoundManager.PlaySound(SoundManager.Sound.dealerAttack);
                 //utilityP2.transform.DOShakePosition(2f, strength, vibrato);
                 dealer.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionDealer = false;
