@@ -5,11 +5,18 @@ using UnityEngine.Animations;
 public class StateBehaviourBase : StateMachineBehaviour
 {
 
+    public static string previousStateTrigger = "";
+
     public class Context
     {
+
+       
+
         public bool SetupDone;
         public Player currentPlayer;
-        
+        public string currentState;
+        //public string previousState = "";
+        public StateBehaviourBase previousState = new StateBehaviourBase();
     }
 
     protected Context ctx;
@@ -50,4 +57,10 @@ public class StateBehaviourBase : StateMachineBehaviour
     }
     public virtual void OnExit() { }
 
+    public string MyTrigger;
+
+    public void SetMyTriggerString(string _MyString)
+    {
+        MyTrigger = _MyString;
+    }
 }

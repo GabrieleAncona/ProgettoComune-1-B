@@ -276,7 +276,7 @@ public class PositionDealer : MovementBase
             {
                 OnDeath();
             }
-            SoundManager.PlaySound(SoundManager.Sound.maleDie);
+            SoundManager.PlaySound(SoundManager.Sound.dealerDie);
             HUC.Cross.enabled = true;
         }
     }

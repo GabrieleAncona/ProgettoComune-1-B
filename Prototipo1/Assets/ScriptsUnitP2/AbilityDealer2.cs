@@ -92,7 +92,7 @@ public class AbilityDealer2 : AbilityBase
             {
                 OnAbility();
             }
-            SoundManager.PlaySound(SoundManager.Sound.fireball);
+            SoundManager.PlaySound(SoundManager.Sound.dealerAbility);
             isAbility = false;
             selectionP2.isActiveDealerP2 = false;
             selectionP2.contSelectionP2 = 4;

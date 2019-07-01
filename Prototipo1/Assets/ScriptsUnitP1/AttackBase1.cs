@@ -128,6 +128,7 @@ public class AttackBase1 : AttackBase
 				{
 					OnAttack();
 				}
+                SoundManager.PlaySound(SoundManager.Sound.tankAttack);
                 //tankP2.transform.DOShakePosition(2f, strength, vibrato);
                 tank.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionTank = false;
@@ -148,6 +149,7 @@ public class AttackBase1 : AttackBase
 				{
 					OnAttack();
 				}
+                SoundManager.PlaySound(SoundManager.Sound.tankAttack);
                 //healerP2.transform.DOShakePosition(2f, strength, vibrato);
                 tank.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionTank = false;
@@ -167,6 +169,7 @@ public class AttackBase1 : AttackBase
 				{
 					OnAttack();
 				}
+                SoundManager.PlaySound(SoundManager.Sound.tankAttack);
                 //utilityP2.transform.DOShakePosition(2f, strength, vibrato);
                 tank.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionTank = false;
@@ -186,6 +189,7 @@ public class AttackBase1 : AttackBase
 				{
 					OnAttack();
 				}
+                SoundManager.PlaySound(SoundManager.Sound.tankAttack);
                 //dealerP2.transform.DOShakePosition(2f, strength, vibrato);
                 tank.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionTank = false;

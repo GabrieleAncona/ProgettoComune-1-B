@@ -9,6 +9,7 @@ public class AttackBaseState : StateBehaviourBase
     public override void OnEnter()
     {
         //Debug.LogFormat("SetupState {0} in Init_State", ctx.SetupDone);
+        //ctx.previousState = "AttackBaseState";
 
         if (GameManager.singleton.acm.menuActionPlayer1.activeSelf == true)
         {

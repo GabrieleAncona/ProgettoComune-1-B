@@ -11,6 +11,7 @@ public class SelectionState : StateBehaviourBase
         //Debug.LogFormat("SetupState {0} in Init_State", ctx.SetupDone);
 
         ///disattivare canvas
+        //ctx.previousState = "SelectionState";
 
         /// GameManager.singleton.hudUnit.isActive = true;
         //GameManager.singleton.InitSM();

@@ -159,6 +159,7 @@ public class AttackBaseHealer : AttackBase
 					OnAttack();
 				}
                 Shoot();
+                SoundManager.PlaySound(SoundManager.Sound.healerAttack);
                 yield return new WaitForSeconds(0.5f);
                 GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxHealerHit, new Vector3(tankP2.x, 0.3f, tankP2.y), Quaternion.identity);
                 //tankP2.transform.DOShakePosition(2f, strength, vibrato);
@@ -184,6 +185,7 @@ public class AttackBaseHealer : AttackBase
 					OnAttack();
 				}
                 Shoot();
+                SoundManager.PlaySound(SoundManager.Sound.healerAttack);
                 yield return new WaitForSeconds(0.5f);
                 GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxHealerHit, new Vector3(healerP2.x, 0.3f, healerP2.y), Quaternion.identity);
                 //healerP2.transform.DOShakePosition(2f, strength, vibrato);
@@ -209,6 +211,7 @@ public class AttackBaseHealer : AttackBase
 					OnAttack();
 				}
                 Shoot();
+                SoundManager.PlaySound(SoundManager.Sound.healerAttack);
                 yield return new WaitForSeconds(0.5f);
                 GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxHealerHit, new Vector3(utilityP2.x, 0.3f, utilityP2.y), Quaternion.identity);
                 //utilityP2.transform.DOShakePosition(2f, strength, vibrato);
@@ -234,6 +237,7 @@ public class AttackBaseHealer : AttackBase
 					OnAttack();
 				}
                 Shoot();
+                SoundManager.PlaySound(SoundManager.Sound.healerAttack);
                 yield return new WaitForSeconds(0.5f);
                 GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxHealerHit, new Vector3(dealerP2.x, 0.3f, dealerP2.y), Quaternion.identity);
                 //dealerP2.transform.DOShakePosition(2f, strength, vibrato);

@@ -157,7 +157,7 @@ public class AbilityUtility : AbilityBase
             if (utility.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
                 DamageTankP2();
-                SoundManager.PlaySound(SoundManager.Sound.ghiaccio);
+                SoundManager.PlaySound(SoundManager.Sound.utilityAbility);
                 if (OnAbility != null)
 				{
 					OnAbility();
@@ -174,7 +174,7 @@ public class AbilityUtility : AbilityBase
             else if (utility.hit.transform.gameObject.GetComponent<PositionHealer2>())
             {
                 DamageHealerP2();
-                SoundManager.PlaySound(SoundManager.Sound.ghiaccio);
+                SoundManager.PlaySound(SoundManager.Sound.utilityAbility);
                 if (OnAbility != null)
 				{
 					OnAbility();
@@ -191,7 +191,7 @@ public class AbilityUtility : AbilityBase
             else if (utility.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
                 DamageDealerP2();
-                SoundManager.PlaySound(SoundManager.Sound.ghiaccio);
+                SoundManager.PlaySound(SoundManager.Sound.utilityAbility);
                 if (OnAbility != null)
 				{
 					OnAbility();
@@ -207,7 +207,7 @@ public class AbilityUtility : AbilityBase
             else if (utility.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
                 DamageUtilityP2();
-                SoundManager.PlaySound(SoundManager.Sound.ghiaccio);
+                SoundManager.PlaySound(SoundManager.Sound.utilityAbility);
                 if (OnAbility != null)
 				{
 					OnAbility();
