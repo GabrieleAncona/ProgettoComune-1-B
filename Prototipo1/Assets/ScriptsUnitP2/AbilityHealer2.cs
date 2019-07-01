@@ -149,7 +149,7 @@ public class AbilityHealer2 : AbilityBase
                 GameObject gameObject = Instantiate(GameManager.singleton.vfx.vfxHealerHeal, new Vector3(tankP2.x, 0.3f, tankP2.y), Quaternion.identity);
                 ///attivo clone instanziato
                 gameObject.SetActive(true);
-                SoundManager.PlaySound(SoundManager.Sound.curaHealer);
+                SoundManager.PlaySound(SoundManager.Sound.tankAttack);
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
@@ -164,7 +164,7 @@ public class AbilityHealer2 : AbilityBase
                 GameObject gameObject = Instantiate(GameManager.singleton.vfx.vfxHealerHeal, new Vector3(utilityP2.x, 0.3f, utilityP2.y), Quaternion.identity);
                 ///attivo clone instanziato
                 gameObject.SetActive(true);
-                SoundManager.PlaySound(SoundManager.Sound.curaHealer);
+                SoundManager.PlaySound(SoundManager.Sound.tankAttack);
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
@@ -179,7 +179,7 @@ public class AbilityHealer2 : AbilityBase
                 GameObject gameObject = Instantiate(GameManager.singleton.vfx.vfxHealerHeal, new Vector3(dealerP2.x, 0.3f, dealerP2.y), Quaternion.identity);
                 ///attivo clone instanziato
                 gameObject.SetActive(true);
-                SoundManager.PlaySound(SoundManager.Sound.curaHealer);
+                SoundManager.PlaySound(SoundManager.Sound.tankAttack);
                 GameManager.singleton.acm.isActionHealer2 = false;
                 GameManager.singleton.sc2.isHealerUsable2 = false;
                 yield return new WaitForSeconds(2f);
@@ -278,7 +278,7 @@ public class AbilityHealer2 : AbilityBase
                 if (lm.lifeHealerPlayer2 < lm.lifeMaxHealerPlayer2)
                 {
                     lm.lifeHealerPlayer2 += heal;
-                    SoundManager.PlaySound(SoundManager.Sound.curaHealer);
+                    SoundManager.PlaySound(SoundManager.Sound.tankAttack);
                     isAbility = false;
                     selectionP2.isActiveHealerP2 = false;
                     //riabilito input controller per i movimenti(wasd)

@@ -7,25 +7,24 @@ public static class SoundManager {
 
     public enum Sound
     {
-        curaHealer,
-        esplosione,
-        fireball,
-        ghiaccio,
-        tankAbility,
-        swingMelee,
-        tankDie,
-        maleDie,
-        healerDie,
-        utilityDie,
-        meleeAndVoice,
-        confirm,
         tankVoice,
-        healerVoice,
+        tankAttack,
+        tankAbility,
+        tankDie,
         utilityVoice,
+        utilityAttack,
+        utilityAbility,
+        utilityDie,
         dealerVoice,
-
-
-
+        dealerAttack,
+        dealerAbility,
+        esplosione,
+        dealerDie,
+        healerVoice,
+        healerAttack,
+        healerAbility,
+        healerDie,
+        confirm,
     }
     public static void PlaySound(Sound sound)
     {

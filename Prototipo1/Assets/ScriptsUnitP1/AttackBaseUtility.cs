@@ -140,6 +140,7 @@ public class AttackBaseUtility : AttackBase
 				{
 					OnAttack();
 				}
+                SoundManager.PlaySound(SoundManager.Sound.utilityAttack);
                 // Shoot();
                 //yield return new WaitForSeconds(0.5f);
                 //GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxUtilityHit, new Vector3(tankP2.x, 0.3f, tankP2.y), Quaternion.identity);
@@ -164,6 +165,7 @@ public class AttackBaseUtility : AttackBase
 				{
 					OnAttack();
 				}
+                SoundManager.PlaySound(SoundManager.Sound.utilityAttack);
                 //Shoot();
                 //yield return new WaitForSeconds(0.5f);
                 //GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxUtilityHit, new Vector3(healerP2.x, 0.3f, healerP2.y), Quaternion.identity);
@@ -187,6 +189,7 @@ public class AttackBaseUtility : AttackBase
 				{
 					OnAttack();
 				}
+                SoundManager.PlaySound(SoundManager.Sound.utilityAttack);
                 //Shoot();
                 //yield return new WaitForSeconds(0.5f);
                 //GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxUtilityHit, new Vector3(utilityP2.x, 0.3f, utilityP2.y), Quaternion.identity);
@@ -210,6 +213,7 @@ public class AttackBaseUtility : AttackBase
 				{
 					OnAttack();
 				}
+                SoundManager.PlaySound(SoundManager.Sound.utilityAttack);
                 //Shoot();
                 //yield return new WaitForSeconds(0.5f);
                 //GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxUtilityHit, new Vector3(dealerP2.x, 0.3f, dealerP2.y), Quaternion.identity);

@@ -173,7 +173,7 @@ public class AbilityUtility2 : AbilityBase
                 {
                     OnAbility();
                 }
-                SoundManager.PlaySound(SoundManager.Sound.ghiaccio);
+                SoundManager.PlaySound(SoundManager.Sound.utilityAbility);
                 //tankP1.transform.DOShakePosition(2f, strength, vibrato);
                 utilityP2.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionUtility2 = false;
@@ -190,7 +190,7 @@ public class AbilityUtility2 : AbilityBase
                 {
                     OnAbility();
                 }
-                SoundManager.PlaySound(SoundManager.Sound.ghiaccio);
+                SoundManager.PlaySound(SoundManager.Sound.utilityAbility);
                 //healerP1.transform.DOShakePosition(2f, strength, vibrato);
                 utilityP2.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionUtility2 = false;
@@ -207,7 +207,7 @@ public class AbilityUtility2 : AbilityBase
                 {
                     OnAbility();
                 }
-                SoundManager.PlaySound(SoundManager.Sound.ghiaccio);
+                SoundManager.PlaySound(SoundManager.Sound.utilityAbility);
                 //utilityP1.transform.DOShakePosition(2f, strength, vibrato);
                 utilityP2.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionUtility2 = false;
@@ -224,7 +224,7 @@ public class AbilityUtility2 : AbilityBase
                 {
                     OnAbility();
                 }
-                SoundManager.PlaySound(SoundManager.Sound.ghiaccio);
+                SoundManager.PlaySound(SoundManager.Sound.utilityAbility);
                 //dealerP1.transform.DOShakePosition(2f, strength, vibrato);
                 utilityP2.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionUtility2 = false;

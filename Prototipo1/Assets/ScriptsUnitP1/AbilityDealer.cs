@@ -91,7 +91,7 @@ public class AbilityDealer : AbilityBase
 			{
 				OnAbility();
 			}
-           SoundManager.PlaySound(SoundManager.Sound.fireball);
+           SoundManager.PlaySound(SoundManager.Sound.dealerAbility);
             isAbility = false;
             selection.isActiveDealer = false;
             selection.contSelectionP1 = 4;
