@@ -5,9 +5,11 @@ using DG.Tweening;
 
 public class ActionMenùState : StateBehaviourBase
 {
+    private string m_MyTrigger = "GoToActionMenu";
 
     public override void OnEnter()
     {
+        previousStateTrigger = m_MyTrigger;
         //Debug.LogFormat("SetupState {0} in Init_State", ctx.SetupDone);
         GameManager.singleton.acm.isActionMenu = true;
         //ctx.previousState = "ActionMenuState";

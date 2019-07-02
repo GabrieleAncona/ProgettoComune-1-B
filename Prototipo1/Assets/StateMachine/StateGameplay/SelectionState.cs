@@ -5,6 +5,7 @@ using UnityEngine;
 public class SelectionState : StateBehaviourBase
 {
     public IntellGamePad intellgamepad;
+    public string m_MyTrigger = "GoToSelection";
 
     public override void OnEnter()
     {
@@ -12,6 +13,7 @@ public class SelectionState : StateBehaviourBase
 
         ///disattivare canvas
         //ctx.previousState = "SelectionState";
+        previousStateTrigger = m_MyTrigger;
 
         /// GameManager.singleton.hudUnit.isActive = true;
         //GameManager.singleton.InitSM();

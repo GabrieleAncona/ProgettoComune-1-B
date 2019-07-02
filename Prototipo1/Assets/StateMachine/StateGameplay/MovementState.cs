@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovementState : StateBehaviourBase
 {
-    public string m_MyTrigger = "GoToMovement";
+    private string m_MyTrigger = "GoToMovement";
     
 
     public override void OnEnter()
@@ -14,7 +14,7 @@ public class MovementState : StateBehaviourBase
         previousStateTrigger = m_MyTrigger;
 
 
-        Debug.Log(ctx.previousState.MyTrigger);
+        //Debug.Log(ctx.previousState.MyTrigger);
         ///disattivare canvas
 
         GameManager.singleton.acm.isMovement = true;
