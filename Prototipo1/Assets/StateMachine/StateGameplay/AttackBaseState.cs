@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class AttackBaseState : StateBehaviourBase
 {
-    
+    private string m_MyTrigger = "GoToAttack";
 
     public override void OnEnter()
     {
         //Debug.LogFormat("SetupState {0} in Init_State", ctx.SetupDone);
         //ctx.previousState = "AttackBaseState";
+        previousStateTrigger = m_MyTrigger;
 
         if (GameManager.singleton.acm.menuActionPlayer1.activeSelf == true)
         {

@@ -7,8 +7,6 @@ public class OptionState : StateBehaviourBase
     public override void OnEnter()
     {
         GameManager.singleton.mc.panelPause.SetActive(true);
-
-        
     }
 
     public override void OnUpdate()
@@ -16,7 +14,6 @@ public class OptionState : StateBehaviourBase
         if (Input.GetKeyDown(GameManager.singleton.mc.pauseButton) && GameManager.singleton.mc.isActivePause == true)
         {
             GameManager.singleton.stateMachine.SMController.SetTrigger(StateBehaviourBase.previousStateTrigger);
-
         }
     }
 
@@ -25,8 +22,5 @@ public class OptionState : StateBehaviourBase
         GameManager.singleton.mc.panelPause.SetActive(false);
         GameManager.singleton.mc.isActivePause = false;
     }
-
-
-
 }
 

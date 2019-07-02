@@ -9,13 +9,8 @@ public class StateBehaviourBase : StateMachineBehaviour
 
     public class Context
     {
-
-       
-
         public bool SetupDone;
         public Player currentPlayer;
-        public string currentState;
-        //public string previousState = "";
         public StateBehaviourBase previousState = new StateBehaviourBase();
     }
 
@@ -56,11 +51,4 @@ public class StateBehaviourBase : StateMachineBehaviour
         OnExit();
     }
     public virtual void OnExit() { }
-
-    public string MyTrigger;
-
-    public void SetMyTriggerString(string _MyString)
-    {
-        MyTrigger = _MyString;
-    }
 }

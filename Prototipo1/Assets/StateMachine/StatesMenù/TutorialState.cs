@@ -16,13 +16,13 @@ public class TutorialState : StateBehaviourBase
         ChangeSlide();
         if (Input.GetKeyDown(GameManager.singleton.mc.helpButton) && GameManager.singleton.mc.isActiveTutorial == true)
         {
-            GameManager.singleton.mc.isActiveTutorial = false;
-            GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+            GameManager.singleton.stateMachine.SMController.SetTrigger(StateBehaviourBase.previousStateTrigger);
         }
     }
 
     public override void OnExit()
     {
+        GameManager.singleton.mc.isActiveTutorial = false;
         GameManager.singleton.mc.panelGeneralTutorial.SetActive(false);
         contSlide = 1;
     }

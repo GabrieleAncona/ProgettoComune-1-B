@@ -13,61 +13,61 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: GoToSelection
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: GoToActionMenu
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: GoToAbility
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: GoToAttack
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: GoToMovement
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: GoToMainMenu
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: GoToEndTurn
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: GoToOption
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: GoToTutorial
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32d06b228cccc3b47b0f0ce9cc591e27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyTrigger: 
+  m_MyTrigger: GoToSelection
 --- !u!114 &114050996379587842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -104,8 +104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8579e861ec1148b4aa59973b69530dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyTrigger: GoToMovement
-  m_MyTrigger: GoToMovement
 --- !u!114 &114052478089984670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,7 +137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ffc04c28535674d8abd1c48e9e0500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyTrigger: 
 --- !u!114 &114138613496906734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -151,7 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7fce1c0112968e479164cd752b3805d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyTrigger: 
 --- !u!114 &114317290462275594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -163,7 +159,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1037acadb9a4e1041ae5a69437c17b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyTrigger: 
 --- !u!114 &114452244135036652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -175,7 +170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cef0f8cbaadd10a46b04aae5e9967678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyTrigger: 
 --- !u!114 &114508656287841318
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -187,7 +181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e2262d86acdb7340b9c30737e17c407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyTrigger: 
 --- !u!114 &114586313211128464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -199,7 +192,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3434ce0857935104c8eef757c10ccb1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyTrigger: 
 --- !u!114 &114817920547729946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -222,7 +214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aae9692639b73e4989428b89bae7677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyTrigger: 
 --- !u!114 &114846547442004712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -234,7 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1037acadb9a4e1041ae5a69437c17b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyTrigger: 
 --- !u!114 &114931265684647282
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -246,7 +236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc1b8fa14fbab58479f5276f2fc2f316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyTrigger: 
   contSlide: 1
 --- !u!1101 &1101015445399167440
 AnimatorStateTransition:

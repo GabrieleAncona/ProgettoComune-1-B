@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class AbilityState : StateBehaviourBase
 {
-    
+    private string m_MyTrigger = "GoToAbility";
 
     public override void OnEnter()
     {
         //Debug.LogFormat("SetupState {0} in Init_State", ctx.SetupDone);
         //ctx.previousState = "AbilityState";
+        previousStateTrigger = m_MyTrigger;
 
         if (GameManager.singleton.acm.menuActionPlayer1.activeSelf == true)
         {
