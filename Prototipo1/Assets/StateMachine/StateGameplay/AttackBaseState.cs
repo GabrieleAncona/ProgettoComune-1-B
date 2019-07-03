@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class AttackBaseState : StateBehaviourBase
 {
@@ -32,7 +33,26 @@ public class AttackBaseState : StateBehaviourBase
 
     public override void OnUpdate()
     {
-
+        if (GameManager.singleton.acm.menuActionPlayer1.activeSelf == true)
+        {
+            ButtonNavigation buttonNavigation = FindObjectOfType<ButtonNavigation>();
+            buttonNavigation.index = 1;
+            buttonNavigation.SwitchSprite();
+            buttonNavigation.text[3].SetActive(false);
+            buttonNavigation.text[2].SetActive(false);
+            buttonNavigation.text[1].SetActive(true);
+            buttonNavigation.text[0].SetActive(false);
+        }
+        if (GameManager.singleton.acm.menuActionPlayer2.activeSelf == true)
+        {
+            ButtonNavigation buttonNavigation = FindObjectOfType<ButtonNavigation>();
+            buttonNavigation.index = 1;
+            buttonNavigation.SwitchSprite();
+            buttonNavigation.text[3].SetActive(false);
+            buttonNavigation.text[2].SetActive(false);
+            buttonNavigation.text[1].SetActive(true);
+            buttonNavigation.text[0].SetActive(false);
+        }
     }
 
     public override void OnExit()
@@ -46,6 +66,18 @@ public class AttackBaseState : StateBehaviourBase
             ButtonNavigation buttonNavigation = FindObjectOfType<ButtonNavigation>();
             buttonNavigation.index = 1;
             buttonNavigation.ChangeImageButton();
+            if (buttonNavigation.activeatk == true)
+            {
+                //slide back attack button
+                RectTransform movedback = buttonNavigation.attack.GetComponent<RectTransform>();
+                RectTransform destback = buttonNavigation.slidebacktransform[1].GetComponent<RectTransform>();
+                Vector2 destination2Dback = new Vector2(movedback.anchoredPosition.x, destback.anchoredPosition.y);
+                movedback.DOLocalMoveY(destination2Dback.y, 0.4f).OnComplete(() =>
+                {
+                    Debug.Log("attack" + destination2Dback);
+                    buttonNavigation.activeatk = false;
+                });
+            }
         }
 
         if (GameManager.singleton.acm.menuActionPlayer2.activeSelf == true)
@@ -57,6 +89,18 @@ public class AttackBaseState : StateBehaviourBase
             ButtonNavigation buttonNavigation = FindObjectOfType<ButtonNavigation>();
             buttonNavigation.index = 1;
             buttonNavigation.ChangeImageButton();
+            if (buttonNavigation.activeatk == true)
+            {
+                //slide back attack button
+                RectTransform movedback = buttonNavigation.attack.GetComponent<RectTransform>();
+                RectTransform destback = buttonNavigation.slidebacktransform[1].GetComponent<RectTransform>();
+                Vector2 destination2Dback = new Vector2(movedback.anchoredPosition.x, destback.anchoredPosition.y);
+                movedback.DOLocalMoveY(destination2Dback.y, 0.4f).OnComplete(() =>
+                {
+                    Debug.Log("attack" + destination2Dback);
+                    buttonNavigation.activeatk = false;
+                });
+            }
         }
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class SelectionState : StateBehaviourBase
 {
     public IntellGamePad intellgamepad;
-    public string m_MyTrigger = "GoToSelection";
+    private string m_MyTrigger = "GoToSelection";
 
     public override void OnEnter()
     {
