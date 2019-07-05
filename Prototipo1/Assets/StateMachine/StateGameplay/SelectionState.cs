@@ -17,6 +17,7 @@ public class SelectionState : StateBehaviourBase
 
         /// GameManager.singleton.hudUnit.isActive = true;
         //GameManager.singleton.InitSM();
+        GameManager.singleton.acm.isSelection = true;
         if (ctx.currentPlayer.IdPlayer == 1)
         {
             GameManager.singleton.acm.menuActionPlayer1.SetActive(false);
@@ -106,5 +107,6 @@ public class SelectionState : StateBehaviourBase
                 GameManager.singleton.hudUnit2.GetComponent<HudUnitsManager>().isActive = false;
             }
         }
+        GameManager.singleton.acm.isSelection = false;
     }
 }

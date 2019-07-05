@@ -14,6 +14,7 @@ public class TurnManager : MonoBehaviour
     public bool isBlue;
     public GameObject blueTurn;
     public GameObject redTurn;
+    public bool isFightActive;
 
     // Use this for initialization
     void Start()
@@ -46,7 +47,7 @@ public class TurnManager : MonoBehaviour
             GameManager.singleton.acm.isActionDealer = true;
 
             ///attivo pannello 2 player e lo disattivo dopo 3 secondi
-            if (isRed == false)
+            if (isRed == false && GameManager.singleton.acm.isSelection == true)
             {
                 isRed = true;
                 redTurn.SetActive(true);
@@ -73,7 +74,7 @@ public class TurnManager : MonoBehaviour
             GameManager.singleton.acm.isActionDealer2 = true;
 
             ///attivo pannello 1 player e lo disattivo dopo 3 secondi
-            if (isBlue == false)
+            if (isBlue == false && isFightActive == false && GameManager.singleton.acm.isSelection == true)
             {
                 isBlue = true;
                 blueTurn.SetActive(true);

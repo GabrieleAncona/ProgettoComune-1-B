@@ -92,7 +92,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32d06b228cccc3b47b0f0ce9cc591e27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MyTrigger: GoToSelection
 --- !u!114 &114050996379587842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -214,6 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aae9692639b73e4989428b89bae7677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
 --- !u!114 &114846547442004712
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -15,19 +15,21 @@ public class MainMenùController : MonoBehaviour {
     public GameObject panelTutorialButtons;
     public GameObject panelTutorialStat;
     public GameObject panelTutorialUnits;
+    public GameObject panelFight;
     public bool isActiveTutorial;
     public bool isActivePause;
 
 
     private void Awake()
     {
-        //panelGeneralTutorial.SetActive(true);
+        panelFight.SetActive(true);
     }
 
     public void Start()
     {
         SetupMainMenu();
-       // panelGeneralTutorial.SetActive(false);
+        // panelGeneralTutorial.SetActive(false);
+        panelFight.SetActive(false);
     }
 
     private void Update()
@@ -58,7 +60,7 @@ public class MainMenùController : MonoBehaviour {
         //menù.SetActive(false);
         //pause.SetActive(false);
         //menuIsActive = false;
-        GameManager.singleton.stateMachine.SMController.SetTrigger("GoToInit");
+        GameManager.singleton.stateMachine.SMController.SetTrigger("GoToTutorial");
     }
 
     public void Play()

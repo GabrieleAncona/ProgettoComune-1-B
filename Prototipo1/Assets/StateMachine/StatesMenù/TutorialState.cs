@@ -32,11 +32,11 @@ public class TutorialState : StateBehaviourBase
     /// </summary>
     public void IncreasedCont()
     {
-        if (Input.GetKeyDown(KeyCode.D) && contSlide < 3)
+        if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && contSlide < 3)
         {
             contSlide += 1;
         }
-        else if(Input.GetKeyDown(KeyCode.A) && contSlide > 1)
+        else if((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) && contSlide > 1)
         {
             contSlide -= 1;
         }

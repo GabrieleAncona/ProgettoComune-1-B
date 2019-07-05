@@ -4,22 +4,20 @@ using UnityEngine;
 
 public class InitState : StateBehaviourBase
 {
+    public float timer;
 
     public override void OnEnter()
     {
-        //Debug.LogFormat("SetupState {0} in Init_State", ctx.SetupDone);
-
-        ///disattivare canvas
-
+        GameManager.singleton.tm.isFightActive = true;
         GameManager.singleton.mc.Play();
-        //GameManager.singleton.InitSM();
-        
-        
+        GameManager.singleton.mc.panelFight.SetActive(true);
+        timer = 0;
     }
 
     public override void OnUpdate()
     {
-        if (GameManager.singleton.mc.menuIsActive == false)
+        timer += Time.deltaTime;
+        if (GameManager.singleton.mc.menuIsActive == false && timer >= 3)
         {
             GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
         }
@@ -27,7 +25,10 @@ public class InitState : StateBehaviourBase
 
     public override void OnExit()
     {
-
+        GameManager.singleton.mc.panelFight.SetActive(false);
+        timer = 0;
+        //GameManager.singleton.tm.blueTurn.SetActive(true);
+        GameManager.singleton.tm.isFightActive = false;
     }
 
 
