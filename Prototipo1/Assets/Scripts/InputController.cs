@@ -15,6 +15,8 @@ public class InputController : MonoBehaviour {
     public KeyCode RightButton;
     public KeyCode PassButton;
     public TurnManager turn;
+    public GameObject OptionMenu;
+    public GameObject Tutorial;
 
     public AttackBase1 attTankP1;
     public AttackBase2 attTankP2;
@@ -114,14 +116,14 @@ public class InputController : MonoBehaviour {
         }
 
         ///funzione per tornare al menu di azione da uno stato qualsialsi di action
-        if (Input.GetKeyDown(KeyCode.Tab) && GameManager.singleton._player.IdPlayer == 1 && GameManager.singleton.sc.isSelectionActive == false && GameManager.singleton.acm.isActionMenu == false)
+        if (Input.GetKeyDown(KeyCode.Tab) && GameManager.singleton._player.IdPlayer == 1 && GameManager.singleton.sc.isSelectionActive == false && GameManager.singleton.acm.isActionMenu == false && OptionMenu.activeSelf == false && Tutorial.activeSelf == false)
         {
             Debug.Log("funziona input");
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
            /// GameManager.singleton.buttNav.ResetImageButton();
         }
 
-        if (Input.GetKeyDown(KeyCode.Backspace) && GameManager.singleton._player.IdPlayer == 2 && GameManager.singleton.sc2.isSelectionActive == false && GameManager.singleton.acm.isActionMenu == false)
+        if (Input.GetKeyDown(KeyCode.Backspace) && GameManager.singleton._player.IdPlayer == 2 && GameManager.singleton.sc2.isSelectionActive == false && GameManager.singleton.acm.isActionMenu == false && OptionMenu.activeSelf == false && Tutorial.activeSelf == false)
         {
             Debug.Log("funziona input");
             GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");

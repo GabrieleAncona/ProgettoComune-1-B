@@ -272,6 +272,7 @@ public class PositionDealer : MovementBase
         {
             //gameObject.SetActive(false);
             isDead = true;
+            lm.lifeDealer = 0;
             if (OnDeath != null)
             {
                 OnDeath();

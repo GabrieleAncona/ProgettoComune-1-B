@@ -323,6 +323,7 @@ public class PositionHealer : MovementBase
 
             //gameObject.SetActive(false);
             isDead = true;
+            lm.lifeHealer = 0;
             if (OnDeath != null)
             {
                 OnDeath();
