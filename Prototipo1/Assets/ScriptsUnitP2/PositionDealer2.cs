@@ -267,10 +267,11 @@ public class PositionDealer2 : MovementBase
 
     public void Death() {
 
-        if (lm.lifeDealerPlayer2 == 0) {
+        if (lm.lifeDealerPlayer2 <= 0) {
 
             gameObject.SetActive(false);
             isDead = true;
+            lm.lifeDealerPlayer2 = 0;
             if (OnDeath != null)
             {
                 OnDeath();

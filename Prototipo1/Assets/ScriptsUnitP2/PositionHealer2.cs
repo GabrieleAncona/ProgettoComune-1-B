@@ -281,6 +281,7 @@ public class PositionHealer2 : MovementBase
 
             gameObject.SetActive(false);
             isDead = true;
+            lm.lifeHealerPlayer2 = 0;
             if (OnDeath != null)
             {
                 OnDeath();

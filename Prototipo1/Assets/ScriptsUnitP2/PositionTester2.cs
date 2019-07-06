@@ -270,10 +270,11 @@ public class PositionTester2 : MovementBase
 
     public void Death() {
 
-        if (lm.lifeTankPlayer2 == 0) {
+        if (lm.lifeTankPlayer2 <= 0) {
 
             gameObject.SetActive(false);
             isDead = true;
+            lm.lifeTankPlayer2 = 0;
             if (OnDeath != null)
             {
                 OnDeath();

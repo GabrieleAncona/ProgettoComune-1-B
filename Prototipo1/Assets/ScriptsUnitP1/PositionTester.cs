@@ -314,6 +314,7 @@ public class PositionTester : MovementBase
         {
             //gameObject.SetActive(false);
             isDead = true;
+            lm.lifeTank = 0;
             if (OnDeath != null)
             {
                 OnDeath();

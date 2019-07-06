@@ -263,6 +263,7 @@ public class PositionUtility2 : MovementBase
 
             gameObject.SetActive(false);
             isDead = true;
+            lm.lifeUtilityPlayer2 = 0;
             if (OnDeath != null)
             {
                 OnDeath();
