@@ -60,7 +60,7 @@ public class MainMenùController : MonoBehaviour {
         //menù.SetActive(false);
         //pause.SetActive(false);
         //menuIsActive = false;
-        GameManager.singleton.stateMachine.SMController.SetTrigger("GoToTutorial");
+        GameManager.singleton.stateMachine.SMController.SetTrigger("GoToInit");
     }
 
     public void Play()
