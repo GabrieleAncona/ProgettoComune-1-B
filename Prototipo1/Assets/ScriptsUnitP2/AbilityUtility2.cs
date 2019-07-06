@@ -249,7 +249,7 @@ public class AbilityUtility2 : AbilityBase
 
         public void DamageTankP1()
         {
-        gameObjectVfx = Instantiate(GameManager.singleton.vfx.vfxUtilityAb, new Vector3(tankP1.x, 1, tankP1.y), Quaternion.identity);
+        gameObjectVfx = Instantiate(GameManager.singleton.vfx.vfxUtilityAb, new Vector3(tankP1.x, 0, tankP1.y), Quaternion.identity);
         lm.lifeTank -= att;
             isAbility = false;
             gameObject.GetComponent<InputController>().enabled = true;
@@ -263,7 +263,7 @@ public class AbilityUtility2 : AbilityBase
 
         public void DamageHealerP1()
         {
-        gameObjectVfx = Instantiate(GameManager.singleton.vfx.vfxUtilityAb, new Vector3(healerP1.x, 1, healerP1.y), Quaternion.identity);
+        gameObjectVfx = Instantiate(GameManager.singleton.vfx.vfxUtilityAb, new Vector3(healerP1.x, 0, healerP1.y), Quaternion.identity);
         lm.lifeHealer -= att;
             isAbility = false;
             gameObject.GetComponent<InputController>().enabled = true;
@@ -276,7 +276,7 @@ public class AbilityUtility2 : AbilityBase
 
         public void DamageUtilityP1()
         {
-        gameObjectVfx = Instantiate(GameManager.singleton.vfx.vfxUtilityAb, new Vector3(utilityP1.x, 1, utilityP1.y), Quaternion.identity);
+        gameObjectVfx = Instantiate(GameManager.singleton.vfx.vfxUtilityAb, new Vector3(utilityP1.x, 0, utilityP1.y), Quaternion.identity);
         lm.lifeUtility -= att;
             isAbility = false;
             gameObject.GetComponent<InputController>().enabled = true;
@@ -290,7 +290,7 @@ public class AbilityUtility2 : AbilityBase
 
         public void DamageDealerP1()
         {
-        gameObjectVfx = Instantiate(GameManager.singleton.vfx.vfxUtilityAb, new Vector3(dealerP1.x, 1, dealerP1.y), Quaternion.identity);
+        gameObjectVfx = Instantiate(GameManager.singleton.vfx.vfxUtilityAb, new Vector3(dealerP1.x, 0, dealerP1.y), Quaternion.identity);
         lm.lifeDealer -= att;
             isAbility = false;
             gameObject.GetComponent<InputController>().enabled = true;

@@ -278,7 +278,7 @@ public class AbilityUtility : AbilityBase
 
     public void DamageTankP2()
     {
-        gameObjectVfx = Instantiate(GameManager.singleton.vfx.vfxUtilityAb, new Vector3(tankP2.x, 1, tankP2.y), Quaternion.identity);
+        gameObjectVfx = Instantiate(GameManager.singleton.vfx.vfxUtilityAb, new Vector3(tankP2.x, 0, tankP2.y), Quaternion.identity);
         lm.lifeTankPlayer2 -= att;
         //turn.isTurn = false;
         isAbility = false;
@@ -291,7 +291,7 @@ public class AbilityUtility : AbilityBase
 
     public void DamageHealerP2()
     {
-        gameObjectVfx = Instantiate(GameManager.singleton.vfx.vfxUtilityAb, new Vector3(healerP2.x, 1, healerP2.y), Quaternion.identity);
+        gameObjectVfx = Instantiate(GameManager.singleton.vfx.vfxUtilityAb, new Vector3(healerP2.x, 0, healerP2.y), Quaternion.identity);
         lm.lifeHealerPlayer2 -= att;
         //turn.isTurn = false;
         isAbility = false;
@@ -304,7 +304,7 @@ public class AbilityUtility : AbilityBase
 
     public void DamageUtilityP2()
     {
-        gameObjectVfx = Instantiate(GameManager.singleton.vfx.vfxUtilityAb, new Vector3(utilityP2.x, 1, utilityP2.y), Quaternion.identity);
+        gameObjectVfx = Instantiate(GameManager.singleton.vfx.vfxUtilityAb, new Vector3(utilityP2.x, 0, utilityP2.y), Quaternion.identity);
         lm.lifeUtilityPlayer2 -= att;
        // turn.isTurn = false;
         isAbility = false;
@@ -318,7 +318,7 @@ public class AbilityUtility : AbilityBase
 
     public void DamageDealerP2()
     {
-        gameObjectVfx = Instantiate(GameManager.singleton.vfx.vfxUtilityAb, new Vector3(dealerP2.x, 1, dealerP2.y), Quaternion.identity);
+        gameObjectVfx = Instantiate(GameManager.singleton.vfx.vfxUtilityAb, new Vector3(dealerP2.x, 0, dealerP2.y), Quaternion.identity);
         lm.lifeDealerPlayer2 -= att;
         //turn.isTurn = false;
         isAbility = false;
