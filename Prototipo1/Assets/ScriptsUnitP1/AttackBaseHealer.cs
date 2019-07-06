@@ -49,6 +49,7 @@ public class AttackBaseHealer : AttackBase
     void Start()
     {
         selection = FindObjectOfType<SelectionController>();
+        tankP1 = FindObjectOfType<PositionTester>();
         healerP1 = FindObjectOfType<PositionHealer>();
         tankP2 = FindObjectOfType<PositionTester2>();
         healerP2 = FindObjectOfType<PositionHealer2>();
@@ -149,16 +150,16 @@ public class AttackBaseHealer : AttackBase
         // tanks
         if (Input.GetKeyDown(KeyCode.Space)  && isAttackHealer == true  && healerP1.isUnitEnemie == true)
         {
-            if (healerP2.hit.transform.gameObject.GetComponent<PositionTester2>())
+            if (healerP1.hit.transform.gameObject.GetComponent<PositionTester2>())
             {
 
                 ///hitUnits.transform.gameObject.GetComponent<UnitController>().pedina.life -= GameManager.singleton.lm.DamageAttack(units.damageAttackBase);
                 DamageTankP2();
+                Shoot();
                 if (OnAttack != null)
 				{
 					OnAttack();
 				}
-                Shoot();
                 SoundManager.PlaySound(SoundManager.Sound.healerAttack);
                 yield return new WaitForSeconds(0.5f);
                 GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxHealerHit, new Vector3(tankP2.x, 0.3f, tankP2.y), Quaternion.identity);
@@ -177,7 +178,8 @@ public class AttackBaseHealer : AttackBase
                     ab.Counter = 0;
                 }
             }
-            else if (healerP2.hit.transform.gameObject.GetComponent<PositionHealer2>())
+
+            else if (healerP1.hit.transform.gameObject.GetComponent<PositionHealer2>())
             {
                 DamageHealerP2();
 				if (OnAttack != null)
@@ -203,7 +205,7 @@ public class AttackBaseHealer : AttackBase
                     ab.Counter = 0;
                 }
             }
-            else if (healerP2.hit.transform.gameObject.GetComponent<PositionUtility2>())
+            else if (healerP1.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
                 DamageUtilityP2();
 				if (OnAttack != null)
@@ -229,7 +231,7 @@ public class AttackBaseHealer : AttackBase
                     ab.Counter = 0;
                 }
             }
-            else if (healerP2.hit.transform.gameObject.GetComponent<PositionDealer2>())
+            else if (healerP1.hit.transform.gameObject.GetComponent<PositionDealer2>())
             {
                 DamageDealerP2();
 				if (OnAttack != null)
