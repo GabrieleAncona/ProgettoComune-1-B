@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public GameObject hudUnit2;
     public ButtonNavigation buttNav;
     public VfxManager vfx;
+    public Animator animDragon;
 
     //StateBehaviourBase.Context contextPlayer2 = new StateBehaviourBase.Context();
 

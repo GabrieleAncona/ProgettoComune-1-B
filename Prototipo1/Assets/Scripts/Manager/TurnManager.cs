@@ -50,7 +50,7 @@ public class TurnManager : MonoBehaviour
             {
                 isRed = true;
                 redTurn.SetActive(true);
-                yield return new WaitForSeconds(3f);
+                yield return new WaitForSeconds(2f);
                 redTurn.SetActive(false);
             }
            
@@ -76,7 +76,7 @@ public class TurnManager : MonoBehaviour
             {
                 isBlue = true;
                 blueTurn.SetActive(true);
-                yield return new WaitForSeconds(3f);
+                yield return new WaitForSeconds(2f);
                 blueTurn.SetActive(false);
             }
         }

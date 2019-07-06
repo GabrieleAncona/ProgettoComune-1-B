@@ -16,15 +16,18 @@ public class StateBehaviourBase : StateMachineBehaviour
 
     protected Context ctx;
 
-    public void Setup(Context _ctx)
+
+    public void Setup(Context _ctx )
     {
         ctx = _ctx;
+
     }
 
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         OnEnter();
+      
     }
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex, AnimatorControllerPlayable controller)
     {
