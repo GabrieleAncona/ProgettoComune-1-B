@@ -33,7 +33,6 @@ public class TurnManager : MonoBehaviour
         {
             ///azzero variabile per scritta turno
             isBlue = false;
-            SendMessage("RotationCameraPlayer2");
             ///resetto utizzabilità pedine player1
             GameManager.singleton.sc.isTankUsable = true;
             GameManager.singleton.sc.isHealerUsable = true;
@@ -61,7 +60,6 @@ public class TurnManager : MonoBehaviour
             ///azzero variabile per scritta turno
             isRed = false;
             ///resetto utizzabilità pedine player2
-            SendMessage("RotationCameraPlayer1");
             GameManager.singleton.sc2.isTankUsable2 = true;
             GameManager.singleton.sc2.isHealerUsable2 = true;
             GameManager.singleton.sc2.isUtilityUsable2 = true;

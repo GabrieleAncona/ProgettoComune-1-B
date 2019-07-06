@@ -3,41 +3,61 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class CameraRotation : MonoBehaviour {
-
+public class CameraRotation : MonoBehaviour
+{
     public Transform cam;
     public PathType pathsystem = PathType.CatmullRom;
-
+    public float timer;
     public Vector3[] pathval1 = new Vector3[3];
     public Vector3[] pathval2 = new Vector3[3];
 
     public bool FirstVisual;
 
     // Use this for initialization
-    void Start () {
-       
-       //cam.transform.DOLookAt(new Vector3(5.5f, 0, 5.5f), 1);
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        cam.transform.DOLookAt(new Vector3(5.5f,0, 5.5f) , 1);
-        //cam.transform.DOPath(pathval, 3, pathsystem);
-        Camera();
+    void Start()
+    {
+        timer = 0f;
+        //cam.transform.DOLookAt(new Vector3(5.5f, 0, 5.5f), 1);
     }
 
-    public void Camera()
+    // Update is called once per frame
+    void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) && (FirstVisual==true))
+        cam.transform.DOLookAt(new Vector3(5.5f, 0, 5.5f), 1);
+        //cam.transform.DOPath(pathval, 3, pathsystem);
+        CameraPlayer1();
+        CameraPlayer2();
+    }
+
+    public void CameraPlayer1()
+    {
+        if (Input.GetKey(KeyCode.Tab) && (FirstVisual == true))
         {
-            cam.transform.DOPath(pathval1, 3, pathsystem);
-            FirstVisual = false;
+            timer += Time.deltaTime;
+            if (timer >= 2.8f)
+            {
+                cam.transform.DOPath(pathval1, 3, pathsystem);
+                FirstVisual = false;
+                timer = 0f;
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.Tab) && (FirstVisual == false))
+
+    }
+
+    public void CameraPlayer2()
+    {
+        if (Input.GetKey(KeyCode.Backspace) && (FirstVisual == false))
         {
-            cam.transform.DOPath(pathval2, 3, pathsystem);
-            FirstVisual = true;
+            timer += Time.deltaTime;
+            if (timer >= 2.8f)
+            {
+                cam.transform.DOPath(pathval2, 3, pathsystem);
+                FirstVisual = true;
+                timer = 0f;
+            }
         }
+    }
+}
         /*else if (Input.GetKeyDown(KeyCode.T) && GameManager.singleton._player.IdPlayer == 1 && FirstVisual == true)
         {
             cam.transform.DOPath(pathval2, 3, pathsystem);
@@ -100,5 +120,6 @@ public class CameraRotation : MonoBehaviour {
                 }
 
                 coroutineAllowed = true;*/
-    }
-}
+    
+
+
