@@ -188,9 +188,6 @@ public class AbilityTank : AbilityBase
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 Counter = 0;
-               
-                
-			
             }
             else if (tank.hit.transform.gameObject.GetComponent<PositionUtility2>())
             {
@@ -335,7 +332,7 @@ public class AbilityTank : AbilityBase
                 tank.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
                 //tank.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
             }
-            else if (isAttDown== true) {
+            else if (isAttDown == true) {
                 //tank.transform.position = grid.GetWorldPosition(tank.x, tank.y);
                 tank.transform.position = grid.GetWorldPosition(tank.x++, tank.y);
                 tank.transform.DOMoveX(tank.x, duration).SetAutoKill(false);

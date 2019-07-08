@@ -45,7 +45,7 @@ public class SelectionController : MonoBehaviour {
         turn = FindObjectOfType<TurnManager>();
         tankP1 = FindObjectOfType<PositionTester>();
         healerP1 = FindObjectOfType<PositionHealer>();
-        contSelectionP1 = 1;
+        contSelectionP1 = 0;
         transform.position = grid.GetWorldPosition(x,y);
         gameObject.GetComponent<MeshRenderer>().enabled = false;
         selector.SetActive(false);

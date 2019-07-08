@@ -6,7 +6,7 @@ using System;
 /// <summary>
 /// Classe che contiene la struttura dati dei gamepad
 /// </summary>
-public class IntellGamePad {
+public class IntellGamePad : MonoBehaviour{
     #region Delegates
     public Action<IntellGamePad, Buttons> OnButtonPressed;
     public Action<IntellGamePad, Buttons> OnButtonHold;
@@ -74,8 +74,7 @@ public class IntellGamePad {
     public Settings currentSettings;
     public int ID;
     public GamePadState OldGamePadState;
-    public InputController input;
-    //isPress = FindObjectOfType<InputController>();
+    public bool isPress;
 
     public GamePadState CurrentGamePadState {
         get {
@@ -102,7 +101,8 @@ public class IntellGamePad {
         {
             OnButtonPressed?.Invoke(this, Buttons.X);
             ///bool true
-            //isPress = true;
+            isPress = true;
+            Debug.Log("dioporcoooooo");
         }
         else if (OldGamePadState.Buttons.X == ButtonState.Pressed && CurrentGamePadState.Buttons.X == ButtonState.Pressed)
         {
@@ -112,7 +112,8 @@ public class IntellGamePad {
         {
             OnButtonReleased?.Invoke(this, Buttons.X);
             ///bool false
-            //isPress = false;
+            isPress = false;
+            Debug.Log("dioporcoooooo");
         }
         //A Button
         if (OldGamePadState.Buttons.A == ButtonState.Released && CurrentGamePadState.Buttons.A == ButtonState.Pressed)

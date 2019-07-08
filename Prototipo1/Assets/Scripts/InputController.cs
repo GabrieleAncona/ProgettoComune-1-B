@@ -9,7 +9,6 @@ using TellInput;
 
 public class InputController : MonoBehaviour {
     public float timer;
-    public bool isPress;
 
     public KeyCode UpButton;
     public KeyCode DownButton;
@@ -41,6 +40,7 @@ public class InputController : MonoBehaviour {
 
     public InputTester inputPad;
     public InputChecker inputChecker;
+    public IntellGamePad intell;
 
     void Start()
     {
