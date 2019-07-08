@@ -316,7 +316,7 @@ MonoBehaviour:
   dealerP2: {fileID: 0}
   strength: 0
   vibrato: 0
-  Damage: 0
+  Damage: 4
   exploded: 0
 --- !u!198 &198346575205834974
 ParticleSystem:

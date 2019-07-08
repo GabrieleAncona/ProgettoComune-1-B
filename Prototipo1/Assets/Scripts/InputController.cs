@@ -4,7 +4,8 @@ using UnityEngine;
 using GridSystem;
 using DG.Tweening;
 using UnityEngine.UI;
-
+using XInputDotNetPure;
+using TellInput;
 
 public class InputController : MonoBehaviour {
     public float timer;
@@ -36,7 +37,9 @@ public class InputController : MonoBehaviour {
     public AbilityUtility2 abUtilityP2;
     public AbilityDealer abDealerP1;
     public AbilityDealer2 abDealerP2;
-    
+
+    public InputTester inputPad;
+    public InputChecker inputChecker;
 
     void Start()
     {
@@ -59,6 +62,9 @@ public class InputController : MonoBehaviour {
         abDealerP1 = FindObjectOfType<AbilityDealer>();
         abDealerP2 = FindObjectOfType<AbilityDealer2>();
 
+        inputPad = FindObjectOfType<InputTester>();
+        inputChecker = FindObjectOfType<InputChecker>();
+
     }
 
     // Update is called once per frame
@@ -69,7 +75,7 @@ public class InputController : MonoBehaviour {
         {
             ///left
             SendMessage("GoToLeft");
-           
+           Invoke.
       
         }
 
@@ -77,8 +83,6 @@ public class InputController : MonoBehaviour {
         {
             ///right
             SendMessage("GoToRight");
-           
-
 
         }
 
@@ -87,15 +91,12 @@ public class InputController : MonoBehaviour {
             ///up
             SendMessage("GoToUp");
            
-
-
         }
 
         if (Input.GetKeyDown(DownButton))
         {
             ///down
             SendMessage("GoToDown");
-           
 
         }
 

@@ -19,9 +19,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4366766514217252}
-  - component: {fileID: 65489461408699188}
-  - component: {fileID: 54976953216761104}
   - component: {fileID: 114546957264350384}
+  - component: {fileID: 65896701761827234}
+  - component: {fileID: 54610890891410882}
   m_Layer: 0
   m_Name: VFXDealerX
   m_TagString: Untagged
@@ -131,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1091687863218314}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.006, y: 0.046, z: 0.039}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4952671307710526}
@@ -166,7 +166,7 @@ Transform:
   m_Father: {fileID: 4948089761670642}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &54976953216761104
+--- !u!54 &54610890891410882
 Rigidbody:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,7 +181,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65489461408699188
+--- !u!65 &65896701761827234
 BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,8 +191,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.6812115, y: 9.514891, z: 0.57182646}
+  m_Center: {x: -0.020656586, y: -4.2574453, z: 0.0104801655}
 --- !u!114 &114546957264350384
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d0b1147db1a38409fcc410581d500f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 2
   tankP1: {fileID: 0}
   tankP2: {fileID: 0}
   healerP1: {fileID: 0}

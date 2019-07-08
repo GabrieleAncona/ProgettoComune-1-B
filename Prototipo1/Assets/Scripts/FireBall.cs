@@ -49,7 +49,7 @@ public class FireBall : MonoBehaviour
                     SoundManager.PlaySound(SoundManager.Sound.esplosione);
                     other.GetComponent<PositionTester2>().GetDamage(Damage);
                     //tankP2.transform.DOShakePosition(2f, strength, vibrato);
-                    tankP2.hit.transform.GetComponent<Player>().HitAnim();
+                    //tankP2.hit.transform.GetComponent<Player>().HitAnim();
                 }
                 else if (other.gameObject.GetComponent<PositionHealer2>())
                 {
@@ -57,7 +57,7 @@ public class FireBall : MonoBehaviour
                     SoundManager.PlaySound(SoundManager.Sound.esplosione);
                     other.GetComponent<PositionHealer2>().GetDamage(Damage);
                     //healerP2.transform.DOShakePosition(2f, strength, vibrato);
-                    healerP2.hit.transform.GetComponent<Player>().HitAnim();
+                   // healerP2.hit.transform.GetComponent<Player>().HitAnim();
                 }
                 else if (other.gameObject.GetComponent<PositionUtility2>())
                 {
@@ -65,7 +65,7 @@ public class FireBall : MonoBehaviour
                     SoundManager.PlaySound(SoundManager.Sound.esplosione);
                     other.GetComponent<PositionUtility2>().GetDamage(Damage);
                     //utilityP2.transform.DOShakePosition(2f, strength, vibrato);
-                    utilityP2.hit.transform.GetComponent<Player>().HitAnim();
+                   // utilityP2.hit.transform.GetComponent<Player>().HitAnim();
                 }
                 else if (other.gameObject.GetComponent<PositionDealer2>())
                 {
@@ -73,7 +73,7 @@ public class FireBall : MonoBehaviour
                     SoundManager.PlaySound(SoundManager.Sound.esplosione);
                     other.GetComponent<PositionDealer2>().GetDamage(Damage);
                     //dealerP2.transform.DOShakePosition(2f, strength, vibrato);
-                    dealerP2.hit.transform.GetComponent<Player>().HitAnim();
+                   // dealerP2.hit.transform.GetComponent<Player>().HitAnim();
                 }
                 spwanCross();
                 exploded = true;
@@ -86,7 +86,7 @@ public class FireBall : MonoBehaviour
                     SoundManager.PlaySound(SoundManager.Sound.esplosione);
                     other.GetComponent<PositionTester>().GetDamage(Damage);
                     //tankP1.transform.DOShakePosition(2f, strength, vibrato);
-                    tankP1.hit.transform.GetComponent<Player>().HitAnim();
+                   // tankP1.hit.transform.GetComponent<Player>().HitAnim();
                 }
                 else if (other.gameObject.GetComponent<PositionHealer>())
                 {
@@ -94,7 +94,7 @@ public class FireBall : MonoBehaviour
                     SoundManager.PlaySound(SoundManager.Sound.esplosione);
                     other.GetComponent<PositionHealer>().GetDamage(Damage);
                     //healerP1.transform.DOShakePosition(2f, strength, vibrato);
-                    healerP1.hit.transform.GetComponent<Player>().HitAnim();
+                    //healerP1.hit.transform.GetComponent<Player>().HitAnim();
                 }
                 else if (other.gameObject.GetComponent<PositionUtility>())
                 {
@@ -102,7 +102,7 @@ public class FireBall : MonoBehaviour
                     SoundManager.PlaySound(SoundManager.Sound.esplosione);
                     other.GetComponent<PositionUtility>().GetDamage(Damage);
                     //utilityP1.transform.DOShakePosition(2f, strength, vibrato);
-                    utilityP1.hit.transform.GetComponent<Player>().HitAnim();
+                    //utilityP1.hit.transform.GetComponent<Player>().HitAnim();
                 }
                 else if (other.gameObject.GetComponent<PositionDealer>())
                 {
@@ -110,7 +110,7 @@ public class FireBall : MonoBehaviour
                     SoundManager.PlaySound(SoundManager.Sound.esplosione);
                     other.GetComponent<PositionDealer>().GetDamage(Damage);
                     //dealerP1.transform.DOShakePosition(2f, strength, vibrato);
-                    dealerP1.hit.transform.GetComponent<Player>().HitAnim();
+                   // dealerP1.hit.transform.GetComponent<Player>().HitAnim();
                 }
                 spwanCross();
                 exploded = true;
