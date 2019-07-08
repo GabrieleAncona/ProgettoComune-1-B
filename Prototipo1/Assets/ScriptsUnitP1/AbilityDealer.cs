@@ -75,6 +75,10 @@ public class AbilityDealer : AbilityBase
         {
            selector.SetActive(false);
         }
+        else if (isAbility == true)
+        {
+            selector.SetActive(true);
+        }
     }
 
     IEnumerator PassTurn()

@@ -65,7 +65,7 @@ public class InputController : MonoBehaviour {
 
         inputPad = FindObjectOfType<InputTester>();
         inputChecker = FindObjectOfType<InputChecker>();
-
+        intell = FindObjectOfType<IntellGamePad>();
     }
 
     // Update is called once per frame
