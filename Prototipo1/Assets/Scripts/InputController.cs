@@ -75,7 +75,7 @@ public class InputController : MonoBehaviour {
         {
             ///left
             SendMessage("GoToLeft");
-           Invoke.
+        
       
         }
 
