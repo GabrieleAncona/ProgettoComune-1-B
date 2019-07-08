@@ -74,6 +74,8 @@ public class IntellGamePad {
     public Settings currentSettings;
     public int ID;
     public GamePadState OldGamePadState;
+    public InputController input;
+    //isPress = FindObjectOfType<InputController>();
 
     public GamePadState CurrentGamePadState {
         get {
@@ -99,6 +101,8 @@ public class IntellGamePad {
         if (OldGamePadState.Buttons.X == ButtonState.Released && CurrentGamePadState.Buttons.X == ButtonState.Pressed)
         {
             OnButtonPressed?.Invoke(this, Buttons.X);
+            ///bool true
+            //isPress = true;
         }
         else if (OldGamePadState.Buttons.X == ButtonState.Pressed && CurrentGamePadState.Buttons.X == ButtonState.Pressed)
         {
@@ -107,6 +111,8 @@ public class IntellGamePad {
         else if (OldGamePadState.Buttons.X == ButtonState.Pressed && CurrentGamePadState.Buttons.X == ButtonState.Released)
         {
             OnButtonReleased?.Invoke(this, Buttons.X);
+            ///bool false
+            //isPress = false;
         }
         //A Button
         if (OldGamePadState.Buttons.A == ButtonState.Released && CurrentGamePadState.Buttons.A == ButtonState.Pressed)

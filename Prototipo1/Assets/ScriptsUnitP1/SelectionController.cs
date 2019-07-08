@@ -34,22 +34,22 @@ public class SelectionController : MonoBehaviour {
 
     void Start()
     {
-      isTankUsable = true;
-      isHealerUsable = true;
-      isUtilityUsable = true;
-      isDealerUsable = true;
-    duration = 0.5f;
+        isTankUsable = true;
+        isHealerUsable = true;
+        isUtilityUsable = true;
+        isDealerUsable = true;
+        duration = 0.5f;
         dealerP1 = FindObjectOfType<PositionDealer>();
         utilityP1 = FindObjectOfType<PositionUtility>();
         Text = FindObjectOfType<HudManagerTest>();
         turn = FindObjectOfType<TurnManager>();
         tankP1 = FindObjectOfType<PositionTester>();
         healerP1 = FindObjectOfType<PositionHealer>();
-        contSelectionP1 = 0;
+        contSelectionP1 = 1;
         transform.position = grid.GetWorldPosition(x,y);
         gameObject.GetComponent<MeshRenderer>().enabled = false;
         selector.SetActive(false);
-
+       
     }
 
 
@@ -61,7 +61,6 @@ public class SelectionController : MonoBehaviour {
 
             selector.SetActive(false);
         }
-
         if(turn.isTurn == true)
         {
             selector.SetActive(true); ;
@@ -75,18 +74,21 @@ public class SelectionController : MonoBehaviour {
                 transform.DOMoveX(tankP1.x, duration).SetAutoKill(false);
                 transform.DOMoveZ(tankP1.y, duration).SetAutoKill(false);
             }
+
             else if (isActiveHealer == true)
             {
                 transform.position = grid.GetWorldPosition(healerP1.x, healerP1.y);
                 transform.DOMoveX(healerP1.x, duration).SetAutoKill(false);
                 transform.DOMoveZ(healerP1.y, duration).SetAutoKill(false); 
             }
+
             else if (isActiveUtility == true)
             {
                 transform.position = grid.GetWorldPosition(utilityP1.x, utilityP1.y);
                 transform.DOMoveX(utilityP1.x, duration).SetAutoKill(false);
                 transform.DOMoveZ(utilityP1.y, duration).SetAutoKill(false); 
             }
+
             else if (isActiveDealer == true)
             {
                 transform.position = grid.GetWorldPosition(dealerP1.x, dealerP1.y);
@@ -98,11 +100,9 @@ public class SelectionController : MonoBehaviour {
 
     public void ContTankP1()
     {
-       
         transform.position = grid.GetWorldPosition(tankP1.x , tankP1.y);
         x = tankP1.x;
         y = tankP1.y;
-       
     }
 
     public void ContHealerP1()
@@ -110,16 +110,13 @@ public class SelectionController : MonoBehaviour {
         transform.position = grid.GetWorldPosition(healerP1.x, healerP1.y);
         x = healerP1.x;
         y = healerP1.y;
-      
     }
 
     public void ContUtilityP1()
     {
-
         transform.position = grid.GetWorldPosition(utilityP1.x, utilityP1.y);
         x = utilityP1.x;
         y = utilityP1.y;
-
     }
 
     public void ContDealerP1()
@@ -127,7 +124,6 @@ public class SelectionController : MonoBehaviour {
         transform.position = grid.GetWorldPosition(dealerP1.x, dealerP1.y);
         x = dealerP1.x;
         y = dealerP1.y;
-
     }
 
     public void AddCont()

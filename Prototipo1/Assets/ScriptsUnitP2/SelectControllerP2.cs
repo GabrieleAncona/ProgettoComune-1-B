@@ -46,11 +46,11 @@ public class SelectControllerP2 : MonoBehaviour {
         healerP2 = FindObjectOfType<PositionHealer2>();
         utilityP2 = FindObjectOfType<PositionUtility2>();
         dealerP2 = FindObjectOfType<PositionDealer2>();
-        contSelectionP2 = 0;
+        contSelectionP2 = 1;
         transform.position = grid.GetWorldPosition(x, y);
         gameObject.GetComponent<MeshRenderer>().enabled = false;
         selector.SetActive(false);
-
+        selector.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y);
     }
 
 

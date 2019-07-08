@@ -71,10 +71,10 @@ public class AbilityDealer : AbilityBase
     {
         ChargeAbility();
         StartCoroutine(PassTurn());
-       /* if(isAbility == false)
+        if(isAbility == false)
         {
            selector.SetActive(false);
-        }*/
+        }
     }
 
     IEnumerator PassTurn()

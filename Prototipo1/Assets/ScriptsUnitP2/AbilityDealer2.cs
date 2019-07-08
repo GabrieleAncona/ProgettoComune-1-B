@@ -56,6 +56,10 @@ public class AbilityDealer2 : AbilityBase
     void Update()
     {
         StartCoroutine(PassTurn());
+        if (isAbility == false)
+        {
+            selector.SetActive(false);
+        }
     }
 
     public void ChargeAbility()

@@ -63,6 +63,7 @@ public class AbilityTank2 : AbilityBase
         RotationAttack();
         StartCoroutine(SetDirectionAttackBase());
         DisactivePrewiewTank();
+
     }
 
    public void ChargeAbility()

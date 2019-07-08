@@ -9,7 +9,8 @@ using TellInput;
 
 public class InputController : MonoBehaviour {
     public float timer;
-    
+    public bool isPress;
+
     public KeyCode UpButton;
     public KeyCode DownButton;
     public KeyCode LeftButton;
