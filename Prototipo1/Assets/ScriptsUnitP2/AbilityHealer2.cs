@@ -272,37 +272,30 @@ public class AbilityHealer2 : AbilityBase
         {
             timerAutoHeal += Time.deltaTime;
 
-            if (timerAutoHeal >= 2) {
-
+            if (timerAutoHeal >= 2)
+            {
                 lm.lifeHealerPlayer2 += heal;
-                if (lm.lifeHealerPlayer2 < lm.lifeMaxHealerPlayer2)
-                {
-                    lm.lifeHealerPlayer2 += heal;
-                    SoundManager.PlaySound(SoundManager.Sound.tankAttack);
-                    isAbility = false;
-                    selectionP2.isActiveHealerP2 = false;
-                    //riabilito input controller per i movimenti(wasd)
-                    gameObject.GetComponent<InputController>().enabled = true;
-                    selectionP2.contSelectionP2 = 2;
-                    GameManager.singleton.acm.isActionHealer2 = false;
-                    GameManager.singleton.sc2.isHealerUsable2 = false;
-                    yield return new WaitForSeconds(2f);
-                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
-                    Counter = 0;
-                    HUC.AbilityOff.enabled = true;
-                    timerAutoHeal = 0;
-                }
-                else
+                HUC.AbilityOff.enabled = true;
+                lm.lifeHealerPlayer2 += heal;
+                SoundManager.PlaySound(SoundManager.Sound.tankAttack);
+                isAbility = false;
+                selectionP2.isActiveHealerP2 = false;
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+                //riabilito input controller per i movimenti(wasd)
+                gameObject.GetComponent<InputController>().enabled = true;
+                selectionP2.contSelectionP2 = 2;
+                GameManager.singleton.acm.isActionHealer2 = false;
+                GameManager.singleton.sc2.isHealerUsable2 = false;
+                yield return new WaitForSeconds(2f);
+                Counter = 0;
+                timerAutoHeal = 0;
+                if(lm.lifeHealerPlayer2 > lm.lifeMaxHealerPlayer2)
                 {
                     lm.lifeHealerPlayer2 = lm.lifeMaxHealerPlayer2;
-                    timerAutoHeal = 0;
+                    //timerAutoHeal = 0;
                 }
-            }
-           
+            }  
         }
-
-
-
     }
 
     public void HealTank()
