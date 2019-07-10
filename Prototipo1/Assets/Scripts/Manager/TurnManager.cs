@@ -31,6 +31,7 @@ public class TurnManager : MonoBehaviour
     {
         if (isTurn == false)
         {
+            SendMessage("RotationCameraPlayer2");
             ///azzero variabile per scritta turno
             isBlue = false;
             ///resetto utizzabilità pedine player1
@@ -57,6 +58,7 @@ public class TurnManager : MonoBehaviour
         }
         if (isTurn == true)
         {
+            SendMessage("RotationCameraPlayer1");
             ///azzero variabile per scritta turno
             isRed = false;
             ///resetto utizzabilità pedine player2

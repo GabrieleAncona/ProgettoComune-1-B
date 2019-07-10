@@ -71,8 +71,9 @@ public class SelectionController : MonoBehaviour {
             if(isActiveTank == true)
             {
                 transform.position = grid.GetWorldPosition(tankP1.x, tankP1.y);
-                transform.DOMoveX(tankP1.x, duration).SetAutoKill(false);
-                transform.DOMoveZ(tankP1.y, duration).SetAutoKill(false);
+                ///ricontrollare
+                ///transform.DOMoveX(tankP1.x, duration).SetAutoKill(false);
+                ///transform.DOMoveZ(tankP1.y, duration).SetAutoKill(false);
             }
 
             else if (isActiveHealer == true)

@@ -67,11 +67,16 @@ public class PositionTester2 : MovementBase
             {
                 OnMovement();
             }
+            ///setto direzione per abilità
+            ab.isAttUp = false;
+            ab.isAttDown = true;
+            ab.isAttLeft = false;
+            ab.isAttRight = false;
+            ///
             turn.ContRound += 1;
             maxRangeHzTankPlayer2 = x;
             contMp--;
             isLeft = true;
-
             isUp = false;
             isRight = false;
             isDown = false;
@@ -92,6 +97,10 @@ public class PositionTester2 : MovementBase
             {
                 OnMovement();
             }
+            ab.isAttUp = true;
+            ab.isAttDown = false;
+            ab.isAttLeft = false;
+            ab.isAttRight = false;
             turn.ContRound += 1;
             maxRangeHzTankPlayer2 = x;
             contMp--;
@@ -116,6 +125,10 @@ public class PositionTester2 : MovementBase
             {
                 OnMovement();
             }
+            ab.isAttUp = false;
+            ab.isAttDown = false;
+            ab.isAttLeft = false;
+            ab.isAttRight = true;
             turn.ContRound += 1;
             maxRangeVtTankPlayer2 = y;
             contMp--;
@@ -140,6 +153,10 @@ public class PositionTester2 : MovementBase
             {
                 OnMovement();
             }
+            ab.isAttUp = false;
+            ab.isAttDown = false;
+            ab.isAttLeft = true;
+            ab.isAttRight = false;
             turn.ContRound += 1;
             maxRangeVtTankPlayer2 = y;
             contMp--;
@@ -163,12 +180,12 @@ public class PositionTester2 : MovementBase
 
     public void OnTriggerEnter(Collider coll) {
         if (coll.gameObject.tag == "Obstacle" || coll.gameObject.tag == "UnitP1" || coll.gameObject.tag == "UnitP2") {
-            Debug.Log("non ha senso");
+            
             isBlock = true;
-            if (myTurn == false) {
+            if (myTurn == true) {
 
                 if (isLeft == true) {
-                    Debug.Log("cazzo in culo");
+                  
                     transform.position = grid.GetWorldPosition(x++, y);
                     transform.DOMoveX(x, duration).SetAutoKill(false);
                     maxRangeHzTankPlayer2 = x;
@@ -176,7 +193,7 @@ public class PositionTester2 : MovementBase
 
                 }
                 if (isRight == true) {
-                    Debug.Log("cazzo in culo");
+                  
                     transform.position = grid.GetWorldPosition(x--, y);
                     transform.DOMoveX(x, duration).SetAutoKill(false);
                     maxRangeHzTankPlayer2 = x;
@@ -184,7 +201,7 @@ public class PositionTester2 : MovementBase
 
                 }
                 if (isDown == true) {
-                    Debug.Log("cazzo in culo");
+                   
                     transform.position = grid.GetWorldPosition(x, y++);
                     transform.DOMoveZ(y, duration).SetAutoKill(false);
                     maxRangeVtTankPlayer2 = y;
@@ -192,7 +209,7 @@ public class PositionTester2 : MovementBase
 
                 }
                 if (isUp == true) {
-                    Debug.Log("cazzo in culo");
+                    
                     transform.position = grid.GetWorldPosition(x, y--);
                     transform.DOMoveZ(y, duration).SetAutoKill(false);
                     maxRangeVtTankPlayer2 = y;

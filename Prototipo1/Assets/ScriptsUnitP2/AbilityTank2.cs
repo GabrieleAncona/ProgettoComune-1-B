@@ -169,7 +169,27 @@ public class AbilityTank2 : AbilityBase
                     OnAbility();
                 }
                 SoundManager.PlaySound(SoundManager.Sound.tankAbility);
-                tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
+                if (isAttUp == true)
+                {
+                    tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
+                }
+                else if (isAttDown == true)
+                {
+                    tankP2.transform.position = grid.GetWorldPosition(tankP2.x--, tankP2.y);
+                }
+                else if (isAttRight == true)
+                {
+                    tankP2.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y--);
+                }
+                else if (isAttLeft == true)
+                {
+                    tankP2.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y++);
+                }
+                selectionP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
+                selectionP2.transform.DOMoveZ(tankP2.y, duration).SetAutoKill(false);
+                selectionP2.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y);
+                selectionP2.x = tankP2.x;
+                selectionP2.y = tankP2.y;
                 tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 //tankP1.transform.DOShakePosition(2f, strength, vibrato);
                 tankP2.hit.transform.GetComponent<Player>().HitAnim();
@@ -187,7 +207,27 @@ public class AbilityTank2 : AbilityBase
                     OnAbility();
                 }
                 SoundManager.PlaySound(SoundManager.Sound.tankAbility);
-                tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
+                if (isAttUp == true)
+                {
+                    tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
+                }
+                else if (isAttDown == true)
+                {
+                    tankP2.transform.position = grid.GetWorldPosition(tankP2.x--, tankP2.y);
+                }
+                else if (isAttRight == true)
+                {
+                    tankP2.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y--);
+                }
+                else if (isAttLeft == true)
+                {
+                    tankP2.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y++);
+                }
+                selectionP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
+                selectionP2.transform.DOMoveZ(tankP2.y, duration).SetAutoKill(false);
+                selectionP2.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y);
+                selectionP2.x = tankP2.x;
+                selectionP2.y = tankP2.y;
                 tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 //healerP1.transform.DOShakePosition(2f, strength, vibrato);
                 tankP2.hit.transform.GetComponent<Player>().HitAnim();
@@ -205,7 +245,27 @@ public class AbilityTank2 : AbilityBase
                     OnAbility();
                 }
                 SoundManager.PlaySound(SoundManager.Sound.tankAbility);
-                tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
+                if (isAttUp == true)
+                {
+                    tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
+                }
+                else if (isAttDown == true)
+                {
+                    tankP2.transform.position = grid.GetWorldPosition(tankP2.x--, tankP2.y);
+                }
+                else if (isAttRight == true)
+                {
+                    tankP2.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y--);
+                }
+                else if (isAttLeft == true)
+                {
+                    tankP2.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y++);
+                }
+                selectionP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
+                selectionP2.transform.DOMoveZ(tankP2.y, duration).SetAutoKill(false);
+                selectionP2.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y);
+                selectionP2.x = tankP2.x;
+                selectionP2.y = tankP2.y;
                 tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 //utilityP1.transform.DOShakePosition(2f, strength, vibrato);
                 tankP2.hit.transform.GetComponent<Player>().HitAnim();
@@ -223,7 +283,27 @@ public class AbilityTank2 : AbilityBase
                     OnAbility();
                 }
                 SoundManager.PlaySound(SoundManager.Sound.tankAbility);
-                tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
+                if (isAttUp == true)
+                {
+                    tankP2.transform.position = grid.GetWorldPosition(tankP2.x++, tankP2.y);
+                }
+                else if (isAttDown == true)
+                {
+                    tankP2.transform.position = grid.GetWorldPosition(tankP2.x--, tankP2.y);
+                }
+                else if (isAttRight == true)
+                {
+                    tankP2.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y--);
+                }
+                else if (isAttLeft == true)
+                {
+                    tankP2.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y++);
+                }
+                selectionP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
+                selectionP2.transform.DOMoveZ(tankP2.y, duration).SetAutoKill(false);
+                selectionP2.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y);
+                selectionP2.x = tankP2.x;
+                selectionP2.y = tankP2.y;
                 tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 //dealerP1.transform.DOShakePosition(2f, strength, vibrato);
                 tankP2.hit.transform.GetComponent<Player>().HitAnim();
@@ -301,7 +381,8 @@ public class AbilityTank2 : AbilityBase
             else if (tankP2.hit.transform.gameObject.GetComponent<PositionHealer>())
             {
                 DamageHealerP1();
-                tankP2.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y++);
+                
+
                 tankP2.transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
                 healerP1.transform.DOShakePosition(2f, strength, vibrato);
                 yield return new WaitForSeconds(2f);

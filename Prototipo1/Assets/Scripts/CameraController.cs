@@ -8,22 +8,15 @@ using GridSystem;
 
 public class CameraController : MonoBehaviour {
 
-    public PathType pathType;
+   
     [SerializeField] public GameObject CameraPlayer1;
     public Rigidbody rb;
     public Transform transform;
-    public PathMode pathMode;
-    public int resolution;
-    public Color gizmoColor;
-    public float duration;
-    public Vector3 vector = new Vector3(-0.45f, 5f, -0.45f);
-    public Tween tween;
 
     public void Start()
     {
         rb = GetComponent<Rigidbody>();
         transform = GetComponent<Transform>();
-        duration = 3.0f;
     }
 
     public void RotationCameraPlayer2()

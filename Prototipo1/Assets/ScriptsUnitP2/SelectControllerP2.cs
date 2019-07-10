@@ -50,7 +50,7 @@ public class SelectControllerP2 : MonoBehaviour {
         transform.position = grid.GetWorldPosition(x, y);
         gameObject.GetComponent<MeshRenderer>().enabled = false;
         selector.SetActive(false);
-        selector.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y);
+        //selector.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y);
     }
 
 
@@ -73,8 +73,8 @@ public class SelectControllerP2 : MonoBehaviour {
             if (isActiveTankP2 == true)
             {
                 transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y);
-                transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
-                transform.DOMoveZ(tankP2.y, duration).SetAutoKill(false);
+                ///transform.DOMoveX(tankP2.x, duration).SetAutoKill(false);
+                ///transform.DOMoveZ(tankP2.y, duration).SetAutoKill(false);
             }
             else if (isActiveHealerP2 == true)
             {

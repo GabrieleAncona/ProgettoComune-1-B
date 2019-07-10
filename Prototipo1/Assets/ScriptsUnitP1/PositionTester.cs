@@ -77,11 +77,15 @@ public class PositionTester : MovementBase
             transform.position = grid.GetWorldPosition(x--, y);
            
             transform.DOMoveX(x, duration).SetAutoKill(false);
-          if(OnMovement != null){
+          if(OnMovement != null)
+          {
 				OnMovement();
 		  }
-
-
+            ab.isAttUp = false;
+            ab.isAttDown = true;
+            ab.isAttLeft = false;
+            ab.isAttRight = false;
+            ab.isAttLeft = true;
             turn.ContRound += 1;
             maxRangeHzTankPlayer1 = x;
             contMp--;
@@ -111,10 +115,13 @@ public class PositionTester : MovementBase
 			{
 				OnMovement();
 			}
-
-			turn.ContRound += 1;
-                maxRangeHzTankPlayer1 = x;
-                contMp--;
+            ab.isAttUp = true;
+            ab.isAttDown = false;
+            ab.isAttLeft = false;
+            ab.isAttRight = false;
+            turn.ContRound += 1;
+            maxRangeHzTankPlayer1 = x;
+            contMp--;
             isRight = true;
             isLeft = false;
             isUp = false;
@@ -141,10 +148,13 @@ public class PositionTester : MovementBase
 			{
 				OnMovement();
 			}
-
-			turn.ContRound += 1;
-                maxRangeVtTankPlayer1 = y;
-                contMp--;
+            ab.isAttUp = false;
+            ab.isAttDown = false;
+            ab.isAttLeft = false;
+            ab.isAttRight = true;
+            turn.ContRound += 1;
+            maxRangeVtTankPlayer1 = y;
+            contMp--;
             isDown = true;
             isRight = false;
             isLeft = false;
@@ -171,10 +181,13 @@ public class PositionTester : MovementBase
 			{
 				OnMovement();
 			}
-
-			turn.ContRound += 1;
-                maxRangeVtTankPlayer1 = y;
-                contMp--;
+            ab.isAttUp = false;
+            ab.isAttDown = false;
+            ab.isAttLeft = true;
+            ab.isAttRight = false;
+            turn.ContRound += 1;
+            maxRangeVtTankPlayer1 = y;
+            contMp--;
             isUp = true;
             isRight = false;
             isLeft = false;

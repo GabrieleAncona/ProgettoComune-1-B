@@ -158,7 +158,27 @@ public class AbilityTank : AbilityBase
 				{
 					OnAbility();
 				}
-				tank.transform.position = grid.GetWorldPosition(tank.x++, tank.y);
+                if (isAttUp == true)
+                {
+                    tank.transform.position = grid.GetWorldPosition(tank.x++, tank.y);
+                }
+                else if (isAttDown == true)
+                {
+                    tank.transform.position = grid.GetWorldPosition(tank.x--, tank.y);
+                }
+                else if (isAttRight == true)
+                {
+                    tank.transform.position = grid.GetWorldPosition(tank.x, tank.y--);
+                }
+                else if (isAttLeft == true)
+                {
+                    tank.transform.position = grid.GetWorldPosition(tank.x, tank.y++);
+                }
+                selection.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
+                selection.transform.DOMoveZ(tank.y, duration).SetAutoKill(false);
+                selection.transform.position = grid.GetWorldPosition(tank.x, tank.y);
+                selection.x = tank.x;
+                selection.y = tank.y;
                 tank.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
                 //tankP2.transform.DOShakePosition(2f, strength, vibrato);
                 tank.hit.transform.GetComponent<Player>().HitAnim();
@@ -179,7 +199,27 @@ public class AbilityTank : AbilityBase
                 {
                     OnAbility();
                 }
-                tank.transform.position = grid.GetWorldPosition(tank.x++, tank.y);
+                if (isAttUp == true)
+                {
+                    tank.transform.position = grid.GetWorldPosition(tank.x++, tank.y);
+                }
+                else if (isAttDown == true)
+                {
+                    tank.transform.position = grid.GetWorldPosition(tank.x--, tank.y);
+                }
+                else if (isAttRight == true)
+                {
+                    tank.transform.position = grid.GetWorldPosition(tank.x, tank.y--);
+                }
+                else if (isAttLeft == true)
+                {
+                    tank.transform.position = grid.GetWorldPosition(tank.x, tank.y++);
+                }
+                selection.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
+                selection.transform.DOMoveZ(tank.y, duration).SetAutoKill(false);
+                selection.transform.position = grid.GetWorldPosition(tank.x, tank.y);
+                selection.x = tank.x;
+                selection.y = tank.y;
                 tank.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
                 //healerP2.transform.DOShakePosition(2f, strength, vibrato);
                 tank.hit.transform.GetComponent<Player>().HitAnim();
@@ -197,7 +237,27 @@ public class AbilityTank : AbilityBase
 				{
 					OnAbility();
 				}
-				tank.transform.position = grid.GetWorldPosition(tank.x++, tank.y);
+                if (isAttUp == true)
+                {
+                    tank.transform.position = grid.GetWorldPosition(tank.x++, tank.y);
+                }
+                else if (isAttDown == true)
+                {
+                    tank.transform.position = grid.GetWorldPosition(tank.x--, tank.y);
+                }
+                else if (isAttRight == true)
+                {
+                    tank.transform.position = grid.GetWorldPosition(tank.x, tank.y--);
+                }
+                else if (isAttLeft == true)
+                {
+                    tank.transform.position = grid.GetWorldPosition(tank.x, tank.y++);
+                }
+                selection.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
+                selection.transform.DOMoveZ(tank.y, duration).SetAutoKill(false);
+                selection.transform.position = grid.GetWorldPosition(tank.x, tank.y);
+                selection.x = tank.x;
+                selection.y = tank.y;
                 tank.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
                 isAbility = false;
                 //utilityP2.transform.DOShakePosition(2f, strength, vibrato);
@@ -216,7 +276,27 @@ public class AbilityTank : AbilityBase
 				{
 					OnAbility();
 				}
-				tank.transform.position = grid.GetWorldPosition(tank.x++, tank.y);
+                if (isAttUp == true)
+                {
+                    tank.transform.position = grid.GetWorldPosition(tank.x++, tank.y);
+                }
+                else if (isAttDown == true)
+                {
+                    tank.transform.position = grid.GetWorldPosition(tank.x--, tank.y);
+                }
+                else if (isAttRight == true)
+                {
+                    tank.transform.position = grid.GetWorldPosition(tank.x, tank.y--);
+                }
+                else if (isAttLeft == true)
+                {
+                    tank.transform.position = grid.GetWorldPosition(tank.x, tank.y++);
+                }
+                selection.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
+                selection.transform.DOMoveZ(tank.y, duration).SetAutoKill(false);
+                selection.transform.position = grid.GetWorldPosition(tank.x, tank.y);
+                selection.x = tank.x;
+                selection.y = tank.y;
                 tank.transform.DOMoveX(tank.x, duration).SetAutoKill(false);
                 isAbility = false;
                 //dealerP2.transform.DOShakePosition(2f, strength, vibrato);
