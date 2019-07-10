@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
 
     public void SetupMainMenu()
     {
-        if (mc.menuIsActive == true)
+        if (mc.menuIsActive == false)
         {
             mc.SetupMainMenu();
             //SMController.SetTrigger("GoToMainMenu");

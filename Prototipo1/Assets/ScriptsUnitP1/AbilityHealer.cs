@@ -311,34 +311,27 @@ public class AbilityHealer : AbilityBase
 
             if (timerAutoHeal >= 2)
             {
-
                 lm.lifeHealer += heal;
-                if (lm.lifeHealer < lm.lifeMaxHealer)
-                {
-                    lm.lifeHealer += heal;
-                    SoundManager.PlaySound(SoundManager.Sound.tankAttack);
-                    isAbility = false;
-                    selection.isActiveHealer = false;
-                    //riabilito input controller per i movimenti(wasd)
-                    gameObject.GetComponent<InputController>().enabled = true;
-                    selection.contSelectionP1 = 2;
-                    GameManager.singleton.acm.isActionHealer = false;
-                    GameManager.singleton.sc.isHealerUsable = false;
-                    yield return new WaitForSeconds(2f);
-                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToActionMenu");
-                    Counter = 0;
-                    HUC.AbilityOff.enabled = true;
-                    timerAutoHeal = 0;
-                }
-                else
+                HUC.AbilityOff.enabled = true;
+                SoundManager.PlaySound(SoundManager.Sound.tankAttack);
+                isAbility = false;
+                selection.isActiveHealer = false;
+                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
+                //riabilito input controller per i movimenti(wasd)
+                gameObject.GetComponent<InputController>().enabled = true;
+                selection.contSelectionP1 = 2;
+                GameManager.singleton.acm.isActionHealer = false;
+                GameManager.singleton.sc.isHealerUsable = false;
+                yield return new WaitForSeconds(2f);
+                Counter = 0;
+                timerAutoHeal = 0;
+                if(lm.lifeHealer > lm.lifeMaxHealer)
                 {
                     lm.lifeHealer = lm.lifeMaxHealer;
-                    timerAutoHeal = 0;
+                    //timerAutoHeal = 0;
                 }
             }
         }
-
-
     }
 
 

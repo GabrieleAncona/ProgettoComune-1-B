@@ -131,7 +131,7 @@ public class HudManagerTest : MonoBehaviour
         SetSliderDealerP2();
         //SetSliderTurnP1();
         //SetSliderTurnP2();
-        SetTextTurn();
+        //SetTextTurn();
 
     }
 
@@ -245,7 +245,7 @@ public class HudManagerTest : MonoBehaviour
         passTurnP2.value = InputPassTurn.timer;
     }*/
 
-    public void SetTextTurn()
+    /*public void SetTextTurn()
     {
         if (turn.isTurn == true) {
 
@@ -257,5 +257,5 @@ public class HudManagerTest : MonoBehaviour
             turnText.text = "Turno Player 2";
             turnText.color = newColor2;
         }
-    }
+    }*/
 }

@@ -51,7 +51,7 @@ public class MainMenùController : MonoBehaviour {
     {
         menù.SetActive(true); 
         menuIsActive = true;
-        GameManager.singleton.stateMachine.SMController.SetTrigger("GoToMainMenu");
+        //GameManager.singleton.stateMachine.SMController.SetTrigger("GoToMainMenu");
 
     }
 
@@ -80,7 +80,7 @@ public class MainMenùController : MonoBehaviour {
     public void Restart() 
     {
 
-        SceneManager.LoadScene("Si-Ling");
+        //SceneManager.LoadScene("Si-Ling");
         GameManager.singleton.stateMachine.SMController.SetTrigger("GoToMainMenu");
     }
 
