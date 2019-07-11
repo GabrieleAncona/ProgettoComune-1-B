@@ -60,6 +60,10 @@ public class AbilityDealer2 : AbilityBase
         {
             selector.SetActive(false);
         }
+        else if (isAbility == true)
+        {
+            selector.SetActive(true);
+        }
     }
 
     public void ChargeAbility()

@@ -34,13 +34,23 @@ public class MainMenùController : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown(pauseButton) && isActivePause == false)
+        if (Input.GetKeyDown(pauseButton) && isActivePause == false && (GameManager.singleton.stateMachine.SMController.GetCurrentAnimatorStateInfo(0).IsName("movement state") ||
+           (GameManager.singleton.stateMachine.SMController.GetCurrentAnimatorStateInfo(0).IsName("attackBase state")) || 
+           (GameManager.singleton.stateMachine.SMController.GetCurrentAnimatorStateInfo(0).IsName("ability state")) ||
+           (GameManager.singleton.stateMachine.SMController.GetCurrentAnimatorStateInfo(0).IsName("actionMenu state")) ||
+           (GameManager.singleton.stateMachine.SMController.GetCurrentAnimatorStateInfo(0).IsName("selection state")) ||
+           (GameManager.singleton.stateMachine.SMController.GetCurrentAnimatorStateInfo(0).IsName("mainmenu state"))))
         {
             MenuPause();
             isActivePause = true;
         }
 
-        if (Input.GetKeyDown(helpButton) && isActiveTutorial == false)
+        if (Input.GetKeyDown(helpButton) && isActiveTutorial == false && (GameManager.singleton.stateMachine.SMController.GetCurrentAnimatorStateInfo(0).IsName("movement state") ||
+           (GameManager.singleton.stateMachine.SMController.GetCurrentAnimatorStateInfo(0).IsName("attackBase state")) ||
+           (GameManager.singleton.stateMachine.SMController.GetCurrentAnimatorStateInfo(0).IsName("ability state")) ||
+           (GameManager.singleton.stateMachine.SMController.GetCurrentAnimatorStateInfo(0).IsName("actionMenu state")) ||
+           (GameManager.singleton.stateMachine.SMController.GetCurrentAnimatorStateInfo(0).IsName("selection state")) ||
+           (GameManager.singleton.stateMachine.SMController.GetCurrentAnimatorStateInfo(0).IsName("mainmenu state"))))
         {
             Help();
             isActiveTutorial = true;

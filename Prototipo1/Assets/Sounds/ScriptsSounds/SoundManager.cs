@@ -41,7 +41,6 @@ public static class SoundManager {
             {
                 return soundAudioClip.audioClip;
             }
-            Debug.LogError("Sound" + sound + "not found!");
             
         }
         return null;

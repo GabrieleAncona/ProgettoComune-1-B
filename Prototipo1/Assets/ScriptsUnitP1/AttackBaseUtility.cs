@@ -141,15 +141,15 @@ public class AttackBaseUtility : AttackBase
 					OnAttack();
 				}
                 SoundManager.PlaySound(SoundManager.Sound.utilityAttack);
-                // Shoot();
-                //yield return new WaitForSeconds(0.5f);
-                //GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxUtilityHit, new Vector3(tankP2.x, 0.3f, tankP2.y), Quaternion.identity);
-                //tankP2.transform.DOShakePosition(2f, strength, vibrato);
+                Shoot();
+                yield return new WaitForSeconds(0.5f);
+                GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxUtilityHit, new Vector3(tankP2.x, 0.3f, tankP2.y), Quaternion.identity);
+                tankP2.transform.DOShakePosition(2f, strength, vibrato);
                 utility.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionUtility = false;
                 GameManager.singleton.sc.isUtilityUsable = false;
-                //yield return new WaitForSeconds(0.5f);
-                //Destroy(gameObjectHit);
+                yield return new WaitForSeconds(0.5f);
+                Destroy(gameObjectHit);
                 yield return new WaitForSeconds(2f);
 
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
@@ -166,15 +166,15 @@ public class AttackBaseUtility : AttackBase
 					OnAttack();
 				}
                 SoundManager.PlaySound(SoundManager.Sound.utilityAttack);
-                //Shoot();
-                //yield return new WaitForSeconds(0.5f);
-                //GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxUtilityHit, new Vector3(healerP2.x, 0.3f, healerP2.y), Quaternion.identity);
-                //healerP2.transform.DOShakePosition(2f, strength, vibrato);
+                Shoot();
+                yield return new WaitForSeconds(0.5f);
+                GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxUtilityHit, new Vector3(healerP2.x, 0.3f, healerP2.y), Quaternion.identity);
+                healerP2.transform.DOShakePosition(2f, strength, vibrato);
                 utility.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionUtility = false;
                 GameManager.singleton.sc.isUtilityUsable = false;
-               // yield return new WaitForSeconds(0.5f);
-                //Destroy(gameObjectHit);
+                yield return new WaitForSeconds(0.5f);
+                Destroy(gameObjectHit);
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
@@ -190,15 +190,15 @@ public class AttackBaseUtility : AttackBase
 					OnAttack();
 				}
                 SoundManager.PlaySound(SoundManager.Sound.utilityAttack);
-                //Shoot();
-                //yield return new WaitForSeconds(0.5f);
-                //GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxUtilityHit, new Vector3(utilityP2.x, 0.3f, utilityP2.y), Quaternion.identity);
-                //dealerP2.transform.DOShakePosition(2f, strength, vibrato);
+                Shoot();
+                yield return new WaitForSeconds(0.5f);
+                GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxUtilityHit, new Vector3(dealerP2.x, 0.3f, dealerP2.y), Quaternion.identity);
+                dealerP2.transform.DOShakePosition(2f, strength, vibrato);
                 utility.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionUtility = false;
                 GameManager.singleton.sc.isUtilityUsable = false;
-               // yield return new WaitForSeconds(0.5f);
-                //Destroy(gameObjectHit);
+                yield return new WaitForSeconds(0.5f);
+                Destroy(gameObjectHit);
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
@@ -214,15 +214,15 @@ public class AttackBaseUtility : AttackBase
 					OnAttack();
 				}
                 SoundManager.PlaySound(SoundManager.Sound.utilityAttack);
-                //Shoot();
-                //yield return new WaitForSeconds(0.5f);
-                //GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxUtilityHit, new Vector3(dealerP2.x, 0.3f, dealerP2.y), Quaternion.identity);
-                //utilityP2.transform.DOShakePosition(2f, strength, vibrato);
+                Shoot();
+                yield return new WaitForSeconds(0.5f);
+                GameObject gameObjectHit = Instantiate(GameManager.singleton.vfx.vfxUtilityHit, new Vector3(utilityP2.x, 0.3f, utilityP2.y), Quaternion.identity);
+                utilityP2.transform.DOShakePosition(2f, strength, vibrato);
                 utility.hit.transform.GetComponent<Player>().HitAnim();
                 GameManager.singleton.acm.isActionUtility = false;
                 GameManager.singleton.sc.isUtilityUsable = false;
-               // yield return new WaitForSeconds(0.5f);
-                //Destroy(gameObjectHit);
+                yield return new WaitForSeconds(0.5f);
+                Destroy(gameObjectHit);
                 yield return new WaitForSeconds(2f);
                 GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
                 if (ab.Counter < 2)
@@ -233,11 +233,11 @@ public class AttackBaseUtility : AttackBase
         }
     }
 
-    /*public void Shoot()
+    public void Shoot()
     {
         GameObject gameObject = Instantiate(GameManager.singleton.vfx.vfxUtilityAtt, transform.forward + new Vector3(utility.x, 1, utility.y), Quaternion.identity);
         gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * speedBullet);
-    }*/
+    }
 
     //disattivo prewiew attacco/abilità quando finisco turno
     public void DisactivePrewiewUtility()
@@ -247,6 +247,7 @@ public class AttackBaseUtility : AttackBase
             isAttack = false;
         }
     }
+
 
     public void DamageTankP2()
     {

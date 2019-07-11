@@ -72,6 +72,7 @@ public class AttackBaseHealer2 : AttackBase
         StartCoroutine(SetDirectionAttackBase());
         ContTurn();
         DamageForTurn();
+        PositionVfx();
     }
 
     /* public void SetRange()
@@ -381,6 +382,30 @@ public class AttackBaseHealer2 : AttackBase
         if (turn.isTurn == false)
         {
             isAttack = false;
+        }
+    }
+
+    public void PositionVfx()
+    {
+        if (isHitTankP1 == true)
+        {
+            gameObjectDot.transform.DOMoveX(tankP1.x, 0.5f);
+            gameObjectDot.transform.DOMoveZ(tankP1.y, 0.5f);
+        }
+        else if (isHitHealerP1 == true)
+        {
+            gameObjectDot.transform.DOMoveX(healerP1.x, 0.5f);
+            gameObjectDot.transform.DOMoveZ(healerP1.y, 0.5f);
+        }
+        else if (isHitUtilityP1 == true)
+        {
+            gameObjectDot.transform.DOMoveX(utilityP1.x, 0.5f);
+            gameObjectDot.transform.DOMoveZ(utilityP1.y, 0.5f);
+        }
+        else if (isHitDealerP1 == true)
+        {
+            gameObjectDot.transform.DOMoveX(dealerP1.x, 0.5f);
+            gameObjectDot.transform.DOMoveZ(dealerP1.y, 0.5f);
         }
     }
 }
