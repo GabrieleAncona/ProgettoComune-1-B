@@ -29,15 +29,7 @@ public class Player : HitBase
 	// Update is called once per frame
 	void Update ()
     {
-		if(GameManager.singleton.tm.isTurn == true)
-        {
-            IdPlayer = 1;
-        }
 
-        else if (GameManager.singleton.tm.isTurn == false)
-        {
-            IdPlayer = 2;
-        }
     }
 
     public void HitAnim()

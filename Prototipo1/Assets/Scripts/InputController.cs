@@ -127,7 +127,7 @@ public class InputController : MonoBehaviour
 
         }
 
-        /*if (Input.GetKey(PassButton))
+        if (Input.GetKey(PassButton))
         {
             _Timer += Time.deltaTime;
             if (attTankP1.isAttack == false && attTankP2.isAttack == false && abTankP1.isAbility == false && abTankP2.isAbility == false 
@@ -148,7 +148,9 @@ public class InputController : MonoBehaviour
             {
                 _Timer = 0;
             }
-        }*/
+        }
+        
+        
 
         ///funzione per tornare al menu di azione da uno stato qualsialsi di action
         if (Input.GetKeyDown(KeyCode.Tab) && GameManager.singleton._player.IdPlayer == 1 && GameManager.singleton.sc.isSelectionActive == false && GameManager.singleton.acm.isActionMenu == false && OptionMenu.activeSelf == false && Tutorial.activeSelf == false)

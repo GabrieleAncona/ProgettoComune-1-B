@@ -32,7 +32,7 @@ public class SelectionState : StateBehaviourBase
     {
         ///GameManager.singleton.sc.gameObject.GetComponent<MeshRenderer>().enabled = true;
 
-        if (ctx.currentPlayer.IdPlayer == 1)
+        if (/*ctx.currentPlayer.IdPlayer == 1*/ GameManager.singleton.tm.isTurn == true)
         {
             GameManager.singleton.hudUnit.GetComponent<HudUnitsManager>().TurnSlider.gameObject.SetActive(true);
             if (intellgamepad == null || (intellgamepad.ID != 0 || intellgamepad.CurrentGamePadState.IsConnected == false))
@@ -51,7 +51,7 @@ public class SelectionState : StateBehaviourBase
             }
         }
 
-        if (ctx.currentPlayer.IdPlayer == 2)
+        if (/*ctx.currentPlayer.IdPlayer == 2*/ GameManager.singleton.tm.isTurn == false)
         {
             GameManager.singleton.hudUnit2.GetComponent<HudUnitsManager>().TurnSlider.gameObject.SetActive(true);
             if (intellgamepad == null || (intellgamepad.ID != 1 || intellgamepad.CurrentGamePadState.IsConnected == false))
@@ -74,7 +74,7 @@ public class SelectionState : StateBehaviourBase
     public override void OnExit()
     {
         ///GameManager.singleton.sc.gameObject.GetComponent<MeshRenderer>().enabled = false;
-        if (ctx.currentPlayer.IdPlayer == 1)
+        if (/*ctx.currentPlayer.IdPlayer == 1*/ GameManager.singleton.tm.isTurn == false)
         {
             GameManager.singleton.hudUnit.GetComponent<HudUnitsManager>().TurnSlider.gameObject.SetActive(false);
             if (intellgamepad == null || (intellgamepad.ID != 0 || intellgamepad.CurrentGamePadState.IsConnected == false))
@@ -93,7 +93,7 @@ public class SelectionState : StateBehaviourBase
             }
         }
 
-        if (ctx.currentPlayer.IdPlayer == 2)
+        if (/*ctx.currentPlayer.IdPlayer == 2*/ GameManager.singleton.tm.isTurn == true)
         {
             GameManager.singleton.hudUnit2.GetComponent<HudUnitsManager>().TurnSlider.gameObject.SetActive(false);
             if (intellgamepad == null || (intellgamepad.ID != 1 || intellgamepad.CurrentGamePadState.IsConnected == false))
