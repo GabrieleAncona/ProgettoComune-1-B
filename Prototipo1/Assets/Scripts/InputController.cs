@@ -65,20 +65,31 @@ public class InputController : MonoBehaviour {
 
         inputPad = FindObjectOfType<InputTester>();
         inputChecker = FindObjectOfType<InputChecker>();
-        intell = FindObjectOfType<IntellGamePad>();
+
     }
 
     // Update is called once per frame
     void Update() {
 
-
+   
+        
         if (Input.GetKeyDown(LeftButton))
         {
-            ///left
-            SendMessage("GoToLeft");
-        
-      
+                SendMessage("GoToLeft");
         }
+
+        if ((int)IntellGamePad.Buttons.LeftStick == inputPad.buttonCheck && inputPad.yCheck == -1)
+        {
+            if (GameManager.singleton.tm.isTurn)
+            {
+                SendMessage("GoToLeft");
+            }
+            else
+            {
+                SendMessage("GoToRight");
+            }
+        }
+        
 
         if (Input.GetKeyDown(RightButton))
         {
@@ -87,14 +98,28 @@ public class InputController : MonoBehaviour {
 
         }
 
-        if (Input.GetKeyDown(UpButton))
+        if (((int)IntellGamePad.Buttons.LeftStick == inputPad.buttonCheck && inputPad.yCheck == 1))
+        {
+            Debug.Log(GameManager.singleton.tm.isTurn);
+
+            if (GameManager.singleton.tm.isTurn)
+            {
+                SendMessage("GoToRight");
+            }
+            else
+            {
+                SendMessage("GoToLeft");
+            }
+        }
+
+        if (Input.GetKeyDown(UpButton) || ((int)IntellGamePad.Buttons.LeftStick == inputPad.buttonCheck && inputPad.xCheck == 1))
         {
             ///up
             SendMessage("GoToUp");
            
         }
 
-        if (Input.GetKeyDown(DownButton))
+        if (Input.GetKeyDown(DownButton) || ((int)IntellGamePad.Buttons.LeftStick == inputPad.buttonCheck && inputPad.xCheck == -1))
         {
             ///down
             SendMessage("GoToDown");

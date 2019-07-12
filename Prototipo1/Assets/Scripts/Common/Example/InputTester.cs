@@ -11,8 +11,13 @@ namespace TellInput {
 
 
     public class InputTester : MonoBehaviour {
-
+        public bool isPress;
+        public bool isPressLeft;
         public Text TextInfo;
+        public int buttonCheck;
+        public float xCheck;
+        public float yCheck;
+
         private void Start() {
             InputChecker.OnGamepadConnected += HandleGamepadConnection;
             InputChecker.OnGamepadDisconnected += HandleGamepadDisconnection;
@@ -38,22 +43,56 @@ namespace TellInput {
 
         private void HandleAxisUsed(IntellGamePad gpad, IntellGamePad.Buttons button, IntellGamePad.AxisValue values) {
             Debug.LogFormat("Gamepad {0} axis {1} used, values: {2},{3}", gpad.ID, button, values.X, values.Y);
+            if (button == IntellGamePad.Buttons.LeftStick && gpad.ID == 0 && GameManager.singleton.tm.isTurn == true)
+            {
+                buttonCheck = (int)button;
+                xCheck = values.X;
+                yCheck = values.Y;
+            }
+            else if(button == IntellGamePad.Buttons.LeftStick && gpad.ID == 1 && GameManager.singleton.tm.isTurn == false)
+            {
+                buttonCheck = (int)button;
+                xCheck = values.X;
+                yCheck = values.Y;
+            }
         }
 
         private void HandleAxisStopUsed(IntellGamePad gpad, IntellGamePad.Buttons button, IntellGamePad.AxisValue values) {
             Debug.LogFormat("Gamepad {0} axis {1} stopped use, values: {2},{3}", gpad.ID, button, values.X, values.Y);
+            if (button == IntellGamePad.Buttons.LeftStick && gpad.ID == 0 && GameManager.singleton.tm.isTurn == true)
+            {
+                buttonCheck = (int)button;
+                xCheck = values.X;
+                yCheck = values.Y;
+            }
+            else if (button == IntellGamePad.Buttons.LeftStick && gpad.ID == 1 && GameManager.singleton.tm.isTurn == false)
+            {
+                buttonCheck = (int)button;
+                xCheck = values.X;
+                yCheck = values.Y;
+            }
         }
 
         private void HandleButtonHold(IntellGamePad gpad, IntellGamePad.Buttons button) {
             Debug.LogFormat("Gamepad {0} button hold {1}", gpad.ID, button);
+
         }
 
         private void HandleButtonReleased(IntellGamePad gpad, IntellGamePad.Buttons button) {
             Debug.LogFormat("Gamepad {0} button released {1}", gpad.ID, button);
+            /*if (button == IntellGamePad.Buttons.X)
+            {
+                isPress = false;
+            }*/
         }
 
         private void HandleButtonPressed(IntellGamePad gpad, IntellGamePad.Buttons button) {
             Debug.LogFormat("Gamepad {0} button pressed {1}", gpad.ID, button);
+
+            /*if (button == IntellGamePad.Buttons.X)
+            {
+                isPress = true;
+            }*/
         }
 
         // Update is called once per frame
@@ -84,4 +123,6 @@ namespace TellInput {
             InputChecker.OnGamepadDisconnected -= HandleGamepadDisconnection;
         }
     }
+
+
 }

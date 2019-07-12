@@ -6,7 +6,7 @@ using System;
 /// <summary>
 /// Classe che contiene la struttura dati dei gamepad
 /// </summary>
-public class IntellGamePad : MonoBehaviour{
+public class IntellGamePad {
     #region Delegates
     public Action<IntellGamePad, Buttons> OnButtonPressed;
     public Action<IntellGamePad, Buttons> OnButtonHold;
@@ -75,6 +75,7 @@ public class IntellGamePad : MonoBehaviour{
     public int ID;
     public GamePadState OldGamePadState;
     public bool isPress;
+    public bool isPressTest;
 
     public GamePadState CurrentGamePadState {
         get {
@@ -94,31 +95,39 @@ public class IntellGamePad : MonoBehaviour{
         ID = id;
     }
 
+    public void Update()
+    {
+        //CheckButtons();
+    }
+
     #region Buttons Events
     private void CheckButtons() {
         //X Button
         if (OldGamePadState.Buttons.X == ButtonState.Released && CurrentGamePadState.Buttons.X == ButtonState.Pressed)
         {
             OnButtonPressed?.Invoke(this, Buttons.X);
-            ///bool true
-            isPress = true;
-            Debug.Log("dioporcoooooo");
+            isPress = false;
+
+           // Debug.Log("cazzzzzzzzz");
         }
         else if (OldGamePadState.Buttons.X == ButtonState.Pressed && CurrentGamePadState.Buttons.X == ButtonState.Pressed)
         {
             OnButtonHold?.Invoke(this, Buttons.X);
+            isPress = true;
+            Debug.Log("cazzzzzzzzz");
         }
         else if (OldGamePadState.Buttons.X == ButtonState.Pressed && CurrentGamePadState.Buttons.X == ButtonState.Released)
         {
             OnButtonReleased?.Invoke(this, Buttons.X);
             ///bool false
             isPress = false;
-            Debug.Log("dioporcoooooo");
+            //Debug.Log("cazzzzzzzzz");
         }
         //A Button
         if (OldGamePadState.Buttons.A == ButtonState.Released && CurrentGamePadState.Buttons.A == ButtonState.Pressed)
         {
             OnButtonPressed?.Invoke(this, Buttons.A);
+            isPress = false;
         }
         else if (OldGamePadState.Buttons.A == ButtonState.Pressed && CurrentGamePadState.Buttons.A == ButtonState.Pressed)
         {
