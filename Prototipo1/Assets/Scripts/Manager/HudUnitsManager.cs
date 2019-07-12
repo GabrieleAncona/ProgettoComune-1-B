@@ -22,6 +22,10 @@ public class HudUnitsManager : MonoBehaviour
     public Image GamepadButton1;
     public Image GamepadButton2;
 
+    public Slider TurnSlider;
+    public InputController IC;
+
+
     public bool OnMove
     {
         get { return _onMove; }
@@ -78,7 +82,7 @@ public class HudUnitsManager : MonoBehaviour
                 OnMove = true;
             }
         }
-        
+        SetTurnSlider();
     }
 
     public void MoveUnits(List<HudUnitController> OrderedList)
@@ -128,4 +132,8 @@ public class HudUnitsManager : MonoBehaviour
         MoveUnits(newList);
     }
 
+    public void SetTurnSlider()
+    {
+        TurnSlider.value = IC._Timer;
+    }
 }

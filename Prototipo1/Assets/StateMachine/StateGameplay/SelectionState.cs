@@ -34,6 +34,7 @@ public class SelectionState : StateBehaviourBase
 
         if (ctx.currentPlayer.IdPlayer == 1)
         {
+            GameManager.singleton.hudUnit.GetComponent<HudUnitsManager>().TurnSlider.gameObject.SetActive(true);
             if (intellgamepad == null || (intellgamepad.ID != 0 || intellgamepad.CurrentGamePadState.IsConnected == false))
             {
                 GameManager.singleton.hudUnit.GetComponent<HudUnitsManager>().isActive = true;
@@ -52,6 +53,7 @@ public class SelectionState : StateBehaviourBase
 
         if (ctx.currentPlayer.IdPlayer == 2)
         {
+            GameManager.singleton.hudUnit2.GetComponent<HudUnitsManager>().TurnSlider.gameObject.SetActive(true);
             if (intellgamepad == null || (intellgamepad.ID != 1 || intellgamepad.CurrentGamePadState.IsConnected == false))
             {
                 GameManager.singleton.hudUnit2.GetComponent<HudUnitsManager>().isActive = true;
@@ -74,6 +76,7 @@ public class SelectionState : StateBehaviourBase
         ///GameManager.singleton.sc.gameObject.GetComponent<MeshRenderer>().enabled = false;
         if (ctx.currentPlayer.IdPlayer == 1)
         {
+            GameManager.singleton.hudUnit.GetComponent<HudUnitsManager>().TurnSlider.gameObject.SetActive(false);
             if (intellgamepad == null || (intellgamepad.ID != 0 || intellgamepad.CurrentGamePadState.IsConnected == false))
             {
                 GameManager.singleton.sc.isSelectionActive = false;
@@ -92,6 +95,7 @@ public class SelectionState : StateBehaviourBase
 
         if (ctx.currentPlayer.IdPlayer == 2)
         {
+            GameManager.singleton.hudUnit2.GetComponent<HudUnitsManager>().TurnSlider.gameObject.SetActive(false);
             if (intellgamepad == null || (intellgamepad.ID != 1 || intellgamepad.CurrentGamePadState.IsConnected == false))
             {
                 GameManager.singleton.sc2.isSelectionActive = false;

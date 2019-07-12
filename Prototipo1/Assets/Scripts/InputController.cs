@@ -7,8 +7,9 @@ using UnityEngine.UI;
 using XInputDotNetPure;
 using TellInput;
 
-public class InputController : MonoBehaviour {
-    public float timer;
+public class InputController : MonoBehaviour
+{
+    public float _Timer;
 
     public KeyCode UpButton;
     public KeyCode DownButton;
@@ -44,7 +45,7 @@ public class InputController : MonoBehaviour {
 
     void Start()
     {
-        timer = 0f;
+        _Timer = 0f;
         attTankP1 = FindObjectOfType<AttackBase1>();
         attTankP2 = FindObjectOfType<AttackBase2>();
         attHealerP1 = FindObjectOfType<AttackBaseHealer>();
@@ -126,21 +127,28 @@ public class InputController : MonoBehaviour {
 
         }
 
-        if (Input.GetKey(PassButton))
+        /*if (Input.GetKey(PassButton))
         {
-            timer += Time.deltaTime;
+            _Timer += Time.deltaTime;
             if (attTankP1.isAttack == false && attTankP2.isAttack == false && abTankP1.isAbility == false && abTankP2.isAbility == false 
                 && attHealerP1.isAttackHealer == false && attHealerP2.isAttack == false && abHealerP1.isAbility == false && abHealerP2.isAbility == false 
                 && attUtilityP1.isAttack == false && attUtilityP2.isAttack == false && abUtilityP1.isAbility == false && abUtilityP2.isAbility == false 
-                && attDealerP1.isAttack == false && attDealerP2.isAttack == false && abDealerP1.isAbility == false && abDealerP2.isAbility == false && timer >= 3f)
+                && attDealerP1.isAttack == false && attDealerP2.isAttack == false && abDealerP1.isAbility == false && abDealerP2.isAbility == false && _Timer >= 3f)
             {
                 if(GameManager.singleton.sc.isSelectionActive == true || GameManager.singleton.sc2.isSelectionActive == true)
                     SendMessage("ToPass");
-                timer = 0f;
-                GameManager.singleton.stateMachine.SMController.SetTrigger("GoToEndTurn");
+                    _Timer = 0f;
+                    GameManager.singleton.stateMachine.SMController.SetTrigger("GoToEndTurn");
             }
-           
         }
+        else if (_Timer > 0)
+        {
+            _Timer -= Time.deltaTime;
+            if (_Timer < 0)
+            {
+                _Timer = 0;
+            }
+        }*/
 
         ///funzione per tornare al menu di azione da uno stato qualsialsi di action
         if (Input.GetKeyDown(KeyCode.Tab) && GameManager.singleton._player.IdPlayer == 1 && GameManager.singleton.sc.isSelectionActive == false && GameManager.singleton.acm.isActionMenu == false && OptionMenu.activeSelf == false && Tutorial.activeSelf == false)
