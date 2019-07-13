@@ -10,7 +10,6 @@ public class CameraRotation : MonoBehaviour
     public float timer;
     public Vector3[] pathval1 = new Vector3[3];
     public Vector3[] pathval2 = new Vector3[3];
-    private bool PreviousTurn;
 
     public bool FirstVisual;
 
@@ -18,7 +17,6 @@ public class CameraRotation : MonoBehaviour
     void Start()
     {
         timer = 0f;
-        PreviousTurn = GameManager.singleton.tm.isTurn;
         //cam.transform.DOLookAt(new Vector3(5.5f, 0, 5.5f), 1);
     }
 
@@ -33,24 +31,30 @@ public class CameraRotation : MonoBehaviour
 
     public void CameraPlayer1()
     {
-        if (PreviousTurn != GameManager.singleton.tm.isTurn && (FirstVisual == true))
+        if (Input.GetKey(KeyCode.Tab) && (FirstVisual == true))
         {
+            timer += Time.deltaTime;
+            if (timer >= 2.8f)
+            {
                 cam.transform.DOPath(pathval1, 3, pathsystem);
                 FirstVisual = false;
                 timer = 0f;
-            PreviousTurn = GameManager.singleton.tm.isTurn;
+            }
         }
 
     }
 
     public void CameraPlayer2()
     {
-        if (PreviousTurn != GameManager.singleton.tm.isTurn && (FirstVisual == false))
+        if (Input.GetKey(KeyCode.Backspace) && (FirstVisual == false))
         {
+            timer += Time.deltaTime;
+            if (timer >= 2.8f)
+            {
                 cam.transform.DOPath(pathval2, 3, pathsystem);
                 FirstVisual = true;
                 timer = 0f;
-            PreviousTurn = GameManager.singleton.tm.isTurn;
+            }
         }
     }
 }
