@@ -39,7 +39,7 @@ public class InitState : StateBehaviourBase
             GameManager.singleton.stateMachine.SMController.SetTrigger("GoToSelection");
         }
 
-        Cursor.visible = false;
+        //Cursor.visible = false;
     }
 
     public override void OnExit()

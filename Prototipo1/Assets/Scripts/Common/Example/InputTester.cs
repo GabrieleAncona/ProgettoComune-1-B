@@ -114,7 +114,7 @@ namespace TellInput {
                 }
             }
 
-            TextInfo.text = textToRead;
+            //TextInfo.text = textToRead;
 
         }
 

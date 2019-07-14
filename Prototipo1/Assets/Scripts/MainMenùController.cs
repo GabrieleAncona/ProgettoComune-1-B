@@ -18,7 +18,7 @@ public class MainMenùController : MonoBehaviour {
     public GameObject panelFight;
     public bool isActiveTutorial;
     public bool isActivePause;
-
+    public GameObject credit;
 
     private void Awake()
     {
@@ -92,6 +92,7 @@ public class MainMenùController : MonoBehaviour {
 
         //SceneManager.LoadScene("Si-Ling");
         GameManager.singleton.stateMachine.SMController.SetTrigger("GoToMainMenu");
+       
     }
 
     public void MainMenu()
@@ -120,4 +121,15 @@ public class MainMenùController : MonoBehaviour {
     {
        /// help.SetActive(false);
     }
+
+    public void OpenCredit()
+    {
+        credit.SetActive(true);
+    }
+
+    public void CloseCredit()
+    {
+        credit.SetActive(false);
+    }
+
 }

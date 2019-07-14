@@ -22,7 +22,8 @@ public class LifeManager : MonoBehaviour
     public int lifeTankPlayer2;
     public int lifeMaxTank;
     public int lifeMaxTankPlayer2;
-
+    public GameObject victoryP1;
+    public GameObject victoryP2;
 
     [SerializeField]
     internal UnitsData unitsData;
@@ -66,7 +67,8 @@ public class LifeManager : MonoBehaviour
 
         if (lifeDealer <= 0 && lifeUtility <= 0 && lifeHealer <= 0 && lifeTank <= 0)
         {
-            SceneManager.LoadScene("VittoriaPlayer1");
+            victoryP1.SetActive(true);
+            GameManager.singleton.animDragon.SetTrigger("GoToWin");
         }
 
     }
@@ -76,7 +78,8 @@ public class LifeManager : MonoBehaviour
 
         if (lifeDealerPlayer2 <= 0 && lifeUtilityPlayer2 <= 0 && lifeHealerPlayer2 <= 0 && lifeTankPlayer2 <= 0)
         {
-            SceneManager.LoadScene("VittoriaPlayer2");
+            victoryP2.SetActive(true);
+            GameManager.singleton.animDragon.SetTrigger("GoToWin");
         }
 
     }

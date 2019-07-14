@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     public ButtonNavigation buttNav;
     public VfxManager vfx;
     public Animator animDragon;
+    public AudioSource musicMenu;
+    public AudioSource musicGame;
 
     //StateBehaviourBase.Context contextPlayer2 = new StateBehaviourBase.Context();
 
