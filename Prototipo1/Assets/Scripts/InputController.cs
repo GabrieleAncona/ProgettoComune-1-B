@@ -112,18 +112,46 @@ public class InputController : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyDown(UpButton) || ((int)IntellGamePad.Buttons.LeftStick == inputPad.buttonCheck && inputPad.xCheck == 1))
+        if (Input.GetKeyDown(UpButton) /*|| ((int)IntellGamePad.Buttons.LeftStick == inputPad.buttonCheck && inputPad.xCheck == 1)*/)
         {
             ///up
             SendMessage("GoToUp");
            
         }
 
-        if (Input.GetKeyDown(DownButton) || ((int)IntellGamePad.Buttons.LeftStick == inputPad.buttonCheck && inputPad.xCheck == -1))
+        if (((int)IntellGamePad.Buttons.LeftStick == inputPad.buttonCheck && inputPad.xCheck == 1))
+        {
+            Debug.Log(GameManager.singleton.tm.isTurn);
+
+            if (GameManager.singleton.tm.isTurn)
+            {
+                SendMessage("GoToDown");
+            }
+            else
+            {
+                SendMessage("GoToUp");
+            }
+        }
+
+        if (Input.GetKeyDown(DownButton) /*|| ((int)IntellGamePad.Buttons.LeftStick == inputPad.buttonCheck && inputPad.xCheck == -1)*/)
         {
             ///down
             SendMessage("GoToDown");
 
+        }
+
+        if (((int)IntellGamePad.Buttons.LeftStick == inputPad.buttonCheck && inputPad.xCheck == -1))
+        {
+            Debug.Log(GameManager.singleton.tm.isTurn);
+
+            if (GameManager.singleton.tm.isTurn)
+            {
+                SendMessage("GoToUp");
+            }
+            else
+            {
+                SendMessage("GoToDown");
+            }
         }
 
         if (Input.GetKey(PassButton))
