@@ -15,6 +15,8 @@ public class TurnManager : MonoBehaviour
     public GameObject blueTurn;
     public GameObject redTurn;
     public bool isFightActive;
+    public GameObject tipsP1;
+    public GameObject tipsP2;
 
     // Use this for initialization
     void Start()
@@ -31,6 +33,8 @@ public class TurnManager : MonoBehaviour
     {
         if (isTurn == false)
         {
+            tipsP2.SetActive(true);
+            tipsP1.SetActive(false);
             SendMessage("RotationCameraPlayer2");
             ///azzero variabile per scritta turno
             isBlue = false;
@@ -58,6 +62,8 @@ public class TurnManager : MonoBehaviour
         }
         if (isTurn == true)
         {
+            tipsP1.SetActive(true);
+            tipsP2.SetActive(false);
             SendMessage("RotationCameraPlayer1");
             ///azzero variabile per scritta turno
             isRed = false;

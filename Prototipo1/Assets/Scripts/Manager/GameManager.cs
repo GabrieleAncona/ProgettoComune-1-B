@@ -27,9 +27,9 @@ public class GameManager : MonoBehaviour
     public GameObject hudUnit2;
     public ButtonNavigation buttNav;
     public VfxManager vfx;
-    public Animator animDragon;
-    public AudioSource musicMenu;
-    public AudioSource musicGame;
+    public GameObject animDragon;
+    public GameObject musicMenu;
+    public GameObject musicGame;
 
     //StateBehaviourBase.Context contextPlayer2 = new StateBehaviourBase.Context();
 
@@ -40,7 +40,6 @@ public class GameManager : MonoBehaviour
 
         SingletonFunction();
         SetupManager();
-
     }
 
     // Update is called once per frame
@@ -146,5 +145,11 @@ public class GameManager : MonoBehaviour
         _player = FindObjectOfType<Player>();
         sc2 = FindObjectOfType<SelectControllerP2>();
         buttNav = FindObjectOfType<ButtonNavigation>();
+
+        musicGame = GameObject.FindGameObjectWithTag("MusicBattle");
+        musicMenu = GameObject.FindGameObjectWithTag("MusicGame");
+        animDragon = GameObject.FindGameObjectWithTag("Dragon");
+        hudUnit = GameObject.FindGameObjectWithTag("HUDUnit1");
+        hudUnit2 = GameObject.FindGameObjectWithTag("HUDUnit2");
     }
 }

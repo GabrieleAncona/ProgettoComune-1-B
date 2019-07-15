@@ -78,7 +78,7 @@ public class InputController : MonoBehaviour {
                 SendMessage("GoToLeft");
         }
 
-        if ((int)IntellGamePad.Buttons.LeftStick == inputPad.buttonCheck && inputPad.yCheck == -1)
+        /*if ((int)IntellGamePad.Buttons.LeftStick == inputPad.buttonCheck && inputPad.yCheck == -1)
         {
             if (GameManager.singleton.tm.isTurn)
             {
@@ -88,7 +88,7 @@ public class InputController : MonoBehaviour {
             {
                 SendMessage("GoToRight");
             }
-        }
+        }*/
         
 
         if (Input.GetKeyDown(RightButton))
@@ -98,7 +98,7 @@ public class InputController : MonoBehaviour {
 
         }
 
-        if (((int)IntellGamePad.Buttons.LeftStick == inputPad.buttonCheck && inputPad.yCheck == 1))
+        /*if (((int)IntellGamePad.Buttons.LeftStick == inputPad.buttonCheck && inputPad.yCheck == 1))
         {
             Debug.Log(GameManager.singleton.tm.isTurn);
 
@@ -110,7 +110,7 @@ public class InputController : MonoBehaviour {
             {
                 SendMessage("GoToLeft");
             }
-        }
+        }*/
 
         if (Input.GetKeyDown(UpButton) /*|| ((int)IntellGamePad.Buttons.LeftStick == inputPad.buttonCheck && inputPad.xCheck == 1)*/)
         {
@@ -119,7 +119,7 @@ public class InputController : MonoBehaviour {
            
         }
 
-        if (((int)IntellGamePad.Buttons.LeftStick == inputPad.buttonCheck && inputPad.xCheck == 1))
+        /*if (((int)IntellGamePad.Buttons.LeftStick == inputPad.buttonCheck && inputPad.xCheck == 1))
         {
             Debug.Log(GameManager.singleton.tm.isTurn);
 
@@ -131,7 +131,7 @@ public class InputController : MonoBehaviour {
             {
                 SendMessage("GoToUp");
             }
-        }
+        }*/
 
         if (Input.GetKeyDown(DownButton) /*|| ((int)IntellGamePad.Buttons.LeftStick == inputPad.buttonCheck && inputPad.xCheck == -1)*/)
         {
@@ -140,7 +140,7 @@ public class InputController : MonoBehaviour {
 
         }
 
-        if (((int)IntellGamePad.Buttons.LeftStick == inputPad.buttonCheck && inputPad.xCheck == -1))
+        /*if (((int)IntellGamePad.Buttons.LeftStick == inputPad.buttonCheck && inputPad.xCheck == -1))
         {
             Debug.Log(GameManager.singleton.tm.isTurn);
 
@@ -152,7 +152,7 @@ public class InputController : MonoBehaviour {
             {
                 SendMessage("GoToDown");
             }
-        }
+        }*/
 
         if (Input.GetKey(PassButton))
         {
@@ -169,6 +169,10 @@ public class InputController : MonoBehaviour {
             }
            
         }
+
+     
+
+        
 
         ///funzione per tornare al menu di azione da uno stato qualsialsi di action
         if (Input.GetKeyDown(KeyCode.Tab) && GameManager.singleton._player.IdPlayer == 1 && GameManager.singleton.sc.isSelectionActive == false && GameManager.singleton.acm.isActionMenu == false && OptionMenu.activeSelf == false && Tutorial.activeSelf == false)

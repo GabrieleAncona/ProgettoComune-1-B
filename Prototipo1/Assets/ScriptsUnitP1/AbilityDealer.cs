@@ -33,12 +33,11 @@ public class AbilityDealer : AbilityBase
     public int cont;
     public GameObject fireBall;
     public int speed;
-
     public int CounterA;
     public int CounterTurnA;
     public bool isCharging;
     public HudUnitController HUC;
-
+    public GameObject tips;
 
     // Use this for initialization
     void Start()
@@ -74,10 +73,12 @@ public class AbilityDealer : AbilityBase
         if(isAbility == false)
         {
            selector.SetActive(false);
+           tips.SetActive(false);
         }
         else if (isAbility == true)
         {
             selector.SetActive(true);
+            tips.SetActive(true);
         }
     }
 
@@ -306,8 +307,7 @@ public class AbilityDealer : AbilityBase
             GameObject temp;
             temp = Instantiate(fireBall, transform.forward + new Vector3(dealerP1.transform.position.x, 0.5f, dealerP1.transform.position.z), Quaternion.identity);
             temp.GetComponent<Rigidbody>().AddForce(transform.forward * speed);
-            Debug.Log("sparo palla di fuoco");
-        HUC.AbilityOff.enabled = true;
+            HUC.AbilityOff.enabled = true;
     }
 
 

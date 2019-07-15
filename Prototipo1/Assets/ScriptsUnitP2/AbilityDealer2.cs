@@ -30,6 +30,7 @@ public class AbilityDealer2 : AbilityBase
     public int CounterTurnA;
     public bool isCharging;
     public HudUnitController HUC;
+    public GameObject tips;
 
     // Use this for initialization
     void Start()
@@ -59,10 +60,12 @@ public class AbilityDealer2 : AbilityBase
         if (isAbility == false)
         {
             selector.SetActive(false);
+            tips.SetActive(false);
         }
         else if (isAbility == true)
         {
             selector.SetActive(true);
+            tips.SetActive(true);
         }
     }
 

@@ -90,9 +90,9 @@ public class MainMenùController : MonoBehaviour {
     public void Restart() 
     {
 
-        //SceneManager.LoadScene("Si-Ling");
+        
         GameManager.singleton.stateMachine.SMController.SetTrigger("GoToMainMenu");
-       
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void MainMenu()

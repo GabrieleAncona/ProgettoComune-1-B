@@ -14,8 +14,7 @@ public class InitState : StateBehaviourBase
        /// GameManager.singleton.mc.panelFight.SetActive(true);
         if (isDragonActive == true)
         {
-            GameManager.singleton.animDragon.SetTrigger("GoToInitDrag");
-            
+            GameManager.singleton.animDragon.GetComponent<Animator>().SetTrigger("GoToInitDrag");
         }
 
         /*if(isDragonActive == false)
@@ -49,7 +48,7 @@ public class InitState : StateBehaviourBase
         //GameManager.singleton.tm.blueTurn.SetActive(true);
         GameManager.singleton.tm.isFightActive = false;
         isDragonActive = true;
-        GameManager.singleton.animDragon.SetTrigger("GoToIdle");
+        GameManager.singleton.animDragon.GetComponent<Animator>().SetTrigger("GoToIdle");
     }
 
 

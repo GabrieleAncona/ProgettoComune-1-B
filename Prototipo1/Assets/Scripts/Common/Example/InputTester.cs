@@ -75,24 +75,31 @@ namespace TellInput {
 
         private void HandleButtonHold(IntellGamePad gpad, IntellGamePad.Buttons button) {
             Debug.LogFormat("Gamepad {0} button hold {1}", gpad.ID, button);
-
+            if (button == IntellGamePad.Buttons.Start && gpad.ID == 0 && GameManager.singleton.tm.isTurn == true)
+            {
+                buttonCheck = (int)button;
+            }
+           else if (button == IntellGamePad.Buttons.Start && gpad.ID == 1 && GameManager.singleton.tm.isTurn == false)
+            {
+                buttonCheck = (int)button;
+            }
         }
 
         private void HandleButtonReleased(IntellGamePad gpad, IntellGamePad.Buttons button) {
             Debug.LogFormat("Gamepad {0} button released {1}", gpad.ID, button);
-            /*if (button == IntellGamePad.Buttons.X)
-            {
-                isPress = false;
-            }*/
+          
         }
 
         private void HandleButtonPressed(IntellGamePad gpad, IntellGamePad.Buttons button) {
             Debug.LogFormat("Gamepad {0} button pressed {1}", gpad.ID, button);
-
-            /*if (button == IntellGamePad.Buttons.X)
+            if (button == IntellGamePad.Buttons.X && gpad.ID == 0 && GameManager.singleton.tm.isTurn == true)
             {
-                isPress = true;
-            }*/
+                buttonCheck = (int)button;
+            }
+            else if (button == IntellGamePad.Buttons.X && gpad.ID == 1 && GameManager.singleton.tm.isTurn == false)
+            {
+                buttonCheck = (int)button;
+            }
         }
 
         // Update is called once per frame

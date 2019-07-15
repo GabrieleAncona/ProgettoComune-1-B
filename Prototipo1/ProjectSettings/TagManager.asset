@@ -11,6 +11,11 @@ TagManager:
   - UnitP2
   - EndFireBallP1
   - SelectorFire
+  - MusicGame
+  - MusicBattle
+  - Dragon
+  - HUDUnit1
+  - HUDUnit2
   layers:
   - Default
   - TransparentFX

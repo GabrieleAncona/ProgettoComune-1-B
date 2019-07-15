@@ -68,7 +68,7 @@ public class LifeManager : MonoBehaviour
         if (lifeDealer <= 0 && lifeUtility <= 0 && lifeHealer <= 0 && lifeTank <= 0)
         {
             victoryP1.SetActive(true);
-            GameManager.singleton.animDragon.SetTrigger("GoToWin");
+            GameManager.singleton.animDragon.GetComponent<Animator>().SetTrigger("GoToWin");
         }
 
     }
@@ -79,7 +79,7 @@ public class LifeManager : MonoBehaviour
         if (lifeDealerPlayer2 <= 0 && lifeUtilityPlayer2 <= 0 && lifeHealerPlayer2 <= 0 && lifeTankPlayer2 <= 0)
         {
             victoryP2.SetActive(true);
-            GameManager.singleton.animDragon.SetTrigger("GoToWin");
+            GameManager.singleton.animDragon.GetComponent<Animator>().SetTrigger("GoToWin");
         }
 
     }

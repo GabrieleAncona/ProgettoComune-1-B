@@ -11,6 +11,8 @@ public class SelectUnitsP2 : MonoBehaviour
     public KeyCode ChangeSelectionButtonRemove;
     public PositionTester2 tankP2;
     public PositionDealer2 dealerP2;
+    public PositionHealer2 healerP2;
+    public PositionUtility2 utilityP2;
     public HudUnitsManager HUM;
 
     // Use this for initialization
@@ -22,6 +24,8 @@ public class SelectUnitsP2 : MonoBehaviour
         turn.isTurn = true;
         tankP2 = FindObjectOfType<PositionTester2>();
         dealerP2 = FindObjectOfType<PositionDealer2>();
+        utilityP2 = FindObjectOfType<PositionUtility2>();
+        healerP2 = FindObjectOfType<PositionHealer2>();
     }
 
     void Update()
@@ -34,7 +38,23 @@ public class SelectUnitsP2 : MonoBehaviour
                 //gameObject.GetComponent<MeshRenderer>().enabled = true;
                 SendMessage("AddContP2");
 
-                if (tankP2.isDead == true && selectionP2.contSelectionP2 == 1) {
+                if (tankP2.isDead == true && selectionP2.contSelectionP2 == 1)
+                {
+
+                    SendMessage("AddCont");
+                }
+                if (healerP2.isDead == true && selectionP2.contSelectionP2 == 2)
+                {
+
+                    SendMessage("AddCont");
+                }
+                if (utilityP2.isDead == true && selectionP2.contSelectionP2 == 3)
+                {
+
+                    SendMessage("AddCont");
+                }
+                if (dealerP2.isDead == true && selectionP2.contSelectionP2 == 4)
+                {
 
                     SendMessage("AddCont");
                 }
@@ -71,7 +91,27 @@ public class SelectUnitsP2 : MonoBehaviour
   
                // gameObject.GetComponent<MeshRenderer>().enabled = true;
 
-                if (dealerP2.isDead == true && selectionP2.contSelectionP2 == 4) {
+            
+                if (dealerP2.isDead == true && selectionP2.contSelectionP2 == 4)
+                {
+
+                    SendMessage("SubTract");
+                }
+
+                if (utilityP2.isDead == true && selectionP2.contSelectionP2 == 3)
+                {
+
+                    SendMessage("SubTract");
+                }
+
+                if (healerP2.isDead == true && selectionP2.contSelectionP2 == 2)
+                {
+
+                    SendMessage("SubTract");
+                }
+
+                if (tankP2.isDead == true && selectionP2.contSelectionP2 == 1)
+                {
 
                     SendMessage("SubTract");
                 }

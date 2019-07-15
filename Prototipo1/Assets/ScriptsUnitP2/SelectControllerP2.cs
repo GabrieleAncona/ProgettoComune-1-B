@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GridSystem;
 using DG.Tweening;
+using TellInput;
 
 public class SelectControllerP2 : MonoBehaviour {
 
@@ -27,6 +28,7 @@ public class SelectControllerP2 : MonoBehaviour {
     public bool isDealerUsable2;
     public bool isSelectionActive;
     public GameObject selector;
+    public InputTester inputPad;
 
     private void Awake()
     {
@@ -51,6 +53,7 @@ public class SelectControllerP2 : MonoBehaviour {
         gameObject.GetComponent<MeshRenderer>().enabled = false;
         selector.SetActive(false);
         //selector.transform.position = grid.GetWorldPosition(tankP2.x, tankP2.y);
+        inputPad = FindObjectOfType<InputTester>();
     }
 
 
@@ -184,9 +187,8 @@ public class SelectControllerP2 : MonoBehaviour {
 
     public void ConfirmUnit()
     {
-        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP2 == 1 && tankP2.isStun == false && turn.isTurn == false && isTankUsable2 == true)
+        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP2 == 1 && tankP2.isStun == false && turn.isTurn == false && isTankUsable2 == true && (GameManager.singleton.stateMachine.SMController.GetCurrentAnimatorStateInfo(0).IsName("selection state")))
         {
-            Debug.Log("attiva tank");
             SoundManager.PlaySound(SoundManager.Sound.tankVoice);
             isActiveTankP2 = true;
             isTankUsable2 = false;
@@ -195,9 +197,8 @@ public class SelectControllerP2 : MonoBehaviour {
             //gameObject.GetComponent<MeshRenderer>().enabled = false;
 
         }
-        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP2 == 2 && healerP2.isStun == false && turn.isTurn == false && isHealerUsable2 == true)
+        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP2 == 2 && healerP2.isStun == false && turn.isTurn == false && isHealerUsable2 == true && (GameManager.singleton.stateMachine.SMController.GetCurrentAnimatorStateInfo(0).IsName("selection state")))
         {
-            Debug.Log("attiva healer");
             SoundManager.PlaySound(SoundManager.Sound.healerVoice);
             isActiveHealerP2 = true;
            isHealerUsable2 = false;
@@ -205,9 +206,8 @@ public class SelectControllerP2 : MonoBehaviour {
             GameManager.singleton.stateMachine.SMController.SetTrigger("GoToMovement");
             //gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
-        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP2 == 3 && utilityP2.isStun == false && turn.isTurn == false && isUtilityUsable2 == true)
+        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP2 == 3 && utilityP2.isStun == false && turn.isTurn == false && isUtilityUsable2 == true && (GameManager.singleton.stateMachine.SMController.GetCurrentAnimatorStateInfo(0).IsName("selection state")))
         {
-            Debug.Log("attiva utility");
             //inserire audio utility
             isActiveUtilityP2 = true;
             isUtilityUsable2 = false;
@@ -216,9 +216,8 @@ public class SelectControllerP2 : MonoBehaviour {
             //gameObject.GetComponent<MeshRenderer>().enabled = false;
 
         }
-        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP2 == 4 && dealerP2.isStun == false && turn.isTurn == false && isDealerUsable2 == true)
+        if (Input.GetKeyDown(confirmUnitButton) && contSelectionP2 == 4 && dealerP2.isStun == false && turn.isTurn == false && isDealerUsable2 == true && (GameManager.singleton.stateMachine.SMController.GetCurrentAnimatorStateInfo(0).IsName("selection state")))
         {
-            Debug.Log("attiva dealer");
             SoundManager.PlaySound(SoundManager.Sound.dealerVoice);
             isActiveDealerP2 = true;
             isDealerUsable2 = false;

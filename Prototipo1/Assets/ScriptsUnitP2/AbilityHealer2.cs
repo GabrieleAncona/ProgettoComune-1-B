@@ -30,6 +30,7 @@ public class AbilityHealer2 : AbilityBase
     public int CounterTurnA;
     public bool isCharging;
     public HudUnitController HUC;
+    public GameObject tips;
 
     // Use this for initialization
     void Start()
@@ -55,6 +56,14 @@ public class AbilityHealer2 : AbilityBase
         StartCoroutine(SetDirectionAbility());
         DisactivePrewiewHealerP2();
         RotationAbility();
+        if (isAbility == false)
+        {
+            tips.SetActive(false);
+        }
+        if (isAbility == true)
+        {
+            tips.SetActive(true);
+        }
     }
 
     public void ChargeAbility()
